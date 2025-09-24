@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Drawing.Text;
+
+namespace LibraryManagementSystem.Classes
+{
+	public static class App
+	{
+		//Public privateFontCollection As New Drawing.Text.PrivateFontCollection
+		public static PrivateFontCollection pFontCollection = new PrivateFontCollection();
+		
+		public static void AddFont()
+		{
+			//pFontCollection.AddFontFile(".\\Fonts\\Lato-Regular.ttf");
+		}
+	}
+}

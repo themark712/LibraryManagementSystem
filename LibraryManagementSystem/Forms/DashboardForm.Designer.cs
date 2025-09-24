@@ -28,12 +28,524 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Text = "DashboardForm";
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
+			panelSidebar = new Panel();
+			buttonUsers = new Button();
+			buttonCirculation = new Button();
+			buttonGenres = new Button();
+			buttonAuthors = new Button();
+			buttonBooks = new Button();
+			panelHeader = new Panel();
+			labelHeader = new Label();
+			picLogo = new PictureBox();
+			panelMain = new Panel();
+			panelLatest = new Panel();
+			panel10 = new Panel();
+			label13 = new Label();
+			panel9 = new Panel();
+			label12 = new Label();
+			panel8 = new Panel();
+			label11 = new Label();
+			panel7 = new Panel();
+			label10 = new Label();
+			panel6 = new Panel();
+			label9 = new Label();
+			label8 = new Label();
+			panelMembersCount = new Panel();
+			label6 = new Label();
+			label7 = new Label();
+			panelAuthorsCount = new Panel();
+			label4 = new Label();
+			label5 = new Label();
+			panelBooksCount = new Panel();
+			label3 = new Label();
+			label2 = new Label();
+			buttonClose = new Button();
+			panelSidebar.SuspendLayout();
+			panelHeader.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
+			panelMain.SuspendLayout();
+			panelLatest.SuspendLayout();
+			panel10.SuspendLayout();
+			panel9.SuspendLayout();
+			panel8.SuspendLayout();
+			panel7.SuspendLayout();
+			panel6.SuspendLayout();
+			panelMembersCount.SuspendLayout();
+			panelAuthorsCount.SuspendLayout();
+			panelBooksCount.SuspendLayout();
+			SuspendLayout();
+			// 
+			// panelSidebar
+			// 
+			panelSidebar.BackColor = Color.SteelBlue;
+			panelSidebar.Controls.Add(buttonUsers);
+			panelSidebar.Controls.Add(buttonCirculation);
+			panelSidebar.Controls.Add(buttonGenres);
+			panelSidebar.Controls.Add(buttonAuthors);
+			panelSidebar.Controls.Add(buttonBooks);
+			panelSidebar.Controls.Add(panelHeader);
+			panelSidebar.Dock = DockStyle.Left;
+			panelSidebar.Location = new Point(0, 0);
+			panelSidebar.Name = "panelSidebar";
+			panelSidebar.Size = new Size(200, 584);
+			panelSidebar.TabIndex = 0;
+			// 
+			// buttonUsers
+			// 
+			buttonUsers.BackColor = Color.DarkBlue;
+			buttonUsers.Cursor = Cursors.Hand;
+			buttonUsers.FlatAppearance.BorderSize = 0;
+			buttonUsers.FlatStyle = FlatStyle.Flat;
+			buttonUsers.Font = new Font("Segoe UI", 15F);
+			buttonUsers.ForeColor = Color.White;
+			buttonUsers.Image = (Image)resources.GetObject("buttonUsers.Image");
+			buttonUsers.ImageAlign = ContentAlignment.MiddleLeft;
+			buttonUsers.Location = new Point(3, 370);
+			buttonUsers.Name = "buttonUsers";
+			buttonUsers.Size = new Size(194, 47);
+			buttonUsers.TabIndex = 7;
+			buttonUsers.Text = "Users";
+			buttonUsers.TextAlign = ContentAlignment.MiddleRight;
+			buttonUsers.UseVisualStyleBackColor = false;
+			// 
+			// buttonCirculation
+			// 
+			buttonCirculation.BackColor = Color.DarkBlue;
+			buttonCirculation.Cursor = Cursors.Hand;
+			buttonCirculation.FlatAppearance.BorderSize = 0;
+			buttonCirculation.FlatStyle = FlatStyle.Flat;
+			buttonCirculation.Font = new Font("Segoe UI", 15F);
+			buttonCirculation.ForeColor = Color.White;
+			buttonCirculation.Image = (Image)resources.GetObject("buttonCirculation.Image");
+			buttonCirculation.ImageAlign = ContentAlignment.MiddleLeft;
+			buttonCirculation.Location = new Point(3, 310);
+			buttonCirculation.Name = "buttonCirculation";
+			buttonCirculation.RightToLeft = RightToLeft.No;
+			buttonCirculation.Size = new Size(194, 47);
+			buttonCirculation.TabIndex = 6;
+			buttonCirculation.Text = "Circulation";
+			buttonCirculation.TextAlign = ContentAlignment.MiddleRight;
+			buttonCirculation.UseVisualStyleBackColor = false;
+			// 
+			// buttonGenres
+			// 
+			buttonGenres.BackColor = Color.DarkBlue;
+			buttonGenres.Cursor = Cursors.Hand;
+			buttonGenres.FlatAppearance.BorderSize = 0;
+			buttonGenres.FlatStyle = FlatStyle.Flat;
+			buttonGenres.Font = new Font("Segoe UI", 15F);
+			buttonGenres.ForeColor = Color.White;
+			buttonGenres.Image = (Image)resources.GetObject("buttonGenres.Image");
+			buttonGenres.ImageAlign = ContentAlignment.MiddleLeft;
+			buttonGenres.Location = new Point(3, 250);
+			buttonGenres.Name = "buttonGenres";
+			buttonGenres.Size = new Size(194, 47);
+			buttonGenres.TabIndex = 5;
+			buttonGenres.Text = "Genres";
+			buttonGenres.TextAlign = ContentAlignment.MiddleRight;
+			buttonGenres.UseVisualStyleBackColor = false;
+			buttonGenres.Click += buttonGenres_Click;
+			// 
+			// buttonAuthors
+			// 
+			buttonAuthors.BackColor = Color.DarkBlue;
+			buttonAuthors.Cursor = Cursors.Hand;
+			buttonAuthors.FlatAppearance.BorderSize = 0;
+			buttonAuthors.FlatStyle = FlatStyle.Flat;
+			buttonAuthors.Font = new Font("Segoe UI", 15F);
+			buttonAuthors.ForeColor = Color.White;
+			buttonAuthors.Image = (Image)resources.GetObject("buttonAuthors.Image");
+			buttonAuthors.ImageAlign = ContentAlignment.MiddleLeft;
+			buttonAuthors.Location = new Point(3, 190);
+			buttonAuthors.Name = "buttonAuthors";
+			buttonAuthors.Size = new Size(194, 47);
+			buttonAuthors.TabIndex = 4;
+			buttonAuthors.Text = "Authors";
+			buttonAuthors.TextAlign = ContentAlignment.MiddleRight;
+			buttonAuthors.UseVisualStyleBackColor = false;
+			// 
+			// buttonBooks
+			// 
+			buttonBooks.BackColor = Color.DarkBlue;
+			buttonBooks.Cursor = Cursors.Hand;
+			buttonBooks.FlatAppearance.BorderSize = 0;
+			buttonBooks.FlatStyle = FlatStyle.Flat;
+			buttonBooks.Font = new Font("Segoe UI", 15F);
+			buttonBooks.ForeColor = Color.White;
+			buttonBooks.Image = (Image)resources.GetObject("buttonBooks.Image");
+			buttonBooks.ImageAlign = ContentAlignment.MiddleLeft;
+			buttonBooks.Location = new Point(3, 130);
+			buttonBooks.Name = "buttonBooks";
+			buttonBooks.Size = new Size(194, 47);
+			buttonBooks.TabIndex = 3;
+			buttonBooks.Text = "Books";
+			buttonBooks.TextAlign = ContentAlignment.MiddleRight;
+			buttonBooks.UseVisualStyleBackColor = false;
+			// 
+			// panelHeader
+			// 
+			panelHeader.BackColor = Color.DarkBlue;
+			panelHeader.Controls.Add(labelHeader);
+			panelHeader.Controls.Add(picLogo);
+			panelHeader.Dock = DockStyle.Top;
+			panelHeader.Location = new Point(0, 0);
+			panelHeader.Name = "panelHeader";
+			panelHeader.Size = new Size(200, 93);
+			panelHeader.TabIndex = 2;
+			// 
+			// labelHeader
+			// 
+			labelHeader.AutoSize = true;
+			labelHeader.Font = new Font("Segoe UI", 32.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			labelHeader.ForeColor = Color.Gold;
+			labelHeader.Location = new Point(79, 15);
+			labelHeader.Name = "labelHeader";
+			labelHeader.Size = new Size(112, 59);
+			labelHeader.TabIndex = 3;
+			labelHeader.Text = "LMS";
+			// 
+			// picLogo
+			// 
+			picLogo.Image = (Image)resources.GetObject("picLogo.Image");
+			picLogo.InitialImage = null;
+			picLogo.Location = new Point(9, 13);
+			picLogo.Name = "picLogo";
+			picLogo.Size = new Size(73, 67);
+			picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+			picLogo.TabIndex = 2;
+			picLogo.TabStop = false;
+			// 
+			// panelMain
+			// 
+			panelMain.BackColor = Color.Silver;
+			panelMain.Controls.Add(panelLatest);
+			panelMain.Controls.Add(panelMembersCount);
+			panelMain.Controls.Add(panelAuthorsCount);
+			panelMain.Controls.Add(panelBooksCount);
+			panelMain.Controls.Add(buttonClose);
+			panelMain.Location = new Point(203, 6);
+			panelMain.Name = "panelMain";
+			panelMain.Size = new Size(937, 572);
+			panelMain.TabIndex = 1;
+			// 
+			// panelLatest
+			// 
+			panelLatest.BackColor = Color.MediumBlue;
+			panelLatest.Controls.Add(panel10);
+			panelLatest.Controls.Add(panel9);
+			panelLatest.Controls.Add(panel8);
+			panelLatest.Controls.Add(panel7);
+			panelLatest.Controls.Add(panel6);
+			panelLatest.Controls.Add(label8);
+			panelLatest.Location = new Point(20, 241);
+			panelLatest.Name = "panelLatest";
+			panelLatest.Size = new Size(898, 309);
+			panelLatest.TabIndex = 2;
+			// 
+			// panel10
+			// 
+			panel10.BackColor = Color.RoyalBlue;
+			panel10.Controls.Add(label13);
+			panel10.Location = new Point(719, 66);
+			panel10.Name = "panel10";
+			panel10.Size = new Size(162, 225);
+			panel10.TabIndex = 4;
+			// 
+			// label13
+			// 
+			label13.AutoSize = true;
+			label13.BackColor = Color.FromArgb(255, 128, 0);
+			label13.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label13.ForeColor = Color.White;
+			label13.Location = new Point(126, 0);
+			label13.Name = "label13";
+			label13.Size = new Size(36, 17);
+			label13.TabIndex = 1;
+			label13.Text = "$999";
+			// 
+			// panel9
+			// 
+			panel9.BackColor = Color.RoyalBlue;
+			panel9.Controls.Add(label12);
+			panel9.Location = new Point(543, 66);
+			panel9.Name = "panel9";
+			panel9.Size = new Size(162, 225);
+			panel9.TabIndex = 3;
+			// 
+			// label12
+			// 
+			label12.AutoSize = true;
+			label12.BackColor = Color.FromArgb(255, 128, 0);
+			label12.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label12.ForeColor = Color.White;
+			label12.Location = new Point(126, 0);
+			label12.Name = "label12";
+			label12.Size = new Size(36, 17);
+			label12.TabIndex = 1;
+			label12.Text = "$999";
+			// 
+			// panel8
+			// 
+			panel8.BackColor = Color.RoyalBlue;
+			panel8.Controls.Add(label11);
+			panel8.Location = new Point(367, 66);
+			panel8.Name = "panel8";
+			panel8.Size = new Size(162, 225);
+			panel8.TabIndex = 3;
+			// 
+			// label11
+			// 
+			label11.AutoSize = true;
+			label11.BackColor = Color.FromArgb(255, 128, 0);
+			label11.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label11.ForeColor = Color.White;
+			label11.Location = new Point(126, 0);
+			label11.Name = "label11";
+			label11.Size = new Size(36, 17);
+			label11.TabIndex = 1;
+			label11.Text = "$999";
+			// 
+			// panel7
+			// 
+			panel7.BackColor = Color.RoyalBlue;
+			panel7.Controls.Add(label10);
+			panel7.Location = new Point(191, 66);
+			panel7.Name = "panel7";
+			panel7.Size = new Size(162, 225);
+			panel7.TabIndex = 3;
+			// 
+			// label10
+			// 
+			label10.AutoSize = true;
+			label10.BackColor = Color.FromArgb(255, 128, 0);
+			label10.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label10.ForeColor = Color.White;
+			label10.Location = new Point(126, 0);
+			label10.Name = "label10";
+			label10.Size = new Size(36, 17);
+			label10.TabIndex = 1;
+			label10.Text = "$999";
+			// 
+			// panel6
+			// 
+			panel6.BackColor = Color.RoyalBlue;
+			panel6.Controls.Add(label9);
+			panel6.Location = new Point(15, 66);
+			panel6.Name = "panel6";
+			panel6.Size = new Size(162, 225);
+			panel6.TabIndex = 2;
+			// 
+			// label9
+			// 
+			label9.AutoSize = true;
+			label9.BackColor = Color.FromArgb(255, 128, 0);
+			label9.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label9.ForeColor = Color.White;
+			label9.Location = new Point(126, 0);
+			label9.Name = "label9";
+			label9.Size = new Size(36, 17);
+			label9.TabIndex = 0;
+			label9.Text = "$999";
+			// 
+			// label8
+			// 
+			label8.BackColor = Color.DarkBlue;
+			label8.Dock = DockStyle.Top;
+			label8.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label8.ForeColor = Color.White;
+			label8.Location = new Point(0, 0);
+			label8.Name = "label8";
+			label8.Size = new Size(898, 49);
+			label8.TabIndex = 1;
+			label8.Text = "Latest Books";
+			label8.TextAlign = ContentAlignment.MiddleLeft;
+			// 
+			// panelMembersCount
+			// 
+			panelMembersCount.BackColor = Color.SkyBlue;
+			panelMembersCount.Controls.Add(label6);
+			panelMembersCount.Controls.Add(label7);
+			panelMembersCount.Location = new Point(648, 52);
+			panelMembersCount.Name = "panelMembersCount";
+			panelMembersCount.Size = new Size(270, 152);
+			panelMembersCount.TabIndex = 2;
+			// 
+			// label6
+			// 
+			label6.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label6.ForeColor = Color.White;
+			label6.Location = new Point(-3, 60);
+			label6.Name = "label6";
+			label6.Size = new Size(270, 49);
+			label6.TabIndex = 3;
+			label6.Text = "999";
+			label6.TextAlign = ContentAlignment.MiddleCenter;
+			// 
+			// label7
+			// 
+			label7.BackColor = Color.DarkBlue;
+			label7.Dock = DockStyle.Top;
+			label7.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label7.ForeColor = Color.White;
+			label7.Location = new Point(0, 0);
+			label7.Name = "label7";
+			label7.Size = new Size(270, 49);
+			label7.TabIndex = 2;
+			label7.Text = "Members";
+			label7.TextAlign = ContentAlignment.MiddleLeft;
+			// 
+			// panelAuthorsCount
+			// 
+			panelAuthorsCount.BackColor = Color.RoyalBlue;
+			panelAuthorsCount.Controls.Add(label4);
+			panelAuthorsCount.Controls.Add(label5);
+			panelAuthorsCount.Location = new Point(334, 52);
+			panelAuthorsCount.Name = "panelAuthorsCount";
+			panelAuthorsCount.Size = new Size(270, 152);
+			panelAuthorsCount.TabIndex = 2;
+			// 
+			// label4
+			// 
+			label4.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label4.ForeColor = Color.White;
+			label4.Location = new Point(0, 60);
+			label4.Name = "label4";
+			label4.Size = new Size(270, 49);
+			label4.TabIndex = 3;
+			label4.Text = "999";
+			label4.TextAlign = ContentAlignment.MiddleCenter;
+			// 
+			// label5
+			// 
+			label5.BackColor = Color.DarkBlue;
+			label5.Dock = DockStyle.Top;
+			label5.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label5.ForeColor = Color.White;
+			label5.Location = new Point(0, 0);
+			label5.Name = "label5";
+			label5.Size = new Size(270, 49);
+			label5.TabIndex = 2;
+			label5.Text = "Authors";
+			label5.TextAlign = ContentAlignment.MiddleLeft;
+			// 
+			// panelBooksCount
+			// 
+			panelBooksCount.BackColor = Color.MediumBlue;
+			panelBooksCount.Controls.Add(label3);
+			panelBooksCount.Controls.Add(label2);
+			panelBooksCount.Location = new Point(20, 52);
+			panelBooksCount.Name = "panelBooksCount";
+			panelBooksCount.Size = new Size(270, 152);
+			panelBooksCount.TabIndex = 1;
+			// 
+			// label3
+			// 
+			label3.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label3.ForeColor = Color.White;
+			label3.Location = new Point(0, 60);
+			label3.Name = "label3";
+			label3.Size = new Size(270, 49);
+			label3.TabIndex = 1;
+			label3.Text = "999";
+			label3.TextAlign = ContentAlignment.MiddleCenter;
+			// 
+			// label2
+			// 
+			label2.BackColor = Color.DarkBlue;
+			label2.Dock = DockStyle.Top;
+			label2.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label2.ForeColor = Color.White;
+			label2.Location = new Point(0, 0);
+			label2.Name = "label2";
+			label2.Size = new Size(270, 49);
+			label2.TabIndex = 0;
+			label2.Text = "Books";
+			label2.TextAlign = ContentAlignment.MiddleLeft;
+			// 
+			// buttonClose
+			// 
+			buttonClose.BackColor = Color.Transparent;
+			buttonClose.Cursor = Cursors.Hand;
+			buttonClose.FlatAppearance.BorderSize = 0;
+			buttonClose.FlatStyle = FlatStyle.Flat;
+			buttonClose.Image = (Image)resources.GetObject("buttonClose.Image");
+			buttonClose.Location = new Point(894, 8);
+			buttonClose.Name = "buttonClose";
+			buttonClose.Size = new Size(32, 32);
+			buttonClose.TabIndex = 0;
+			buttonClose.UseVisualStyleBackColor = false;
+			buttonClose.Click += buttonClose_Click;
+			// 
+			// DashboardForm
+			// 
+			AutoScaleDimensions = new SizeF(7F, 15F);
+			AutoScaleMode = AutoScaleMode.Font;
+			BackColor = Color.FromArgb(46, 49, 49);
+			ClientSize = new Size(1146, 584);
+			Controls.Add(panelMain);
+			Controls.Add(panelSidebar);
+			FormBorderStyle = FormBorderStyle.None;
+			Name = "DashboardForm";
+			StartPosition = FormStartPosition.CenterScreen;
+			Text = "DashboardForm";
+			Load += DashboardForm_Load;
+			Shown += DashboardForm_Shown;
+			panelSidebar.ResumeLayout(false);
+			panelHeader.ResumeLayout(false);
+			panelHeader.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
+			panelMain.ResumeLayout(false);
+			panelLatest.ResumeLayout(false);
+			panel10.ResumeLayout(false);
+			panel10.PerformLayout();
+			panel9.ResumeLayout(false);
+			panel9.PerformLayout();
+			panel8.ResumeLayout(false);
+			panel8.PerformLayout();
+			panel7.ResumeLayout(false);
+			panel7.PerformLayout();
+			panel6.ResumeLayout(false);
+			panel6.PerformLayout();
+			panelMembersCount.ResumeLayout(false);
+			panelAuthorsCount.ResumeLayout(false);
+			panelBooksCount.ResumeLayout(false);
+			ResumeLayout(false);
 		}
 
 		#endregion
+
+		private Panel panelSidebar;
+		private Panel panelHeader;
+		private Panel panelMain;
+		private Button buttonClose;
+		private Panel panelBooksCount;
+		private Panel panelMembersCount;
+		private Panel panelAuthorsCount;
+		private Panel panelLatest;
+		private Label label2;
+		private Label label3;
+		private Label label6;
+		private Label label7;
+		private Label label4;
+		private Label label5;
+		private Label label8;
+		private Panel panel6;
+		private Panel panel9;
+		private Panel panel10;
+		private Panel panel8;
+		private Panel panel7;
+		private Label label9;
+		private Label label13;
+		private Label label12;
+		private Label label11;
+		private Label label10;
+		private Label labelHeader;
+		private PictureBox picLogo;
+		private Button buttonBooks;
+		private Button buttonUsers;
+		private Button buttonCirculation;
+		private Button buttonGenres;
+		private Button buttonAuthors;
 	}
 }
