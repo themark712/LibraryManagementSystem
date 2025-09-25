@@ -123,5 +123,17 @@ namespace LibraryManagementSystem.Forms
 		{
 			this.Close();
 		}
+
+		private void textSearch_TextChanged(object sender, EventArgs e)
+		{
+			List<Author>? authors = AuthorController.SearchAuthors(textSearch.Text);
+			dgAuthors.DataSource = authors;
+		}
+
+		private void buttonClearSearch_Click(object sender, EventArgs e)
+		{
+			textSearch.Text = "";
+			RefreshAuthorList();
+		}
 	}
 }

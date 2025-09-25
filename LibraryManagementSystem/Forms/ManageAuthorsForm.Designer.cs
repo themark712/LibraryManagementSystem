@@ -34,6 +34,8 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageAuthorsForm));
 			labelHeader = new Label();
 			panel1 = new Panel();
+			pictureBox2 = new PictureBox();
+			textSearch = new TextBox();
 			textAbout = new RichTextBox();
 			textEduction = new RichTextBox();
 			labelAbout = new Label();
@@ -59,7 +61,9 @@
 			buttonDelete = new Button();
 			buttonUpdate = new Button();
 			buttonAdd = new Button();
+			buttonClearSearch = new Button();
 			panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
 			((System.ComponentModel.ISupportInitialize)dgAuthors).BeginInit();
 			panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -82,6 +86,9 @@
 			// panel1
 			// 
 			panel1.BackColor = Color.Silver;
+			panel1.Controls.Add(buttonClearSearch);
+			panel1.Controls.Add(pictureBox2);
+			panel1.Controls.Add(textSearch);
 			panel1.Controls.Add(textAbout);
 			panel1.Controls.Add(textEduction);
 			panel1.Controls.Add(labelAbout);
@@ -104,6 +111,26 @@
 			panel1.Name = "panel1";
 			panel1.Size = new Size(773, 421);
 			panel1.TabIndex = 4;
+			// 
+			// pictureBox2
+			// 
+			pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+			pictureBox2.Location = new Point(405, 17);
+			pictureBox2.Name = "pictureBox2";
+			pictureBox2.Size = new Size(35, 35);
+			pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+			pictureBox2.TabIndex = 23;
+			pictureBox2.TabStop = false;
+			// 
+			// textSearch
+			// 
+			textSearch.Font = new Font("Segoe UI", 15.75F);
+			textSearch.Location = new Point(446, 17);
+			textSearch.MaxLength = 100;
+			textSearch.Name = "textSearch";
+			textSearch.Size = new Size(245, 35);
+			textSearch.TabIndex = 22;
+			textSearch.TextChanged += textSearch_TextChanged;
 			// 
 			// textAbout
 			// 
@@ -239,7 +266,7 @@
 			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
 			dgAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			dgAuthors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dgAuthors.Location = new Point(405, 37);
+			dgAuthors.Location = new Point(405, 73);
 			dgAuthors.MultiSelect = false;
 			dgAuthors.Name = "dgAuthors";
 			dgAuthors.ReadOnly = true;
@@ -407,6 +434,17 @@
 			buttonAdd.UseVisualStyleBackColor = false;
 			buttonAdd.Click += buttonAdd_Click;
 			// 
+			// buttonClearSearch
+			// 
+			buttonClearSearch.BackgroundImage = (Image)resources.GetObject("buttonClearSearch.BackgroundImage");
+			buttonClearSearch.BackgroundImageLayout = ImageLayout.Stretch;
+			buttonClearSearch.Location = new Point(712, 17);
+			buttonClearSearch.Name = "buttonClearSearch";
+			buttonClearSearch.Size = new Size(35, 35);
+			buttonClearSearch.TabIndex = 24;
+			buttonClearSearch.UseVisualStyleBackColor = true;
+			buttonClearSearch.Click += buttonClearSearch_Click;
+			// 
 			// ManageAuthorsForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -423,6 +461,7 @@
 			Load += ManageAuthorsForm_Load;
 			panel1.ResumeLayout(false);
 			panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
 			((System.ComponentModel.ISupportInitialize)dgAuthors).EndInit();
 			panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -459,5 +498,8 @@
 		private Label labelDOB;
 		private RichTextBox textAbout;
 		private RichTextBox textEduction;
+		private TextBox textSearch;
+		private PictureBox pictureBox2;
+		private Button buttonClearSearch;
 	}
 }

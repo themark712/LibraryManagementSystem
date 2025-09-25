@@ -27,6 +27,23 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
+		public static List<Author>? SearchAuthors(string search)
+		{
+			try
+			{
+				using (LmsContext context = new LmsContext())
+				{
+					var authors = context.Authors.Where(d=>d.FirstName!.ToLower().Contains(search.ToLower()) || d.LastName!.ToLower().Contains(search.ToLower())).ToList();
+					return authors;
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				return null;
+			}
+		}
+
 		public static Author? GetAuthor(int _id)
 		{
 			try
