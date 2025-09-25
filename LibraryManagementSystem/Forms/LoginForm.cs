@@ -51,9 +51,6 @@ namespace LibraryManagementSystem.Forms
 			string username = textUsername.Text;
 			string password = textPassword.Text;
 
-			//DataTable table = new DataTable();
-
-			//List<AppUser>? users = MyDb.GetUsers(username, password);
 			AppUser? user = AppUserController.GetUser(username, password);
 
 			try

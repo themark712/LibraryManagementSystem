@@ -1,4 +1,5 @@
 ﻿using LibraryManagementSystem.Controllers;
+using LibraryManagementSystem.Database;
 using LibraryManagementSystem.Models;
 using System;
 using System.Collections.Generic;
@@ -36,13 +37,15 @@ namespace LibraryManagementSystem.Forms
 
 		private void dgGenres_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			selectedGenre = new Genre();
-			selectedGenre.GenreId = Convert.ToInt32(dgGenres.SelectedRows[0].Cells[0].Value);
-			selectedGenre.Name = dgGenres.SelectedRows[0].Cells[1].Value.ToString();
+			int id = Convert.ToInt32(dgGenres.SelectedRows[0].Cells[0].Value);
 
-			textId.Text = selectedGenre.GenreId.ToString();
+			using (LmsContext context = new LmsContext())
+			{
+				selectedGenre = context.Genres.Where(i => i.GenreId == id).FirstOrDefault();
+			}
+
+			textId.Text = selectedGenre!.GenreId.ToString();
 			textName.Text = selectedGenre.Name;
-			//MessageBox.Show(dgGenres.SelectedRows[0].Cells[1].Value.ToString());
 		}
 
 		private void buttonAdd_Click(object sender, EventArgs e)

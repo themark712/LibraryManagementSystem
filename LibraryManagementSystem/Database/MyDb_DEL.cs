@@ -11,7 +11,7 @@ using Dapper;
 
 namespace LibraryManagementSystem.Database
 {
-	public static class MyDb
+	public static class MyDb_DEL
 	{
 		public static string LoadConnectionString(string id = "LMS")
 		{

@@ -32,6 +32,23 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
+		public static Genre? GetGenre(int _id)
+		{
+			try
+			{
+				using (LmsContext context = new LmsContext())
+				{
+					var genre = context.Genres.Where(i=>i.GenreId==_id).FirstOrDefault();
+					return genre;
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				return null;
+			}
+		}
+
 		public static bool AddGenre(string _name)
 		{
 			using (LmsContext context = new LmsContext())

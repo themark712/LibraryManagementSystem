@@ -52,21 +52,6 @@ namespace LibraryManagementSystem.Forms
 			ToggleButtonBackgrounds(null);
 		}
 
-		private void ToggleButtonBackgrounds(Button? buttonClicked)
-		{
-			//MessageBox.Show(buttonClicked.Name);
-			buttonBooks.BackColor = Color.DarkBlue;
-			buttonAuthors.BackColor = Color.DarkBlue;
-			buttonGenres.BackColor = Color.DarkBlue;
-			buttonCirculation.BackColor = Color.DarkBlue;
-			buttonUsers.BackColor = Color.DarkBlue;
-
-			if (buttonClicked != null)
-			{
-				buttonClicked.BackColor = Color.BlueViolet;
-			}
-		}
-
 		private void buttonBooks_Click(object sender, EventArgs e)
 		{
 			ToggleButtonBackgrounds((Button)sender);
@@ -75,6 +60,9 @@ namespace LibraryManagementSystem.Forms
 		private void buttonAuthors_Click(object sender, EventArgs e)
 		{
 			ToggleButtonBackgrounds((Button)sender);
+			ManageAuthorsForm mngAuthors = new ManageAuthorsForm();
+			mngAuthors.ShowDialog();
+			ToggleButtonBackgrounds(null);
 		}
 
 		private void buttonCirculation_Click(object sender, EventArgs e)
@@ -90,6 +78,21 @@ namespace LibraryManagementSystem.Forms
 		private void DashboardForm_Enter(object sender, EventArgs e)
 		{
 			ToggleButtonBackgrounds(null);
+		}
+
+		private void ToggleButtonBackgrounds(Button? buttonClicked)
+		{
+			//MessageBox.Show(buttonClicked.Name);
+			buttonBooks.BackColor = Color.DarkBlue;
+			buttonAuthors.BackColor = Color.DarkBlue;
+			buttonGenres.BackColor = Color.DarkBlue;
+			buttonCirculation.BackColor = Color.DarkBlue;
+			buttonUsers.BackColor = Color.DarkBlue;
+
+			if (buttonClicked != null)
+			{
+				buttonClicked.BackColor = Color.BlueViolet;
+			}
 		}
 	}
 }
