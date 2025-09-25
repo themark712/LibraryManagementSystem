@@ -49,33 +49,30 @@ namespace LibraryManagementSystem.Controllers
 			using (LmsContext context = new LmsContext())
 			{
 				// find existing authors with same first name, last name, and date of birth
-				var authors = context.Authors.Where(n => n.FirstName == _fname && n.LastName==_lname && n.DOB == _dob).ToList();
+				var authors = context.Authors.Where(n => n.FirstName == _fname && n.LastName == _lname && n.DOB == _dob).ToList();
 
 				if (authors.Count > 0)
 				{
 					MessageBox.Show("This author already exists", "Author Exists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
 					return false;
 				}
 
-				if (!string.IsNullOrEmpty(_fname) && !string.IsNullOrEmpty(_lname))
+				context.Authors.Add(new Author()
 				{
-					context.Authors.Add(new Author() { 
-						FirstName = _fname,
-						LastName = _lname,
-						DOB = _dob != null ? _dob : null,
-						DOD = _dod != null ? _dod : null,
-						Hometown = _hometown,
-						Education = _eduction,
-						About = _about
-					});
-					context.SaveChanges();
-				}
+					FirstName = _fname,
+					LastName = _lname,
+					DOB = _dob != null ? _dob : null,
+					DOD = _dod != null ? _dod : null,
+					Hometown = _hometown,
+					Education = _eduction,
+					About = _about
+				});
+				context.SaveChanges();
 			}
 			return true;
 		}
 
-		public static bool UpdateAuthor(int _id, string _fname, string _lname, string  _dob, string _dod, string _hometown, string _eduction, string _about)
+		public static bool UpdateAuthor(int _id, string _fname, string _lname, string _dob, string _dod, string _hometown, string _eduction, string _about)
 		{
 			int id = _id;
 
@@ -83,7 +80,7 @@ namespace LibraryManagementSystem.Controllers
 			{
 				Author author = context.Authors.Where(i => i.AuthorId == id).FirstOrDefault()!;
 
-				if (author != null && !string.IsNullOrEmpty(_fname))
+				if (author != null)
 				{
 					author.FirstName = _fname;
 					author.LastName = _lname;

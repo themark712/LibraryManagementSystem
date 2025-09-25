@@ -50,28 +50,51 @@ namespace LibraryManagementSystem.Forms
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
-			if (GenreController.AddGenre(textName.Text))
+			if (textName.Text.Length > 0)
 			{
-				labelStatus.Text = "Genre added";
+				if (GenreController.AddGenre(textName.Text))
+				{
+					labelStatus.Text = "Genre added";
+				}
 			}
-			
+			else
+			{
+				MessageBox.Show("Genre name is required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
 			RefreshGenreList();
 		}
 
 		private void buttonUpdate_Click(object sender, EventArgs e)
 		{
-			
-			if(GenreController.UpdateGenre(Convert.ToInt32(textId.Text), textName.Text))
+
+			if (textName.Text.Length > 0)
 			{
-				labelStatus.Text = "Genre updated";
+				if (GenreController.UpdateGenre(Convert.ToInt32(textId.Text), textName.Text))
+				{
+					labelStatus.Text = "Genre updated";
+				}
+			}
+			else
+			{
+				MessageBox.Show("Genre name is required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 			RefreshGenreList();
 		}
 
 		private void buttonDelete_Click(object sender, EventArgs e)
 		{
-			if(GenreController.DeleteGenre(Convert.ToInt32(textId.Text))) {
-				labelStatus.Text = "Genre deleted";
+			int id = Convert.ToInt32(textId.Text);
+
+			if (id > 0)
+			{
+				if (GenreController.DeleteGenre(id))
+				{
+					labelStatus.Text = "Genre deleted";
+				}
+			}
+			else
+			{
+				MessageBox.Show("No genre ID found. Select a genre from the list to delete", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 			RefreshGenreList();
 		}

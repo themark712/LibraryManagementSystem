@@ -30,15 +30,6 @@ namespace LibraryManagementSystem.Forms
 			buttonDelete.Enabled = true;
 		}
 
-		private void buttonAdd_Click(object sender, EventArgs e)
-		{
-			if (AuthorController.AddAuthor(textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, textEduction.Text, textAbout.Text))
-			{
-				labelStatus.Text = "Author added";
-			}
-			RefreshAuthorList();
-		}
-
 		private void dgAuthors_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
 			int selectedId = Convert.ToInt32(dgAuthors.SelectedRows[0].Cells[0].Value);
@@ -58,21 +49,52 @@ namespace LibraryManagementSystem.Forms
 			textAbout.Text = selectedAuthor.About;
 		}
 
-		private void buttonUpdate_Click(object sender, EventArgs e)
+		private void buttonAdd_Click(object sender, EventArgs e)
 		{
-			if (AuthorController.UpdateAuthor(Convert.ToInt32(textId.Text), textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, textEduction.Text, textAbout.Text))
+			if (textFirstName.Text.Length > 0 && textLastName.Text.Length > 0)
 			{
-				labelStatus.Text = "Author updated";
+				if (AuthorController.AddAuthor(textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, textEduction.Text, textAbout.Text))
+				{
+					labelStatus.Text = "Author added";
+				}
+				RefreshAuthorList();
 			}
-
-			RefreshAuthorList();
+			else
+			{
+				MessageBox.Show("Author's first and last name are required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
 		}
 
+		private void buttonUpdate_Click(object sender, EventArgs e)
+		{
+			if (textFirstName.Text.Length > 0 && textLastName.Text.Length > 0)
+			{
+				if (AuthorController.UpdateAuthor(Convert.ToInt32(textId.Text), textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, textEduction.Text, textAbout.Text))
+				{
+					labelStatus.Text = "Author updated";
+				}
+				else
+				{
+					MessageBox.Show("Author's first and last name are required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				}
+
+				RefreshAuthorList();
+			}
+		}
 		private void buttonDelete_Click(object sender, EventArgs e)
 		{
-			if (AuthorController.DeleteAuthor(Convert.ToInt32(textId.Text)))
+			int id = Convert.ToInt32(textId.Text);
+
+			if (id > 0)
 			{
-				labelStatus.Text = "Author deleted";
+				if (AuthorController.DeleteAuthor(Convert.ToInt32(textId.Text)))
+				{
+					labelStatus.Text = "Author deleted";
+				}
+			}
+			else
+			{
+				MessageBox.Show("No author ID found. Select an author from the list to delete", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 			RefreshAuthorList();
 		}

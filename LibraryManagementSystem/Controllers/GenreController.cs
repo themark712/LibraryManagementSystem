@@ -58,8 +58,7 @@ namespace LibraryManagementSystem.Controllers
 
 				if(genres.Count > 0)
 				{
-					MessageBox.Show("This genere already exists","Genre Exists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
+					MessageBox.Show("This genre already exists","Genre Exists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 					return false;
 				}
 
@@ -81,7 +80,7 @@ namespace LibraryManagementSystem.Controllers
 			{
 				Genre genre = context.Genres.Where(i => i.GenreId == id).FirstOrDefault()!;
 
-				if (genre != null && !string.IsNullOrEmpty(name))
+				if (genre != null)
 				{
 					genre.Name = name;
 					context.SaveChanges();
