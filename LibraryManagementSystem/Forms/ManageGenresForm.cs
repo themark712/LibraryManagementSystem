@@ -83,20 +83,23 @@ namespace LibraryManagementSystem.Forms
 
 		private void buttonDelete_Click(object sender, EventArgs e)
 		{
-			int id = Convert.ToInt32(textId.Text);
+			if (MessageBox.Show("Delete this Genre?", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+			{
+				int id = Convert.ToInt32(textId.Text);
 
-			if (id > 0)
-			{
-				if (GenreController.DeleteGenre(id))
+				if (id > 0)
 				{
-					labelStatus.Text = "Genre deleted";
+					if (GenreController.DeleteGenre(id))
+					{
+						labelStatus.Text = "Genre deleted";
+					}
 				}
+				else
+				{
+					MessageBox.Show("No genre ID found. Select a genre from the list to delete", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				}
+				RefreshGenreList();
 			}
-			else
-			{
-				MessageBox.Show("No genre ID found. Select a genre from the list to delete", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-			}
-			RefreshGenreList();
 		}
 
 		private void textName_TextChanged(object sender, EventArgs e)

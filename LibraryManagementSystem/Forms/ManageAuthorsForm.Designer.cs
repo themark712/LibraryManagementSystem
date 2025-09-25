@@ -261,7 +261,7 @@ namespace LibraryManagementSystem.Forms
 			labelStatus.AutoSize = true;
 			labelStatus.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
 			labelStatus.ForeColor = Color.DarkBlue;
-			labelStatus.Location = new Point(405, 368);
+			labelStatus.Location = new Point(405, 433);
 			labelStatus.Name = "labelStatus";
 			labelStatus.Size = new Size(0, 21);
 			labelStatus.TabIndex = 8;

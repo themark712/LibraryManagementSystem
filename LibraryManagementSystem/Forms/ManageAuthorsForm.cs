@@ -83,20 +83,23 @@ namespace LibraryManagementSystem.Forms
 		}
 		private void buttonDelete_Click(object sender, EventArgs e)
 		{
-			int id = Convert.ToInt32(textId.Text);
+			if (MessageBox.Show("Delete this author?", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+			{
+				int id = Convert.ToInt32(textId.Text);
 
-			if (id > 0)
-			{
-				if (AuthorController.DeleteAuthor(Convert.ToInt32(textId.Text)))
+				if (id > 0)
 				{
-					labelStatus.Text = "Author deleted";
+					if (AuthorController.DeleteAuthor(Convert.ToInt32(textId.Text)))
+					{
+						labelStatus.Text = "Author deleted";
+					}
 				}
+				else
+				{
+					MessageBox.Show("No author ID found. Select an author from the list to delete", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				}
+				RefreshAuthorList();
 			}
-			else
-			{
-				MessageBox.Show("No author ID found. Select an author from the list to delete", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-			}
-			RefreshAuthorList();
 		}
 
 		private void RefreshAuthorList()
