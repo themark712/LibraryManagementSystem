@@ -1,4 +1,6 @@
-﻿namespace LibraryManagementSystem.Forms
+﻿using System.Windows.Forms;
+
+namespace LibraryManagementSystem.Forms
 {
 	partial class ManageAuthorsForm
 	{
@@ -28,12 +30,13 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageAuthorsForm));
 			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageAuthorsForm));
 			labelHeader = new Label();
 			panel1 = new Panel();
+			buttonClearSearch = new Button();
 			pictureBox2 = new PictureBox();
 			textSearch = new TextBox();
 			textAbout = new RichTextBox();
@@ -61,7 +64,6 @@
 			buttonDelete = new Button();
 			buttonUpdate = new Button();
 			buttonAdd = new Button();
-			buttonClearSearch = new Button();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
 			((System.ComponentModel.ISupportInitialize)dgAuthors).BeginInit();
@@ -109,8 +111,18 @@
 			panel1.Controls.Add(labelId);
 			panel1.Location = new Point(159, 78);
 			panel1.Name = "panel1";
-			panel1.Size = new Size(773, 421);
+			panel1.Size = new Size(837, 475);
 			panel1.TabIndex = 4;
+			// 
+			// buttonClearSearch
+			// 
+			buttonClearSearch.BackgroundImageLayout = ImageLayout.Stretch;
+			buttonClearSearch.Location = new Point(787, 17);
+			buttonClearSearch.Name = "buttonClearSearch";
+			buttonClearSearch.Size = new Size(35, 35);
+			buttonClearSearch.TabIndex = 24;
+			buttonClearSearch.UseVisualStyleBackColor = true;
+			buttonClearSearch.Click += buttonClearSearch_Click;
 			// 
 			// pictureBox2
 			// 
@@ -128,23 +140,25 @@
 			textSearch.Location = new Point(446, 17);
 			textSearch.MaxLength = 100;
 			textSearch.Name = "textSearch";
-			textSearch.Size = new Size(245, 35);
+			textSearch.Size = new Size(335, 35);
 			textSearch.TabIndex = 22;
 			textSearch.TextChanged += textSearch_TextChanged;
 			// 
 			// textAbout
 			// 
-			textAbout.Location = new Point(143, 339);
+			textAbout.Location = new Point(143, 351);
+			textAbout.MaxLength = 200;
 			textAbout.Name = "textAbout";
-			textAbout.Size = new Size(243, 51);
+			textAbout.Size = new Size(243, 106);
 			textAbout.TabIndex = 21;
 			textAbout.Text = "";
 			// 
 			// textEduction
 			// 
 			textEduction.Location = new Point(143, 281);
+			textEduction.MaxLength = 200;
 			textEduction.Name = "textEduction";
-			textEduction.Size = new Size(242, 52);
+			textEduction.Size = new Size(242, 61);
 			textEduction.TabIndex = 20;
 			textEduction.Text = "";
 			// 
@@ -152,7 +166,7 @@
 			// 
 			labelAbout.AutoSize = true;
 			labelAbout.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			labelAbout.Location = new Point(57, 339);
+			labelAbout.Location = new Point(57, 355);
 			labelAbout.Name = "labelAbout";
 			labelAbout.Size = new Size(75, 30);
 			labelAbout.TabIndex = 19;
@@ -172,6 +186,7 @@
 			// 
 			textHometown.Font = new Font("Segoe UI", 15.75F);
 			textHometown.Location = new Point(143, 240);
+			textHometown.MaxLength = 100;
 			textHometown.Name = "textHometown";
 			textHometown.Size = new Size(243, 35);
 			textHometown.TabIndex = 16;
@@ -226,6 +241,7 @@
 			// 
 			textLastName.Font = new Font("Segoe UI", 15.75F);
 			textLastName.Location = new Point(143, 117);
+			textLastName.MaxLength = 100;
 			textLastName.Name = "textLastName";
 			textLastName.Size = new Size(243, 35);
 			textLastName.TabIndex = 10;
@@ -286,7 +302,7 @@
 			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
 			dgAuthors.RowsDefaultCellStyle = dataGridViewCellStyle3;
 			dgAuthors.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			dgAuthors.Size = new Size(342, 316);
+			dgAuthors.Size = new Size(417, 316);
 			dgAuthors.TabIndex = 0;
 			dgAuthors.CellClick += dgAuthors_CellClick;
 			// 
@@ -294,6 +310,7 @@
 			// 
 			textFirstName.Font = new Font("Segoe UI", 15.75F);
 			textFirstName.Location = new Point(143, 76);
+			textFirstName.MaxLength = 100;
 			textFirstName.Name = "textFirstName";
 			textFirstName.Size = new Size(243, 35);
 			textFirstName.TabIndex = 3;
@@ -336,12 +353,13 @@
 			panel2.Controls.Add(labelHeader);
 			panel2.Location = new Point(4, 3);
 			panel2.Name = "panel2";
-			panel2.Size = new Size(928, 70);
+			panel2.Size = new Size(992, 70);
 			panel2.TabIndex = 5;
 			// 
 			// pictureBox1
 			// 
 			pictureBox1.BackColor = Color.Transparent;
+			pictureBox1.ErrorImage = null;
 			pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
 			pictureBox1.Location = new Point(7, 7);
 			pictureBox1.Name = "pictureBox1";
@@ -357,7 +375,7 @@
 			buttonClose.FlatAppearance.BorderSize = 0;
 			buttonClose.FlatStyle = FlatStyle.Flat;
 			buttonClose.Image = (Image)resources.GetObject("buttonClose.Image");
-			buttonClose.Location = new Point(891, 3);
+			buttonClose.Location = new Point(957, 3);
 			buttonClose.Name = "buttonClose";
 			buttonClose.Size = new Size(34, 32);
 			buttonClose.TabIndex = 10;
@@ -434,23 +452,12 @@
 			buttonAdd.UseVisualStyleBackColor = false;
 			buttonAdd.Click += buttonAdd_Click;
 			// 
-			// buttonClearSearch
-			// 
-			buttonClearSearch.BackgroundImage = (Image)resources.GetObject("buttonClearSearch.BackgroundImage");
-			buttonClearSearch.BackgroundImageLayout = ImageLayout.Stretch;
-			buttonClearSearch.Location = new Point(712, 17);
-			buttonClearSearch.Name = "buttonClearSearch";
-			buttonClearSearch.Size = new Size(35, 35);
-			buttonClearSearch.TabIndex = 24;
-			buttonClearSearch.UseVisualStyleBackColor = true;
-			buttonClearSearch.Click += buttonClearSearch_Click;
-			// 
 			// ManageAuthorsForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(17, 24, 34);
-			ClientSize = new Size(939, 511);
+			ClientSize = new Size(1004, 565);
 			Controls.Add(panel3);
 			Controls.Add(panel2);
 			Controls.Add(panel1);
@@ -468,6 +475,9 @@
 			panel3.ResumeLayout(false);
 			ResumeLayout(false);
 		}
+
+
+
 
 		#endregion
 

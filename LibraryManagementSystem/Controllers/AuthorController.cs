@@ -61,6 +61,15 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
+		public static int GetCount()
+		{
+			using (LmsContext context = new LmsContext())
+			{
+				var authors = context.Authors.ToList();
+				return authors.Count;
+			}
+		}
+
 		public static bool AddAuthor(string _fname, string _lname, string? _dob, string? _dod, string _hometown, string _eduction, string _about)
 		{
 			using (LmsContext context = new LmsContext())

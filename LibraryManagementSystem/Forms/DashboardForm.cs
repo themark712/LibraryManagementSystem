@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Text;
 using System.Reflection.Emit;
+using LibraryManagementSystem.Controllers;
 
 namespace LibraryManagementSystem.Forms
 {
@@ -30,6 +31,8 @@ namespace LibraryManagementSystem.Forms
 			//App.AddFont();
 			//	Font fnt = new Font(App.pFontCollection.Families[0], 15);
 			//labelHeader.Font = fnt;
+			int authorCount = AuthorController.GetCount();
+			labelAuthorsCount.Text = authorCount.ToString();
 		}
 
 		private void DashboardForm_Shown(object sender, EventArgs e)
