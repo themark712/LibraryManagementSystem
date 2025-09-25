@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryManagementSystem.Controllers;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using LibraryManagementSystem.Classes;
 
 namespace LibraryManagementSystem.Forms
 {
@@ -23,6 +25,9 @@ namespace LibraryManagementSystem.Forms
 
 		private void LoginForm_Load(object sender, EventArgs e)
 		{
+			DatabaseFacade facade = new DatabaseFacade(new LmsContext());
+			facade.EnsureCreated();
+
 			this.AcceptButton = buttonLogin;
 		}
 
@@ -49,15 +54,19 @@ namespace LibraryManagementSystem.Forms
 			//DataTable table = new DataTable();
 
 			//List<AppUser>? users = MyDb.GetUsers(username, password);
-			AppUser? user = AppUserControllers.GetUser(username, password);
+			AppUser? user = AppUserController.GetUser(username, password);
 
 			try
 			{
 				// check if this user exists or not 
 				if (user != null)   // if exists
 				{
-					//MessageBox.Show(user!.Username);
+					App.User = user;
 					dashboardForm!.Enabled = true;
+
+					Label? labelHeader = dashboardForm.Controls.Find("labelHeaderName", true).FirstOrDefault() as Label;
+					labelHeader!.Text = "Welcome, " + App.User!.FirstName + " " + App.User.LastName;
+
 					this.Close();
 				}
 				else      // if not exists

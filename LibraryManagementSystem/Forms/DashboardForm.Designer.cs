@@ -39,6 +39,9 @@
 			labelHeader = new Label();
 			picLogo = new PictureBox();
 			panelMain = new Panel();
+			panel1 = new Panel();
+			labelHeaderName = new Label();
+			buttonClose = new Button();
 			panelLatest = new Panel();
 			panel10 = new Panel();
 			label13 = new Label();
@@ -60,11 +63,11 @@
 			panelBooksCount = new Panel();
 			label3 = new Label();
 			label2 = new Label();
-			buttonClose = new Button();
 			panelSidebar.SuspendLayout();
 			panelHeader.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
 			panelMain.SuspendLayout();
+			panel1.SuspendLayout();
 			panelLatest.SuspendLayout();
 			panel10.SuspendLayout();
 			panel9.SuspendLayout();
@@ -108,6 +111,7 @@
 			buttonUsers.Text = "Users";
 			buttonUsers.TextAlign = ContentAlignment.MiddleRight;
 			buttonUsers.UseVisualStyleBackColor = false;
+			buttonUsers.Click += buttonUsers_Click;
 			// 
 			// buttonCirculation
 			// 
@@ -127,6 +131,7 @@
 			buttonCirculation.Text = "Circulation";
 			buttonCirculation.TextAlign = ContentAlignment.MiddleRight;
 			buttonCirculation.UseVisualStyleBackColor = false;
+			buttonCirculation.Click += buttonCirculation_Click;
 			// 
 			// buttonGenres
 			// 
@@ -164,6 +169,7 @@
 			buttonAuthors.Text = "Authors";
 			buttonAuthors.TextAlign = ContentAlignment.MiddleRight;
 			buttonAuthors.UseVisualStyleBackColor = false;
+			buttonAuthors.Click += buttonAuthors_Click;
 			// 
 			// buttonBooks
 			// 
@@ -182,6 +188,7 @@
 			buttonBooks.Text = "Books";
 			buttonBooks.TextAlign = ContentAlignment.MiddleRight;
 			buttonBooks.UseVisualStyleBackColor = false;
+			buttonBooks.Click += buttonBooks_Click;
 			// 
 			// panelHeader
 			// 
@@ -219,15 +226,51 @@
 			// panelMain
 			// 
 			panelMain.BackColor = Color.Silver;
+			panelMain.Controls.Add(panel1);
 			panelMain.Controls.Add(panelLatest);
 			panelMain.Controls.Add(panelMembersCount);
 			panelMain.Controls.Add(panelAuthorsCount);
 			panelMain.Controls.Add(panelBooksCount);
-			panelMain.Controls.Add(buttonClose);
 			panelMain.Location = new Point(203, 6);
 			panelMain.Name = "panelMain";
 			panelMain.Size = new Size(937, 572);
 			panelMain.TabIndex = 1;
+			// 
+			// panel1
+			// 
+			panel1.BackColor = Color.DarkBlue;
+			panel1.Controls.Add(labelHeaderName);
+			panel1.Controls.Add(buttonClose);
+			panel1.Location = new Point(3, 3);
+			panel1.Name = "panel1";
+			panel1.Size = new Size(928, 50);
+			panel1.TabIndex = 3;
+			// 
+			// labelHeaderName
+			// 
+			labelHeaderName.BackColor = Color.DarkBlue;
+			labelHeaderName.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			labelHeaderName.ForeColor = Color.White;
+			labelHeaderName.Location = new Point(1, 2);
+			labelHeaderName.Name = "labelHeaderName";
+			labelHeaderName.Size = new Size(734, 40);
+			labelHeaderName.TabIndex = 2;
+			labelHeaderName.Text = "Name";
+			labelHeaderName.TextAlign = ContentAlignment.MiddleLeft;
+			// 
+			// buttonClose
+			// 
+			buttonClose.BackColor = Color.DarkBlue;
+			buttonClose.Cursor = Cursors.Hand;
+			buttonClose.FlatAppearance.BorderSize = 0;
+			buttonClose.FlatStyle = FlatStyle.Flat;
+			buttonClose.Image = (Image)resources.GetObject("buttonClose.Image");
+			buttonClose.Location = new Point(890, 4);
+			buttonClose.Name = "buttonClose";
+			buttonClose.Size = new Size(32, 32);
+			buttonClose.TabIndex = 1;
+			buttonClose.UseVisualStyleBackColor = false;
+			buttonClose.Click += buttonClose_Click;
 			// 
 			// panelLatest
 			// 
@@ -366,7 +409,7 @@
 			panelMembersCount.BackColor = Color.SkyBlue;
 			panelMembersCount.Controls.Add(label6);
 			panelMembersCount.Controls.Add(label7);
-			panelMembersCount.Location = new Point(648, 52);
+			panelMembersCount.Location = new Point(648, 59);
 			panelMembersCount.Name = "panelMembersCount";
 			panelMembersCount.Size = new Size(270, 152);
 			panelMembersCount.TabIndex = 2;
@@ -400,7 +443,7 @@
 			panelAuthorsCount.BackColor = Color.RoyalBlue;
 			panelAuthorsCount.Controls.Add(label4);
 			panelAuthorsCount.Controls.Add(label5);
-			panelAuthorsCount.Location = new Point(334, 52);
+			panelAuthorsCount.Location = new Point(334, 59);
 			panelAuthorsCount.Name = "panelAuthorsCount";
 			panelAuthorsCount.Size = new Size(270, 152);
 			panelAuthorsCount.TabIndex = 2;
@@ -434,7 +477,7 @@
 			panelBooksCount.BackColor = Color.MediumBlue;
 			panelBooksCount.Controls.Add(label3);
 			panelBooksCount.Controls.Add(label2);
-			panelBooksCount.Location = new Point(20, 52);
+			panelBooksCount.Location = new Point(20, 59);
 			panelBooksCount.Name = "panelBooksCount";
 			panelBooksCount.Size = new Size(270, 152);
 			panelBooksCount.TabIndex = 1;
@@ -463,20 +506,6 @@
 			label2.Text = "Books";
 			label2.TextAlign = ContentAlignment.MiddleLeft;
 			// 
-			// buttonClose
-			// 
-			buttonClose.BackColor = Color.Transparent;
-			buttonClose.Cursor = Cursors.Hand;
-			buttonClose.FlatAppearance.BorderSize = 0;
-			buttonClose.FlatStyle = FlatStyle.Flat;
-			buttonClose.Image = (Image)resources.GetObject("buttonClose.Image");
-			buttonClose.Location = new Point(894, 8);
-			buttonClose.Name = "buttonClose";
-			buttonClose.Size = new Size(32, 32);
-			buttonClose.TabIndex = 0;
-			buttonClose.UseVisualStyleBackColor = false;
-			buttonClose.Click += buttonClose_Click;
-			// 
 			// DashboardForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -491,11 +520,13 @@
 			Text = "DashboardForm";
 			Load += DashboardForm_Load;
 			Shown += DashboardForm_Shown;
+			Enter += DashboardForm_Enter;
 			panelSidebar.ResumeLayout(false);
 			panelHeader.ResumeLayout(false);
 			panelHeader.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
 			panelMain.ResumeLayout(false);
+			panel1.ResumeLayout(false);
 			panelLatest.ResumeLayout(false);
 			panel10.ResumeLayout(false);
 			panel10.PerformLayout();
@@ -518,7 +549,6 @@
 		private Panel panelSidebar;
 		private Panel panelHeader;
 		private Panel panelMain;
-		private Button buttonClose;
 		private Panel panelBooksCount;
 		private Panel panelMembersCount;
 		private Panel panelAuthorsCount;
@@ -547,5 +577,8 @@
 		private Button buttonCirculation;
 		private Button buttonGenres;
 		private Button buttonAuthors;
+		private Panel panel1;
+		private Button buttonClose;
+		private Label labelHeaderName;
 	}
 }

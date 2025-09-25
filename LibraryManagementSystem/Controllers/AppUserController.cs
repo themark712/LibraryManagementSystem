@@ -11,17 +11,17 @@ using LibraryManagementSystem.Database;
 
 namespace LibraryManagementSystem.Controllers
 {
-	public class AppUserControllers
+	public class AppUserController
 	{
 
 		public static List<AppUser>? GetUsers(string uName, string password)
 		{
 			try
 			{
-				using (IDbConnection conn = new SQLiteConnection(MyDb.LoadConnectionString()))
+				using (LmsContext context = new LmsContext())
 				{
-					var users = conn.Query<AppUser>("SELECT * FROM AppUsers", new DynamicParameters());
-					return users.ToList();
+					var users = context.AppUsers.ToList();
+					return users;
 				}
 			}
 			catch (Exception ex)
@@ -35,10 +35,10 @@ namespace LibraryManagementSystem.Controllers
 		{
 			try
 			{
-				using (IDbConnection conn = new SQLiteConnection(MyDb.LoadConnectionString()))
+				using (LmsContext context = new LmsContext())
 				{
-					var users = conn.Query<AppUser>("SELECT * FROM AppUsers", new DynamicParameters());
-					return users.FirstOrDefault();
+					var user =context.AppUsers.Where(u=>u.Username==uName && u.Password==password).FirstOrDefault();
+					return user;
 				}
 			}
 			catch (Exception ex)
@@ -50,9 +50,11 @@ namespace LibraryManagementSystem.Controllers
 
 		public static void AddUser(AppUser user)
 		{
-			using (IDbConnection conn = new SQLiteConnection(MyDb.LoadConnectionString()))
+			using (LmsContext context = new LmsContext())
 			{
-				conn.Execute("INSERT INTO AppUsers (FirstName, LastName, Username,  Password, UserType) VALUES (@FirstName, @LastName, @Username, @Password, @UserType)", user);
+				if(user != null && !string.IsNullOrEmpty(user!.Username))
+				context.Add(user);
+				context.SaveChanges();
 			}
 		}
 	}

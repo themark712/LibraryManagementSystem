@@ -29,6 +29,6 @@ namespace LibraryManagementSystem.Models
 		public string? Password { get; set; }
 
 		[MaxLength(20)]
-		public string? UserType { get; set; } = "User";
+		public string? Role { get; set; } = "User";
 	}
 }

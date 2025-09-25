@@ -30,7 +30,10 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageGenresForm));
 			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
 			panel1 = new Panel();
+			labelStatus = new Label();
 			buttonDelete = new Button();
 			buttonUpdate = new Button();
 			buttonAdd = new Button();
@@ -52,6 +55,7 @@
 			// panel1
 			// 
 			panel1.BackColor = Color.Silver;
+			panel1.Controls.Add(labelStatus);
 			panel1.Controls.Add(buttonDelete);
 			panel1.Controls.Add(buttonUpdate);
 			panel1.Controls.Add(buttonAdd);
@@ -65,6 +69,16 @@
 			panel1.Size = new Size(730, 264);
 			panel1.TabIndex = 2;
 			// 
+			// labelStatus
+			// 
+			labelStatus.AutoSize = true;
+			labelStatus.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			labelStatus.ForeColor = Color.DarkBlue;
+			labelStatus.Location = new Point(20, 222);
+			labelStatus.Name = "labelStatus";
+			labelStatus.Size = new Size(0, 21);
+			labelStatus.TabIndex = 8;
+			// 
 			// buttonDelete
 			// 
 			buttonDelete.BackColor = Color.Transparent;
@@ -76,7 +90,7 @@
 			buttonDelete.ForeColor = Color.DarkBlue;
 			buttonDelete.Image = (Image)resources.GetObject("buttonDelete.Image");
 			buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonDelete.Location = new Point(262, 146);
+			buttonDelete.Location = new Point(255, 144);
 			buttonDelete.Name = "buttonDelete";
 			buttonDelete.Size = new Size(118, 53);
 			buttonDelete.TabIndex = 7;
@@ -84,6 +98,7 @@
 			buttonDelete.TextAlign = ContentAlignment.MiddleRight;
 			buttonDelete.TextImageRelation = TextImageRelation.ImageBeforeText;
 			buttonDelete.UseVisualStyleBackColor = false;
+			buttonDelete.Click += buttonDelete_Click;
 			// 
 			// buttonUpdate
 			// 
@@ -96,7 +111,7 @@
 			buttonUpdate.ForeColor = Color.DarkBlue;
 			buttonUpdate.Image = (Image)resources.GetObject("buttonUpdate.Image");
 			buttonUpdate.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonUpdate.Location = new Point(134, 146);
+			buttonUpdate.Location = new Point(127, 144);
 			buttonUpdate.Name = "buttonUpdate";
 			buttonUpdate.Size = new Size(129, 53);
 			buttonUpdate.TabIndex = 6;
@@ -104,6 +119,7 @@
 			buttonUpdate.TextAlign = ContentAlignment.MiddleRight;
 			buttonUpdate.TextImageRelation = TextImageRelation.ImageBeforeText;
 			buttonUpdate.UseVisualStyleBackColor = false;
+			buttonUpdate.Click += buttonUpdate_Click;
 			// 
 			// buttonAdd
 			// 
@@ -116,7 +132,7 @@
 			buttonAdd.ForeColor = Color.DarkBlue;
 			buttonAdd.Image = (Image)resources.GetObject("buttonAdd.Image");
 			buttonAdd.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonAdd.Location = new Point(27, 146);
+			buttonAdd.Location = new Point(20, 144);
 			buttonAdd.Name = "buttonAdd";
 			buttonAdd.Size = new Size(101, 53);
 			buttonAdd.TabIndex = 5;
@@ -124,41 +140,62 @@
 			buttonAdd.TextAlign = ContentAlignment.MiddleRight;
 			buttonAdd.TextImageRelation = TextImageRelation.ImageBeforeText;
 			buttonAdd.UseVisualStyleBackColor = false;
+			buttonAdd.Click += buttonAdd_Click;
 			// 
 			// dgGenres
 			// 
+			dgGenres.AllowUserToAddRows = false;
+			dgGenres.AllowUserToDeleteRows = false;
+			dgGenres.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgGenres.BackgroundColor = Color.Silver;
 			dgGenres.BorderStyle = BorderStyle.None;
+			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+			dgGenres.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			dgGenres.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dgGenres.Location = new Point(418, 28);
+			dgGenres.Location = new Point(400, 24);
 			dgGenres.MultiSelect = false;
 			dgGenres.Name = "dgGenres";
 			dgGenres.ReadOnly = true;
 			dgGenres.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle2.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+			dgGenres.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			dgGenres.RowHeadersVisible = false;
-			dataGridViewCellStyle1.BackColor = Color.Silver;
-			dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle1.ForeColor = Color.Black;
-			dataGridViewCellStyle1.SelectionBackColor = Color.RoyalBlue;
-			dgGenres.RowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle3.BackColor = Color.Silver;
+			dataGridViewCellStyle3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle3.ForeColor = Color.Black;
+			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
+			dgGenres.RowsDefaultCellStyle = dataGridViewCellStyle3;
 			dgGenres.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			dgGenres.Size = new Size(277, 209);
+			dgGenres.Size = new Size(306, 213);
 			dgGenres.TabIndex = 4;
 			dgGenres.CellClick += dgGenres_CellClick;
 			// 
 			// textName
 			// 
 			textName.Font = new Font("Segoe UI", 15.75F);
-			textName.Location = new Point(125, 68);
+			textName.Location = new Point(118, 66);
 			textName.Name = "textName";
 			textName.Size = new Size(255, 35);
 			textName.TabIndex = 3;
+			textName.TextChanged += textName_TextChanged;
 			// 
 			// textId
 			// 
 			textId.Enabled = false;
 			textId.Font = new Font("Segoe UI", 15.75F);
-			textId.Location = new Point(125, 26);
+			textId.Location = new Point(118, 24);
 			textId.MaxLength = 100;
 			textId.Name = "textId";
 			textId.Size = new Size(255, 35);
@@ -168,7 +205,7 @@
 			// 
 			labelName.AutoSize = true;
 			labelName.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			labelName.Location = new Point(27, 70);
+			labelName.Location = new Point(20, 68);
 			labelName.Name = "labelName";
 			labelName.Size = new Size(74, 30);
 			labelName.TabIndex = 1;
@@ -178,7 +215,7 @@
 			// 
 			labelId.AutoSize = true;
 			labelId.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			labelId.Location = new Point(27, 28);
+			labelId.Location = new Point(20, 26);
 			labelId.Name = "labelId";
 			labelId.Size = new Size(39, 30);
 			labelId.TabIndex = 0;
@@ -208,7 +245,7 @@
 			// 
 			// buttonClose
 			// 
-			buttonClose.BackColor = Color.Transparent;
+			buttonClose.BackColor = Color.DarkBlue;
 			buttonClose.Cursor = Cursors.Hand;
 			buttonClose.FlatAppearance.BorderSize = 0;
 			buttonClose.FlatStyle = FlatStyle.Flat;
@@ -268,5 +305,6 @@
 		private Button buttonAdd;
 		private Button buttonUpdate;
 		private Button buttonDelete;
+		private Label labelStatus;
 	}
 }
