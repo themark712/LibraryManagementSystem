@@ -10,17 +10,6 @@
 
 
   <ItemGroup>
-    <None Remove="Database\LMS_DB.db" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Database\LMS_DB.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-
-  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.66" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.9" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.119" />
