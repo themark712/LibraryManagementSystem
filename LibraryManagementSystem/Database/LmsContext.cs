@@ -19,11 +19,18 @@ namespace LibraryManagementSystem.Database
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			string folder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
-			string dbName = "LMS.db";
-			string path = Path.Combine(folder, dbName);
-			string connString = string.Format("data source={0}", path);
-			optionsBuilder.UseSqlite(connString);
+			//string folder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
+			var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+			var settings = configFile.AppSettings.Settings;
+
+			if (Directory.Exists(ConfigurationManager.AppSettings["DatabaseLocation"]))
+			{
+				string folder = ConfigurationManager.AppSettings["DatabaseLocation"]!;
+				string dbName = "LMS.db";
+				string path = Path.Combine(folder, dbName);
+				string connString = string.Format("data source={0}", path);
+				optionsBuilder.UseSqlite(connString);
+			}
 		}
 
 		// seed data

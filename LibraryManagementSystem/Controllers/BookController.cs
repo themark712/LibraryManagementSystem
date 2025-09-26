@@ -49,6 +49,15 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
+		public static int GetCount()
+		{
+			using (LmsContext context = new LmsContext())
+			{
+				var books = context.Books.ToList();
+				return books.Count;
+			}
+		}
+
 		public static bool AddBook(string _title)
 		{
 			using (LmsContext context = new LmsContext())

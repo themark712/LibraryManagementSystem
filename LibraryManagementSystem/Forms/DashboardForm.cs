@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Text;
 using System.Reflection.Emit;
+using System.Configuration;
 using LibraryManagementSystem.Controllers;
 
 namespace LibraryManagementSystem.Forms
@@ -19,7 +20,19 @@ namespace LibraryManagementSystem.Forms
 		public DashboardForm()
 		{
 			InitializeComponent();
-			Utilties.CreateDatabase();
+
+			string databaseLocation = ConfigurationManager.AppSettings["DatabaseLocation"]!;
+
+			if (databaseLocation == "" || !Directory.Exists(databaseLocation))
+			{
+				DatabaseSetupForm formDbSetup = new DatabaseSetupForm();
+				formDbSetup.ShowDialog();
+			}
+
+			if (!File.Exists(databaseLocation + "\\LMS.db"))
+			{
+				Utilties.CreateDatabase();
+			}
 		}
 
 		private void buttonClose_Click(object sender, EventArgs e)
@@ -30,7 +43,10 @@ namespace LibraryManagementSystem.Forms
 		private void DashboardForm_Load(object sender, EventArgs e)
 		{
 			int authorCount = AuthorController.GetCount();
-			labelAuthorsCount.Text = authorCount.ToString();
+			labelAuthorCount.Text = authorCount.ToString();
+
+			int bookCount = BookController.GetCount();
+			labelBookCount.Text = bookCount.ToString();
 		}
 
 		private void DashboardForm_Shown(object sender, EventArgs e)
