@@ -43,5 +43,10 @@ namespace LibraryManagementSystem.Models
 		public string? DateReceived {  get; set; } = string.Empty;
 
 		public byte? Cover { get; set; } = 0;
+
+		public string? BookListItem
+		{
+			get { return $"{Title}, {ISBN}"; }
+		}
 	}
 }
