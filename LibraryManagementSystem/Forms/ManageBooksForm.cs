@@ -30,40 +30,7 @@ namespace LibraryManagementSystem.Forms
 		private void ManageBooksForm_Load(object sender, EventArgs e)
 		{
 			FillAuthorCombo();
-			LoadTestBook(1);
-		}
-
-		private void LoadTestBook(int _id)
-		{
-			int id = _id;
-
-			using (LmsContext context = new LmsContext())
-			{
-				selectedBook = context.Books.Where(i => i.BookId == id).FirstOrDefault()!;
-			}
-
-			textId.Text = selectedBook!.BookId.ToString();
-			textTitle.Text = selectedBook.Title;
-			comboAuthors.SelectedValue = selectedBook.AuthorId;
-			comboGenres.SelectedValue = selectedBook.GenreId;
-			textPublisher.Text = selectedBook.Publisher;
-			textYear.Text = selectedBook.Year.ToString();
-			textISBN.Text = selectedBook.ISBN;
-			textAbout.Text = selectedBook.About;
-			textPrice.Text = selectedBook.Price.ToString();
-			numCopies.Value = (decimal)selectedBook.Copies!;
-			dateReceived.Text=selectedBook.DateReceived;
-			//if (selectedBook.Cover != null)
-			//{
-			//	using (var ms = new MemoryStream(new byte[] { selectedBook.Cover.Value }))
-			//	{
-			//		picCover.Image = Image.FromStream(ms);
-			//	}
-			//}
-			//else
-			//{
-			//	picCover.Image = null; // Set to null if no cover is available
-			//}
+			RefreshBookList();
 		}
 
 		private void FillAuthorCombo()
@@ -88,9 +55,66 @@ namespace LibraryManagementSystem.Forms
 			}
 		}
 
-		private void comboAuthors_SelectedIndexChanged(object sender, EventArgs e)
+		private void RefreshBookList()
 		{
-			//MessageBox.Show(comboAuthors.SelectedValue.ToString());
+			var books = BookController.GetBooks();
+			//dgBooks.DataSource = bookss;
+
+			dgBooks.DataSource = null;
+
+			DataTable dt = new DataTable();
+
+			dt.Columns.Add("Id");
+			dt.Columns.Add("Title");
+			dt.Columns.Add("Author");
+			dt.Columns.Add("Year");
+
+			foreach (Book book in books!)
+			{
+				var row = dt.NewRow();
+				row[0] = book.BookId;
+				row[1] = book.Title;
+				row[2] = book.Author.FullName;
+				row[3] = book.Year;
+				dt.Rows.Add(row);
+			}
+
+			dgBooks.DataSource = dt;
+
+			selectedBook = null;
+			textId.Text = "";
+			textTitle.Text = "";
+		}
+
+		private void dgBooks_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+
+			int selectedId = Convert.ToInt32(dgBooks.SelectedRows[0].Cells[0].Value);
+
+			using (LmsContext context = new LmsContext())
+			{
+				selectedBook = context.Books.Where(i => i.BookId == selectedId).FirstOrDefault();
+			}
+
+			textId.Text = selectedBook!.BookId!.ToString();
+			textTitle.Text = selectedBook!.Title!.ToString();
+			comboAuthors.SelectedValue = selectedBook.AuthorId;
+			comboGenres.SelectedValue = selectedBook.GenreId;
+			textPublisher.Text = selectedBook.Publisher;
+			textYear.Text = selectedBook.Year.ToString();
+			textISBN.Text = selectedBook.ISBN;
+			textPrice.Text = selectedBook.Price.ToString();
+			textAbout.Text = selectedBook.About;
+			numCopies.Value = (decimal)selectedBook.Copies!;
+			if (!string.IsNullOrEmpty(selectedBook.DateReceived!.ToString()))
+			{
+				dateReceived.Format = DateTimePickerFormat.Long;
+				dateReceived.Value = DateTime.Parse(selectedBook.DateReceived!);
+			} else
+			{
+				dateReceived.CustomFormat = " ";
+				dateReceived.Format = DateTimePickerFormat.Custom;
+			}
 		}
 	}
 }

@@ -58,7 +58,7 @@
 			labelYear = new Label();
 			labelAuthor = new Label();
 			labelStatus = new Label();
-			dgAuthors = new DataGridView();
+			dgBooks = new DataGridView();
 			textTitle = new TextBox();
 			textId = new TextBox();
 			labelTitle = new Label();
@@ -75,7 +75,7 @@
 			((System.ComponentModel.ISupportInitialize)numCopies).BeginInit();
 			((System.ComponentModel.ISupportInitialize)picCover).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-			((System.ComponentModel.ISupportInitialize)dgAuthors).BeginInit();
+			((System.ComponentModel.ISupportInitialize)dgBooks).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			panel2.SuspendLayout();
 			panel3.SuspendLayout();
@@ -109,7 +109,7 @@
 			panel1.Controls.Add(labelYear);
 			panel1.Controls.Add(labelAuthor);
 			panel1.Controls.Add(labelStatus);
-			panel1.Controls.Add(dgAuthors);
+			panel1.Controls.Add(dgBooks);
 			panel1.Controls.Add(textTitle);
 			panel1.Controls.Add(textId);
 			panel1.Controls.Add(labelTitle);
@@ -231,7 +231,6 @@
 			comboAuthors.Name = "comboAuthors";
 			comboAuthors.Size = new Size(242, 29);
 			comboAuthors.TabIndex = 25;
-			comboAuthors.SelectedIndexChanged += comboAuthors_SelectedIndexChanged;
 			// 
 			// buttonClearSearch
 			// 
@@ -360,27 +359,27 @@
 			labelStatus.Size = new Size(0, 21);
 			labelStatus.TabIndex = 8;
 			// 
-			// dgAuthors
+			// dgBooks
 			// 
-			dgAuthors.AllowUserToAddRows = false;
-			dgAuthors.AllowUserToDeleteRows = false;
-			dgAuthors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-			dgAuthors.BackgroundColor = Color.Silver;
-			dgAuthors.BorderStyle = BorderStyle.None;
+			dgBooks.AllowUserToAddRows = false;
+			dgBooks.AllowUserToDeleteRows = false;
+			dgBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+			dgBooks.BackgroundColor = Color.Silver;
+			dgBooks.BorderStyle = BorderStyle.None;
 			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle1.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
 			dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
 			dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
 			dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
 			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-			dgAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			dgAuthors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dgAuthors.Location = new Point(405, 60);
-			dgAuthors.MultiSelect = false;
-			dgAuthors.Name = "dgAuthors";
-			dgAuthors.ReadOnly = true;
-			dgAuthors.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+			dgBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dgBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dgBooks.Location = new Point(405, 60);
+			dgBooks.MultiSelect = false;
+			dgBooks.Name = "dgBooks";
+			dgBooks.ReadOnly = true;
+			dgBooks.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
 			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle2.BackColor = Color.DarkBlue;
 			dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -388,16 +387,21 @@
 			dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
 			dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
 			dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-			dgAuthors.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-			dgAuthors.RowHeadersVisible = false;
+			dgBooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dgBooks.RowHeadersVisible = false;
 			dataGridViewCellStyle3.BackColor = Color.Silver;
-			dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			dataGridViewCellStyle3.ForeColor = Color.Black;
 			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
-			dgAuthors.RowsDefaultCellStyle = dataGridViewCellStyle3;
-			dgAuthors.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			dgAuthors.Size = new Size(417, 168);
-			dgAuthors.TabIndex = 0;
+			dgBooks.RowsDefaultCellStyle = dataGridViewCellStyle3;
+			dgBooks.RowTemplate.DefaultCellStyle.BackColor = Color.WhiteSmoke;
+			dgBooks.RowTemplate.DefaultCellStyle.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dgBooks.RowTemplate.DefaultCellStyle.ForeColor = Color.DarkBlue;
+			dgBooks.RowTemplate.Height = 20;
+			dgBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+			dgBooks.Size = new Size(417, 168);
+			dgBooks.TabIndex = 0;
+			dgBooks.CellClick += dgBooks_CellClick;
 			// 
 			// textTitle
 			// 
@@ -574,7 +578,7 @@
 			((System.ComponentModel.ISupportInitialize)numCopies).EndInit();
 			((System.ComponentModel.ISupportInitialize)picCover).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-			((System.ComponentModel.ISupportInitialize)dgAuthors).EndInit();
+			((System.ComponentModel.ISupportInitialize)dgBooks).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			panel2.ResumeLayout(false);
 			panel3.ResumeLayout(false);
@@ -597,7 +601,7 @@
 		private Label labelYear;
 		private Label labelAuthor;
 		private Label labelStatus;
-		private DataGridView dgAuthors;
+		private DataGridView dgBooks;
 		private TextBox textTitle;
 		private TextBox textId;
 		private Label labelTitle;

@@ -10,6 +10,7 @@ using LibraryManagementSystem.Database;
 using LibraryManagementSystem.Models;
 using System.Security.Cryptography;
 using System.Xml.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagementSystem.Controllers
 {
@@ -21,7 +22,7 @@ namespace LibraryManagementSystem.Controllers
 			{
 				using (LmsContext context = new LmsContext())
 				{
-					var books = context.Books.OrderBy(n=>n.Title).ToList();
+					var books = context.Books.Include(a => a.Author).Include(g=>g.Genre).OrderBy(n=>n.Title).ToList();
 					return books.ToList();
 				}
 			}

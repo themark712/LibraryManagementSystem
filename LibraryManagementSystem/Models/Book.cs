@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,11 +18,19 @@ namespace LibraryManagementSystem.Models
 		[MaxLength(200)]
 		public string? Title { get; set; }=string.Empty;
 
-		[Required]
-		public int AuthorId { get; set; }
+		[Display(Name = "Author")]
+		public int? AuthorId { get; set; }
+
+		// navigation property - one-to-one
+		[ValidateNever]
+		public Author Author { get; set; } = null!;
 
 		[Required]
 		public int GenreId { get; set; }
+
+		// navigation property - one-to-one
+		[ValidateNever]
+		public Genre Genre { get; set; } = null!;
 
 		[MaxLength(100)]
 		public string? Publisher { get; set; } = string.Empty;
