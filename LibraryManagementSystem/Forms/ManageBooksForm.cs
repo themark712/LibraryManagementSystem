@@ -15,6 +15,8 @@ namespace LibraryManagementSystem.Forms
 {
 	public partial class ManageBooksForm : Form
 	{
+		Book? selectedBook;
+
 		public ManageBooksForm()
 		{
 			InitializeComponent();
@@ -28,6 +30,22 @@ namespace LibraryManagementSystem.Forms
 		private void ManageBooksForm_Load(object sender, EventArgs e)
 		{
 			FillAuthorCombo();
+			LoadTestBook(3);
+		}
+
+		private void LoadTestBook(int _id)
+		{
+			int id = _id;
+
+			using (LmsContext context = new LmsContext())
+			{
+				selectedBook = context.Books.Where(i => i.BookId == id).FirstOrDefault()!;
+			}
+
+			textId.Text = selectedBook!.BookId.ToString();
+			textTitle.Text = selectedBook.Title;
+			comboAuthors.SelectedValue = selectedBook.AuthorId;
+			comboGenres.SelectedValue = selectedBook.GenreId;
 		}
 
 		private void FillAuthorCombo()

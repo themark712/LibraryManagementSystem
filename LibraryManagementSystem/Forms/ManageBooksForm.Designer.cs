@@ -36,7 +36,7 @@
 			numCopies = new NumericUpDown();
 			comboGenres = new ComboBox();
 			labelGenre = new Label();
-			dateTimePicker1 = new DateTimePicker();
+			dateReceived = new DateTimePicker();
 			labelDateReceived = new Label();
 			textPublisher = new TextBox();
 			labelPublisher = new Label();
@@ -52,14 +52,14 @@
 			labelAbout = new Label();
 			labelPrice = new Label();
 			labelCopies = new Label();
-			textDOD = new TextBox();
+			textISBN = new TextBox();
 			labelISBN = new Label();
-			textDOB = new TextBox();
+			textYear = new TextBox();
 			labelYear = new Label();
 			labelAuthor = new Label();
 			labelStatus = new Label();
 			dgAuthors = new DataGridView();
-			textFirstName = new TextBox();
+			textTitle = new TextBox();
 			textId = new TextBox();
 			labelTitle = new Label();
 			labelId = new Label();
@@ -87,7 +87,7 @@
 			panel1.Controls.Add(numCopies);
 			panel1.Controls.Add(comboGenres);
 			panel1.Controls.Add(labelGenre);
-			panel1.Controls.Add(dateTimePicker1);
+			panel1.Controls.Add(dateReceived);
 			panel1.Controls.Add(labelDateReceived);
 			panel1.Controls.Add(textPublisher);
 			panel1.Controls.Add(labelPublisher);
@@ -103,14 +103,14 @@
 			panel1.Controls.Add(labelAbout);
 			panel1.Controls.Add(labelPrice);
 			panel1.Controls.Add(labelCopies);
-			panel1.Controls.Add(textDOD);
+			panel1.Controls.Add(textISBN);
 			panel1.Controls.Add(labelISBN);
-			panel1.Controls.Add(textDOB);
+			panel1.Controls.Add(textYear);
 			panel1.Controls.Add(labelYear);
 			panel1.Controls.Add(labelAuthor);
 			panel1.Controls.Add(labelStatus);
 			panel1.Controls.Add(dgAuthors);
-			panel1.Controls.Add(textFirstName);
+			panel1.Controls.Add(textTitle);
 			panel1.Controls.Add(textId);
 			panel1.Controls.Add(labelTitle);
 			panel1.Controls.Add(labelId);
@@ -146,13 +146,13 @@
 			labelGenre.TabIndex = 34;
 			labelGenre.Text = "Genre:";
 			// 
-			// dateTimePicker1
+			// dateReceived
 			// 
-			dateTimePicker1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dateTimePicker1.Location = new Point(127, 437);
-			dateTimePicker1.Name = "dateTimePicker1";
-			dateTimePicker1.Size = new Size(243, 27);
-			dateTimePicker1.TabIndex = 33;
+			dateReceived.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dateReceived.Location = new Point(127, 437);
+			dateReceived.Name = "dateReceived";
+			dateReceived.Size = new Size(243, 27);
+			dateReceived.TabIndex = 33;
 			// 
 			// labelDateReceived
 			// 
@@ -301,13 +301,13 @@
 			labelCopies.TabIndex = 15;
 			labelCopies.Text = "Copies:";
 			// 
-			// textDOD
+			// textISBN
 			// 
-			textDOD.Font = new Font("Segoe UI", 12F);
-			textDOD.Location = new Point(127, 235);
-			textDOD.Name = "textDOD";
-			textDOD.Size = new Size(243, 29);
-			textDOD.TabIndex = 14;
+			textISBN.Font = new Font("Segoe UI", 12F);
+			textISBN.Location = new Point(127, 235);
+			textISBN.Name = "textISBN";
+			textISBN.Size = new Size(243, 29);
+			textISBN.TabIndex = 14;
 			// 
 			// labelISBN
 			// 
@@ -319,13 +319,13 @@
 			labelISBN.TabIndex = 13;
 			labelISBN.Text = "ISBN:";
 			// 
-			// textDOB
+			// textYear
 			// 
-			textDOB.Font = new Font("Segoe UI", 12F);
-			textDOB.Location = new Point(127, 164);
-			textDOB.Name = "textDOB";
-			textDOB.Size = new Size(243, 29);
-			textDOB.TabIndex = 12;
+			textYear.Font = new Font("Segoe UI", 12F);
+			textYear.Location = new Point(127, 164);
+			textYear.Name = "textYear";
+			textYear.Size = new Size(243, 29);
+			textYear.TabIndex = 12;
 			// 
 			// labelYear
 			// 
@@ -396,14 +396,14 @@
 			dgAuthors.Size = new Size(417, 106);
 			dgAuthors.TabIndex = 0;
 			// 
-			// textFirstName
+			// textTitle
 			// 
-			textFirstName.Font = new Font("Segoe UI", 12F);
-			textFirstName.Location = new Point(127, 58);
-			textFirstName.MaxLength = 100;
-			textFirstName.Name = "textFirstName";
-			textFirstName.Size = new Size(243, 29);
-			textFirstName.TabIndex = 3;
+			textTitle.Font = new Font("Segoe UI", 12F);
+			textTitle.Location = new Point(127, 58);
+			textTitle.MaxLength = 100;
+			textTitle.Name = "textTitle";
+			textTitle.Size = new Size(243, 29);
+			textTitle.TabIndex = 3;
 			// 
 			// textId
 			// 
@@ -588,14 +588,14 @@
 		private Label labelAbout;
 		private Label labelPrice;
 		private Label labelCopies;
-		private TextBox textDOD;
+		private TextBox textISBN;
 		private Label labelISBN;
-		private TextBox textDOB;
+		private TextBox textYear;
 		private Label labelYear;
 		private Label labelAuthor;
 		private Label labelStatus;
 		private DataGridView dgAuthors;
-		private TextBox textFirstName;
+		private TextBox textTitle;
 		private TextBox textId;
 		private Label labelTitle;
 		private Label labelId;
@@ -615,7 +615,7 @@
 		private TextBox textPublisher;
 		private Label labelPublisher;
 		private Label labelDateReceived;
-		private DateTimePicker dateTimePicker1;
+		private DateTimePicker dateReceived;
 		private ComboBox comboGenres;
 		private Label labelGenre;
 		private NumericUpDown numCopies;
