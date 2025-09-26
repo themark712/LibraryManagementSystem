@@ -50,6 +50,22 @@ namespace LibraryManagementSystem.Controllers
 				return null;
 			}
 		}
+		public static List<Book>? SearchBooks(string search)
+		{
+			try
+			{
+				using (LmsContext context = new LmsContext())
+				{
+					var books = context.Books.Where(d => d.Title!.ToLower().Contains(search.ToLower()) || d.Genre.Name!.ToLower().Contains(search.ToLower()) || d.Author.LastName!.ToLower().Contains(search.ToLower()) || d.Publisher!.ToLower().Contains(search.ToLower())).Include(a => a.Author).Include(g => g.Genre).OrderBy(n => n.Title).ToList();
+					return books;
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				return null;
+			}
+		}
 
 		public static int GetCount()
 		{

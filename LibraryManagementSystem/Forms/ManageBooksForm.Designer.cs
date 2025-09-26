@@ -243,6 +243,7 @@
 			buttonClearSearch.Size = new Size(29, 29);
 			buttonClearSearch.TabIndex = 24;
 			buttonClearSearch.UseVisualStyleBackColor = true;
+			buttonClearSearch.Click += buttonClearSearch_Click;
 			// 
 			// pictureBox2
 			// 
@@ -262,6 +263,7 @@
 			textSearch.Name = "textSearch";
 			textSearch.Size = new Size(335, 29);
 			textSearch.TabIndex = 22;
+			textSearch.TextChanged += textSearch_TextChanged;
 			// 
 			// textAbout
 			// 

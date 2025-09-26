@@ -56,47 +56,6 @@ namespace LibraryManagementSystem.Forms
 			}
 		}
 
-		private void RefreshBookList()
-		{
-			var books = BookController.GetBooks();
-			//dgBooks.DataSource = bookss;
-
-			dgBooks.DataSource = null;
-
-			DataTable dt = new DataTable();
-
-			dt.Columns.Add("Id");
-			dt.Columns.Add("Title");
-			dt.Columns.Add("Author");
-			dt.Columns.Add("Year");
-
-			foreach (Book book in books!)
-			{
-				var row = dt.NewRow();
-				row[0] = book.BookId;
-				row[1] = book.Title;
-				row[2] = book.Author.FullName;
-				row[3] = book.Year;
-				dt.Rows.Add(row);
-			}
-
-			dgBooks.DataSource = dt;
-
-			selectedBook = null;
-			textId.Text = "";
-			textTitle.Text = "";
-			comboAuthors.SelectedValue = "";
-			comboGenres.SelectedValue = "";
-			textPublisher.Text = "";
-			textYear.Text = "";
-			textISBN.Text = "";
-			textPrice.Text = "";
-			textAbout.Text = "";
-			numCopies.Value = 0M;
-			dateReceived.CustomFormat = " ";
-			dateReceived.Format = DateTimePickerFormat.Custom;
-		}
-
 		private void dgBooks_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
 
@@ -158,7 +117,7 @@ namespace LibraryManagementSystem.Forms
 		{
 			if (textTitle.Text.Length > 0 && !string.IsNullOrEmpty(comboAuthors.SelectedValue!.ToString()) && !string.IsNullOrEmpty(comboGenres.SelectedValue!.ToString()))
 			{
-				if (BookController.UpdateBook(Convert.ToInt32(textId.Text),textTitle.Text, Convert.ToInt32(comboAuthors.SelectedValue), Convert.ToInt32(comboGenres.SelectedValue), textPublisher.Text, Convert.ToInt32(textYear.Text), textISBN.Text, Convert.ToInt32(numCopies.Value), Convert.ToDecimal(textPrice.Text), dateReceived.Text, textAbout.Text))
+				if (BookController.UpdateBook(Convert.ToInt32(textId.Text), textTitle.Text, Convert.ToInt32(comboAuthors.SelectedValue), Convert.ToInt32(comboGenres.SelectedValue), textPublisher.Text, Convert.ToInt32(textYear.Text), textISBN.Text, Convert.ToInt32(numCopies.Value), Convert.ToDecimal(textPrice.Text), dateReceived.Text, textAbout.Text))
 				{
 					labelStatus.Text = "Books updated";
 				}
@@ -168,6 +127,68 @@ namespace LibraryManagementSystem.Forms
 			{
 				MessageBox.Show("Book title, author, genre, and year of publication are required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
+		}
+
+		private void textSearch_TextChanged(object sender, EventArgs e)
+		{
+			List<Book>? books = BookController.SearchBooks(textSearch.Text);
+			RefreshBookList(books!);
+		}
+
+		private void buttonClearSearch_Click(object sender, EventArgs e)
+		{
+			textSearch.Text = "";
+			RefreshBookList();
+		}
+
+		private void RefreshBookList(List<Book> bookList = null)
+		{
+			List<Book> books;
+
+			if (bookList == null)
+			{
+				 books = BookController.GetBooks()!;
+			} else
+			{
+				books = bookList;
+			}
+
+				//dgBooks.DataSource = bookss;
+
+				dgBooks.DataSource = null;
+
+			DataTable dt = new DataTable();
+
+			dt.Columns.Add("Id");
+			dt.Columns.Add("Title");
+			dt.Columns.Add("Author");
+			dt.Columns.Add("Year");
+
+			foreach (Book book in books!)
+			{
+				var row = dt.NewRow();
+				row[0] = book.BookId;
+				row[1] = book.Title;
+				row[2] = book.Author.FullName;
+				row[3] = book.Year;
+				dt.Rows.Add(row);
+			}
+
+			dgBooks.DataSource = dt;
+
+			selectedBook = null;
+			textId.Text = "";
+			textTitle.Text = "";
+			comboAuthors.SelectedValue = "";
+			comboGenres.SelectedValue = "";
+			textPublisher.Text = "";
+			textYear.Text = "";
+			textISBN.Text = "";
+			textPrice.Text = "";
+			textAbout.Text = "";
+			numCopies.Value = 0M;
+			dateReceived.CustomFormat = " ";
+			dateReceived.Format = DateTimePickerFormat.Custom;
 		}
 	}
 }
