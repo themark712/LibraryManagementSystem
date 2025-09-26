@@ -18,6 +18,7 @@ namespace LibraryManagementSystem.Models
 		[MaxLength(200)]
 		public string? Title { get; set; }=string.Empty;
 
+		[Required]
 		[Display(Name = "Author")]
 		public int? AuthorId { get; set; }
 

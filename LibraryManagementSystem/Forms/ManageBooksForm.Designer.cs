@@ -520,6 +520,7 @@
 			buttonDelete.TextAlign = ContentAlignment.MiddleRight;
 			buttonDelete.TextImageRelation = TextImageRelation.ImageBeforeText;
 			buttonDelete.UseVisualStyleBackColor = false;
+			buttonDelete.Click += buttonDelete_Click;
 			// 
 			// buttonUpdate
 			// 
@@ -539,6 +540,7 @@
 			buttonUpdate.TextAlign = ContentAlignment.MiddleRight;
 			buttonUpdate.TextImageRelation = TextImageRelation.ImageBeforeText;
 			buttonUpdate.UseVisualStyleBackColor = false;
+			buttonUpdate.Click += buttonUpdate_Click;
 			// 
 			// buttonAdd
 			// 
@@ -558,6 +560,7 @@
 			buttonAdd.TextAlign = ContentAlignment.MiddleRight;
 			buttonAdd.TextImageRelation = TextImageRelation.ImageBeforeText;
 			buttonAdd.UseVisualStyleBackColor = false;
+			buttonAdd.Click += buttonAdd_Click;
 			// 
 			// ManageBooksForm
 			// 

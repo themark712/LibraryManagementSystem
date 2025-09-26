@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LibraryManagementSystem.Forms
 {
@@ -84,6 +85,16 @@ namespace LibraryManagementSystem.Forms
 			selectedBook = null;
 			textId.Text = "";
 			textTitle.Text = "";
+			comboAuthors.SelectedValue = "";
+			comboGenres.SelectedValue = "";
+			textPublisher.Text = "";
+			textYear.Text = "";
+			textISBN.Text = "";
+			textPrice.Text = "";
+			textAbout.Text = "";
+			numCopies.Value = 0M;
+			dateReceived.CustomFormat = " ";
+			dateReceived.Format = DateTimePickerFormat.Custom;
 		}
 
 		private void dgBooks_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -110,10 +121,52 @@ namespace LibraryManagementSystem.Forms
 			{
 				dateReceived.Format = DateTimePickerFormat.Long;
 				dateReceived.Value = DateTime.Parse(selectedBook.DateReceived!);
-			} else
+			}
+			else
 			{
 				dateReceived.CustomFormat = " ";
 				dateReceived.Format = DateTimePickerFormat.Custom;
+			}
+		}
+
+		private void buttonDelete_Click(object sender, EventArgs e)
+		{
+			if (selectedBook != null)
+			{
+				BookController.DeleteBook(selectedBook.BookId);
+			}
+			RefreshBookList();
+		}
+
+		private void buttonAdd_Click(object sender, EventArgs e)
+		{
+			if (textTitle.Text.Length > 0 && !string.IsNullOrEmpty(comboAuthors.SelectedValue!.ToString()) && !string.IsNullOrEmpty(comboGenres.SelectedValue!.ToString()))
+			{
+				if (BookController.AddBook(textTitle.Text, Convert.ToInt32(comboAuthors.SelectedValue), Convert.ToInt32(comboGenres.SelectedValue), textPublisher.Text, Convert.ToInt32(textYear.Text), textISBN.Text, Convert.ToInt32(numCopies.Value), Convert.ToDecimal(textPrice.Text), dateReceived.Text, textAbout.Text))
+				{
+					labelStatus.Text = "Books added";
+				}
+				RefreshBookList();
+			}
+			else
+			{
+				MessageBox.Show("Book title, author, genre, and year of publication are required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+		}
+
+		private void buttonUpdate_Click(object sender, EventArgs e)
+		{
+			if (textTitle.Text.Length > 0 && !string.IsNullOrEmpty(comboAuthors.SelectedValue!.ToString()) && !string.IsNullOrEmpty(comboGenres.SelectedValue!.ToString()))
+			{
+				if (BookController.UpdateBook(Convert.ToInt32(textId.Text),textTitle.Text, Convert.ToInt32(comboAuthors.SelectedValue), Convert.ToInt32(comboGenres.SelectedValue), textPublisher.Text, Convert.ToInt32(textYear.Text), textISBN.Text, Convert.ToInt32(numCopies.Value), Convert.ToDecimal(textPrice.Text), dateReceived.Text, textAbout.Text))
+				{
+					labelStatus.Text = "Books updated";
+				}
+				RefreshBookList();
+			}
+			else
+			{
+				MessageBox.Show("Book title, author, genre, and year of publication are required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 		}
 	}
