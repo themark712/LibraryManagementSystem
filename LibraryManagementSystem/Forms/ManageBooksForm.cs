@@ -41,6 +41,14 @@ namespace LibraryManagementSystem.Forms
 				comboAuthors.DataSource = authors;
 				comboAuthors.ValueMember = "AuthorId";
 				comboAuthors.DisplayMember = "FullName";
+
+				List<Genre> genres = new List<Genre>();
+				genres = GenreController.GetGenres()!;
+
+				comboGenres.Items.Clear();
+				comboGenres.DataSource = genres;
+				comboGenres.ValueMember = "GenreId";
+				comboGenres.DisplayMember = "Name";
 			}
 		}
 

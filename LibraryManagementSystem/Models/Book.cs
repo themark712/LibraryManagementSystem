@@ -41,5 +41,7 @@ namespace LibraryManagementSystem.Models
 		public string? About {  get; set; } = string.Empty;
 
 		public string? DateReceived {  get; set; } = string.Empty;
+
+		public byte? Cover { get; set; } = 0;
 	}
 }

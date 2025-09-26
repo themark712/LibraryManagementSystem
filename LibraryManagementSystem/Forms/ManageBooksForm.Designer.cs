@@ -28,11 +28,21 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageBooksForm));
+			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
 			panel1 = new Panel();
+			numCopies = new NumericUpDown();
+			comboGenres = new ComboBox();
+			labelGenre = new Label();
+			dateTimePicker1 = new DateTimePicker();
+			labelDateReceived = new Label();
+			textPublisher = new TextBox();
+			labelPublisher = new Label();
+			buttonAddCover = new Button();
+			labelCover = new Label();
+			picCover = new PictureBox();
 			textPrice = new TextBox();
 			comboAuthors = new ComboBox();
 			buttonClearSearch = new Button();
@@ -61,31 +71,21 @@
 			buttonDelete = new Button();
 			buttonUpdate = new Button();
 			buttonAdd = new Button();
-			picCover = new PictureBox();
-			labelCover = new Label();
-			buttonAddCover = new Button();
-			textPublisher = new TextBox();
-			labelPublisher = new Label();
-			labelDateReceived = new Label();
-			dateTimePicker1 = new DateTimePicker();
-			comboGenre = new ComboBox();
-			labelGenre = new Label();
-			numCopies = new NumericUpDown();
 			panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)numCopies).BeginInit();
+			((System.ComponentModel.ISupportInitialize)picCover).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
 			((System.ComponentModel.ISupportInitialize)dgAuthors).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			panel2.SuspendLayout();
 			panel3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)picCover).BeginInit();
-			((System.ComponentModel.ISupportInitialize)numCopies).BeginInit();
 			SuspendLayout();
 			// 
 			// panel1
 			// 
 			panel1.BackColor = Color.Silver;
 			panel1.Controls.Add(numCopies);
-			panel1.Controls.Add(comboGenre);
+			panel1.Controls.Add(comboGenres);
 			panel1.Controls.Add(labelGenre);
 			panel1.Controls.Add(dateTimePicker1);
 			panel1.Controls.Add(labelDateReceived);
@@ -118,6 +118,101 @@
 			panel1.Name = "panel1";
 			panel1.Size = new Size(837, 508);
 			panel1.TabIndex = 7;
+			// 
+			// numCopies
+			// 
+			numCopies.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			numCopies.Location = new Point(128, 271);
+			numCopies.Name = "numCopies";
+			numCopies.Size = new Size(120, 29);
+			numCopies.TabIndex = 36;
+			// 
+			// comboGenres
+			// 
+			comboGenres.Font = new Font("Segoe UI", 12F);
+			comboGenres.FormattingEnabled = true;
+			comboGenres.Location = new Point(128, 129);
+			comboGenres.Name = "comboGenres";
+			comboGenres.Size = new Size(242, 29);
+			comboGenres.TabIndex = 35;
+			// 
+			// labelGenre
+			// 
+			labelGenre.AutoSize = true;
+			labelGenre.Font = new Font("Segoe UI", 12F);
+			labelGenre.Location = new Point(66, 131);
+			labelGenre.Name = "labelGenre";
+			labelGenre.Size = new Size(55, 21);
+			labelGenre.TabIndex = 34;
+			labelGenre.Text = "Genre:";
+			// 
+			// dateTimePicker1
+			// 
+			dateTimePicker1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dateTimePicker1.Location = new Point(127, 437);
+			dateTimePicker1.Name = "dateTimePicker1";
+			dateTimePicker1.Size = new Size(243, 27);
+			dateTimePicker1.TabIndex = 33;
+			// 
+			// labelDateReceived
+			// 
+			labelDateReceived.AutoSize = true;
+			labelDateReceived.Font = new Font("Segoe UI", 12F);
+			labelDateReceived.Location = new Point(10, 440);
+			labelDateReceived.Name = "labelDateReceived";
+			labelDateReceived.Size = new Size(111, 21);
+			labelDateReceived.TabIndex = 32;
+			labelDateReceived.Text = "Date Received:";
+			// 
+			// textPublisher
+			// 
+			textPublisher.Font = new Font("Segoe UI", 12F);
+			textPublisher.Location = new Point(127, 199);
+			textPublisher.MaxLength = 100;
+			textPublisher.Name = "textPublisher";
+			textPublisher.Size = new Size(243, 29);
+			textPublisher.TabIndex = 31;
+			// 
+			// labelPublisher
+			// 
+			labelPublisher.AutoSize = true;
+			labelPublisher.Font = new Font("Segoe UI", 12F);
+			labelPublisher.Location = new Point(43, 201);
+			labelPublisher.Name = "labelPublisher";
+			labelPublisher.Size = new Size(78, 21);
+			labelPublisher.TabIndex = 30;
+			labelPublisher.Text = "Publisher:";
+			// 
+			// buttonAddCover
+			// 
+			buttonAddCover.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			buttonAddCover.Image = (Image)resources.GetObject("buttonAddCover.Image");
+			buttonAddCover.Location = new Point(598, 332);
+			buttonAddCover.Name = "buttonAddCover";
+			buttonAddCover.Size = new Size(224, 44);
+			buttonAddCover.TabIndex = 29;
+			buttonAddCover.Text = "Select Cover";
+			buttonAddCover.TextAlign = ContentAlignment.MiddleRight;
+			buttonAddCover.TextImageRelation = TextImageRelation.ImageBeforeText;
+			buttonAddCover.UseVisualStyleBackColor = true;
+			// 
+			// labelCover
+			// 
+			labelCover.AutoSize = true;
+			labelCover.Font = new Font("Segoe UI", 14.25F);
+			labelCover.Location = new Point(599, 60);
+			labelCover.Name = "labelCover";
+			labelCover.Size = new Size(65, 25);
+			labelCover.TabIndex = 28;
+			labelCover.Text = "Cover:";
+			// 
+			// picCover
+			// 
+			picCover.Location = new Point(599, 88);
+			picCover.Name = "picCover";
+			picCover.Size = new Size(223, 226);
+			picCover.TabIndex = 27;
+			picCover.TabStop = false;
 			// 
 			// textPrice
 			// 
@@ -269,34 +364,34 @@
 			dgAuthors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgAuthors.BackgroundColor = Color.Silver;
 			dgAuthors.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle7.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle7.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle7.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-			dgAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle4.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+			dgAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			dgAuthors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dgAuthors.Location = new Point(405, 351);
 			dgAuthors.MultiSelect = false;
 			dgAuthors.Name = "dgAuthors";
 			dgAuthors.ReadOnly = true;
 			dgAuthors.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle8.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle8.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle8.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
-			dgAuthors.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle5.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+			dgAuthors.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			dgAuthors.RowHeadersVisible = false;
-			dataGridViewCellStyle9.BackColor = Color.Silver;
-			dataGridViewCellStyle9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle9.ForeColor = Color.Black;
-			dataGridViewCellStyle9.SelectionBackColor = Color.RoyalBlue;
-			dgAuthors.RowsDefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle6.BackColor = Color.Silver;
+			dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle6.ForeColor = Color.Black;
+			dataGridViewCellStyle6.SelectionBackColor = Color.RoyalBlue;
+			dgAuthors.RowsDefaultCellStyle = dataGridViewCellStyle6;
 			dgAuthors.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			dgAuthors.Size = new Size(417, 106);
 			dgAuthors.TabIndex = 0;
@@ -457,100 +552,6 @@
 			buttonAdd.TextImageRelation = TextImageRelation.ImageBeforeText;
 			buttonAdd.UseVisualStyleBackColor = false;
 			// 
-			// picCover
-			// 
-			picCover.Location = new Point(599, 88);
-			picCover.Name = "picCover";
-			picCover.Size = new Size(223, 226);
-			picCover.TabIndex = 27;
-			picCover.TabStop = false;
-			// 
-			// labelCover
-			// 
-			labelCover.AutoSize = true;
-			labelCover.Font = new Font("Segoe UI", 14.25F);
-			labelCover.Location = new Point(599, 60);
-			labelCover.Name = "labelCover";
-			labelCover.Size = new Size(65, 25);
-			labelCover.TabIndex = 28;
-			labelCover.Text = "Cover:";
-			// 
-			// buttonAddCover
-			// 
-			buttonAddCover.Image = (Image)resources.GetObject("buttonAddCover.Image");
-			buttonAddCover.Location = new Point(598, 332);
-			buttonAddCover.Name = "buttonAddCover";
-			buttonAddCover.Size = new Size(224, 44);
-			buttonAddCover.TabIndex = 29;
-			buttonAddCover.Text = "Select Cover";
-			buttonAddCover.TextAlign = ContentAlignment.MiddleRight;
-			buttonAddCover.TextImageRelation = TextImageRelation.ImageBeforeText;
-			buttonAddCover.UseVisualStyleBackColor = true;
-			// 
-			// textPublisher
-			// 
-			textPublisher.Font = new Font("Segoe UI", 12F);
-			textPublisher.Location = new Point(127, 199);
-			textPublisher.MaxLength = 100;
-			textPublisher.Name = "textPublisher";
-			textPublisher.Size = new Size(243, 29);
-			textPublisher.TabIndex = 31;
-			// 
-			// labelPublisher
-			// 
-			labelPublisher.AutoSize = true;
-			labelPublisher.Font = new Font("Segoe UI", 12F);
-			labelPublisher.Location = new Point(43, 201);
-			labelPublisher.Name = "labelPublisher";
-			labelPublisher.Size = new Size(78, 21);
-			labelPublisher.TabIndex = 30;
-			labelPublisher.Text = "Publisher:";
-			// 
-			// labelDateReceived
-			// 
-			labelDateReceived.AutoSize = true;
-			labelDateReceived.Font = new Font("Segoe UI", 12F);
-			labelDateReceived.Location = new Point(10, 440);
-			labelDateReceived.Name = "labelDateReceived";
-			labelDateReceived.Size = new Size(111, 21);
-			labelDateReceived.TabIndex = 32;
-			labelDateReceived.Text = "Date Received:";
-			// 
-			// dateTimePicker1
-			// 
-			dateTimePicker1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dateTimePicker1.Location = new Point(127, 437);
-			dateTimePicker1.Name = "dateTimePicker1";
-			dateTimePicker1.Size = new Size(243, 27);
-			dateTimePicker1.TabIndex = 33;
-			// 
-			// comboGenre
-			// 
-			comboGenre.Font = new Font("Segoe UI", 12F);
-			comboGenre.FormattingEnabled = true;
-			comboGenre.Location = new Point(128, 129);
-			comboGenre.Name = "comboGenre";
-			comboGenre.Size = new Size(242, 29);
-			comboGenre.TabIndex = 35;
-			// 
-			// labelGenre
-			// 
-			labelGenre.AutoSize = true;
-			labelGenre.Font = new Font("Segoe UI", 12F);
-			labelGenre.Location = new Point(66, 131);
-			labelGenre.Name = "labelGenre";
-			labelGenre.Size = new Size(55, 21);
-			labelGenre.TabIndex = 34;
-			labelGenre.Text = "Genre:";
-			// 
-			// numCopies
-			// 
-			numCopies.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			numCopies.Location = new Point(128, 271);
-			numCopies.Name = "numCopies";
-			numCopies.Size = new Size(120, 29);
-			numCopies.TabIndex = 36;
-			// 
 			// ManageBooksForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -567,13 +568,13 @@
 			Load += ManageBooksForm_Load;
 			panel1.ResumeLayout(false);
 			panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)numCopies).EndInit();
+			((System.ComponentModel.ISupportInitialize)picCover).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
 			((System.ComponentModel.ISupportInitialize)dgAuthors).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			panel2.ResumeLayout(false);
 			panel3.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)picCover).EndInit();
-			((System.ComponentModel.ISupportInitialize)numCopies).EndInit();
 			ResumeLayout(false);
 		}
 
@@ -615,7 +616,7 @@
 		private Label labelPublisher;
 		private Label labelDateReceived;
 		private DateTimePicker dateTimePicker1;
-		private ComboBox comboGenre;
+		private ComboBox comboGenres;
 		private Label labelGenre;
 		private NumericUpDown numCopies;
 	}

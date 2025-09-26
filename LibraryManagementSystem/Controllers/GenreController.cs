@@ -21,7 +21,7 @@ namespace LibraryManagementSystem.Controllers
 			{
 				using (LmsContext context = new LmsContext())
 				{
-					var genres = context.Genres.ToList();
+					var genres = context.Genres.OrderBy(n=>n.Name).ToList();
 					return genres.ToList();
 				}
 			}

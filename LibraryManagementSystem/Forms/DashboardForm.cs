@@ -19,6 +19,7 @@ namespace LibraryManagementSystem.Forms
 		public DashboardForm()
 		{
 			InitializeComponent();
+			Utilties.CreateDatabase();
 		}
 
 		private void buttonClose_Click(object sender, EventArgs e)
@@ -28,9 +29,6 @@ namespace LibraryManagementSystem.Forms
 
 		private void DashboardForm_Load(object sender, EventArgs e)
 		{
-			//App.AddFont();
-			//	Font fnt = new Font(App.pFontCollection.Families[0], 15);
-			//labelHeader.Font = fnt;
 			int authorCount = AuthorController.GetCount();
 			labelAuthorsCount.Text = authorCount.ToString();
 		}
