@@ -21,6 +21,10 @@ namespace LibraryManagementSystem.Models
 		[MaxLength(100)]
 		[Display(Name = "Last Name")]
 		public string? LastName { get; set; } = string.Empty;
+		public string? FullName
+		{
+			get { return $"{LastName}, {FirstName}"; }
+		}
 
 		public string? DOB { get; set; }
 

@@ -28,10 +28,10 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageGenresForm));
-			DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
 			panel1 = new Panel();
 			labelStatus = new Label();
 			buttonDelete = new Button();
@@ -46,6 +46,7 @@
 			pictureBox1 = new PictureBox();
 			buttonClose = new Button();
 			labelHeader = new Label();
+			buttonShowGenreBooks = new Button();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dgGenres).BeginInit();
 			panel2.SuspendLayout();
@@ -55,6 +56,7 @@
 			// panel1
 			// 
 			panel1.BackColor = Color.Silver;
+			panel1.Controls.Add(buttonShowGenreBooks);
 			panel1.Controls.Add(labelStatus);
 			panel1.Controls.Add(buttonDelete);
 			panel1.Controls.Add(buttonUpdate);
@@ -90,7 +92,7 @@
 			buttonDelete.ForeColor = Color.DarkBlue;
 			buttonDelete.Image = (Image)resources.GetObject("buttonDelete.Image");
 			buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonDelete.Location = new Point(255, 144);
+			buttonDelete.Location = new Point(255, 132);
 			buttonDelete.Name = "buttonDelete";
 			buttonDelete.Size = new Size(118, 53);
 			buttonDelete.TabIndex = 7;
@@ -111,7 +113,7 @@
 			buttonUpdate.ForeColor = Color.DarkBlue;
 			buttonUpdate.Image = (Image)resources.GetObject("buttonUpdate.Image");
 			buttonUpdate.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonUpdate.Location = new Point(127, 144);
+			buttonUpdate.Location = new Point(127, 132);
 			buttonUpdate.Name = "buttonUpdate";
 			buttonUpdate.Size = new Size(129, 53);
 			buttonUpdate.TabIndex = 6;
@@ -132,7 +134,7 @@
 			buttonAdd.ForeColor = Color.DarkBlue;
 			buttonAdd.Image = (Image)resources.GetObject("buttonAdd.Image");
 			buttonAdd.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonAdd.Location = new Point(20, 144);
+			buttonAdd.Location = new Point(20, 132);
 			buttonAdd.Name = "buttonAdd";
 			buttonAdd.Size = new Size(101, 53);
 			buttonAdd.TabIndex = 5;
@@ -149,34 +151,34 @@
 			dgGenres.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgGenres.BackgroundColor = Color.Silver;
 			dgGenres.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle13.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle13.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle13.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle13.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle13.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
-			dgGenres.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+			dgGenres.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			dgGenres.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dgGenres.Location = new Point(400, 24);
 			dgGenres.MultiSelect = false;
 			dgGenres.Name = "dgGenres";
 			dgGenres.ReadOnly = true;
 			dgGenres.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle14.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle14.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle14.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle14.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
-			dgGenres.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle2.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+			dgGenres.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			dgGenres.RowHeadersVisible = false;
-			dataGridViewCellStyle15.BackColor = Color.Silver;
-			dataGridViewCellStyle15.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle15.ForeColor = Color.Black;
-			dataGridViewCellStyle15.SelectionBackColor = Color.RoyalBlue;
-			dgGenres.RowsDefaultCellStyle = dataGridViewCellStyle15;
+			dataGridViewCellStyle3.BackColor = Color.Silver;
+			dataGridViewCellStyle3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle3.ForeColor = Color.Black;
+			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
+			dgGenres.RowsDefaultCellStyle = dataGridViewCellStyle3;
 			dgGenres.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			dgGenres.Size = new Size(306, 213);
 			dgGenres.TabIndex = 4;
@@ -270,6 +272,26 @@
 			labelHeader.Text = "Genres";
 			labelHeader.TextAlign = ContentAlignment.MiddleLeft;
 			// 
+			// buttonShowGenreBooks
+			// 
+			buttonShowGenreBooks.BackColor = Color.Silver;
+			buttonShowGenreBooks.BackgroundImageLayout = ImageLayout.None;
+			buttonShowGenreBooks.Cursor = Cursors.Hand;
+			buttonShowGenreBooks.FlatAppearance.BorderSize = 0;
+			buttonShowGenreBooks.FlatStyle = FlatStyle.Flat;
+			buttonShowGenreBooks.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			buttonShowGenreBooks.ForeColor = Color.DarkBlue;
+			buttonShowGenreBooks.Image = (Image)resources.GetObject("buttonShowGenreBooks.Image");
+			buttonShowGenreBooks.ImageAlign = ContentAlignment.MiddleLeft;
+			buttonShowGenreBooks.Location = new Point(20, 203);
+			buttonShowGenreBooks.Name = "buttonShowGenreBooks";
+			buttonShowGenreBooks.Size = new Size(167, 53);
+			buttonShowGenreBooks.TabIndex = 12;
+			buttonShowGenreBooks.Text = "View Books";
+			buttonShowGenreBooks.TextAlign = ContentAlignment.MiddleRight;
+			buttonShowGenreBooks.TextImageRelation = TextImageRelation.ImageBeforeText;
+			buttonShowGenreBooks.UseVisualStyleBackColor = false;
+			// 
 			// ManageGenresForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -306,5 +328,6 @@
 		private Button buttonUpdate;
 		private Button buttonDelete;
 		private Label labelStatus;
+		private Button buttonShowGenreBooks;
 	}
 }
