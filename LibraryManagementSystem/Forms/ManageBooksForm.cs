@@ -32,6 +32,24 @@ namespace LibraryManagementSystem.Forms
 			FillAuthorCombo();
 			RefreshBookList();
 			dgBooks.ClearSelection();
+			
+			if (App.AuthorId == 0)
+			{
+				comboAuthorView.SelectedIndex = -1;
+			}
+			else
+			{
+				comboAuthorView.SelectedValue = App.AuthorId;
+			}
+
+			if (App.GenreId == 0)
+			{
+				comboGenreView.SelectedIndex = -1;
+			}
+			else
+			{
+				comboGenreView.SelectedValue = App.GenreId;
+			}
 		}
 
 		private void buttonClose_Click(object sender, EventArgs e)
@@ -55,16 +73,6 @@ namespace LibraryManagementSystem.Forms
 				comboAuthorView.DataSource = authors;
 				comboAuthorView.ValueMember = "AuthorId";
 				comboAuthorView.DisplayMember = "FullName";
-				comboAuthorView.SelectedIndex = -1;
-
-				if (App.AuthorId == 0)
-				{
-					comboAuthorView.SelectedIndex = -1;
-				}
-				else
-				{
-					comboAuthorView.SelectedValue = App.AuthorId;
-				}
 
 				List<Genre> genres = new List<Genre>();
 				genres = GenreController.GetGenres()!;
@@ -79,14 +87,6 @@ namespace LibraryManagementSystem.Forms
 				comboGenreView.ValueMember = "GenreId";
 				comboGenreView.DisplayMember = "Name";
 
-				if (App.GenreId == 0)
-				{
-					comboGenreView.SelectedIndex = -1;
-				}
-				else
-				{
-					comboGenreView.SelectedValue = App.GenreId;
-				}
 			}
 		}
 

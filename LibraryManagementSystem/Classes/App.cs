@@ -14,8 +14,8 @@ namespace LibraryManagementSystem.Classes
 		public static PrivateFontCollection pFontCollection = new PrivateFontCollection();
 		public static AppUser? User = null;
 		public static string DatabaseLocation = "";
-		public static int GenreId=0;
-		public static int AuthorId=0;
+		public static int GenreId = 0;
+		public static int AuthorId = 0;
 
 		public static void AddFont()
 		{
