@@ -29,9 +29,9 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageGenresForm));
-			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
 			panel1 = new Panel();
 			label1 = new Label();
 			label3 = new Label();
@@ -118,6 +118,7 @@
 			buttonShowGenreBooks.TextAlign = ContentAlignment.MiddleRight;
 			buttonShowGenreBooks.TextImageRelation = TextImageRelation.ImageBeforeText;
 			buttonShowGenreBooks.UseVisualStyleBackColor = false;
+			buttonShowGenreBooks.Click += buttonShowGenreBooks_Click;
 			// 
 			// buttonDelete
 			// 
@@ -189,34 +190,34 @@
 			dgGenres.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgGenres.BackgroundColor = Color.Silver;
 			dgGenres.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle4.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle4.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-			dgGenres.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+			dgGenres.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			dgGenres.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dgGenres.Location = new Point(400, 24);
 			dgGenres.MultiSelect = false;
 			dgGenres.Name = "dgGenres";
 			dgGenres.ReadOnly = true;
 			dgGenres.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle5.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle5.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-			dgGenres.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle2.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+			dgGenres.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			dgGenres.RowHeadersVisible = false;
-			dataGridViewCellStyle6.BackColor = Color.Silver;
-			dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle6.ForeColor = Color.Black;
-			dataGridViewCellStyle6.SelectionBackColor = Color.RoyalBlue;
-			dgGenres.RowsDefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle3.BackColor = Color.Silver;
+			dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle3.ForeColor = Color.Black;
+			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
+			dgGenres.RowsDefaultCellStyle = dataGridViewCellStyle3;
 			dgGenres.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			dgGenres.Size = new Size(306, 213);
 			dgGenres.TabIndex = 4;

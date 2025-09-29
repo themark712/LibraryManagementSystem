@@ -33,7 +33,6 @@
 			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
 			panel1 = new Panel();
-			label4 = new Label();
 			label3 = new Label();
 			label2 = new Label();
 			label1 = new Label();
@@ -67,6 +66,8 @@
 			textId = new TextBox();
 			labelTitle = new Label();
 			labelId = new Label();
+			label4 = new Label();
+			label5 = new Label();
 			pictureBox1 = new PictureBox();
 			labelHeader = new Label();
 			panel2 = new Panel();
@@ -77,7 +78,11 @@
 			buttonUpdate = new Button();
 			buttonAdd = new Button();
 			openFileBookImage = new OpenFileDialog();
-			label5 = new Label();
+			label6 = new Label();
+			label7 = new Label();
+			label8 = new Label();
+			comboAuthorView = new ComboBox();
+			comboGenreView = new ComboBox();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)numCopies).BeginInit();
 			((System.ComponentModel.ISupportInitialize)picCover).BeginInit();
@@ -130,20 +135,6 @@
 			panel1.Name = "panel1";
 			panel1.Size = new Size(837, 508);
 			panel1.TabIndex = 7;
-			// 
-			// label4
-			// 
-			label4.AutoSize = true;
-			label4.BackColor = Color.Transparent;
-			label4.FlatStyle = FlatStyle.Flat;
-			label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			label4.ForeColor = Color.DarkBlue;
-			label4.Location = new Point(366, 91);
-			label4.Margin = new Padding(0);
-			label4.Name = "label4";
-			label4.Size = new Size(15, 20);
-			label4.TabIndex = 41;
-			label4.Text = "*";
 			// 
 			// label3
 			// 
@@ -509,6 +500,34 @@
 			labelId.TabIndex = 0;
 			labelId.Text = "ID:";
 			// 
+			// label4
+			// 
+			label4.AutoSize = true;
+			label4.BackColor = Color.Transparent;
+			label4.FlatStyle = FlatStyle.Flat;
+			label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label4.ForeColor = Color.DarkBlue;
+			label4.Location = new Point(366, 91);
+			label4.Margin = new Padding(0);
+			label4.Name = "label4";
+			label4.Size = new Size(15, 20);
+			label4.TabIndex = 41;
+			label4.Text = "*";
+			// 
+			// label5
+			// 
+			label5.AutoSize = true;
+			label5.BackColor = Color.Transparent;
+			label5.FlatStyle = FlatStyle.Flat;
+			label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label5.ForeColor = Color.DarkBlue;
+			label5.Location = new Point(366, 129);
+			label5.Margin = new Padding(0);
+			label5.Name = "label5";
+			label5.Size = new Size(15, 20);
+			label5.TabIndex = 42;
+			label5.Text = "*";
+			// 
 			// pictureBox1
 			// 
 			pictureBox1.BackColor = Color.Transparent;
@@ -573,6 +592,11 @@
 			// 
 			// panel3
 			// 
+			panel3.Controls.Add(comboGenreView);
+			panel3.Controls.Add(comboAuthorView);
+			panel3.Controls.Add(label8);
+			panel3.Controls.Add(label7);
+			panel3.Controls.Add(label6);
 			panel3.Controls.Add(buttonDelete);
 			panel3.Controls.Add(buttonUpdate);
 			panel3.Controls.Add(buttonAdd);
@@ -641,19 +665,56 @@
 			buttonAdd.UseVisualStyleBackColor = false;
 			buttonAdd.Click += buttonAdd_Click;
 			// 
-			// label5
+			// label6
 			// 
-			label5.AutoSize = true;
-			label5.BackColor = Color.Transparent;
-			label5.FlatStyle = FlatStyle.Flat;
-			label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			label5.ForeColor = Color.DarkBlue;
-			label5.Location = new Point(366, 129);
-			label5.Margin = new Padding(0);
-			label5.Name = "label5";
-			label5.Size = new Size(15, 20);
-			label5.TabIndex = 42;
-			label5.Text = "*";
+			label6.BackColor = Color.FromArgb(17, 24, 34);
+			label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			label6.ForeColor = Color.Gold;
+			label6.Location = new Point(3, 17);
+			label6.Name = "label6";
+			label6.Size = new Size(143, 21);
+			label6.TabIndex = 14;
+			label6.Text = "View";
+			// 
+			// label7
+			// 
+			label7.BackColor = Color.FromArgb(17, 24, 34);
+			label7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+			label7.ForeColor = Color.Gold;
+			label7.Location = new Point(7, 51);
+			label7.Name = "label7";
+			label7.Size = new Size(125, 21);
+			label7.TabIndex = 15;
+			label7.Text = "Genre";
+			// 
+			// label8
+			// 
+			label8.BackColor = Color.FromArgb(17, 24, 34);
+			label8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+			label8.ForeColor = Color.Gold;
+			label8.Location = new Point(7, 116);
+			label8.Name = "label8";
+			label8.Size = new Size(125, 21);
+			label8.TabIndex = 16;
+			label8.Text = "Author";
+			// 
+			// comboAuthorView
+			// 
+			comboAuthorView.Font = new Font("Segoe UI", 9.75F);
+			comboAuthorView.FormattingEnabled = true;
+			comboAuthorView.Location = new Point(12, 140);
+			comboAuthorView.Name = "comboAuthorView";
+			comboAuthorView.Size = new Size(130, 25);
+			comboAuthorView.TabIndex = 38;
+			// 
+			// comboGenreView
+			// 
+			comboGenreView.Font = new Font("Segoe UI", 9.75F);
+			comboGenreView.FormattingEnabled = true;
+			comboGenreView.Location = new Point(12, 75);
+			comboGenreView.Name = "comboGenreView";
+			comboGenreView.Size = new Size(130, 25);
+			comboGenreView.TabIndex = 39;
 			// 
 			// ManageBooksForm
 			// 
@@ -729,5 +790,10 @@
 		private Label label3;
 		private Label label4;
 		private Label label5;
+		private Label label6;
+		private Label label7;
+		private Label label8;
+		private ComboBox comboAuthorView;
+		private ComboBox comboGenreView;
 	}
 }

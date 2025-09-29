@@ -1,4 +1,5 @@
-﻿using LibraryManagementSystem.Controllers;
+﻿using LibraryManagementSystem.Classes;
+using LibraryManagementSystem.Controllers;
 using LibraryManagementSystem.Database;
 using LibraryManagementSystem.Models;
 using System;
@@ -145,6 +146,16 @@ namespace LibraryManagementSystem.Forms
 						dgGenres.Rows[i].Selected = true;
 					}
 				}
+			}
+		}
+
+		private void buttonShowGenreBooks_Click(object sender, EventArgs e)
+		{
+			if(textId.Text != "")
+			{
+				App.GenreId = Convert.ToInt32(textId.Text);
+				ManageBooksForm booksForm = new ManageBooksForm();
+				booksForm.ShowDialog();
 			}
 		}
 	}
