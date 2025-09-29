@@ -268,9 +268,14 @@ namespace LibraryManagementSystem.Forms
 				dataError += "Year of publication is required" + Environment.NewLine;
 			}
 
-			if (textTitle.Text.Length == 0)
+			// check existing ISBN
+			List<Book>? booksByIsbn = BookController.GetBooks()!
+				.Where(i=>i.ISBN!.Replace("-","").Replace(" ","").Trim().ToLower() == textISBN.Text.Replace("-", "").Replace(" ", "").Trim().ToLower() && i.ISBN.Trim() != "")
+				.ToList();
+
+			if (booksByIsbn.Count > 0)
 			{
-				dataError += "Book title is required" + Environment.NewLine;
+				dataError += "This ISBN number already exists" + Environment.NewLine;
 			}
 
 			decimal price;
