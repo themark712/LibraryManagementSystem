@@ -29,6 +29,7 @@ namespace LibraryManagementSystem.Forms
 			buttonAdd.Enabled = true;
 			buttonUpdate.Enabled = true;
 			buttonDelete.Enabled = true;
+			dgAuthors.ClearSelection();
 		}
 
 		private void dgAuthors_CellClick(object sender, DataGridViewCellEventArgs e)
