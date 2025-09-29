@@ -267,6 +267,9 @@ namespace LibraryManagementSystem.Forms
 				dateReceived.CustomFormat = " ";
 				dateReceived.Format = DateTimePickerFormat.Custom;
 				picCover.Image = null;
+				dgBooks.ClearSelection();
+				comboGenres.SelectedIndex = -1;
+				comboAuthors.SelectedIndex = -1;
 			}
 			else
 			{
@@ -338,13 +341,33 @@ namespace LibraryManagementSystem.Forms
 
 		private void comboGenreView_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			App.GenreId = Convert.ToInt32(comboGenreView.SelectedValue);
-			RefreshBookList();
+			if (comboGenreView.SelectedIndex >= 0 && comboGenreView.SelectedValue.GetType() == typeof(Int32))
+			{
+				App.GenreId = Convert.ToInt32(comboGenreView.SelectedValue!.ToString());
+				RefreshBookList();
+			}
 		}
 
 		private void comboAuthorView_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			App.AuthorId = Convert.ToInt32(comboAuthorView.SelectedValue);
+			if (comboAuthorView.SelectedIndex >= 0 && comboAuthorView.SelectedValue.GetType() == typeof(Int32))
+			{
+				App.AuthorId = Convert.ToInt32(comboAuthorView.SelectedValue!.ToString());
+				RefreshBookList();
+			}
+		}
+
+		private void buttonClearGenreFilter_Click(object sender, EventArgs e)
+		{
+			App.GenreId = 0;
+			comboGenreView.SelectedIndex = -1;
+			RefreshBookList();
+		}
+
+		private void buttonClearAuthorFilter_Click(object sender, EventArgs e)
+		{
+			App.AuthorId = 0;
+			comboAuthorView.SelectedIndex = -1;
 			RefreshBookList();
 		}
 	}

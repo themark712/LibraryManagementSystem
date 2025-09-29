@@ -74,6 +74,8 @@
 			labelStatus = new Label();
 			buttonClose = new Button();
 			panel3 = new Panel();
+			buttonClearAuthorFilter = new Button();
+			buttonClearGenreFilter = new Button();
 			comboGenreView = new ComboBox();
 			comboAuthorView = new ComboBox();
 			label8 = new Label();
@@ -592,6 +594,8 @@
 			// 
 			// panel3
 			// 
+			panel3.Controls.Add(buttonClearAuthorFilter);
+			panel3.Controls.Add(buttonClearGenreFilter);
 			panel3.Controls.Add(comboGenreView);
 			panel3.Controls.Add(comboAuthorView);
 			panel3.Controls.Add(label8);
@@ -604,6 +608,32 @@
 			panel3.Name = "panel3";
 			panel3.Size = new Size(149, 497);
 			panel3.TabIndex = 9;
+			// 
+			// buttonClearAuthorFilter
+			// 
+			buttonClearAuthorFilter.BackgroundImageLayout = ImageLayout.Stretch;
+			buttonClearAuthorFilter.FlatAppearance.BorderSize = 0;
+			buttonClearAuthorFilter.FlatStyle = FlatStyle.Flat;
+			buttonClearAuthorFilter.Image = (Image)resources.GetObject("buttonClearAuthorFilter.Image");
+			buttonClearAuthorFilter.Location = new Point(113, 118);
+			buttonClearAuthorFilter.Name = "buttonClearAuthorFilter";
+			buttonClearAuthorFilter.Size = new Size(29, 21);
+			buttonClearAuthorFilter.TabIndex = 41;
+			buttonClearAuthorFilter.UseVisualStyleBackColor = true;
+			buttonClearAuthorFilter.Click += buttonClearAuthorFilter_Click;
+			// 
+			// buttonClearGenreFilter
+			// 
+			buttonClearGenreFilter.BackgroundImageLayout = ImageLayout.Stretch;
+			buttonClearGenreFilter.FlatAppearance.BorderSize = 0;
+			buttonClearGenreFilter.FlatStyle = FlatStyle.Flat;
+			buttonClearGenreFilter.Image = (Image)resources.GetObject("buttonClearGenreFilter.Image");
+			buttonClearGenreFilter.Location = new Point(113, 51);
+			buttonClearGenreFilter.Name = "buttonClearGenreFilter";
+			buttonClearGenreFilter.Size = new Size(29, 21);
+			buttonClearGenreFilter.TabIndex = 40;
+			buttonClearGenreFilter.UseVisualStyleBackColor = true;
+			buttonClearGenreFilter.Click += buttonClearGenreFilter_Click;
 			// 
 			// comboGenreView
 			// 
@@ -797,5 +827,7 @@
 		private Label label8;
 		private ComboBox comboAuthorView;
 		private ComboBox comboGenreView;
+		private Button buttonClearGenreFilter;
+		private Button buttonClearAuthorFilter;
 	}
 }
