@@ -116,9 +116,12 @@ namespace LibraryManagementSystem.Forms
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
-			if (textTitle.Text.Length > 0 && !string.IsNullOrEmpty(comboAuthors.SelectedValue!.ToString()) && !string.IsNullOrEmpty(comboGenres.SelectedValue!.ToString()))
+			string errorString = ValidateData();
+
+			if (errorString == "")
 			{
 				int newBookId = BookController.AddBook(textTitle.Text, Convert.ToInt32(comboAuthors.SelectedValue), Convert.ToInt32(comboGenres.SelectedValue), textPublisher.Text, Convert.ToInt32(textYear.Text), textISBN.Text, Convert.ToInt32(numCopies.Value), Convert.ToDecimal(textPrice.Text), dateReceived.Text, textAbout.Text);
+				
 				if (newBookId != 0)
 				{
 					labelStatus.Text = "Books added";
@@ -128,13 +131,15 @@ namespace LibraryManagementSystem.Forms
 			}
 			else
 			{
-				MessageBox.Show("Book title, author, genre, and year of publication are required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(errorString, "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 		}
 
 		private void buttonUpdate_Click(object sender, EventArgs e)
 		{
-			if (textTitle.Text.Length > 0 && textYear.Text.Length > 0 && !string.IsNullOrEmpty(comboAuthors.SelectedValue!.ToString()) && !string.IsNullOrEmpty(comboGenres.SelectedValue!.ToString()))
+			string errorString = ValidateData();
+
+			if (errorString == "")
 			{
 				if (BookController.UpdateBook(Convert.ToInt32(textId.Text), textTitle.Text, Convert.ToInt32(comboAuthors.SelectedValue), Convert.ToInt32(comboGenres.SelectedValue), textPublisher.Text, Convert.ToInt32(textYear.Text), textISBN.Text, Convert.ToInt32(numCopies.Value), Convert.ToDecimal(textPrice.Text), dateReceived.Text, textAbout.Text, labelCoverFileName.Text))
 				{
@@ -146,7 +151,7 @@ namespace LibraryManagementSystem.Forms
 			}
 			else
 			{
-				MessageBox.Show("Book title, author, genre, and year of publication are required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(errorString, "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 		}
 
@@ -219,7 +224,7 @@ namespace LibraryManagementSystem.Forms
 			{
 				for (int i = 0; i < dgBooks.Rows.Count; i++)
 				{
-					if (Convert.ToInt32(dgBooks.Rows[i].Cells[0].Value)==selectedBook.BookId)
+					if (Convert.ToInt32(dgBooks.Rows[i].Cells[0].Value) == selectedBook.BookId)
 					{
 						dgBooks.Rows[i].Selected = true;
 					}
@@ -237,6 +242,45 @@ namespace LibraryManagementSystem.Forms
 				labelCoverFileName.Text = openFileBookImage.SafeFileName;
 				picCover.Image.Save(imageLocation + labelCoverFileName.Text);
 			}
+		}
+
+		private string ValidateData()
+		{
+			string dataError = "";
+
+			if (textTitle.Text.Length == 0)
+			{
+				dataError += "Book title is required" + Environment.NewLine;
+			}
+
+			if (comboAuthors.SelectedValue == null || comboAuthors.SelectedValue.ToString() == "")
+			{
+				dataError += "Author is required" + Environment.NewLine;
+			}
+
+			if (comboGenres.SelectedValue == null || comboGenres.SelectedValue.ToString() == "")
+			{
+				dataError += "Genre is required" + Environment.NewLine;
+			}
+
+			if (textYear.Text.Length == 0)
+			{
+				dataError += "Year of publication is required" + Environment.NewLine;
+			}
+
+			if (textTitle.Text.Length == 0)
+			{
+				dataError += "Book title is required" + Environment.NewLine;
+			}
+
+			decimal price;
+
+			if (!decimal.TryParse(textPrice.Text, out price))
+			{
+				dataError += "Price must be a numeric value" + Environment.NewLine;
+			}
+
+			return dataError;
 		}
 	}
 }
