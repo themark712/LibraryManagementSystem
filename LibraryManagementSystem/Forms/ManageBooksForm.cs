@@ -335,5 +335,17 @@ namespace LibraryManagementSystem.Forms
 
 			return dataError;
 		}
+
+		private void comboGenreView_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			App.GenreId = Convert.ToInt32(comboGenreView.SelectedValue);
+			RefreshBookList();
+		}
+
+		private void comboAuthorView_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			App.AuthorId = Convert.ToInt32(comboAuthorView.SelectedValue);
+			RefreshBookList();
+		}
 	}
 }

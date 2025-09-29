@@ -29,9 +29,9 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageBooksForm));
-			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
 			panel1 = new Panel();
 			label3 = new Label();
 			label2 = new Label();
@@ -74,15 +74,15 @@
 			labelStatus = new Label();
 			buttonClose = new Button();
 			panel3 = new Panel();
+			comboGenreView = new ComboBox();
+			comboAuthorView = new ComboBox();
+			label8 = new Label();
+			label7 = new Label();
+			label6 = new Label();
 			buttonDelete = new Button();
 			buttonUpdate = new Button();
 			buttonAdd = new Button();
 			openFileBookImage = new OpenFileDialog();
-			label6 = new Label();
-			label7 = new Label();
-			label8 = new Label();
-			comboAuthorView = new ComboBox();
-			comboGenreView = new ComboBox();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)numCopies).BeginInit();
 			((System.ComponentModel.ISupportInitialize)picCover).BeginInit();
@@ -424,34 +424,34 @@
 			dgBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgBooks.BackgroundColor = Color.Silver;
 			dgBooks.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle4.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-			dgBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+			dgBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			dgBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dgBooks.Location = new Point(405, 55);
 			dgBooks.MultiSelect = false;
 			dgBooks.Name = "dgBooks";
 			dgBooks.ReadOnly = true;
 			dgBooks.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle5.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle5.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-			dgBooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle2.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+			dgBooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			dgBooks.RowHeadersVisible = false;
-			dataGridViewCellStyle6.BackColor = Color.Silver;
-			dataGridViewCellStyle6.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle6.ForeColor = Color.Black;
-			dataGridViewCellStyle6.SelectionBackColor = Color.RoyalBlue;
-			dgBooks.RowsDefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle3.BackColor = Color.Silver;
+			dataGridViewCellStyle3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle3.ForeColor = Color.Black;
+			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
+			dgBooks.RowsDefaultCellStyle = dataGridViewCellStyle3;
 			dgBooks.RowTemplate.DefaultCellStyle.BackColor = Color.WhiteSmoke;
 			dgBooks.RowTemplate.DefaultCellStyle.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			dgBooks.RowTemplate.DefaultCellStyle.ForeColor = Color.DarkBlue;
@@ -605,6 +605,59 @@
 			panel3.Size = new Size(149, 497);
 			panel3.TabIndex = 9;
 			// 
+			// comboGenreView
+			// 
+			comboGenreView.Font = new Font("Segoe UI", 9.75F);
+			comboGenreView.FormattingEnabled = true;
+			comboGenreView.Location = new Point(12, 75);
+			comboGenreView.Name = "comboGenreView";
+			comboGenreView.Size = new Size(130, 25);
+			comboGenreView.TabIndex = 39;
+			comboGenreView.SelectedIndexChanged += comboGenreView_SelectedIndexChanged;
+			// 
+			// comboAuthorView
+			// 
+			comboAuthorView.Font = new Font("Segoe UI", 9.75F);
+			comboAuthorView.FormattingEnabled = true;
+			comboAuthorView.Location = new Point(12, 140);
+			comboAuthorView.Name = "comboAuthorView";
+			comboAuthorView.Size = new Size(130, 25);
+			comboAuthorView.TabIndex = 38;
+			comboAuthorView.SelectedIndexChanged += comboAuthorView_SelectedIndexChanged;
+			// 
+			// label8
+			// 
+			label8.BackColor = Color.FromArgb(17, 24, 34);
+			label8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+			label8.ForeColor = Color.Gold;
+			label8.Location = new Point(7, 116);
+			label8.Name = "label8";
+			label8.Size = new Size(125, 21);
+			label8.TabIndex = 16;
+			label8.Text = "Author";
+			// 
+			// label7
+			// 
+			label7.BackColor = Color.FromArgb(17, 24, 34);
+			label7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+			label7.ForeColor = Color.Gold;
+			label7.Location = new Point(7, 51);
+			label7.Name = "label7";
+			label7.Size = new Size(125, 21);
+			label7.TabIndex = 15;
+			label7.Text = "Genre";
+			// 
+			// label6
+			// 
+			label6.BackColor = Color.FromArgb(17, 24, 34);
+			label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			label6.ForeColor = Color.Gold;
+			label6.Location = new Point(3, 17);
+			label6.Name = "label6";
+			label6.Size = new Size(143, 21);
+			label6.TabIndex = 14;
+			label6.Text = "View";
+			// 
 			// buttonDelete
 			// 
 			buttonDelete.BackColor = Color.SteelBlue;
@@ -664,57 +717,6 @@
 			buttonAdd.TextImageRelation = TextImageRelation.ImageBeforeText;
 			buttonAdd.UseVisualStyleBackColor = false;
 			buttonAdd.Click += buttonAdd_Click;
-			// 
-			// label6
-			// 
-			label6.BackColor = Color.FromArgb(17, 24, 34);
-			label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			label6.ForeColor = Color.Gold;
-			label6.Location = new Point(3, 17);
-			label6.Name = "label6";
-			label6.Size = new Size(143, 21);
-			label6.TabIndex = 14;
-			label6.Text = "View";
-			// 
-			// label7
-			// 
-			label7.BackColor = Color.FromArgb(17, 24, 34);
-			label7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-			label7.ForeColor = Color.Gold;
-			label7.Location = new Point(7, 51);
-			label7.Name = "label7";
-			label7.Size = new Size(125, 21);
-			label7.TabIndex = 15;
-			label7.Text = "Genre";
-			// 
-			// label8
-			// 
-			label8.BackColor = Color.FromArgb(17, 24, 34);
-			label8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-			label8.ForeColor = Color.Gold;
-			label8.Location = new Point(7, 116);
-			label8.Name = "label8";
-			label8.Size = new Size(125, 21);
-			label8.TabIndex = 16;
-			label8.Text = "Author";
-			// 
-			// comboAuthorView
-			// 
-			comboAuthorView.Font = new Font("Segoe UI", 9.75F);
-			comboAuthorView.FormattingEnabled = true;
-			comboAuthorView.Location = new Point(12, 140);
-			comboAuthorView.Name = "comboAuthorView";
-			comboAuthorView.Size = new Size(130, 25);
-			comboAuthorView.TabIndex = 38;
-			// 
-			// comboGenreView
-			// 
-			comboGenreView.Font = new Font("Segoe UI", 9.75F);
-			comboGenreView.FormattingEnabled = true;
-			comboGenreView.Location = new Point(12, 75);
-			comboGenreView.Name = "comboGenreView";
-			comboGenreView.Size = new Size(130, 25);
-			comboGenreView.TabIndex = 39;
 			// 
 			// ManageBooksForm
 			// 
