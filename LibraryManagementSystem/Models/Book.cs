@@ -52,7 +52,7 @@ namespace LibraryManagementSystem.Models
 
 		public string? DateReceived {  get; set; } = string.Empty;
 
-		public byte? Cover { get; set; } = 0;
+		public string? Cover { get; set; } = string.Empty;
 
 		public string? BookListItem
 		{

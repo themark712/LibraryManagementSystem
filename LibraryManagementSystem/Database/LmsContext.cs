@@ -59,18 +59,59 @@ namespace LibraryManagementSystem.Database
 				, new Genre { GenreId = 15, Name = "Technology" }
 				, new Genre { GenreId = 16, Name = "Thriller" }
 				, new Genre { GenreId = 17, Name = "Western" }
+				, new Genre { GenreId = 18, Name = "Drama/Play" }
+				, new Genre { GenreId = 19, Name = "Classic Literature: Other" }
 			);
 
 			modelBuilder.Entity<Author>().HasData(
 				new Author { AuthorId = 1, FirstName = "Stephen", LastName = "King", Hometown = "Portland, ME", DOB = "1949-09-21", DOD = "", Education = "BA, University of Maine-Orono", About = "" }
 				, new Author { AuthorId = 2, FirstName = "Dean", LastName = "Koontz", Hometown = "Everett, PA", DOB = "1945-07-09", DOD = "", Education = "BA, Shippensburg State College (PA)", About = "" }
 				, new Author { AuthorId = 3, FirstName = "Charles", LastName = "Dickens", Hometown = "Portsmouth, England", DOB = "1812-02-07", DOD = "1870-06-08", Education = "", About = "" }
+				, new Author { AuthorId = 4, FirstName = "William", LastName = "Shakespeare", Hometown = "Stratford-upon-Avon, England", DOB = "1564-04-23", DOD = "1616-04-23", Education = "King's New School, Stratford, England", About = "Famous English playwrite" }
+				, new Author { AuthorId = 5, FirstName = "Agatha", LastName = "Christie", Hometown = "Torquay, England", DOB = "1890-09-15", DOD = "1976-01-12", Education = "", About = "Mystery writer" }
+				, new Author { AuthorId = 6, FirstName = "J.K.", LastName = "Rowling", Hometown = "Yate, England", DOB = "1965-07-31", DOD = "", Education = "BA, University of Exeter", About = "Famou for Harry Potter series" }
+				, new Author { AuthorId = 7, FirstName = "Leo", LastName = "Tolstoy", Hometown = "Yasnaya Polyana, Russia", DOB = "1828-09-09", DOD = "1910-11-20", Education = "Imperial Kazan University", About = "Classic Russian writer" }
+				, new Author { AuthorId = 8, FirstName = "Louis", LastName = "L'Amour", Hometown = "Jamestown, ND", DOB = "1908-03-22", DOD = "1988-06-10", Education = "", About = "American Western writer" }
+				, new Author { AuthorId = 9, FirstName = "Robert", LastName = "Ludlum", Hometown = "New York, NY", DOB = "1927-05-25", DOD = "2001-03-12", Education = "BA, Wesleyan University", About = "Spy fiction writer" }
+				, new Author { AuthorId = 10, FirstName = "Tom", LastName = "Clancy", Hometown = "Baltimore, MD", DOB = "1947-04-12", DOD = "2013-10-01", Education = "BA, Loyola College (MD)", About = "Military thriller writer" }
+				, new Author { AuthorId = 11, FirstName = "John", LastName = "Grisham", Hometown = "Jonesboro, AK", DOB = "1955-02-08", DOD = "", Education = "BS, Mississippi State University" + Environment.NewLine + "JD, University of Mississippi", About = "Legal thriller writer" }
+				, new Author { AuthorId = 12, FirstName = "C.S.", LastName = "Lewis", Hometown = "Belfast, Ireland", DOB = "1898-11-29", DOD = "1963-11-22", Education = "University College (Oxford)", About = "Chrisian apologetics writer" }
+				, new Author { AuthorId = 13, FirstName = "Anne", LastName = "Rice", Hometown = "New Orleans, LA", DOB = "1941-10-04", DOD = "2021-12-11", Education = "BA, MA, San Francisco State University", About = "Gothic horror writer" }
+				, new Author { AuthorId = 14, FirstName = "J.R.R", LastName = "Tolkein", Hometown = "Bloefmontien, South Africa", DOB = "1892-01-03", DOD = "1973-09-02", Education = "Exeter College, Oxford", About = "Fantasy writer" }
+				, new Author { AuthorId = 15, FirstName = "James", LastName = "Patterson", Hometown = "Newburgh, NY", DOB = "1947-03-22", DOD = "", Education = "BA, Manhattan University" + Environment.NewLine + "MA, Vanderbility University", About = "Mystery/thriller writer" }
 			);
 
 			modelBuilder.Entity<Book>().HasData(
-				new Book { BookId = 1, Title = "'Salem's Lot", AuthorId = 1, GenreId = 9, Publisher = "Doubleday", Year = 1975, ISBN = "978-0-385-00751-1", Copies = 1, Price = 14.99M, DateReceived = "", About = "Vampires in a small Maine town", Cover = null }
-				, new Book { BookId = 2, Title = "Intensity", AuthorId = 2, GenreId = 16, Publisher = "Knopf", Year = 1996, ISBN = "0-7472-1334-8", Copies = 1, Price = 15.99M, DateReceived = "", About = "College student targeted by serial killer", Cover = null }
-				, new Book { BookId = 3, Title = "A Tale of Two Cities", AuthorId = 3, GenreId = 3, Publisher = "Chapman & Hall", Year = 1859, ISBN = "978-0141439600", Copies = 1, Price = 7.99M, DateReceived = "", About = "French Revolution", Cover = null }
+				new Book { BookId = 1, AuthorId = 1, Title = "'Salem's Lot", GenreId = 9, Publisher = "Doubleday", Year = 1975, ISBN = "978-0-385-00751-1", Copies = 1, Price = 14.99M, DateReceived = "", About = "Vampires in a small Maine town", Cover = null }
+				, new Book { BookId = 2, AuthorId = 2, GenreId = 16,   Title = "Intensity", Publisher = "Knopf", Year = 1996, ISBN = "0-7472-1334-8", Copies = 1, Price = 15.99M, DateReceived = "", About = "College student targeted by serial killer", Cover = null }
+				, new Book { BookId = 3, AuthorId = 3, GenreId = 3,    Title = "A Tale of Two Cities", Publisher = "Chapman & Hall", Year = 1859, ISBN = "978-0141439600", Copies = 1, Price = 7.99M, DateReceived = "", About = "French Revolution", Cover = null }
+				, new Book { BookId = 4, AuthorId = 1, GenreId = 9,    Title = "The Stand", Publisher = "Doubleday", Year = 1978, ISBN = "978-0-385-12168-2", Copies = 1, Price = 16.99M, DateReceived = "", About = "Apocalytic thriller", Cover = null }
+				, new Book { BookId = 5, AuthorId = 2, GenreId = 16,   Title = "False Memory", Publisher = "Bantam Books", Year = 1999, ISBN = "0-553-10666-X", Copies = 1, Price = 15.99M, DateReceived = "", About = "Autophobic patient manipulated by therapist", Cover = null }
+				, new Book { BookId = 6, AuthorId = 3, GenreId = 3,    Title = "A Christmas Carol", Publisher = "Chapman & Hall", Year = 1843, ISBN = "978-0486268651", Copies = 1, Price = 6.99M, DateReceived = "", About = "Christmas ghost story", Cover = null }
+				, new Book { BookId = 7, AuthorId = 4, GenreId = 18,   Title = "Romeo and Juliet", Publisher = "", Year = 1590, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 8, AuthorId = 4, GenreId = 18,   Title = "The Taming of the Shrew", Publisher = "", Year = 1595, ISBN = "9780486275574", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 9, AuthorId = 5, GenreId = 11,   Title = "Death on the Nile", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 10, AuthorId = 5, GenreId = 11,  Title = "Murder on the Orient Express", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 11, AuthorId = 6, GenreId = 4,   Title = "Harry Potter and the PHilosopher's's Stone", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 12, AuthorId = 6, GenreId = 4,   Title = "Harry Potter and the Deathly Hallows", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 13, AuthorId = 7, GenreId = 19,  Title = "War and Peace", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 14, AuthorId = 7, GenreId = 19,  Title = "Anna Karenina", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 15, AuthorId = 8, GenreId = 17,  Title = "Last of the Breen", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 16, AuthorId = 8, GenreId = 17,  Title = "Shalako", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 17, AuthorId = 9, GenreId = 16,  Title = "The Bourne Identity", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 18, AuthorId = 9, GenreId = 16,  Title = "The Parsifal Mosaic", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 19, AuthorId = 10, GenreId = 16, Title = "Patriot Games", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 20, AuthorId = 10, GenreId = 16, Title = "Clear and Present Danger", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 21, AuthorId = 11, GenreId = 16, Title = "The Pelican Brief", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 22, AuthorId = 11, GenreId = 16, Title = "The Client", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 23, AuthorId = 12, GenreId = 4,  Title = "The Lion, the Witch, and the Wardrobe", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 24, AuthorId = 12, GenreId = 4,  Title = "The Screwtape Letters", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 25, AuthorId = 13, GenreId = 9,  Title = "Interview with the Vampire", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 26, AuthorId = 13, GenreId = 9,  Title = "Merrick", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 27, AuthorId = 14, GenreId = 4,  Title = "The Hobbit", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 28, AuthorId = 14, GenreId = 4,  Title = "The Lord of the Rings: The Fellowship of the Ring", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 29, AuthorId = 15, GenreId = 16, Title = "Along Came a Spider", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
+				, new Book { BookId = 30, AuthorId = 15, GenreId = 16, Title = "Kiss the Girls", Publisher = "", Year = 1595, ISBN = "", Copies = 1, Price = 4.99M, DateReceived = "", About = "", Cover = null }
 			);
 		}
 	}

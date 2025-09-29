@@ -24,6 +24,7 @@ namespace LibraryManagementSystem.Forms
 
 		private void ManageAuthorsForm_Load(object sender, EventArgs e)
 		{
+			labelStatus.Text = "";
 			RefreshAuthorList();
 			buttonAdd.Enabled = true;
 			buttonUpdate.Enabled = true;

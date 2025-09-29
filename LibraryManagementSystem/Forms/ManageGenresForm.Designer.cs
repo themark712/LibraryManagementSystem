@@ -28,12 +28,12 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageGenresForm));
 			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageGenresForm));
 			panel1 = new Panel();
-			labelStatus = new Label();
+			buttonShowGenreBooks = new Button();
 			buttonDelete = new Button();
 			buttonUpdate = new Button();
 			buttonAdd = new Button();
@@ -46,7 +46,7 @@
 			pictureBox1 = new PictureBox();
 			buttonClose = new Button();
 			labelHeader = new Label();
-			buttonShowGenreBooks = new Button();
+			labelStatus = new Label();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dgGenres).BeginInit();
 			panel2.SuspendLayout();
@@ -57,7 +57,6 @@
 			// 
 			panel1.BackColor = Color.Silver;
 			panel1.Controls.Add(buttonShowGenreBooks);
-			panel1.Controls.Add(labelStatus);
 			panel1.Controls.Add(buttonDelete);
 			panel1.Controls.Add(buttonUpdate);
 			panel1.Controls.Add(buttonAdd);
@@ -71,15 +70,25 @@
 			panel1.Size = new Size(730, 264);
 			panel1.TabIndex = 2;
 			// 
-			// labelStatus
+			// buttonShowGenreBooks
 			// 
-			labelStatus.AutoSize = true;
-			labelStatus.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			labelStatus.ForeColor = Color.DarkBlue;
-			labelStatus.Location = new Point(20, 222);
-			labelStatus.Name = "labelStatus";
-			labelStatus.Size = new Size(0, 21);
-			labelStatus.TabIndex = 8;
+			buttonShowGenreBooks.BackColor = Color.Silver;
+			buttonShowGenreBooks.BackgroundImageLayout = ImageLayout.None;
+			buttonShowGenreBooks.Cursor = Cursors.Hand;
+			buttonShowGenreBooks.FlatAppearance.BorderSize = 0;
+			buttonShowGenreBooks.FlatStyle = FlatStyle.Flat;
+			buttonShowGenreBooks.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			buttonShowGenreBooks.ForeColor = Color.DarkBlue;
+			buttonShowGenreBooks.Image = (Image)resources.GetObject("buttonShowGenreBooks.Image");
+			buttonShowGenreBooks.ImageAlign = ContentAlignment.MiddleLeft;
+			buttonShowGenreBooks.Location = new Point(20, 203);
+			buttonShowGenreBooks.Name = "buttonShowGenreBooks";
+			buttonShowGenreBooks.Size = new Size(167, 53);
+			buttonShowGenreBooks.TabIndex = 12;
+			buttonShowGenreBooks.Text = "View Books";
+			buttonShowGenreBooks.TextAlign = ContentAlignment.MiddleRight;
+			buttonShowGenreBooks.TextImageRelation = TextImageRelation.ImageBeforeText;
+			buttonShowGenreBooks.UseVisualStyleBackColor = false;
 			// 
 			// buttonDelete
 			// 
@@ -226,6 +235,7 @@
 			// panel2
 			// 
 			panel2.BackColor = Color.DarkBlue;
+			panel2.Controls.Add(labelStatus);
 			panel2.Controls.Add(pictureBox1);
 			panel2.Controls.Add(buttonClose);
 			panel2.Controls.Add(labelHeader);
@@ -272,25 +282,16 @@
 			labelHeader.Text = "Genres";
 			labelHeader.TextAlign = ContentAlignment.MiddleLeft;
 			// 
-			// buttonShowGenreBooks
+			// labelStatus
 			// 
-			buttonShowGenreBooks.BackColor = Color.Silver;
-			buttonShowGenreBooks.BackgroundImageLayout = ImageLayout.None;
-			buttonShowGenreBooks.Cursor = Cursors.Hand;
-			buttonShowGenreBooks.FlatAppearance.BorderSize = 0;
-			buttonShowGenreBooks.FlatStyle = FlatStyle.Flat;
-			buttonShowGenreBooks.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			buttonShowGenreBooks.ForeColor = Color.DarkBlue;
-			buttonShowGenreBooks.Image = (Image)resources.GetObject("buttonShowGenreBooks.Image");
-			buttonShowGenreBooks.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonShowGenreBooks.Location = new Point(20, 203);
-			buttonShowGenreBooks.Name = "buttonShowGenreBooks";
-			buttonShowGenreBooks.Size = new Size(167, 53);
-			buttonShowGenreBooks.TabIndex = 12;
-			buttonShowGenreBooks.Text = "View Books";
-			buttonShowGenreBooks.TextAlign = ContentAlignment.MiddleRight;
-			buttonShowGenreBooks.TextImageRelation = TextImageRelation.ImageBeforeText;
-			buttonShowGenreBooks.UseVisualStyleBackColor = false;
+			labelStatus.BackColor = Color.DarkBlue;
+			labelStatus.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			labelStatus.ForeColor = Color.Gold;
+			labelStatus.Location = new Point(255, 34);
+			labelStatus.Name = "labelStatus";
+			labelStatus.Size = new Size(413, 21);
+			labelStatus.TabIndex = 13;
+			labelStatus.Text = "status";
 			// 
 			// ManageGenresForm
 			// 
@@ -327,7 +328,7 @@
 		private Button buttonAdd;
 		private Button buttonUpdate;
 		private Button buttonDelete;
-		private Label labelStatus;
 		private Button buttonShowGenreBooks;
+		private Label labelStatus;
 	}
 }

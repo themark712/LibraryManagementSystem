@@ -4,6 +4,7 @@ using LibraryManagementSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace LibraryManagementSystem.Forms
 	public partial class ManageBooksForm : Form
 	{
 		Book? selectedBook;
+		string imageLocation = ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\";
 
 		public ManageBooksForm()
 		{
@@ -30,6 +32,7 @@ namespace LibraryManagementSystem.Forms
 
 		private void ManageBooksForm_Load(object sender, EventArgs e)
 		{
+			labelStatus.Text = "";
 			FillAuthorCombo();
 			RefreshBookList();
 		}
@@ -58,7 +61,6 @@ namespace LibraryManagementSystem.Forms
 
 		private void dgBooks_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-
 			int selectedId = Convert.ToInt32(dgBooks.SelectedRows[0].Cells[0].Value);
 
 			using (LmsContext context = new LmsContext())
@@ -76,6 +78,17 @@ namespace LibraryManagementSystem.Forms
 			textPrice.Text = selectedBook.Price.ToString();
 			textAbout.Text = selectedBook.About;
 			numCopies.Value = (decimal)selectedBook.Copies!;
+			labelCoverFileName.Text = selectedBook.Cover;
+
+			if (!string.IsNullOrEmpty(selectedBook.Cover))
+			{
+				picCover.Image = Image.FromFile(imageLocation + selectedBook.Cover); // Correctly convert byte[] to Image
+			}
+			else
+			{
+				picCover.Image = null;
+			}
+
 			if (!string.IsNullOrEmpty(selectedBook.DateReceived!.ToString()))
 			{
 				dateReceived.Format = DateTimePickerFormat.Long;
@@ -85,47 +98,6 @@ namespace LibraryManagementSystem.Forms
 			{
 				dateReceived.CustomFormat = " ";
 				dateReceived.Format = DateTimePickerFormat.Custom;
-			}
-		}
-
-		private void buttonDelete_Click(object sender, EventArgs e)
-		{
-			if (selectedBook != null)
-			{
-				BookController.DeleteBook(selectedBook.BookId);
-			}
-			RefreshBookList();
-		}
-
-		private void buttonAdd_Click(object sender, EventArgs e)
-		{
-			if (textTitle.Text.Length > 0 && !string.IsNullOrEmpty(comboAuthors.SelectedValue!.ToString()) && !string.IsNullOrEmpty(comboGenres.SelectedValue!.ToString()))
-			{
-				if (BookController.AddBook(textTitle.Text, Convert.ToInt32(comboAuthors.SelectedValue), Convert.ToInt32(comboGenres.SelectedValue), textPublisher.Text, Convert.ToInt32(textYear.Text), textISBN.Text, Convert.ToInt32(numCopies.Value), Convert.ToDecimal(textPrice.Text), dateReceived.Text, textAbout.Text))
-				{
-					labelStatus.Text = "Books added";
-				}
-				RefreshBookList();
-			}
-			else
-			{
-				MessageBox.Show("Book title, author, genre, and year of publication are required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-			}
-		}
-
-		private void buttonUpdate_Click(object sender, EventArgs e)
-		{
-			if (textTitle.Text.Length > 0 && !string.IsNullOrEmpty(comboAuthors.SelectedValue!.ToString()) && !string.IsNullOrEmpty(comboGenres.SelectedValue!.ToString()))
-			{
-				if (BookController.UpdateBook(Convert.ToInt32(textId.Text), textTitle.Text, Convert.ToInt32(comboAuthors.SelectedValue), Convert.ToInt32(comboGenres.SelectedValue), textPublisher.Text, Convert.ToInt32(textYear.Text), textISBN.Text, Convert.ToInt32(numCopies.Value), Convert.ToDecimal(textPrice.Text), dateReceived.Text, textAbout.Text))
-				{
-					labelStatus.Text = "Books updated";
-				}
-				RefreshBookList();
-			}
-			else
-			{
-				MessageBox.Show("Book title, author, genre, and year of publication are required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 		}
 
@@ -141,21 +113,71 @@ namespace LibraryManagementSystem.Forms
 			RefreshBookList();
 		}
 
-		private void RefreshBookList(List<Book> bookList = null)
+		private void buttonAdd_Click(object sender, EventArgs e)
+		{
+			if (textTitle.Text.Length > 0 && !string.IsNullOrEmpty(comboAuthors.SelectedValue!.ToString()) && !string.IsNullOrEmpty(comboGenres.SelectedValue!.ToString()))
+			{
+				int newBookId = BookController.AddBook(textTitle.Text, Convert.ToInt32(comboAuthors.SelectedValue), Convert.ToInt32(comboGenres.SelectedValue), textPublisher.Text, Convert.ToInt32(textYear.Text), textISBN.Text, Convert.ToInt32(numCopies.Value), Convert.ToDecimal(textPrice.Text), dateReceived.Text, textAbout.Text);
+				if (newBookId != 0)
+				{
+					labelStatus.Text = "Books added";
+					selectedBook = BookController.GetBook(newBookId);
+				}
+				RefreshBookList();
+			}
+			else
+			{
+				MessageBox.Show("Book title, author, genre, and year of publication are required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+		}
+
+		private void buttonUpdate_Click(object sender, EventArgs e)
+		{
+			if (textTitle.Text.Length > 0 && textYear.Text.Length > 0 && !string.IsNullOrEmpty(comboAuthors.SelectedValue!.ToString()) && !string.IsNullOrEmpty(comboGenres.SelectedValue!.ToString()))
+			{
+				if (BookController.UpdateBook(Convert.ToInt32(textId.Text), textTitle.Text, Convert.ToInt32(comboAuthors.SelectedValue), Convert.ToInt32(comboGenres.SelectedValue), textPublisher.Text, Convert.ToInt32(textYear.Text), textISBN.Text, Convert.ToInt32(numCopies.Value), Convert.ToDecimal(textPrice.Text), dateReceived.Text, textAbout.Text, labelCoverFileName.Text))
+				{
+					labelStatus.Text = "Books updated";
+				}
+
+				selectedBook = BookController.GetBook(Convert.ToInt32(textId.Text));
+				RefreshBookList();
+			}
+			else
+			{
+				MessageBox.Show("Book title, author, genre, and year of publication are required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+		}
+
+		private void buttonDelete_Click(object sender, EventArgs e)
+		{
+			if (MessageBox.Show("Delete this book?", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+			{
+				if (selectedBook != null)
+				{
+					BookController.DeleteBook(selectedBook.BookId);
+					selectedBook = null;
+				}
+				RefreshBookList();
+			}
+		}
+
+		private void RefreshBookList(List<Book>? bookList = null)
 		{
 			List<Book> books;
 
 			if (bookList == null)
 			{
-				 books = BookController.GetBooks()!;
-			} else
+				books = BookController.GetBooks()!;
+			}
+			else
 			{
 				books = bookList;
 			}
 
-				//dgBooks.DataSource = bookss;
+			//dgBooks.DataSource = bookss;
 
-				dgBooks.DataSource = null;
+			dgBooks.DataSource = null;
 
 			DataTable dt = new DataTable();
 
@@ -176,19 +198,34 @@ namespace LibraryManagementSystem.Forms
 
 			dgBooks.DataSource = dt;
 
-			selectedBook = null;
-			textId.Text = "";
-			textTitle.Text = "";
-			comboAuthors.SelectedValue = "";
-			comboGenres.SelectedValue = "";
-			textPublisher.Text = "";
-			textYear.Text = "";
-			textISBN.Text = "";
-			textPrice.Text = "";
-			textAbout.Text = "";
-			numCopies.Value = 0M;
-			dateReceived.CustomFormat = " ";
-			dateReceived.Format = DateTimePickerFormat.Custom;
+			if (selectedBook == null)
+			{
+				textId.Text = "";
+				textTitle.Text = "";
+				comboAuthors.SelectedValue = "";
+				comboGenres.SelectedValue = "";
+				textPublisher.Text = "";
+				textYear.Text = "";
+				textISBN.Text = "";
+				textPrice.Text = "";
+				textAbout.Text = "";
+				numCopies.Value = 0M;
+				dateReceived.CustomFormat = " ";
+				dateReceived.Format = DateTimePickerFormat.Custom;
+				picCover.Image = null;
+			}
+		}
+
+		private void buttonAddCover_Click(object sender, EventArgs e)
+		{
+			openFileBookImage.Filter = "Select Image(*.jpg; *.png)|*.jpg; *.png";
+
+			if (openFileBookImage.ShowDialog() == DialogResult.OK)
+			{
+				picCover.Image = Image.FromFile(openFileBookImage.FileName);
+				labelCoverFileName.Text = openFileBookImage.SafeFileName;
+				picCover.Image.Save(imageLocation + labelCoverFileName.Text);
+			}
 		}
 	}
 }

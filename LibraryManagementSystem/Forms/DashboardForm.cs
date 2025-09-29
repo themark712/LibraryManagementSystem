@@ -23,10 +23,15 @@ namespace LibraryManagementSystem.Forms
 
 			string databaseLocation = ConfigurationManager.AppSettings["DatabaseLocation"]!;
 
-			if (databaseLocation == "" || !Directory.Exists(databaseLocation))
+			if (databaseLocation == "" || !Directory.Exists(databaseLocation) || !File.Exists(databaseLocation + "\\LMS.db"))
 			{
 				DatabaseSetupForm formDbSetup = new DatabaseSetupForm();
 				formDbSetup.ShowDialog();
+			}
+
+			if (!Directory.Exists(databaseLocation + "\\covers"))
+			{
+				Directory.CreateDirectory(databaseLocation + "\\covers");
 			}
 
 			if (!File.Exists(databaseLocation + "\\LMS.db"))

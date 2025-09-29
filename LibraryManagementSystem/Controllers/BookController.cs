@@ -76,17 +76,22 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public static bool AddBook(string _title, int _aid, int _gid, string _pub, int _year, string _is, int _cpy, decimal _prc, string _dte, string _abt)
+		public static int AddBook(string _title, int _aid, int _gid, string _pub, int _year, string _is, int _cpy, decimal _prc, string _dte, string _abt)
 		{
 			using (LmsContext context = new LmsContext())
 			{
+				int newId = 0;
 				var title = _title;
-				var books = context.Books.Where(b => b.Title == title && b.AuthorId == _aid && b.Year == _year).ToList();
+				var books = context.Books
+					.Where(b => b.Title == title && b.AuthorId == _aid
+						&& b.Year == _year
+						&& b.ISBN!.Replace("-", "").Replace(" ", "").Trim().ToLower() == _is.Replace("-", "").Replace(" ", "").Trim().ToLower())
+					.ToList();
 
 				if (books.Count > 0)
 				{
 					MessageBox.Show("This book already exists", "Book Exists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-					return false;
+					return 0;
 				}
 
 				if (!string.IsNullOrEmpty(title))
@@ -106,12 +111,13 @@ namespace LibraryManagementSystem.Controllers
 					};
 					context.Books.Add(newBook);
 					context.SaveChanges();
+					newId = newBook.BookId;
 				}
+				return newId;
 			}
-			return true;
 		}
 
-		public static bool UpdateBook(int _id, string _title, int _aid, int _gid, string _pub, int _year, string _is, int _cpy, decimal _prc, string _dte, string _abt)
+		public static bool UpdateBook(int _id, string _title, int _aid, int _gid, string _pub, int _year, string _is, int _cpy, decimal _prc, string _dte, string _abt, string _cvr)
 		{
 			int id = _id;
 			string title = _title;
@@ -132,6 +138,8 @@ namespace LibraryManagementSystem.Controllers
 					book.Price = _prc;
 					book.DateReceived = _dte;
 					book.About = _abt;
+					book.Cover = _cvr;
+
 					context.SaveChanges();
 				}
 				else

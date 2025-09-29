@@ -31,9 +31,9 @@ namespace LibraryManagementSystem.Forms
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageAuthorsForm));
-			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
 			labelHeader = new Label();
 			panel1 = new Panel();
 			buttonClearSearch = new Button();
@@ -51,7 +51,6 @@ namespace LibraryManagementSystem.Forms
 			labelDOB = new Label();
 			textLastName = new TextBox();
 			labelLastName = new Label();
-			labelStatus = new Label();
 			dgAuthors = new DataGridView();
 			textFirstName = new TextBox();
 			textId = new TextBox();
@@ -64,6 +63,7 @@ namespace LibraryManagementSystem.Forms
 			buttonDelete = new Button();
 			buttonUpdate = new Button();
 			buttonAdd = new Button();
+			labelStatus = new Label();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
 			((System.ComponentModel.ISupportInitialize)dgAuthors).BeginInit();
@@ -103,7 +103,6 @@ namespace LibraryManagementSystem.Forms
 			panel1.Controls.Add(labelDOB);
 			panel1.Controls.Add(textLastName);
 			panel1.Controls.Add(labelLastName);
-			panel1.Controls.Add(labelStatus);
 			panel1.Controls.Add(dgAuthors);
 			panel1.Controls.Add(textFirstName);
 			panel1.Controls.Add(textId);
@@ -256,16 +255,6 @@ namespace LibraryManagementSystem.Forms
 			labelLastName.TabIndex = 9;
 			labelLastName.Text = "Last Name:";
 			// 
-			// labelStatus
-			// 
-			labelStatus.AutoSize = true;
-			labelStatus.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			labelStatus.ForeColor = Color.DarkBlue;
-			labelStatus.Location = new Point(405, 433);
-			labelStatus.Name = "labelStatus";
-			labelStatus.Size = new Size(0, 21);
-			labelStatus.TabIndex = 8;
-			// 
 			// dgAuthors
 			// 
 			dgAuthors.AllowUserToAddRows = false;
@@ -273,34 +262,34 @@ namespace LibraryManagementSystem.Forms
 			dgAuthors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgAuthors.BackgroundColor = Color.Silver;
 			dgAuthors.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-			dgAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle7.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle7.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle7.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+			dgAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
 			dgAuthors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dgAuthors.Location = new Point(405, 73);
 			dgAuthors.MultiSelect = false;
 			dgAuthors.Name = "dgAuthors";
 			dgAuthors.ReadOnly = true;
 			dgAuthors.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle2.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-			dgAuthors.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle8.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle8.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle8.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+			dgAuthors.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
 			dgAuthors.RowHeadersVisible = false;
-			dataGridViewCellStyle3.BackColor = Color.Silver;
-			dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle3.ForeColor = Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
-			dgAuthors.RowsDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle9.BackColor = Color.Silver;
+			dataGridViewCellStyle9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle9.ForeColor = Color.Black;
+			dataGridViewCellStyle9.SelectionBackColor = Color.RoyalBlue;
+			dgAuthors.RowsDefaultCellStyle = dataGridViewCellStyle9;
 			dgAuthors.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			dgAuthors.Size = new Size(417, 316);
 			dgAuthors.TabIndex = 0;
@@ -348,6 +337,7 @@ namespace LibraryManagementSystem.Forms
 			// panel2
 			// 
 			panel2.BackColor = Color.DarkBlue;
+			panel2.Controls.Add(labelStatus);
 			panel2.Controls.Add(pictureBox1);
 			panel2.Controls.Add(buttonClose);
 			panel2.Controls.Add(labelHeader);
@@ -452,6 +442,17 @@ namespace LibraryManagementSystem.Forms
 			buttonAdd.UseVisualStyleBackColor = false;
 			buttonAdd.Click += buttonAdd_Click;
 			// 
+			// labelStatus
+			// 
+			labelStatus.BackColor = Color.DarkBlue;
+			labelStatus.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			labelStatus.ForeColor = Color.Gold;
+			labelStatus.Location = new Point(298, 34);
+			labelStatus.Name = "labelStatus";
+			labelStatus.Size = new Size(537, 21);
+			labelStatus.TabIndex = 12;
+			labelStatus.Text = "status";
+			// 
 			// ManageAuthorsForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -483,7 +484,6 @@ namespace LibraryManagementSystem.Forms
 
 		private Label labelHeader;
 		private Panel panel1;
-		private Label labelStatus;
 		private DataGridView dgAuthors;
 		private TextBox textFirstName;
 		private TextBox textId;
@@ -511,5 +511,6 @@ namespace LibraryManagementSystem.Forms
 		private TextBox textSearch;
 		private PictureBox pictureBox2;
 		private Button buttonClearSearch;
+		private Label labelStatus;
 	}
 }
