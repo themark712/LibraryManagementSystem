@@ -47,15 +47,15 @@ namespace LibraryManagementSystem.Forms
 			textDOB.Text = selectedAuthor.DOB;
 			textDOD.Text = selectedAuthor.DOD;
 			textHometown.Text = selectedAuthor.Hometown;
-			textEduction.Text = selectedAuthor.Education;
-			textAbout.Text = selectedAuthor.About;
+			rtbEducation.Text = selectedAuthor.Education;
+			rtbAbout.Text = selectedAuthor.About;
 		}
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
 			if (textFirstName.Text.Length > 0 && textLastName.Text.Length > 0)
 			{
-				int newAuthorId = AuthorController.AddAuthor(textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, textEduction.Text, textAbout.Text);
+				int newAuthorId = AuthorController.AddAuthor(textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, rtbEducation.Text, rtbAbout.Text);
 				if (newAuthorId != 0)
 				{
 					labelStatus.Text = "Author added";
@@ -73,7 +73,7 @@ namespace LibraryManagementSystem.Forms
 		{
 			if (textFirstName.Text.Length > 0 && textLastName.Text.Length > 0)
 			{
-				if (AuthorController.UpdateAuthor(Convert.ToInt32(textId.Text), textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, textEduction.Text, textAbout.Text))
+				if (AuthorController.UpdateAuthor(Convert.ToInt32(textId.Text), textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, rtbEducation.Text, rtbAbout.Text))
 				{
 					labelStatus.Text = "Author updated";
 					selectedAuthor = AuthorController.GetAuthor(Convert.ToInt32(textId.Text));
@@ -124,8 +124,8 @@ namespace LibraryManagementSystem.Forms
 				textDOB.Text = "";
 				textDOD.Text = "";
 				textHometown.Text = "";
-				textEduction.Text = "";
-				textAbout.Text = "";
+				rtbEducation.Text = "";
+				rtbAbout.Text = "";
 			}
 			else
 			{

@@ -31,16 +31,16 @@ namespace LibraryManagementSystem.Forms
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageAuthorsForm));
-			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
 			labelHeader = new Label();
-			panel1 = new Panel();
+			panelMain = new Panel();
 			buttonClearSearch = new Button();
 			pictureBox2 = new PictureBox();
 			textSearch = new TextBox();
-			textAbout = new RichTextBox();
-			textEduction = new RichTextBox();
+			rtbAbout = new RichTextBox();
+			rtbEducation = new RichTextBox();
 			labelAbout = new Label();
 			labelEducation = new Label();
 			textHometown = new TextBox();
@@ -64,7 +64,7 @@ namespace LibraryManagementSystem.Forms
 			buttonDelete = new Button();
 			buttonUpdate = new Button();
 			buttonAdd = new Button();
-			panel1.SuspendLayout();
+			panelMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
 			((System.ComponentModel.ISupportInitialize)dgAuthors).BeginInit();
 			panel2.SuspendLayout();
@@ -85,33 +85,33 @@ namespace LibraryManagementSystem.Forms
 			labelHeader.Text = "Authors";
 			labelHeader.TextAlign = ContentAlignment.MiddleLeft;
 			// 
-			// panel1
+			// panelMain
 			// 
-			panel1.BackColor = Color.Silver;
-			panel1.Controls.Add(buttonClearSearch);
-			panel1.Controls.Add(pictureBox2);
-			panel1.Controls.Add(textSearch);
-			panel1.Controls.Add(textAbout);
-			panel1.Controls.Add(textEduction);
-			panel1.Controls.Add(labelAbout);
-			panel1.Controls.Add(labelEducation);
-			panel1.Controls.Add(textHometown);
-			panel1.Controls.Add(labelHometown);
-			panel1.Controls.Add(textDOD);
-			panel1.Controls.Add(labelDOD);
-			panel1.Controls.Add(textDOB);
-			panel1.Controls.Add(labelDOB);
-			panel1.Controls.Add(textLastName);
-			panel1.Controls.Add(labelLastName);
-			panel1.Controls.Add(dgAuthors);
-			panel1.Controls.Add(textFirstName);
-			panel1.Controls.Add(textId);
-			panel1.Controls.Add(labelFirstName);
-			panel1.Controls.Add(labelId);
-			panel1.Location = new Point(159, 78);
-			panel1.Name = "panel1";
-			panel1.Size = new Size(837, 475);
-			panel1.TabIndex = 4;
+			panelMain.BackColor = Color.Silver;
+			panelMain.Controls.Add(buttonClearSearch);
+			panelMain.Controls.Add(pictureBox2);
+			panelMain.Controls.Add(textSearch);
+			panelMain.Controls.Add(rtbAbout);
+			panelMain.Controls.Add(rtbEducation);
+			panelMain.Controls.Add(labelAbout);
+			panelMain.Controls.Add(labelEducation);
+			panelMain.Controls.Add(textHometown);
+			panelMain.Controls.Add(labelHometown);
+			panelMain.Controls.Add(textDOD);
+			panelMain.Controls.Add(labelDOD);
+			panelMain.Controls.Add(textDOB);
+			panelMain.Controls.Add(labelDOB);
+			panelMain.Controls.Add(textLastName);
+			panelMain.Controls.Add(labelLastName);
+			panelMain.Controls.Add(dgAuthors);
+			panelMain.Controls.Add(textFirstName);
+			panelMain.Controls.Add(textId);
+			panelMain.Controls.Add(labelFirstName);
+			panelMain.Controls.Add(labelId);
+			panelMain.Location = new Point(159, 78);
+			panelMain.Name = "panelMain";
+			panelMain.Size = new Size(837, 475);
+			panelMain.TabIndex = 4;
 			// 
 			// buttonClearSearch
 			// 
@@ -143,23 +143,23 @@ namespace LibraryManagementSystem.Forms
 			textSearch.TabIndex = 22;
 			textSearch.TextChanged += textSearch_TextChanged;
 			// 
-			// textAbout
+			// rtbAbout
 			// 
-			textAbout.Location = new Point(143, 343);
-			textAbout.MaxLength = 200;
-			textAbout.Name = "textAbout";
-			textAbout.Size = new Size(243, 106);
-			textAbout.TabIndex = 21;
-			textAbout.Text = "";
+			rtbAbout.Location = new Point(143, 343);
+			rtbAbout.MaxLength = 200;
+			rtbAbout.Name = "rtbAbout";
+			rtbAbout.Size = new Size(243, 106);
+			rtbAbout.TabIndex = 21;
+			rtbAbout.Text = "";
 			// 
-			// textEduction
+			// rtbEducation
 			// 
-			textEduction.Location = new Point(143, 273);
-			textEduction.MaxLength = 200;
-			textEduction.Name = "textEduction";
-			textEduction.Size = new Size(242, 61);
-			textEduction.TabIndex = 20;
-			textEduction.Text = "";
+			rtbEducation.Location = new Point(143, 273);
+			rtbEducation.MaxLength = 200;
+			rtbEducation.Name = "rtbEducation";
+			rtbEducation.Size = new Size(242, 61);
+			rtbEducation.TabIndex = 20;
+			rtbEducation.Text = "";
 			// 
 			// labelAbout
 			// 
@@ -262,34 +262,34 @@ namespace LibraryManagementSystem.Forms
 			dgAuthors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgAuthors.BackgroundColor = Color.Silver;
 			dgAuthors.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-			dgAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle4.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+			dgAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			dgAuthors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dgAuthors.Location = new Point(405, 83);
 			dgAuthors.MultiSelect = false;
 			dgAuthors.Name = "dgAuthors";
 			dgAuthors.ReadOnly = true;
 			dgAuthors.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle2.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-			dgAuthors.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle5.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+			dgAuthors.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			dgAuthors.RowHeadersVisible = false;
-			dataGridViewCellStyle3.BackColor = Color.Silver;
-			dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle3.ForeColor = Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
-			dgAuthors.RowsDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle6.BackColor = Color.Silver;
+			dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle6.ForeColor = Color.Black;
+			dataGridViewCellStyle6.SelectionBackColor = Color.RoyalBlue;
+			dgAuthors.RowsDefaultCellStyle = dataGridViewCellStyle6;
 			dgAuthors.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			dgAuthors.Size = new Size(417, 316);
 			dgAuthors.TabIndex = 0;
@@ -461,14 +461,14 @@ namespace LibraryManagementSystem.Forms
 			ClientSize = new Size(1004, 565);
 			Controls.Add(panel3);
 			Controls.Add(panel2);
-			Controls.Add(panel1);
+			Controls.Add(panelMain);
 			FormBorderStyle = FormBorderStyle.None;
 			Name = "ManageAuthorsForm";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "ManageAuthorsForm";
 			Load += ManageAuthorsForm_Load;
-			panel1.ResumeLayout(false);
-			panel1.PerformLayout();
+			panelMain.ResumeLayout(false);
+			panelMain.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
 			((System.ComponentModel.ISupportInitialize)dgAuthors).EndInit();
 			panel2.ResumeLayout(false);
@@ -483,7 +483,7 @@ namespace LibraryManagementSystem.Forms
 		#endregion
 
 		private Label labelHeader;
-		private Panel panel1;
+		private Panel panelMain;
 		private DataGridView dgAuthors;
 		private TextBox textFirstName;
 		private TextBox textId;
@@ -506,8 +506,8 @@ namespace LibraryManagementSystem.Forms
 		private Label labelDOD;
 		private TextBox textDOB;
 		private Label labelDOB;
-		private RichTextBox textAbout;
-		private RichTextBox textEduction;
+		private RichTextBox rtbAbout;
+		private RichTextBox rtbEducation;
 		private TextBox textSearch;
 		private PictureBox pictureBox2;
 		private Button buttonClearSearch;
