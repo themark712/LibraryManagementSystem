@@ -29,9 +29,9 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageBooksForm));
-			DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
 			panel1 = new Panel();
 			labelCoverFileName = new Label();
 			numCopies = new NumericUpDown();
@@ -66,13 +66,13 @@
 			pictureBox1 = new PictureBox();
 			labelHeader = new Label();
 			panel2 = new Panel();
+			labelStatus = new Label();
 			buttonClose = new Button();
 			panel3 = new Panel();
 			buttonDelete = new Button();
 			buttonUpdate = new Button();
 			buttonAdd = new Button();
 			openFileBookImage = new OpenFileDialog();
-			labelStatus = new Label();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)numCopies).BeginInit();
 			((System.ComponentModel.ISupportInitialize)picCover).BeginInit();
@@ -220,6 +220,8 @@
 			// 
 			// picCover
 			// 
+			picCover.ErrorImage = null;
+			picCover.InitialImage = null;
 			picCover.Location = new Point(406, 264);
 			picCover.Name = "picCover";
 			picCover.Size = new Size(145, 192);
@@ -371,34 +373,34 @@
 			dgBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgBooks.BackgroundColor = Color.Silver;
 			dgBooks.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle7.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle7.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-			dgBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+			dgBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			dgBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dgBooks.Location = new Point(405, 55);
 			dgBooks.MultiSelect = false;
 			dgBooks.Name = "dgBooks";
 			dgBooks.ReadOnly = true;
 			dgBooks.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle8.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle8.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle8.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
-			dgBooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle2.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+			dgBooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			dgBooks.RowHeadersVisible = false;
-			dataGridViewCellStyle9.BackColor = Color.Silver;
-			dataGridViewCellStyle9.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle9.ForeColor = Color.Black;
-			dataGridViewCellStyle9.SelectionBackColor = Color.RoyalBlue;
-			dgBooks.RowsDefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle3.BackColor = Color.Silver;
+			dataGridViewCellStyle3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle3.ForeColor = Color.Black;
+			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
+			dgBooks.RowsDefaultCellStyle = dataGridViewCellStyle3;
 			dgBooks.RowTemplate.DefaultCellStyle.BackColor = Color.WhiteSmoke;
 			dgBooks.RowTemplate.DefaultCellStyle.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			dgBooks.RowTemplate.DefaultCellStyle.ForeColor = Color.DarkBlue;
@@ -484,6 +486,17 @@
 			panel2.Size = new Size(992, 70);
 			panel2.TabIndex = 8;
 			// 
+			// labelStatus
+			// 
+			labelStatus.BackColor = Color.DarkBlue;
+			labelStatus.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			labelStatus.ForeColor = Color.Gold;
+			labelStatus.Location = new Point(282, 34);
+			labelStatus.Name = "labelStatus";
+			labelStatus.Size = new Size(537, 21);
+			labelStatus.TabIndex = 13;
+			labelStatus.Text = "status";
+			// 
 			// buttonClose
 			// 
 			buttonClose.BackColor = Color.DarkBlue;
@@ -567,17 +580,6 @@
 			buttonAdd.TextImageRelation = TextImageRelation.ImageBeforeText;
 			buttonAdd.UseVisualStyleBackColor = false;
 			buttonAdd.Click += buttonAdd_Click;
-			// 
-			// labelStatus
-			// 
-			labelStatus.BackColor = Color.DarkBlue;
-			labelStatus.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			labelStatus.ForeColor = Color.Gold;
-			labelStatus.Location = new Point(282, 34);
-			labelStatus.Name = "labelStatus";
-			labelStatus.Size = new Size(537, 21);
-			labelStatus.TabIndex = 13;
-			labelStatus.Text = "status";
 			// 
 			// ManageBooksForm
 			// 

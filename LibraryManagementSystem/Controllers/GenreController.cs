@@ -49,26 +49,33 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public static bool AddGenre(string _name)
+		public static int AddGenre(string _name)
 		{
 			using (LmsContext context = new LmsContext())
 			{
 				var name = _name;
 				var genres = context.Genres.Where(n=>n.Name==name).ToList();
+				int newGenreId = 0;
 
 				if(genres.Count > 0)
 				{
 					MessageBox.Show("This genre already exists","Genre Exists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-					return false;
+					return 0;
 				}
 
 				if (!string.IsNullOrEmpty(name))
 				{
-					context.Genres.Add(new Genre() { Name = name });
+
+					Genre newGenre = new Genre
+					{
+						Name = name
+					};
+					context.Genres.Add(newGenre);
 					context.SaveChanges();
+					newGenreId = newGenre.GenreId;
 				}
+				return newGenreId;
 			}
-			return true;
 		}
 
 		public static bool UpdateGenre(int _id, string _name)

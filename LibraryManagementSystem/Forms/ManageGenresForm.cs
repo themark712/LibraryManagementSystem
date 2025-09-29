@@ -34,6 +34,7 @@ namespace LibraryManagementSystem.Forms
 			buttonAdd.Enabled = false;
 			buttonUpdate.Enabled = false;
 			buttonDelete.Enabled = false;
+			dgGenres.ClearSelection();
 		}
 
 		private void dgGenres_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -53,16 +54,18 @@ namespace LibraryManagementSystem.Forms
 		{
 			if (textName.Text.Length > 0)
 			{
-				if (GenreController.AddGenre(textName.Text))
+				int newGenreId = GenreController.AddGenre(textName.Text);
+				if (newGenreId != 0)
 				{
 					labelStatus.Text = "Genre added";
+					selectedGenre = GenreController.GetGenre(newGenreId);
+					RefreshGenreList();
 				}
 			}
 			else
 			{
 				MessageBox.Show("Genre name is required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
-			RefreshGenreList();
 		}
 
 		private void buttonUpdate_Click(object sender, EventArgs e)
@@ -73,13 +76,14 @@ namespace LibraryManagementSystem.Forms
 				if (GenreController.UpdateGenre(Convert.ToInt32(textId.Text), textName.Text))
 				{
 					labelStatus.Text = "Genre updated";
+					selectedGenre = GenreController.GetGenre(Convert.ToInt32(textId.Text));
+					RefreshGenreList();
 				}
 			}
 			else
 			{
 				MessageBox.Show("Genre name is required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
-			RefreshGenreList();
 		}
 
 		private void buttonDelete_Click(object sender, EventArgs e)
@@ -92,14 +96,15 @@ namespace LibraryManagementSystem.Forms
 				{
 					if (GenreController.DeleteGenre(id))
 					{
+						selectedGenre = null;
 						labelStatus.Text = "Genre deleted";
+						RefreshGenreList();
 					}
 				}
 				else
 				{
 					MessageBox.Show("No genre ID found. Select a genre from the list to delete", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				}
-				RefreshGenreList();
 			}
 		}
 
@@ -125,9 +130,22 @@ namespace LibraryManagementSystem.Forms
 		{
 			var genres = GenreController.GetGenres();
 			dgGenres.DataSource = genres;
-			selectedGenre = null;
-			textId.Text = "";
-			textName.Text = "";
+
+			if (selectedGenre == null)
+			{
+				textId.Text = "";
+				textName.Text = "";
+			}
+			else
+			{
+				for (int i = 0; i < dgGenres.Rows.Count; i++)
+				{
+					if (Convert.ToInt32(dgGenres.Rows[i].Cells[0].Value) == selectedGenre.GenreId)
+					{
+						dgGenres.Rows[i].Selected = true;
+					}
+				}
+			}
 		}
 	}
 }

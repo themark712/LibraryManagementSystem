@@ -43,10 +43,10 @@
 			labelName = new Label();
 			labelId = new Label();
 			panel2 = new Panel();
+			labelStatus = new Label();
 			pictureBox1 = new PictureBox();
 			buttonClose = new Button();
 			labelHeader = new Label();
-			labelStatus = new Label();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dgGenres).BeginInit();
 			panel2.SuspendLayout();
@@ -184,7 +184,7 @@
 			dgGenres.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			dgGenres.RowHeadersVisible = false;
 			dataGridViewCellStyle3.BackColor = Color.Silver;
-			dataGridViewCellStyle3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			dataGridViewCellStyle3.ForeColor = Color.Black;
 			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
 			dgGenres.RowsDefaultCellStyle = dataGridViewCellStyle3;
@@ -244,6 +244,17 @@
 			panel2.Size = new Size(730, 70);
 			panel2.TabIndex = 3;
 			// 
+			// labelStatus
+			// 
+			labelStatus.BackColor = Color.DarkBlue;
+			labelStatus.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			labelStatus.ForeColor = Color.Gold;
+			labelStatus.Location = new Point(255, 34);
+			labelStatus.Name = "labelStatus";
+			labelStatus.Size = new Size(413, 21);
+			labelStatus.TabIndex = 13;
+			labelStatus.Text = "status";
+			// 
 			// pictureBox1
 			// 
 			pictureBox1.BackColor = Color.Transparent;
@@ -281,17 +292,6 @@
 			labelHeader.TabIndex = 9;
 			labelHeader.Text = "Genres";
 			labelHeader.TextAlign = ContentAlignment.MiddleLeft;
-			// 
-			// labelStatus
-			// 
-			labelStatus.BackColor = Color.DarkBlue;
-			labelStatus.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			labelStatus.ForeColor = Color.Gold;
-			labelStatus.Location = new Point(255, 34);
-			labelStatus.Name = "labelStatus";
-			labelStatus.Size = new Size(413, 21);
-			labelStatus.TabIndex = 13;
-			labelStatus.Text = "status";
 			// 
 			// ManageGenresForm
 			// 
