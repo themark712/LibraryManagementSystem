@@ -25,16 +25,17 @@ namespace LibraryManagementSystem.Forms
 			InitializeComponent();
 		}
 
-		private void buttonClose_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
-
 		private void ManageBooksForm_Load(object sender, EventArgs e)
 		{
 			labelStatus.Text = "";
 			FillAuthorCombo();
 			RefreshBookList();
+			dgBooks.ClearSelection();
+		}
+
+		private void buttonClose_Click(object sender, EventArgs e)
+		{
+			this.Close();
 		}
 
 		private void FillAuthorCombo()
@@ -86,10 +87,10 @@ namespace LibraryManagementSystem.Forms
 			}
 			else
 			{
-				picCover.Image = null;
+				picCover.Image = Image.FromFile(imageLocation + "default.png");
 			}
 
-			if (!string.IsNullOrEmpty(selectedBook.DateReceived!.ToString()))
+			if (!string.IsNullOrEmpty(selectedBook.DateReceived!.ToString().Trim()))
 			{
 				dateReceived.Format = DateTimePickerFormat.Long;
 				dateReceived.Value = DateTime.Parse(selectedBook.DateReceived!);
@@ -213,6 +214,16 @@ namespace LibraryManagementSystem.Forms
 				dateReceived.CustomFormat = " ";
 				dateReceived.Format = DateTimePickerFormat.Custom;
 				picCover.Image = null;
+			}
+			else
+			{
+				for (int i = 0; i < dgBooks.Rows.Count; i++)
+				{
+					if (Convert.ToInt32(dgBooks.Rows[i].Cells[0].Value)==selectedBook.BookId)
+					{
+						dgBooks.Rows[i].Selected = true;
+					}
+				}
 			}
 		}
 
