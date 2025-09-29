@@ -59,5 +59,15 @@ namespace LibraryManagementSystem.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] book_cover_default {
+            get {
+                object obj = ResourceManager.GetObject("book-cover-default", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

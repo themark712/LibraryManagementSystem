@@ -38,6 +38,15 @@ namespace LibraryManagementSystem.Forms
 			{
 				Utilties.CreateDatabase();
 			}
+
+
+			// Replace the problematic code block:
+			if (!File.Exists(databaseLocation + "\\covers\\default.png"))
+			{
+				var defaultImg = LibraryManagementSystem.Properties.Resources.book_cover_default;
+				var newImg = Image.FromStream(new MemoryStream(defaultImg));
+				newImg.Save(databaseLocation + "\\covers\\default.png");
+			}
 		}
 
 		private void buttonClose_Click(object sender, EventArgs e)
