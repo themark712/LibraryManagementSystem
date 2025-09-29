@@ -70,20 +70,21 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public static bool AddAuthor(string _fname, string _lname, string? _dob, string? _dod, string _hometown, string _eduction, string _about)
+		public static int AddAuthor(string _fname, string _lname, string? _dob, string? _dod, string _hometown, string _eduction, string _about)
 		{
 			using (LmsContext context = new LmsContext())
 			{
+				var newAuthorId = 0;
+
 				// find existing authors with same first name, last name, and date of birth
 				var authors = context.Authors.Where(n => n.FirstName == _fname && n.LastName == _lname && n.DOB == _dob).ToList();
 
 				if (authors.Count > 0)
 				{
 					MessageBox.Show("This author already exists", "Author Exists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-					return false;
+					return 0;
 				}
-
-				context.Authors.Add(new Author()
+				Author newAuthor = new Author
 				{
 					FirstName = _fname,
 					LastName = _lname,
@@ -92,10 +93,12 @@ namespace LibraryManagementSystem.Controllers
 					Hometown = _hometown,
 					Education = _eduction,
 					About = _about
-				});
+				};
+
+				context.Authors.Add(newAuthor);
 				context.SaveChanges();
+				return newAuthor.AuthorId;
 			}
-			return true;
 		}
 
 		public static bool UpdateAuthor(int _id, string _fname, string _lname, string _dob, string _dod, string _hometown, string _eduction, string _about)

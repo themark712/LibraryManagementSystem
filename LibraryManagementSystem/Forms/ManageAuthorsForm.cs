@@ -54,11 +54,13 @@ namespace LibraryManagementSystem.Forms
 		{
 			if (textFirstName.Text.Length > 0 && textLastName.Text.Length > 0)
 			{
-				if (AuthorController.AddAuthor(textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, textEduction.Text, textAbout.Text))
+				int newAuthorId = AuthorController.AddAuthor(textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, textEduction.Text, textAbout.Text);
+				if (newAuthorId != 0)
 				{
 					labelStatus.Text = "Author added";
+					selectedAuthor = AuthorController.GetAuthor(newAuthorId);
+					RefreshAuthorList();
 				}
-				RefreshAuthorList();
 			}
 			else
 			{
@@ -73,13 +75,13 @@ namespace LibraryManagementSystem.Forms
 				if (AuthorController.UpdateAuthor(Convert.ToInt32(textId.Text), textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, textEduction.Text, textAbout.Text))
 				{
 					labelStatus.Text = "Author updated";
+					selectedAuthor = AuthorController.GetAuthor(Convert.ToInt32(textId.Text));
+					RefreshAuthorList();
 				}
 				else
 				{
 					MessageBox.Show("Author's first and last name are required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				}
-
-				RefreshAuthorList();
 			}
 		}
 		private void buttonDelete_Click(object sender, EventArgs e)
@@ -93,13 +95,14 @@ namespace LibraryManagementSystem.Forms
 					if (AuthorController.DeleteAuthor(Convert.ToInt32(textId.Text)))
 					{
 						labelStatus.Text = "Author deleted";
+						selectedAuthor = null;
+						RefreshAuthorList();
 					}
 				}
 				else
 				{
 					MessageBox.Show("No author ID found. Select an author from the list to delete", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				}
-				RefreshAuthorList();
 			}
 		}
 
@@ -112,15 +115,27 @@ namespace LibraryManagementSystem.Forms
 			dgAuthors.Columns[5].Visible = false;
 			dgAuthors.Columns[6].Visible = false;
 			dgAuthors.Columns[7].Visible = false;
-			selectedAuthor = null;
-			textId.Text = "";
-			textLastName.Text = "";
-			textFirstName.Text = "";
-			textDOB.Text = "";
-			textDOD.Text = "";
-			textHometown.Text = "";
-			textEduction.Text = "";
-			textAbout.Text = "";
+
+			if (selectedAuthor == null) { 
+				textId.Text = "";
+				textLastName.Text = "";
+				textFirstName.Text = "";
+				textDOB.Text = "";
+				textDOD.Text = "";
+				textHometown.Text = "";
+				textEduction.Text = "";
+				textAbout.Text = "";
+			}
+			else
+			{
+				for (int i = 0; i < dgAuthors.Rows.Count; i++)
+				{
+					if (Convert.ToInt32(dgAuthors.Rows[i].Cells[0].Value) == selectedAuthor.AuthorId)
+					{
+						dgAuthors.Rows[i].Selected = true;
+					}
+				}
+			}
 		}
 
 		private void buttonClose_Click(object sender, EventArgs e)
