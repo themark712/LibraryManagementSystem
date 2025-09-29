@@ -53,7 +53,9 @@ namespace LibraryManagementSystem.Forms
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
-			if (textFirstName.Text.Length > 0 && textLastName.Text.Length > 0)
+			string errorString = ValidateData();
+
+			if (errorString == "")
 			{
 				int newAuthorId = AuthorController.AddAuthor(textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, rtbEducation.Text, rtbAbout.Text);
 				if (newAuthorId != 0)
@@ -71,7 +73,9 @@ namespace LibraryManagementSystem.Forms
 
 		private void buttonUpdate_Click(object sender, EventArgs e)
 		{
-			if (textFirstName.Text.Length > 0 && textLastName.Text.Length > 0)
+			string errorString = ValidateData();
+
+			if (errorString == "")
 			{
 				if (AuthorController.UpdateAuthor(Convert.ToInt32(textId.Text), textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, rtbEducation.Text, rtbAbout.Text))
 				{
@@ -79,10 +83,10 @@ namespace LibraryManagementSystem.Forms
 					selectedAuthor = AuthorController.GetAuthor(Convert.ToInt32(textId.Text));
 					RefreshAuthorList();
 				}
-				else
-				{
-					MessageBox.Show("Author's first and last name are required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				}
+			}
+			else
+			{
+				MessageBox.Show(errorString, "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 		}
 		private void buttonDelete_Click(object sender, EventArgs e)
@@ -137,6 +141,23 @@ namespace LibraryManagementSystem.Forms
 					}
 				}
 			}
+		}
+
+		private string ValidateData()
+		{
+			string errorString = "";
+
+			if (textFirstName.Text.Length == 0)
+			{
+				errorString += "Author first name is required" + Environment.NewLine;
+			}
+
+			if (textLastName.Text.Length == 0)
+			{
+				errorString += "Author last name is required" + Environment.NewLine;
+			}
+
+			return errorString;
 		}
 
 		private void buttonClose_Click(object sender, EventArgs e)
