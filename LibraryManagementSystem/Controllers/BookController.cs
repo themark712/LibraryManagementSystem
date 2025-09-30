@@ -71,11 +71,18 @@ namespace LibraryManagementSystem.Controllers
 
 		public static List<Book>? SearchBooks(string search)
 		{
+			// search by string contained in fields: title, author last name, genre, publisher, ISBN
 			try
 			{
 				using (LmsContext context = new LmsContext())
 				{
-					var books = context.Books.Where(d => d.Title!.ToLower().Contains(search.ToLower()) || d.Genre.Name!.ToLower().Contains(search.ToLower()) || d.Author.LastName!.ToLower().Contains(search.ToLower()) || d.Publisher!.ToLower().Contains(search.ToLower())).Include(a => a.Author).Include(g => g.Genre).OrderBy(n => n.Title).ToList();
+					var books = context.Books
+						.Where(b => b.Title!.ToLower().Contains(search.ToLower()) 
+							|| b.Genre.Name!.ToLower().Contains(search.ToLower()) 
+							|| b.Author.LastName!.ToLower().Contains(search.ToLower())
+							|| b.Publisher!.ToLower().Contains(search.ToLower())
+							|| b.ISBN!.Replace("-","").Replace(" ", "").Trim().ToLower().Contains(search.ToLower()))
+						.Include(a => a.Author).Include(g => g.Genre).OrderBy(n => n.Title).ToList();
 					return books;
 				}
 			}
@@ -97,7 +104,7 @@ namespace LibraryManagementSystem.Controllers
 
 		public static int AddBook(string _title, int _aid, int _gid, string _pub, int _year, string _is, int _cpy, decimal _prc, string _dte, string _abt)
 		{
-			int existingBookId = BookExists(_title, _aid, _year, _is);
+			int? existingBookId = BookExists(_title, _aid, _year, _is);
 			
 			if (existingBookId != 0)
 			{
@@ -128,7 +135,7 @@ namespace LibraryManagementSystem.Controllers
 
 		public static bool UpdateBook(int _id, string _title, int _aid, int _gid, string _pub, int _year, string _is, int _cpy, decimal _prc, string _dte, string _abt, string _cvr)
 		{
-			int existingBookId = BookExists(_title, _aid, _year, _is);
+			int? existingBookId = BookExists(_title, _aid, _year, _is);
 			if (existingBookId != 0)
 			{
 				MessageBox.Show("A book with this information (title, author, year and ISBN) already exists (Book ID: " + existingBookId.ToString() + ")", "Book Exists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -180,19 +187,22 @@ namespace LibraryManagementSystem.Controllers
 			return true;
 		}
 
-		private static int BookExists(string _title, int _aid, int _year, string _isbn)
+		private static int? BookExists(string _title, int _aid, int _year, string _isbn)
 		{
-			int existingBookId = 0;
+			int? existingBookId = 0;
 
 			using (LmsContext context = new LmsContext())
 			{
-				var title = _title;
-				existingBookId = context.Books
-					.Where(b => b.Title == title && b.AuthorId == _aid
+				Book existingBook = context.Books
+					.Where(b => b.Title == _title && b.AuthorId == _aid
 						&& b.Year == _year
 						&& b.ISBN!.Replace("-", "").Replace(" ", "").Trim().ToLower() == _isbn.Replace("-", "").Replace(" ", "").Trim().ToLower())
-					.FirstOrDefault()!.BookId;
+					.FirstOrDefault()!;
 
+				if(existingBook==null)
+				{
+					return 0;
+				}
 				return existingBookId;
 			}
 		}

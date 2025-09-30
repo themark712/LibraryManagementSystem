@@ -85,6 +85,8 @@ namespace LibraryManagementSystem.Forms
 
 		private void buttonBooks_Click(object sender, EventArgs e)
 		{
+			App.GenreId = 0;
+			App.AuthorId = 0;
 			ToggleButtonBackgrounds((Button)sender);
 			ManageBooksForm mngBooks = new ManageBooksForm();
 			mngBooks.ShowDialog();

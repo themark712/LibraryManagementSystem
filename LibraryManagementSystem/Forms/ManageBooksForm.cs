@@ -123,13 +123,11 @@ namespace LibraryManagementSystem.Forms
 
 			if (!string.IsNullOrEmpty(selectedBook.DateReceived!.ToString().Trim()))
 			{
-				dateReceived.Format = DateTimePickerFormat.Long;
 				dateReceived.Value = DateTime.Parse(selectedBook.DateReceived!);
 			}
 			else
 			{
-				dateReceived.CustomFormat = " ";
-				dateReceived.Format = DateTimePickerFormat.Custom;
+				dateReceived.Value = DateTime.Today;
 			}
 		}
 
@@ -168,7 +166,7 @@ namespace LibraryManagementSystem.Forms
 
 		private void buttonUpdate_Click(object sender, EventArgs e)
 		{
-			string errorString = ValidateData();
+			string errorString = ValidateData(true);
 
 			if (errorString == "")
 			{
@@ -266,7 +264,7 @@ namespace LibraryManagementSystem.Forms
 				textAbout.Text = "";
 				numCopies.Value = 0M;
 				dateReceived.CustomFormat = " ";
-				dateReceived.Format = DateTimePickerFormat.Custom;
+				dateReceived.Value = DateTime.Today;
 				picCover.Image = null;
 				dgBooks.ClearSelection();
 				comboGenres.SelectedIndex = -1;
@@ -296,7 +294,7 @@ namespace LibraryManagementSystem.Forms
 			}
 		}
 
-		private string ValidateData()
+		private string ValidateData(bool isUpdate = false)
 		{
 			string dataError = "";
 
@@ -320,12 +318,15 @@ namespace LibraryManagementSystem.Forms
 				dataError += "Year of publication is required" + Environment.NewLine;
 			}
 
-			// check existing ISBN
-			Book booksByIsbn = BookController.GetBookByIsbn(textISBN.Text)!;
-
-			if (booksByIsbn != null)
+			if (!isUpdate)
 			{
-				dataError += "This ISBN number already exists" + Environment.NewLine;
+				// check existing ISBN
+				Book booksByIsbn = BookController.GetBookByIsbn(textISBN.Text)!;
+
+				if (booksByIsbn != null)
+				{
+					dataError += "This ISBN number already exists" + Environment.NewLine;
+				}
 			}
 
 			decimal price;
