@@ -30,12 +30,15 @@ namespace LibraryManagementSystem.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
+			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageAuthorsForm));
-			DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle21 = new DataGridViewCellStyle();
 			labelHeader = new Label();
 			panelMain = new Panel();
+			label3 = new Label();
+			label2 = new Label();
+			label1 = new Label();
 			buttonClearSearch = new Button();
 			pictureBox2 = new PictureBox();
 			textSearch = new TextBox();
@@ -64,9 +67,7 @@ namespace LibraryManagementSystem.Forms
 			buttonDelete = new Button();
 			buttonUpdate = new Button();
 			buttonAdd = new Button();
-			label1 = new Label();
-			label2 = new Label();
-			label3 = new Label();
+			buttonShowAuthorBooks = new Button();
 			panelMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
 			((System.ComponentModel.ISupportInitialize)dgAuthors).BeginInit();
@@ -91,6 +92,7 @@ namespace LibraryManagementSystem.Forms
 			// panelMain
 			// 
 			panelMain.BackColor = Color.Silver;
+			panelMain.Controls.Add(buttonShowAuthorBooks);
 			panelMain.Controls.Add(label3);
 			panelMain.Controls.Add(label2);
 			panelMain.Controls.Add(label1);
@@ -118,6 +120,42 @@ namespace LibraryManagementSystem.Forms
 			panelMain.Name = "panelMain";
 			panelMain.Size = new Size(837, 500);
 			panelMain.TabIndex = 4;
+			// 
+			// label3
+			// 
+			label3.AutoSize = true;
+			label3.BackColor = Color.Silver;
+			label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label3.ForeColor = Color.DarkBlue;
+			label3.Location = new Point(143, 462);
+			label3.Name = "label3";
+			label3.Size = new Size(79, 20);
+			label3.TabIndex = 27;
+			label3.Text = "* Required";
+			// 
+			// label2
+			// 
+			label2.AutoSize = true;
+			label2.BackColor = Color.White;
+			label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label2.ForeColor = Color.DarkBlue;
+			label2.Location = new Point(364, 115);
+			label2.Name = "label2";
+			label2.Size = new Size(15, 20);
+			label2.TabIndex = 26;
+			label2.Text = "*";
+			// 
+			// label1
+			// 
+			label1.AutoSize = true;
+			label1.BackColor = Color.White;
+			label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label1.ForeColor = Color.DarkBlue;
+			label1.Location = new Point(364, 74);
+			label1.Name = "label1";
+			label1.Size = new Size(15, 20);
+			label1.TabIndex = 25;
+			label1.Text = "*";
 			// 
 			// buttonClearSearch
 			// 
@@ -268,34 +306,34 @@ namespace LibraryManagementSystem.Forms
 			dgAuthors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgAuthors.BackgroundColor = Color.Silver;
 			dgAuthors.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle19.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle19.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle19.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle19.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle19.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
-			dgAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+			dgAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			dgAuthors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dgAuthors.Location = new Point(405, 83);
 			dgAuthors.MultiSelect = false;
 			dgAuthors.Name = "dgAuthors";
 			dgAuthors.ReadOnly = true;
 			dgAuthors.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle20.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle20.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle20.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle20.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle20.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle20.WrapMode = DataGridViewTriState.True;
-			dgAuthors.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle2.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+			dgAuthors.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			dgAuthors.RowHeadersVisible = false;
-			dataGridViewCellStyle21.BackColor = Color.Silver;
-			dataGridViewCellStyle21.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle21.ForeColor = Color.Black;
-			dataGridViewCellStyle21.SelectionBackColor = Color.RoyalBlue;
-			dgAuthors.RowsDefaultCellStyle = dataGridViewCellStyle21;
+			dataGridViewCellStyle3.BackColor = Color.Silver;
+			dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle3.ForeColor = Color.Black;
+			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
+			dgAuthors.RowsDefaultCellStyle = dataGridViewCellStyle3;
 			dgAuthors.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			dgAuthors.Size = new Size(417, 316);
 			dgAuthors.TabIndex = 0;
@@ -459,41 +497,26 @@ namespace LibraryManagementSystem.Forms
 			buttonAdd.UseVisualStyleBackColor = false;
 			buttonAdd.Click += buttonAdd_Click;
 			// 
-			// label1
+			// buttonShowAuthorBooks
 			// 
-			label1.AutoSize = true;
-			label1.BackColor = Color.White;
-			label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			label1.ForeColor = Color.DarkBlue;
-			label1.Location = new Point(364, 74);
-			label1.Name = "label1";
-			label1.Size = new Size(15, 20);
-			label1.TabIndex = 25;
-			label1.Text = "*";
-			// 
-			// label2
-			// 
-			label2.AutoSize = true;
-			label2.BackColor = Color.White;
-			label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			label2.ForeColor = Color.DarkBlue;
-			label2.Location = new Point(364, 115);
-			label2.Name = "label2";
-			label2.Size = new Size(15, 20);
-			label2.TabIndex = 26;
-			label2.Text = "*";
-			// 
-			// label3
-			// 
-			label3.AutoSize = true;
-			label3.BackColor = Color.Silver;
-			label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			label3.ForeColor = Color.DarkBlue;
-			label3.Location = new Point(143, 462);
-			label3.Name = "label3";
-			label3.Size = new Size(79, 20);
-			label3.TabIndex = 27;
-			label3.Text = "* Required";
+			buttonShowAuthorBooks.BackColor = Color.Silver;
+			buttonShowAuthorBooks.BackgroundImageLayout = ImageLayout.None;
+			buttonShowAuthorBooks.Cursor = Cursors.Hand;
+			buttonShowAuthorBooks.FlatAppearance.BorderSize = 0;
+			buttonShowAuthorBooks.FlatStyle = FlatStyle.Flat;
+			buttonShowAuthorBooks.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			buttonShowAuthorBooks.ForeColor = Color.DarkBlue;
+			buttonShowAuthorBooks.Image = (Image)resources.GetObject("buttonShowAuthorBooks.Image");
+			buttonShowAuthorBooks.ImageAlign = ContentAlignment.MiddleLeft;
+			buttonShowAuthorBooks.Location = new Point(655, 405);
+			buttonShowAuthorBooks.Name = "buttonShowAuthorBooks";
+			buttonShowAuthorBooks.Size = new Size(167, 53);
+			buttonShowAuthorBooks.TabIndex = 28;
+			buttonShowAuthorBooks.Text = "View Books";
+			buttonShowAuthorBooks.TextAlign = ContentAlignment.MiddleRight;
+			buttonShowAuthorBooks.TextImageRelation = TextImageRelation.ImageBeforeText;
+			buttonShowAuthorBooks.UseVisualStyleBackColor = false;
+			buttonShowAuthorBooks.Click += buttonShowAuthorBooks_Click;
 			// 
 			// ManageAuthorsForm
 			// 
@@ -557,5 +580,6 @@ namespace LibraryManagementSystem.Forms
 		private Label label1;
 		private Label label2;
 		private Label label3;
+		private Button buttonShowAuthorBooks;
 	}
 }

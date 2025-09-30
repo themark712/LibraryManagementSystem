@@ -30,6 +30,7 @@ namespace LibraryManagementSystem.Forms
 
 		private void ManageGenresForm_Load(object sender, EventArgs e)
 		{
+			App.GenreId = 0;
 			labelStatus.Text = "";
 			RefreshGenreList();
 			buttonAdd.Enabled = false;

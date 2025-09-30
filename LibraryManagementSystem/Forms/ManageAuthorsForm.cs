@@ -1,4 +1,5 @@
-﻿using LibraryManagementSystem.Controllers;
+﻿using LibraryManagementSystem.Classes;
+using LibraryManagementSystem.Controllers;
 using LibraryManagementSystem.Database;
 using LibraryManagementSystem.Models;
 using System;
@@ -24,6 +25,7 @@ namespace LibraryManagementSystem.Forms
 
 		private void ManageAuthorsForm_Load(object sender, EventArgs e)
 		{
+			App.AuthorId = 0;
 			labelStatus.Text = "";
 			RefreshAuthorList();
 			buttonAdd.Enabled = true;
@@ -121,7 +123,8 @@ namespace LibraryManagementSystem.Forms
 			dgAuthors.Columns[6].Visible = false;
 			dgAuthors.Columns[7].Visible = false;
 
-			if (selectedAuthor == null) { 
+			if (selectedAuthor == null)
+			{
 				textId.Text = "";
 				textLastName.Text = "";
 				textFirstName.Text = "";
@@ -175,6 +178,16 @@ namespace LibraryManagementSystem.Forms
 		{
 			textSearch.Text = "";
 			RefreshAuthorList();
+		}
+
+		private void buttonShowAuthorBooks_Click(object sender, EventArgs e)
+		{
+			if (textId.Text != "")
+			{
+				App.AuthorId = Convert.ToInt32(textId.Text);
+				ManageBooksForm booksForm = new ManageBooksForm();
+				booksForm.ShowDialog();
+			}
 		}
 	}
 }
