@@ -12,6 +12,7 @@ using System.Drawing.Text;
 using System.Reflection.Emit;
 using System.Configuration;
 using LibraryManagementSystem.Controllers;
+using LibraryManagementSystem.Models;
 
 namespace LibraryManagementSystem.Forms
 {
@@ -24,8 +25,8 @@ namespace LibraryManagementSystem.Forms
 		{
 			InitializeComponent();
 
-			string databaseLocation = ConfigurationManager.AppSettings["DatabaseLocation"]!;
 
+			string databaseLocation = ConfigurationManager.AppSettings["DatabaseLocation"]!;
 			if (databaseLocation == "" || !Directory.Exists(databaseLocation) || !File.Exists(databaseLocation + "\\LMS.db"))
 			{
 				DatabaseSetupForm formDbSetup = new DatabaseSetupForm();
@@ -67,6 +68,19 @@ namespace LibraryManagementSystem.Forms
 			int bookCount = bookCont!.GetCount();
 			labelBookCount.Text = bookCount.ToString();
 
+			List<Book> latestBooks = bookCont.GetLastFiveBooks();
+
+			if (!string.IsNullOrEmpty(latestBooks[0].Cover))
+			{
+				panelLatestBook1.BackgroundImageLayout = ImageLayout.Stretch;
+				panelLatestBook1.BackgroundImage = Image.FromFile(ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\" + latestBooks[0].Cover.ToString());
+			}
+
+			if (!string.IsNullOrEmpty(latestBooks[1].Cover))
+			{
+				panelLatestBook2.BackgroundImageLayout = ImageLayout.Stretch;
+				panelLatestBook2.BackgroundImage = Image.FromFile(ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\" + latestBooks[1].Cover.ToString());
+			}
 		}
 
 		private void DashboardForm_Shown(object sender, EventArgs e)

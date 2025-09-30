@@ -126,6 +126,15 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
+		public List<Book> GetLastFiveBooks()
+		{
+			using (LmsContext context = new LmsContext())
+			{
+				var books = context.Books.Take(5).OrderByDescending(d=>d.DateReceived).ToList();
+				return books;
+			}
+		}
+
 		public int GetCount()
 		{
 			using (LmsContext context = new LmsContext())
