@@ -230,7 +230,7 @@ namespace LibraryManagementSystem.Forms
 				books = bookList;
 			}
 
-			//dgBooks.DataSource = bookss;
+			labelBooksCount.Text = books.Count.ToString() + " books";
 
 			dgBooks.DataSource = null;
 
