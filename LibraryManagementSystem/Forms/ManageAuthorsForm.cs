@@ -99,6 +99,7 @@ namespace LibraryManagementSystem.Forms
 		{
 			int authorBookCount = bookCont!.GetBooksByAuthor(Convert.ToInt32(textId.Text))!.Count();
 			string warningMessage = "WARNING: this author currently has " + authorBookCount.ToString() + " books in your system." + Environment.NewLine + Environment.NewLine;
+			warningMessage += selectedAuthor!.FirstName + " " + selectedAuthor.LastName + " (b: " + selectedAuthor.DOB + ")" + "\n\n";
 			warningMessage += "This action will also delete ALL BOOKS assigned to this author. Continue?";
 
 			if (MessageBox.Show(warningMessage, "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)

@@ -25,6 +25,7 @@ namespace LibraryManagementSystem.Forms
 
 		string imageLocation = ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\";
 
+		#region FormMethods
 		public ManageBooksForm()
 		{
 			InitializeComponent();
@@ -58,6 +59,7 @@ namespace LibraryManagementSystem.Forms
 				comboGenreView.SelectedValue = App.GenreId;
 			}
 		}
+		#endregion
 
 		private void buttonClose_Click(object sender, EventArgs e)
 		{
@@ -119,7 +121,7 @@ namespace LibraryManagementSystem.Forms
 				MessageBox.Show(errorString, "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 		}
-		
+
 		private void buttonAddCover_Click(object sender, EventArgs e)
 		{
 			openFileBookImage.Filter = "Select Image(*.jpg; *.png)|*.jpg; *.png";
@@ -134,7 +136,10 @@ namespace LibraryManagementSystem.Forms
 
 		private void buttonDelete_Click(object sender, EventArgs e)
 		{
-			if (MessageBox.Show("Delete this book?", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+			string message = "Delete this book?\n\n";
+			message += selectedBook!.Title + " (" + selectedBook.Year.ToString() + ")";
+
+			if (MessageBox.Show(message, "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
 			{
 				if (selectedBook != null)
 				{

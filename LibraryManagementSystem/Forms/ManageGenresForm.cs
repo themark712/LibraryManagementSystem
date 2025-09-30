@@ -95,6 +95,7 @@ namespace LibraryManagementSystem.Forms
 		{
 			int genreBookCount = bookCont!.GetBooksByGenre(Convert.ToInt32(textId.Text))!.Count();
 			string warningMessage = "WARNING: this genre currently has " + genreBookCount.ToString() + " books in your system." + Environment.NewLine + Environment.NewLine;
+			warningMessage += selectedGenre!.Name + "\n\n";
 			warningMessage += "This action will also delete ALL BOOKS assigned to this genre. Continue?";
 
 			if (MessageBox.Show(warningMessage, "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)

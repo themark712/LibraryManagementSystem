@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageBooksForm));
 			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
@@ -86,6 +87,7 @@
 			buttonUpdate = new Button();
 			buttonAdd = new Button();
 			openFileBookImage = new OpenFileDialog();
+			toolTip1 = new ToolTip(components);
 			panelMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)numCopies).BeginInit();
 			((System.ComponentModel.ISupportInitialize)picCover).BeginInit();
@@ -704,7 +706,7 @@
 			// 
 			// buttonDelete
 			// 
-			buttonDelete.BackColor = Color.SteelBlue;
+			buttonDelete.BackColor = Color.LightCoral;
 			buttonDelete.BackgroundImageLayout = ImageLayout.None;
 			buttonDelete.Cursor = Cursors.Hand;
 			buttonDelete.FlatStyle = FlatStyle.Popup;
@@ -719,6 +721,7 @@
 			buttonDelete.Text = "Delete";
 			buttonDelete.TextAlign = ContentAlignment.MiddleRight;
 			buttonDelete.TextImageRelation = TextImageRelation.ImageBeforeText;
+			toolTip1.SetToolTip(buttonDelete, "Delete the current selected book");
 			buttonDelete.UseVisualStyleBackColor = false;
 			buttonDelete.Click += buttonDelete_Click;
 			// 
@@ -739,6 +742,7 @@
 			buttonUpdate.Text = "Update";
 			buttonUpdate.TextAlign = ContentAlignment.MiddleRight;
 			buttonUpdate.TextImageRelation = TextImageRelation.ImageBeforeText;
+			toolTip1.SetToolTip(buttonUpdate, "Update the currenly selected book with the data shown");
 			buttonUpdate.UseVisualStyleBackColor = false;
 			buttonUpdate.Click += buttonUpdate_Click;
 			// 
@@ -759,6 +763,7 @@
 			buttonAdd.Text = "Add";
 			buttonAdd.TextAlign = ContentAlignment.MiddleRight;
 			buttonAdd.TextImageRelation = TextImageRelation.ImageBeforeText;
+			toolTip1.SetToolTip(buttonAdd, "Add the current data as a new book");
 			buttonAdd.UseVisualStyleBackColor = false;
 			buttonAdd.Click += buttonAdd_Click;
 			// 
@@ -844,5 +849,6 @@
 		private Button buttonClearGenreFilter;
 		private Button buttonClearAuthorFilter;
 		private Label labelBooksCount;
+		private ToolTip toolTip1;
 	}
 }
