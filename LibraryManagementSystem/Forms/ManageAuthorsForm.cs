@@ -55,6 +55,10 @@ namespace LibraryManagementSystem.Forms
 			textHometown.Text = selectedAuthor.Hometown;
 			rtbEducation.Text = selectedAuthor.Education;
 			rtbAbout.Text = selectedAuthor.About;
+
+			int booksCount = 0;
+			booksCount = bookCont!.GetBooksByAuthor(Convert.ToInt32(textId.Text))!.Count();
+			labelBooksCount.Text = booksCount.ToString() + " books";
 		}
 
 		private void buttonAdd_Click(object sender, EventArgs e)
@@ -197,11 +201,6 @@ namespace LibraryManagementSystem.Forms
 				ManageBooksForm booksForm = new ManageBooksForm();
 				booksForm.ShowDialog();
 			}
-		}
-
-		private void dgAuthors_SelectionChanged(object sender, EventArgs e)
-		{
-			//MessageBox.Show("selected");
 		}
 	}
 }
