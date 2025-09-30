@@ -50,6 +50,25 @@ namespace LibraryManagementSystem.Controllers
 				return null;
 			}
 		}
+
+		public static Book? GetBookByIsbn(string _isbn)
+		{
+			try
+			{
+				using (LmsContext context = new LmsContext())
+				{
+					var book = context.Books.Where(i => i.ISBN == _isbn).FirstOrDefault();
+					return book;
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				return null;
+			}
+		}
+
+
 		public static List<Book>? SearchBooks(string search)
 		{
 			try
@@ -78,42 +97,54 @@ namespace LibraryManagementSystem.Controllers
 
 		public static int AddBook(string _title, int _aid, int _gid, string _pub, int _year, string _is, int _cpy, decimal _prc, string _dte, string _abt)
 		{
+			int newId = 0;
+
+			if (BookExists(_title, _aid, _year, _is))
+			{
+				MessageBox.Show("This book already exists", "Book Exists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				return 0;
+			}
+
 			using (LmsContext context = new LmsContext())
 			{
-				int newId = 0;
+				Book newBook = new Book
+				{
+					Title = _title,
+					AuthorId = _aid,
+					GenreId = _gid,
+					Publisher = _pub,
+					Year = _year,
+					ISBN = _is,
+					Copies = _cpy,
+					Price = _prc,
+					DateReceived = _dte,
+					About = _abt
+				};
+				context.Books.Add(newBook);
+				context.SaveChanges();
+				newId = newBook.BookId;
+
+				return newId;
+			}
+		}
+
+		private static bool BookExists(string _title, int _aid, int _year, string _isbn)
+		{
+			using (LmsContext context = new LmsContext())
+			{
 				var title = _title;
 				var books = context.Books
 					.Where(b => b.Title == title && b.AuthorId == _aid
 						&& b.Year == _year
-						&& b.ISBN!.Replace("-", "").Replace(" ", "").Trim().ToLower() == _is.Replace("-", "").Replace(" ", "").Trim().ToLower())
+						&& b.ISBN!.Replace("-", "").Replace(" ", "").Trim().ToLower() == _isbn.Replace("-", "").Replace(" ", "").Trim().ToLower())
 					.ToList();
 
 				if (books.Count > 0)
 				{
-					MessageBox.Show("This book already exists", "Book Exists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-					return 0;
+					return true;
 				}
 
-				if (!string.IsNullOrEmpty(title))
-				{
-					Book newBook = new Book
-					{
-						Title = title,
-						AuthorId = _aid,
-						GenreId = _gid,
-						Publisher = _pub,
-						Year = _year,
-						ISBN = _is,
-						Copies = _cpy,
-						Price = _prc,
-						DateReceived = _dte,
-						About = _abt
-					};
-					context.Books.Add(newBook);
-					context.SaveChanges();
-					newId = newBook.BookId;
-				}
-				return newId;
+				return false;
 			}
 		}
 

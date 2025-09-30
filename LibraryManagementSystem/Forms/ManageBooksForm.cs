@@ -54,6 +54,8 @@ namespace LibraryManagementSystem.Forms
 
 		private void buttonClose_Click(object sender, EventArgs e)
 		{
+			App.GenreId = 0;
+			App.AuthorId = 0;
 			this.Close();
 		}
 
@@ -319,11 +321,9 @@ namespace LibraryManagementSystem.Forms
 			}
 
 			// check existing ISBN
-			List<Book>? booksByIsbn = BookController.GetBooks()!
-				.Where(i => i.ISBN!.Replace("-", "").Replace(" ", "").Trim().ToLower() == textISBN.Text.Replace("-", "").Replace(" ", "").Trim().ToLower() && i.ISBN.Trim() != "")
-				.ToList();
+			Book booksByIsbn = BookController.GetBookByIsbn(textISBN.Text)!;
 
-			if (booksByIsbn.Count > 0)
+			if (booksByIsbn != null)
 			{
 				dataError += "This ISBN number already exists" + Environment.NewLine;
 			}
