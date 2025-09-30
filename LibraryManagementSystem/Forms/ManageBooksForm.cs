@@ -66,78 +66,7 @@ namespace LibraryManagementSystem.Forms
 			this.Close();
 		}
 
-		private void FillAuthorCombo()
-		{
-			using (LmsContext context = new LmsContext())
-			{
-				List<Author> authors = new List<Author>();
-				authors = authorCont!.GetAuthors()!;
-
-				comboAuthors.Items.Clear();
-				comboAuthors.DataSource = authors;
-				comboAuthors.ValueMember = "AuthorId";
-				comboAuthors.DisplayMember = "FullName";
-
-				comboAuthorView.Items.Clear();
-				comboAuthorView.DataSource = authors;
-				comboAuthorView.ValueMember = "AuthorId";
-				comboAuthorView.DisplayMember = "FullName";
-
-				List<Genre> genres = new List<Genre>();
-				genres = genreCont!.GetGenres()!;
-
-				comboGenres.Items.Clear();
-				comboGenres.DataSource = genres;
-				comboGenres.ValueMember = "GenreId";
-				comboGenres.DisplayMember = "Name";
-
-				comboGenreView.Items.Clear();
-				comboGenreView.DataSource = genres;
-				comboGenreView.ValueMember = "GenreId";
-				comboGenreView.DisplayMember = "Name";
-			}
-		}
-
-		private void dgBooks_CellClick(object sender, DataGridViewCellEventArgs e)
-		{
-			int selectedId = Convert.ToInt32(dgBooks.SelectedRows[0].Cells[0].Value);
-
-			using (LmsContext context = new LmsContext())
-			{
-				selectedBook = context.Books.Where(i => i.BookId == selectedId).FirstOrDefault();
-			}
-
-			textId.Text = selectedBook!.BookId!.ToString();
-			textTitle.Text = selectedBook!.Title!.ToString();
-			comboAuthors.SelectedValue = selectedBook.AuthorId;
-			comboGenres.SelectedValue = selectedBook.GenreId;
-			textPublisher.Text = selectedBook.Publisher;
-			textYear.Text = selectedBook.Year.ToString();
-			textISBN.Text = selectedBook.ISBN;
-			textPrice.Text = selectedBook.Price.ToString();
-			textAbout.Text = selectedBook.About;
-			numCopies.Value = (decimal)selectedBook.Copies!;
-			labelCoverFileName.Text = selectedBook.Cover;
-
-			if (!string.IsNullOrEmpty(selectedBook.Cover))
-			{
-				picCover.Image = Image.FromFile(imageLocation + selectedBook.Cover); // Correctly convert byte[] to Image
-			}
-			else
-			{
-				picCover.Image = Image.FromFile(imageLocation + "default.png");
-			}
-
-			if (!string.IsNullOrEmpty(selectedBook.DateReceived!.ToString().Trim()))
-			{
-				dateReceived.Value = DateTime.Parse(selectedBook.DateReceived!);
-			}
-			else
-			{
-				dateReceived.Value = DateTime.Today;
-			}
-		}
-
+		#region BookCRUDMethods
 		private void textSearch_TextChanged(object sender, EventArgs e)
 		{
 			List<Book>? books = bookCont!.SearchBooks(textSearch.Text);
@@ -190,6 +119,18 @@ namespace LibraryManagementSystem.Forms
 				MessageBox.Show(errorString, "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 		}
+		
+		private void buttonAddCover_Click(object sender, EventArgs e)
+		{
+			openFileBookImage.Filter = "Select Image(*.jpg; *.png)|*.jpg; *.png";
+
+			if (openFileBookImage.ShowDialog() == DialogResult.OK)
+			{
+				picCover.Image = Image.FromFile(openFileBookImage.FileName);
+				labelCoverFileName.Text = openFileBookImage.SafeFileName;
+				picCover.Image.Save(imageLocation + labelCoverFileName.Text);
+			}
+		}
 
 		private void buttonDelete_Click(object sender, EventArgs e)
 		{
@@ -202,6 +143,83 @@ namespace LibraryManagementSystem.Forms
 				}
 				RefreshBookList();
 			}
+		}
+
+		private void FillAuthorCombo()
+		{
+			using (LmsContext context = new LmsContext())
+			{
+				List<Author> authors = new List<Author>();
+				authors = authorCont!.GetAuthors()!;
+
+				comboAuthors.Items.Clear();
+				comboAuthors.DataSource = authors;
+				comboAuthors.ValueMember = "AuthorId";
+				comboAuthors.DisplayMember = "FullName";
+
+				comboAuthorView.Items.Clear();
+				comboAuthorView.DataSource = authors;
+				comboAuthorView.ValueMember = "AuthorId";
+				comboAuthorView.DisplayMember = "FullName";
+
+				List<Genre> genres = new List<Genre>();
+				genres = genreCont!.GetGenres()!;
+
+				comboGenres.Items.Clear();
+				comboGenres.DataSource = genres;
+				comboGenres.ValueMember = "GenreId";
+				comboGenres.DisplayMember = "Name";
+
+				comboGenreView.Items.Clear();
+				comboGenreView.DataSource = genres;
+				comboGenreView.ValueMember = "GenreId";
+				comboGenreView.DisplayMember = "Name";
+			}
+		}
+
+		private string ValidateData(bool isUpdate = false)
+		{
+			string dataError = "";
+
+			if (textTitle.Text.Length == 0)
+			{
+				dataError += "Book title is required" + Environment.NewLine;
+			}
+
+			if (comboAuthors.SelectedValue == null || comboAuthors.SelectedValue.ToString() == "")
+			{
+				dataError += "Author is required" + Environment.NewLine;
+			}
+
+			if (comboGenres.SelectedValue == null || comboGenres.SelectedValue.ToString() == "")
+			{
+				dataError += "Genre is required" + Environment.NewLine;
+			}
+
+			if (textYear.Text.Length == 0)
+			{
+				dataError += "Year of publication is required" + Environment.NewLine;
+			}
+
+			if (!isUpdate)
+			{
+				// check existing ISBN
+				Book booksByIsbn = bookCont!.GetBookByIsbn(textISBN.Text)!;
+
+				if (booksByIsbn != null)
+				{
+					dataError += "This ISBN number already exists" + Environment.NewLine;
+				}
+			}
+
+			decimal price;
+
+			if (!decimal.TryParse(textPrice.Text, out price))
+			{
+				dataError += "Price must be a numeric value" + Environment.NewLine;
+			}
+
+			return dataError;
 		}
 
 		private void RefreshBookList(List<Book>? bookList = null)
@@ -288,64 +306,64 @@ namespace LibraryManagementSystem.Forms
 				}
 			}
 		}
+		#endregion
 
-		private void buttonAddCover_Click(object sender, EventArgs e)
+		#region BookDataMethods
+		private void dgBooks_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			openFileBookImage.Filter = "Select Image(*.jpg; *.png)|*.jpg; *.png";
-
-			if (openFileBookImage.ShowDialog() == DialogResult.OK)
-			{
-				picCover.Image = Image.FromFile(openFileBookImage.FileName);
-				labelCoverFileName.Text = openFileBookImage.SafeFileName;
-				picCover.Image.Save(imageLocation + labelCoverFileName.Text);
-			}
+			GetBookData();
 		}
 
-		private string ValidateData(bool isUpdate = false)
+		private void dgBooks_CellEnter(object sender, DataGridViewCellEventArgs e)
 		{
-			string dataError = "";
+			GetBookData();
+		}
 
-			if (textTitle.Text.Length == 0)
+		private void GetBookData()
+		{
+			if (dgBooks.SelectedRows.Count > 0)
 			{
-				dataError += "Book title is required" + Environment.NewLine;
-			}
+				int selectedId = Convert.ToInt32(dgBooks.SelectedRows[0].Cells[0].Value);
 
-			if (comboAuthors.SelectedValue == null || comboAuthors.SelectedValue.ToString() == "")
-			{
-				dataError += "Author is required" + Environment.NewLine;
-			}
-
-			if (comboGenres.SelectedValue == null || comboGenres.SelectedValue.ToString() == "")
-			{
-				dataError += "Genre is required" + Environment.NewLine;
-			}
-
-			if (textYear.Text.Length == 0)
-			{
-				dataError += "Year of publication is required" + Environment.NewLine;
-			}
-
-			if (!isUpdate)
-			{
-				// check existing ISBN
-				Book booksByIsbn = bookCont!.GetBookByIsbn(textISBN.Text)!;
-
-				if (booksByIsbn != null)
+				using (LmsContext context = new LmsContext())
 				{
-					dataError += "This ISBN number already exists" + Environment.NewLine;
+					selectedBook = context.Books.Where(i => i.BookId == selectedId).FirstOrDefault();
+				}
+
+				textId.Text = selectedBook!.BookId!.ToString();
+				textTitle.Text = selectedBook!.Title!.ToString();
+				comboAuthors.SelectedValue = selectedBook.AuthorId;
+				comboGenres.SelectedValue = selectedBook.GenreId;
+				textPublisher.Text = selectedBook.Publisher;
+				textYear.Text = selectedBook.Year.ToString();
+				textISBN.Text = selectedBook.ISBN;
+				textPrice.Text = selectedBook.Price.ToString();
+				textAbout.Text = selectedBook.About;
+				numCopies.Value = (decimal)selectedBook.Copies!;
+				labelCoverFileName.Text = selectedBook.Cover;
+
+				if (!string.IsNullOrEmpty(selectedBook.Cover))
+				{
+					picCover.Image = Image.FromFile(imageLocation + selectedBook.Cover); // Correctly convert byte[] to Image
+				}
+				else
+				{
+					picCover.Image = Image.FromFile(imageLocation + "default.png");
+				}
+
+				if (!string.IsNullOrEmpty(selectedBook.DateReceived!.ToString().Trim()))
+				{
+					dateReceived.Value = DateTime.Parse(selectedBook.DateReceived!);
+				}
+				else
+				{
+					dateReceived.Value = DateTime.Today;
 				}
 			}
-
-			decimal price;
-
-			if (!decimal.TryParse(textPrice.Text, out price))
-			{
-				dataError += "Price must be a numeric value" + Environment.NewLine;
-			}
-
-			return dataError;
 		}
+		#endregion
 
+		#region BookFilterEvents
 		private void comboGenreView_SelectionChangeCommitted(object sender, EventArgs e)
 		{
 			if (comboGenreView.SelectedIndex >= 0) // && comboGenreView.SelectedValue!.GetType() == typeof(Int32))
@@ -377,5 +395,6 @@ namespace LibraryManagementSystem.Forms
 			comboAuthorView.SelectedIndex = -1;
 			RefreshBookList();
 		}
+		#endregion
 	}
 }

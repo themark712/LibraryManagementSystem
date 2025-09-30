@@ -68,6 +68,39 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
+		public List<Book>? GetBooksByAuthor(int _aid)
+		{
+			try
+			{
+				using (LmsContext context = new LmsContext())
+				{
+					var books = context.Books.Where(a => a.AuthorId == _aid).ToList();
+					return books;
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				return null;
+			}
+		}
+
+		public List<Book>? GetBooksByGenre(int _gid)
+		{
+			try
+			{
+				using (LmsContext context = new LmsContext())
+				{
+					var books = context.Books.Where(a => a.GenreId == _gid).ToList();
+					return books;
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				return null;
+			}
+		}
 
 		public List<Book>? SearchBooks(string search)
 		{

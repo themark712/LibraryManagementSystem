@@ -33,6 +33,7 @@
 			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
 			panelMain = new Panel();
+			labelBooksCount = new Label();
 			label1 = new Label();
 			label3 = new Label();
 			buttonShowGenreBooks = new Button();
@@ -58,6 +59,7 @@
 			// panelMain
 			// 
 			panelMain.BackColor = Color.Silver;
+			panelMain.Controls.Add(labelBooksCount);
 			panelMain.Controls.Add(label1);
 			panelMain.Controls.Add(label3);
 			panelMain.Controls.Add(buttonShowGenreBooks);
@@ -73,6 +75,17 @@
 			panelMain.Name = "panelMain";
 			panelMain.Size = new Size(730, 264);
 			panelMain.TabIndex = 2;
+			// 
+			// labelBooksCount
+			// 
+			labelBooksCount.BackColor = Color.Silver;
+			labelBooksCount.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			labelBooksCount.ForeColor = Color.DarkBlue;
+			labelBooksCount.Location = new Point(193, 220);
+			labelBooksCount.Name = "labelBooksCount";
+			labelBooksCount.Size = new Size(175, 21);
+			labelBooksCount.TabIndex = 9;
+			labelBooksCount.Text = "books";
 			// 
 			// label1
 			// 
@@ -95,7 +108,7 @@
 			label3.Location = new Point(294, 104);
 			label3.Name = "label3";
 			label3.Size = new Size(79, 20);
-			label3.TabIndex = 28;
+			label3.TabIndex = 4;
 			label3.Text = "* Required";
 			label3.TextAlign = ContentAlignment.MiddleRight;
 			// 
@@ -113,7 +126,7 @@
 			buttonShowGenreBooks.Location = new Point(20, 203);
 			buttonShowGenreBooks.Name = "buttonShowGenreBooks";
 			buttonShowGenreBooks.Size = new Size(167, 53);
-			buttonShowGenreBooks.TabIndex = 12;
+			buttonShowGenreBooks.TabIndex = 8;
 			buttonShowGenreBooks.Text = "View Books";
 			buttonShowGenreBooks.TextAlign = ContentAlignment.MiddleRight;
 			buttonShowGenreBooks.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -219,6 +232,7 @@
 			dataGridViewCellStyle6.SelectionBackColor = Color.RoyalBlue;
 			dgGenres.RowsDefaultCellStyle = dataGridViewCellStyle6;
 			dgGenres.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+			dgGenres.ShowEditingIcon = false;
 			dgGenres.Size = new Size(306, 213);
 			dgGenres.TabIndex = 4;
 			dgGenres.CellClick += dgGenres_CellClick;
@@ -240,7 +254,7 @@
 			textId.MaxLength = 100;
 			textId.Name = "textId";
 			textId.Size = new Size(255, 35);
-			textId.TabIndex = 2;
+			textId.TabIndex = 1;
 			// 
 			// labelName
 			// 
@@ -249,7 +263,7 @@
 			labelName.Location = new Point(20, 68);
 			labelName.Name = "labelName";
 			labelName.Size = new Size(74, 30);
-			labelName.TabIndex = 1;
+			labelName.TabIndex = 2;
 			labelName.Text = "Name:";
 			// 
 			// labelId
@@ -362,5 +376,6 @@
 		private Label labelStatus;
 		private Label label3;
 		private Label label1;
+		private Label labelBooksCount;
 	}
 }

@@ -18,20 +18,17 @@ namespace LibraryManagementSystem.Forms
 	{
 		Genre? selectedGenre;
 		GenreController? genreCont;
+		BookController? bookCont;
 
 		public ManageGenresForm()
 		{
 			InitializeComponent();
 		}
 
-		private void buttonClose_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
-
 		private void ManageGenresForm_Load(object sender, EventArgs e)
 		{
 			genreCont = new GenreController();
+			bookCont = new BookController();
 			App.GenreId = 0;
 			labelStatus.Text = "";
 			RefreshGenreList();
@@ -52,6 +49,10 @@ namespace LibraryManagementSystem.Forms
 
 			textId.Text = selectedGenre!.GenreId.ToString();
 			textName.Text = selectedGenre.Name;
+
+			int booksCount = 0;
+			booksCount = bookCont!.GetBooksByGenre(Convert.ToInt32(textId.Text))!.Count();
+			labelBooksCount.Text = booksCount.ToString() + " books";
 		}
 
 		private void buttonAdd_Click(object sender, EventArgs e)
@@ -92,7 +93,11 @@ namespace LibraryManagementSystem.Forms
 
 		private void buttonDelete_Click(object sender, EventArgs e)
 		{
-			if (MessageBox.Show("Delete this Genre?", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+			int genreBookCount = bookCont!.GetBooksByGenre(Convert.ToInt32(textId.Text))!.Count();
+			string warningMessage = "WARNING: this genre currently has " + genreBookCount.ToString() + " books in your system." + Environment.NewLine + Environment.NewLine;
+			warningMessage += "This action will also delete ALL BOOKS assigned to this genre. Continue?";
+
+			if (MessageBox.Show(warningMessage, "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
 			{
 				int id = Convert.ToInt32(textId.Text);
 
@@ -160,6 +165,11 @@ namespace LibraryManagementSystem.Forms
 				ManageBooksForm booksForm = new ManageBooksForm();
 				booksForm.ShowDialog();
 			}
+		}
+
+		private void buttonClose_Click(object sender, EventArgs e)
+		{
+			this.Close();
 		}
 	}
 }

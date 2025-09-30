@@ -17,6 +17,7 @@ namespace LibraryManagementSystem.Forms
 	public partial class ManageAuthorsForm : Form
 	{
 		AuthorController? authorCont;
+		BookController? bookCont;
 		Author? selectedAuthor;
 
 		public ManageAuthorsForm()
@@ -27,6 +28,7 @@ namespace LibraryManagementSystem.Forms
 		private void ManageAuthorsForm_Load(object sender, EventArgs e)
 		{
 			authorCont = new AuthorController();
+			bookCont = new BookController();
 			App.AuthorId = 0;
 			labelStatus.Text = "";
 			RefreshAuthorList();
@@ -95,7 +97,11 @@ namespace LibraryManagementSystem.Forms
 		}
 		private void buttonDelete_Click(object sender, EventArgs e)
 		{
-			if (MessageBox.Show("Delete this author?", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+			int authorBookCount = bookCont!.GetBooksByAuthor(Convert.ToInt32(textId.Text))!.Count();
+			string warningMessage = "WARNING: this author currently has " + authorBookCount.ToString() + " books in your system." + Environment.NewLine + Environment.NewLine;
+			warningMessage += "This action will also delete ALL BOOKS assigned to this author. Continue?";
+
+			if (MessageBox.Show(warningMessage, "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
 			{
 				int id = Convert.ToInt32(textId.Text);
 
@@ -190,6 +196,11 @@ namespace LibraryManagementSystem.Forms
 				ManageBooksForm booksForm = new ManageBooksForm();
 				booksForm.ShowDialog();
 			}
+		}
+
+		private void dgAuthors_SelectionChanged(object sender, EventArgs e)
+		{
+			//MessageBox.Show("selected");
 		}
 	}
 }

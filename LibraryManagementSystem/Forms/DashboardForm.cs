@@ -66,6 +66,7 @@ namespace LibraryManagementSystem.Forms
 
 			int bookCount = bookCont!.GetCount();
 			labelBookCount.Text = bookCount.ToString();
+
 		}
 
 		private void DashboardForm_Shown(object sender, EventArgs e)
