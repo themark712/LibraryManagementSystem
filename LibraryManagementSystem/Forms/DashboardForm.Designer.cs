@@ -35,23 +35,23 @@
 			buttonGenres = new Button();
 			buttonAuthors = new Button();
 			buttonBooks = new Button();
-			panelHeader = new Panel();
+			panelLogoHeader = new Panel();
 			labelHeader = new Label();
 			picLogo = new PictureBox();
 			panelMain = new Panel();
-			panel1 = new Panel();
+			panelHeader = new Panel();
 			labelHeaderName = new Label();
 			buttonClose = new Button();
 			panelLatest = new Panel();
-			panel10 = new Panel();
+			panelLatestBook5 = new Panel();
 			label13 = new Label();
-			panel9 = new Panel();
+			panelLatestBook4 = new Panel();
 			label12 = new Label();
-			panel8 = new Panel();
+			panelLatestBook3 = new Panel();
 			label11 = new Label();
-			panel7 = new Panel();
+			panelLatestBook2 = new Panel();
 			label10 = new Label();
-			panel6 = new Panel();
+			panelLatestBook1 = new Panel();
 			label9 = new Label();
 			label8 = new Label();
 			panelMembersCount = new Panel();
@@ -64,16 +64,16 @@
 			labelBookCount = new Label();
 			label2 = new Label();
 			panelSidebar.SuspendLayout();
-			panelHeader.SuspendLayout();
+			panelLogoHeader.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
 			panelMain.SuspendLayout();
-			panel1.SuspendLayout();
+			panelHeader.SuspendLayout();
 			panelLatest.SuspendLayout();
-			panel10.SuspendLayout();
-			panel9.SuspendLayout();
-			panel8.SuspendLayout();
-			panel7.SuspendLayout();
-			panel6.SuspendLayout();
+			panelLatestBook5.SuspendLayout();
+			panelLatestBook4.SuspendLayout();
+			panelLatestBook3.SuspendLayout();
+			panelLatestBook2.SuspendLayout();
+			panelLatestBook1.SuspendLayout();
 			panelMembersCount.SuspendLayout();
 			panelAuthorsCount.SuspendLayout();
 			panelBooksCount.SuspendLayout();
@@ -87,7 +87,7 @@
 			panelSidebar.Controls.Add(buttonGenres);
 			panelSidebar.Controls.Add(buttonAuthors);
 			panelSidebar.Controls.Add(buttonBooks);
-			panelSidebar.Controls.Add(panelHeader);
+			panelSidebar.Controls.Add(panelLogoHeader);
 			panelSidebar.Dock = DockStyle.Left;
 			panelSidebar.Location = new Point(0, 0);
 			panelSidebar.Name = "panelSidebar";
@@ -190,16 +190,16 @@
 			buttonBooks.UseVisualStyleBackColor = false;
 			buttonBooks.Click += buttonBooks_Click;
 			// 
-			// panelHeader
+			// panelLogoHeader
 			// 
-			panelHeader.BackColor = Color.DarkBlue;
-			panelHeader.Controls.Add(labelHeader);
-			panelHeader.Controls.Add(picLogo);
-			panelHeader.Dock = DockStyle.Top;
-			panelHeader.Location = new Point(0, 0);
-			panelHeader.Name = "panelHeader";
-			panelHeader.Size = new Size(200, 93);
-			panelHeader.TabIndex = 2;
+			panelLogoHeader.BackColor = Color.DarkBlue;
+			panelLogoHeader.Controls.Add(labelHeader);
+			panelLogoHeader.Controls.Add(picLogo);
+			panelLogoHeader.Dock = DockStyle.Top;
+			panelLogoHeader.Location = new Point(0, 0);
+			panelLogoHeader.Name = "panelLogoHeader";
+			panelLogoHeader.Size = new Size(200, 93);
+			panelLogoHeader.TabIndex = 2;
 			// 
 			// labelHeader
 			// 
@@ -226,7 +226,7 @@
 			// panelMain
 			// 
 			panelMain.BackColor = Color.Silver;
-			panelMain.Controls.Add(panel1);
+			panelMain.Controls.Add(panelHeader);
 			panelMain.Controls.Add(panelLatest);
 			panelMain.Controls.Add(panelMembersCount);
 			panelMain.Controls.Add(panelAuthorsCount);
@@ -236,15 +236,15 @@
 			panelMain.Size = new Size(937, 572);
 			panelMain.TabIndex = 1;
 			// 
-			// panel1
+			// panelHeader
 			// 
-			panel1.BackColor = Color.DarkBlue;
-			panel1.Controls.Add(labelHeaderName);
-			panel1.Controls.Add(buttonClose);
-			panel1.Location = new Point(3, 3);
-			panel1.Name = "panel1";
-			panel1.Size = new Size(928, 50);
-			panel1.TabIndex = 3;
+			panelHeader.BackColor = Color.DarkBlue;
+			panelHeader.Controls.Add(labelHeaderName);
+			panelHeader.Controls.Add(buttonClose);
+			panelHeader.Location = new Point(3, 3);
+			panelHeader.Name = "panelHeader";
+			panelHeader.Size = new Size(928, 50);
+			panelHeader.TabIndex = 3;
 			// 
 			// labelHeaderName
 			// 
@@ -275,25 +275,25 @@
 			// panelLatest
 			// 
 			panelLatest.BackColor = Color.MediumBlue;
-			panelLatest.Controls.Add(panel10);
-			panelLatest.Controls.Add(panel9);
-			panelLatest.Controls.Add(panel8);
-			panelLatest.Controls.Add(panel7);
-			panelLatest.Controls.Add(panel6);
+			panelLatest.Controls.Add(panelLatestBook5);
+			panelLatest.Controls.Add(panelLatestBook4);
+			panelLatest.Controls.Add(panelLatestBook3);
+			panelLatest.Controls.Add(panelLatestBook2);
+			panelLatest.Controls.Add(panelLatestBook1);
 			panelLatest.Controls.Add(label8);
 			panelLatest.Location = new Point(20, 241);
 			panelLatest.Name = "panelLatest";
 			panelLatest.Size = new Size(898, 309);
 			panelLatest.TabIndex = 2;
 			// 
-			// panel10
+			// panelLatestBook5
 			// 
-			panel10.BackColor = Color.RoyalBlue;
-			panel10.Controls.Add(label13);
-			panel10.Location = new Point(719, 66);
-			panel10.Name = "panel10";
-			panel10.Size = new Size(162, 225);
-			panel10.TabIndex = 4;
+			panelLatestBook5.BackColor = Color.RoyalBlue;
+			panelLatestBook5.Controls.Add(label13);
+			panelLatestBook5.Location = new Point(719, 66);
+			panelLatestBook5.Name = "panelLatestBook5";
+			panelLatestBook5.Size = new Size(162, 225);
+			panelLatestBook5.TabIndex = 4;
 			// 
 			// label13
 			// 
@@ -307,14 +307,14 @@
 			label13.TabIndex = 1;
 			label13.Text = "$999";
 			// 
-			// panel9
+			// panelLatestBook4
 			// 
-			panel9.BackColor = Color.RoyalBlue;
-			panel9.Controls.Add(label12);
-			panel9.Location = new Point(543, 66);
-			panel9.Name = "panel9";
-			panel9.Size = new Size(162, 225);
-			panel9.TabIndex = 3;
+			panelLatestBook4.BackColor = Color.RoyalBlue;
+			panelLatestBook4.Controls.Add(label12);
+			panelLatestBook4.Location = new Point(543, 66);
+			panelLatestBook4.Name = "panelLatestBook4";
+			panelLatestBook4.Size = new Size(162, 225);
+			panelLatestBook4.TabIndex = 3;
 			// 
 			// label12
 			// 
@@ -328,14 +328,14 @@
 			label12.TabIndex = 1;
 			label12.Text = "$999";
 			// 
-			// panel8
+			// panelLatestBook3
 			// 
-			panel8.BackColor = Color.RoyalBlue;
-			panel8.Controls.Add(label11);
-			panel8.Location = new Point(367, 66);
-			panel8.Name = "panel8";
-			panel8.Size = new Size(162, 225);
-			panel8.TabIndex = 3;
+			panelLatestBook3.BackColor = Color.RoyalBlue;
+			panelLatestBook3.Controls.Add(label11);
+			panelLatestBook3.Location = new Point(367, 66);
+			panelLatestBook3.Name = "panelLatestBook3";
+			panelLatestBook3.Size = new Size(162, 225);
+			panelLatestBook3.TabIndex = 3;
 			// 
 			// label11
 			// 
@@ -349,14 +349,14 @@
 			label11.TabIndex = 1;
 			label11.Text = "$999";
 			// 
-			// panel7
+			// panelLatestBook2
 			// 
-			panel7.BackColor = Color.RoyalBlue;
-			panel7.Controls.Add(label10);
-			panel7.Location = new Point(191, 66);
-			panel7.Name = "panel7";
-			panel7.Size = new Size(162, 225);
-			panel7.TabIndex = 3;
+			panelLatestBook2.BackColor = Color.RoyalBlue;
+			panelLatestBook2.Controls.Add(label10);
+			panelLatestBook2.Location = new Point(191, 66);
+			panelLatestBook2.Name = "panelLatestBook2";
+			panelLatestBook2.Size = new Size(162, 225);
+			panelLatestBook2.TabIndex = 3;
 			// 
 			// label10
 			// 
@@ -370,14 +370,14 @@
 			label10.TabIndex = 1;
 			label10.Text = "$999";
 			// 
-			// panel6
+			// panelLatestBook1
 			// 
-			panel6.BackColor = Color.RoyalBlue;
-			panel6.Controls.Add(label9);
-			panel6.Location = new Point(15, 66);
-			panel6.Name = "panel6";
-			panel6.Size = new Size(162, 225);
-			panel6.TabIndex = 2;
+			panelLatestBook1.BackColor = Color.RoyalBlue;
+			panelLatestBook1.Controls.Add(label9);
+			panelLatestBook1.Location = new Point(15, 66);
+			panelLatestBook1.Name = "panelLatestBook1";
+			panelLatestBook1.Size = new Size(162, 225);
+			panelLatestBook1.TabIndex = 2;
 			// 
 			// label9
 			// 
@@ -406,7 +406,7 @@
 			// 
 			// panelMembersCount
 			// 
-			panelMembersCount.BackColor = Color.SkyBlue;
+			panelMembersCount.BackColor = Color.DodgerBlue;
 			panelMembersCount.Controls.Add(label6);
 			panelMembersCount.Controls.Add(label7);
 			panelMembersCount.Location = new Point(648, 59);
@@ -522,22 +522,22 @@
 			Shown += DashboardForm_Shown;
 			Enter += DashboardForm_Enter;
 			panelSidebar.ResumeLayout(false);
-			panelHeader.ResumeLayout(false);
-			panelHeader.PerformLayout();
+			panelLogoHeader.ResumeLayout(false);
+			panelLogoHeader.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
 			panelMain.ResumeLayout(false);
-			panel1.ResumeLayout(false);
+			panelHeader.ResumeLayout(false);
 			panelLatest.ResumeLayout(false);
-			panel10.ResumeLayout(false);
-			panel10.PerformLayout();
-			panel9.ResumeLayout(false);
-			panel9.PerformLayout();
-			panel8.ResumeLayout(false);
-			panel8.PerformLayout();
-			panel7.ResumeLayout(false);
-			panel7.PerformLayout();
-			panel6.ResumeLayout(false);
-			panel6.PerformLayout();
+			panelLatestBook5.ResumeLayout(false);
+			panelLatestBook5.PerformLayout();
+			panelLatestBook4.ResumeLayout(false);
+			panelLatestBook4.PerformLayout();
+			panelLatestBook3.ResumeLayout(false);
+			panelLatestBook3.PerformLayout();
+			panelLatestBook2.ResumeLayout(false);
+			panelLatestBook2.PerformLayout();
+			panelLatestBook1.ResumeLayout(false);
+			panelLatestBook1.PerformLayout();
 			panelMembersCount.ResumeLayout(false);
 			panelAuthorsCount.ResumeLayout(false);
 			panelBooksCount.ResumeLayout(false);
@@ -547,7 +547,7 @@
 		#endregion
 
 		private Panel panelSidebar;
-		private Panel panelHeader;
+		private Panel panelLogoHeader;
 		private Panel panelMain;
 		private Panel panelBooksCount;
 		private Panel panelMembersCount;
@@ -560,11 +560,11 @@
 		private Label labelAuthorCount;
 		private Label label5;
 		private Label label8;
-		private Panel panel6;
-		private Panel panel9;
-		private Panel panel10;
-		private Panel panel8;
-		private Panel panel7;
+		private Panel panelLatestBook1;
+		private Panel panelLatestBook4;
+		private Panel panelLatestBook5;
+		private Panel panelLatestBook3;
+		private Panel panelLatestBook2;
 		private Label label9;
 		private Label label13;
 		private Label label12;
@@ -577,7 +577,7 @@
 		private Button buttonCirculation;
 		private Button buttonGenres;
 		private Button buttonAuthors;
-		private Panel panel1;
+		private Panel panelHeader;
 		private Button buttonClose;
 		private Label labelHeaderName;
 	}

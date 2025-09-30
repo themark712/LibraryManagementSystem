@@ -209,7 +209,7 @@
         QmCC
 </value>
   </data>
-  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="picSearchIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAADt1JREFUeF7l
         mgdwVVUagAUV27oKCITeDGgMfaUHkAFxcRNpgVTSSC8EQgohoSZBQQIoCARCk6IBpIfepYs0BURAQYqE
@@ -278,7 +278,7 @@
         2dpfMBAGdTwTYK4lQONPPfU7sswLL3AintcAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="picLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAQoJJREFUeF7t
         vQd4lNfVLfw6duJOr5JQ77333nsf9d57RwUkBAIVmgAJgQSiI0RvovfeqwEDxmCMcUtix0m+3Jsb21r/

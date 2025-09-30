@@ -29,33 +29,33 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-			panel1 = new Panel();
+			panelMain = new Panel();
 			buttonClose = new Button();
 			buttonLogin = new Button();
 			textPassword = new TextBox();
 			picPassword = new PictureBox();
 			textUsername = new TextBox();
 			picUser = new PictureBox();
-			label1 = new Label();
-			panel1.SuspendLayout();
+			labelHeader = new Label();
+			panelMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)picPassword).BeginInit();
 			((System.ComponentModel.ISupportInitialize)picUser).BeginInit();
 			SuspendLayout();
 			// 
-			// panel1
+			// panelMain
 			// 
-			panel1.BackColor = Color.FromArgb(17, 24, 34);
-			panel1.Controls.Add(buttonClose);
-			panel1.Controls.Add(buttonLogin);
-			panel1.Controls.Add(textPassword);
-			panel1.Controls.Add(picPassword);
-			panel1.Controls.Add(textUsername);
-			panel1.Controls.Add(picUser);
-			panel1.Controls.Add(label1);
-			panel1.Location = new Point(3, 2);
-			panel1.Name = "panel1";
-			panel1.Size = new Size(459, 333);
-			panel1.TabIndex = 0;
+			panelMain.BackColor = Color.FromArgb(17, 24, 34);
+			panelMain.Controls.Add(buttonClose);
+			panelMain.Controls.Add(buttonLogin);
+			panelMain.Controls.Add(textPassword);
+			panelMain.Controls.Add(picPassword);
+			panelMain.Controls.Add(textUsername);
+			panelMain.Controls.Add(picUser);
+			panelMain.Controls.Add(labelHeader);
+			panelMain.Location = new Point(3, 2);
+			panelMain.Name = "panelMain";
+			panelMain.Size = new Size(459, 333);
+			panelMain.TabIndex = 0;
 			// 
 			// buttonClose
 			// 
@@ -129,17 +129,17 @@
 			picUser.TabIndex = 2;
 			picUser.TabStop = false;
 			// 
-			// label1
+			// labelHeader
 			// 
-			label1.BackColor = Color.DarkBlue;
-			label1.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			label1.ForeColor = Color.Silver;
-			label1.Location = new Point(0, -3);
-			label1.Name = "label1";
-			label1.Size = new Size(459, 77);
-			label1.TabIndex = 0;
-			label1.Text = "User Login";
-			label1.TextAlign = ContentAlignment.MiddleCenter;
+			labelHeader.BackColor = Color.DarkBlue;
+			labelHeader.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			labelHeader.ForeColor = Color.Silver;
+			labelHeader.Location = new Point(0, -3);
+			labelHeader.Name = "labelHeader";
+			labelHeader.Size = new Size(459, 77);
+			labelHeader.TabIndex = 0;
+			labelHeader.Text = "User Login";
+			labelHeader.TextAlign = ContentAlignment.MiddleCenter;
 			// 
 			// LoginForm
 			// 
@@ -147,14 +147,14 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.Silver;
 			ClientSize = new Size(465, 336);
-			Controls.Add(panel1);
+			Controls.Add(panelMain);
 			FormBorderStyle = FormBorderStyle.None;
 			Name = "LoginForm";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Login";
 			Load += LoginForm_Load;
-			panel1.ResumeLayout(false);
-			panel1.PerformLayout();
+			panelMain.ResumeLayout(false);
+			panelMain.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)picPassword).EndInit();
 			((System.ComponentModel.ISupportInitialize)picUser).EndInit();
 			ResumeLayout(false);
@@ -162,8 +162,8 @@
 
 		#endregion
 
-		private Panel panel1;
-		private Label label1;
+		private Panel panelMain;
+		private Label labelHeader;
 		private PictureBox picUser;
 		private TextBox textUsername;
 		private TextBox textPassword;

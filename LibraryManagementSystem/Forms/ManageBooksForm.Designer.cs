@@ -29,10 +29,10 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageBooksForm));
-			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-			panel1 = new Panel();
+			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+			panelMain = new Panel();
 			label3 = new Label();
 			label2 = new Label();
 			label1 = new Label();
@@ -50,7 +50,7 @@
 			textPrice = new TextBox();
 			comboAuthors = new ComboBox();
 			buttonClearSearch = new Button();
-			pictureBox2 = new PictureBox();
+			picSearchIcon = new PictureBox();
 			textSearch = new TextBox();
 			textAbout = new RichTextBox();
 			labelAbout = new Label();
@@ -68,12 +68,12 @@
 			labelId = new Label();
 			label4 = new Label();
 			label5 = new Label();
-			pictureBox1 = new PictureBox();
+			picLogo = new PictureBox();
 			labelHeader = new Label();
-			panel2 = new Panel();
+			panelHeader = new Panel();
 			labelStatus = new Label();
 			buttonClose = new Button();
-			panel3 = new Panel();
+			panelSidebar = new Panel();
 			labelBooksCount = new Label();
 			buttonClearAuthorFilter = new Button();
 			buttonClearGenreFilter = new Button();
@@ -86,58 +86,58 @@
 			buttonUpdate = new Button();
 			buttonAdd = new Button();
 			openFileBookImage = new OpenFileDialog();
-			panel1.SuspendLayout();
+			panelMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)numCopies).BeginInit();
 			((System.ComponentModel.ISupportInitialize)picCover).BeginInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+			((System.ComponentModel.ISupportInitialize)picSearchIcon).BeginInit();
 			((System.ComponentModel.ISupportInitialize)dgBooks).BeginInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-			panel2.SuspendLayout();
-			panel3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
+			panelHeader.SuspendLayout();
+			panelSidebar.SuspendLayout();
 			SuspendLayout();
 			// 
-			// panel1
+			// panelMain
 			// 
-			panel1.BackColor = Color.Silver;
-			panel1.Controls.Add(label3);
-			panel1.Controls.Add(label2);
-			panel1.Controls.Add(label1);
-			panel1.Controls.Add(labelCoverFileName);
-			panel1.Controls.Add(numCopies);
-			panel1.Controls.Add(comboGenres);
-			panel1.Controls.Add(labelGenre);
-			panel1.Controls.Add(dateReceived);
-			panel1.Controls.Add(labelDateReceived);
-			panel1.Controls.Add(textPublisher);
-			panel1.Controls.Add(labelPublisher);
-			panel1.Controls.Add(buttonAddCover);
-			panel1.Controls.Add(labelCover);
-			panel1.Controls.Add(picCover);
-			panel1.Controls.Add(textPrice);
-			panel1.Controls.Add(comboAuthors);
-			panel1.Controls.Add(buttonClearSearch);
-			panel1.Controls.Add(pictureBox2);
-			panel1.Controls.Add(textSearch);
-			panel1.Controls.Add(textAbout);
-			panel1.Controls.Add(labelAbout);
-			panel1.Controls.Add(labelPrice);
-			panel1.Controls.Add(labelCopies);
-			panel1.Controls.Add(textISBN);
-			panel1.Controls.Add(labelISBN);
-			panel1.Controls.Add(textYear);
-			panel1.Controls.Add(labelYear);
-			panel1.Controls.Add(labelAuthor);
-			panel1.Controls.Add(dgBooks);
-			panel1.Controls.Add(textTitle);
-			panel1.Controls.Add(textId);
-			panel1.Controls.Add(labelTitle);
-			panel1.Controls.Add(labelId);
-			panel1.Controls.Add(label4);
-			panel1.Controls.Add(label5);
-			panel1.Location = new Point(160, 80);
-			panel1.Name = "panel1";
-			panel1.Size = new Size(837, 508);
-			panel1.TabIndex = 7;
+			panelMain.BackColor = Color.Silver;
+			panelMain.Controls.Add(label3);
+			panelMain.Controls.Add(label2);
+			panelMain.Controls.Add(label1);
+			panelMain.Controls.Add(labelCoverFileName);
+			panelMain.Controls.Add(numCopies);
+			panelMain.Controls.Add(comboGenres);
+			panelMain.Controls.Add(labelGenre);
+			panelMain.Controls.Add(dateReceived);
+			panelMain.Controls.Add(labelDateReceived);
+			panelMain.Controls.Add(textPublisher);
+			panelMain.Controls.Add(labelPublisher);
+			panelMain.Controls.Add(buttonAddCover);
+			panelMain.Controls.Add(labelCover);
+			panelMain.Controls.Add(picCover);
+			panelMain.Controls.Add(textPrice);
+			panelMain.Controls.Add(comboAuthors);
+			panelMain.Controls.Add(buttonClearSearch);
+			panelMain.Controls.Add(picSearchIcon);
+			panelMain.Controls.Add(textSearch);
+			panelMain.Controls.Add(textAbout);
+			panelMain.Controls.Add(labelAbout);
+			panelMain.Controls.Add(labelPrice);
+			panelMain.Controls.Add(labelCopies);
+			panelMain.Controls.Add(textISBN);
+			panelMain.Controls.Add(labelISBN);
+			panelMain.Controls.Add(textYear);
+			panelMain.Controls.Add(labelYear);
+			panelMain.Controls.Add(labelAuthor);
+			panelMain.Controls.Add(dgBooks);
+			panelMain.Controls.Add(textTitle);
+			panelMain.Controls.Add(textId);
+			panelMain.Controls.Add(labelTitle);
+			panelMain.Controls.Add(labelId);
+			panelMain.Controls.Add(label4);
+			panelMain.Controls.Add(label5);
+			panelMain.Location = new Point(160, 80);
+			panelMain.Name = "panelMain";
+			panelMain.Size = new Size(837, 508);
+			panelMain.TabIndex = 7;
 			// 
 			// label3
 			// 
@@ -314,15 +314,15 @@
 			buttonClearSearch.UseVisualStyleBackColor = true;
 			buttonClearSearch.Click += buttonClearSearch_Click;
 			// 
-			// pictureBox2
+			// picSearchIcon
 			// 
-			pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-			pictureBox2.Location = new Point(405, 15);
-			pictureBox2.Name = "pictureBox2";
-			pictureBox2.Size = new Size(29, 29);
-			pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-			pictureBox2.TabIndex = 23;
-			pictureBox2.TabStop = false;
+			picSearchIcon.Image = (Image)resources.GetObject("picSearchIcon.Image");
+			picSearchIcon.Location = new Point(405, 15);
+			picSearchIcon.Name = "picSearchIcon";
+			picSearchIcon.Size = new Size(29, 29);
+			picSearchIcon.SizeMode = PictureBoxSizeMode.StretchImage;
+			picSearchIcon.TabIndex = 23;
+			picSearchIcon.TabStop = false;
 			// 
 			// textSearch
 			// 
@@ -427,34 +427,34 @@
 			dgBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgBooks.BackgroundColor = Color.Silver;
 			dgBooks.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-			dgBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle4.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+			dgBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			dgBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dgBooks.Location = new Point(405, 55);
 			dgBooks.MultiSelect = false;
 			dgBooks.Name = "dgBooks";
 			dgBooks.ReadOnly = true;
 			dgBooks.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle2.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-			dgBooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle5.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+			dgBooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			dgBooks.RowHeadersVisible = false;
-			dataGridViewCellStyle3.BackColor = Color.Silver;
-			dataGridViewCellStyle3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle3.ForeColor = Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
-			dgBooks.RowsDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle6.BackColor = Color.Silver;
+			dataGridViewCellStyle6.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle6.ForeColor = Color.Black;
+			dataGridViewCellStyle6.SelectionBackColor = Color.RoyalBlue;
+			dgBooks.RowsDefaultCellStyle = dataGridViewCellStyle6;
 			dgBooks.RowTemplate.DefaultCellStyle.BackColor = Color.WhiteSmoke;
 			dgBooks.RowTemplate.DefaultCellStyle.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			dgBooks.RowTemplate.DefaultCellStyle.ForeColor = Color.DarkBlue;
@@ -531,17 +531,17 @@
 			label5.TabIndex = 42;
 			label5.Text = "*";
 			// 
-			// pictureBox1
+			// picLogo
 			// 
-			pictureBox1.BackColor = Color.Transparent;
-			pictureBox1.ErrorImage = null;
-			pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-			pictureBox1.Location = new Point(7, 7);
-			pictureBox1.Name = "pictureBox1";
-			pictureBox1.Size = new Size(67, 59);
-			pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-			pictureBox1.TabIndex = 11;
-			pictureBox1.TabStop = false;
+			picLogo.BackColor = Color.Transparent;
+			picLogo.ErrorImage = null;
+			picLogo.Image = (Image)resources.GetObject("picLogo.Image");
+			picLogo.Location = new Point(7, 7);
+			picLogo.Name = "picLogo";
+			picLogo.Size = new Size(67, 59);
+			picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+			picLogo.TabIndex = 11;
+			picLogo.TabStop = false;
 			// 
 			// labelHeader
 			// 
@@ -556,17 +556,17 @@
 			labelHeader.Text = "Books";
 			labelHeader.TextAlign = ContentAlignment.MiddleLeft;
 			// 
-			// panel2
+			// panelHeader
 			// 
-			panel2.BackColor = Color.DarkBlue;
-			panel2.Controls.Add(labelStatus);
-			panel2.Controls.Add(pictureBox1);
-			panel2.Controls.Add(buttonClose);
-			panel2.Controls.Add(labelHeader);
-			panel2.Location = new Point(5, 5);
-			panel2.Name = "panel2";
-			panel2.Size = new Size(992, 70);
-			panel2.TabIndex = 8;
+			panelHeader.BackColor = Color.DarkBlue;
+			panelHeader.Controls.Add(labelStatus);
+			panelHeader.Controls.Add(picLogo);
+			panelHeader.Controls.Add(buttonClose);
+			panelHeader.Controls.Add(labelHeader);
+			panelHeader.Location = new Point(5, 5);
+			panelHeader.Name = "panelHeader";
+			panelHeader.Size = new Size(992, 70);
+			panelHeader.TabIndex = 8;
 			// 
 			// labelStatus
 			// 
@@ -593,23 +593,23 @@
 			buttonClose.UseVisualStyleBackColor = false;
 			buttonClose.Click += buttonClose_Click;
 			// 
-			// panel3
+			// panelSidebar
 			// 
-			panel3.Controls.Add(labelBooksCount);
-			panel3.Controls.Add(buttonClearAuthorFilter);
-			panel3.Controls.Add(buttonClearGenreFilter);
-			panel3.Controls.Add(comboGenreView);
-			panel3.Controls.Add(comboAuthorView);
-			panel3.Controls.Add(label8);
-			panel3.Controls.Add(label7);
-			panel3.Controls.Add(label6);
-			panel3.Controls.Add(buttonDelete);
-			panel3.Controls.Add(buttonUpdate);
-			panel3.Controls.Add(buttonAdd);
-			panel3.Location = new Point(5, 77);
-			panel3.Name = "panel3";
-			panel3.Size = new Size(149, 497);
-			panel3.TabIndex = 9;
+			panelSidebar.Controls.Add(labelBooksCount);
+			panelSidebar.Controls.Add(buttonClearAuthorFilter);
+			panelSidebar.Controls.Add(buttonClearGenreFilter);
+			panelSidebar.Controls.Add(comboGenreView);
+			panelSidebar.Controls.Add(comboAuthorView);
+			panelSidebar.Controls.Add(label8);
+			panelSidebar.Controls.Add(label7);
+			panelSidebar.Controls.Add(label6);
+			panelSidebar.Controls.Add(buttonDelete);
+			panelSidebar.Controls.Add(buttonUpdate);
+			panelSidebar.Controls.Add(buttonAdd);
+			panelSidebar.Location = new Point(5, 77);
+			panelSidebar.Name = "panelSidebar";
+			panelSidebar.Size = new Size(149, 497);
+			panelSidebar.TabIndex = 9;
 			// 
 			// labelBooksCount
 			// 
@@ -767,31 +767,31 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(17, 24, 34);
 			ClientSize = new Size(1003, 600);
-			Controls.Add(panel1);
-			Controls.Add(panel2);
-			Controls.Add(panel3);
+			Controls.Add(panelMain);
+			Controls.Add(panelHeader);
+			Controls.Add(panelSidebar);
 			FormBorderStyle = FormBorderStyle.None;
 			Name = "ManageBooksForm";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "ManageBooksForm";
 			Load += ManageBooksForm_Load;
-			panel1.ResumeLayout(false);
-			panel1.PerformLayout();
+			panelMain.ResumeLayout(false);
+			panelMain.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)numCopies).EndInit();
 			((System.ComponentModel.ISupportInitialize)picCover).EndInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+			((System.ComponentModel.ISupportInitialize)picSearchIcon).EndInit();
 			((System.ComponentModel.ISupportInitialize)dgBooks).EndInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-			panel2.ResumeLayout(false);
-			panel3.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
+			panelHeader.ResumeLayout(false);
+			panelSidebar.ResumeLayout(false);
 			ResumeLayout(false);
 		}
 
 		#endregion
 
-		private Panel panel1;
+		private Panel panelMain;
 		private Button buttonClearSearch;
-		private PictureBox pictureBox2;
+		private PictureBox picSearchIcon;
 		private TextBox textSearch;
 		private RichTextBox textAbout;
 		private Label labelAbout;
@@ -807,11 +807,11 @@
 		private TextBox textId;
 		private Label labelTitle;
 		private Label labelId;
-		private PictureBox pictureBox1;
+		private PictureBox picLogo;
 		private Label labelHeader;
-		private Panel panel2;
+		private Panel panelHeader;
 		private Button buttonClose;
-		private Panel panel3;
+		private Panel panelSidebar;
 		private Button buttonDelete;
 		private Button buttonUpdate;
 		private Button buttonAdd;

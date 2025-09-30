@@ -16,7 +16,7 @@ namespace LibraryManagementSystem.Controllers
 			{
 				using (LmsContext context = new LmsContext())
 				{
-					var authors = context.Authors.ToList();
+					var authors = context.Authors.OrderBy(l=>l.LastName).ThenBy(f=>f.FirstName).ThenBy(d=>d.DOB).ToList();
 					return authors;
 				}
 			}

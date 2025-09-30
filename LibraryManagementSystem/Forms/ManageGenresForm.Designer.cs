@@ -29,10 +29,10 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageGenresForm));
-			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-			panel1 = new Panel();
+			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+			panelMain = new Panel();
 			label1 = new Label();
 			label3 = new Label();
 			buttonShowGenreBooks = new Button();
@@ -44,35 +44,35 @@
 			textId = new TextBox();
 			labelName = new Label();
 			labelId = new Label();
-			panel2 = new Panel();
+			panelHeader = new Panel();
 			labelStatus = new Label();
-			pictureBox1 = new PictureBox();
+			picHeaderLogo = new PictureBox();
 			buttonClose = new Button();
 			labelHeader = new Label();
-			panel1.SuspendLayout();
+			panelMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dgGenres).BeginInit();
-			panel2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+			panelHeader.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)picHeaderLogo).BeginInit();
 			SuspendLayout();
 			// 
-			// panel1
+			// panelMain
 			// 
-			panel1.BackColor = Color.Silver;
-			panel1.Controls.Add(label1);
-			panel1.Controls.Add(label3);
-			panel1.Controls.Add(buttonShowGenreBooks);
-			panel1.Controls.Add(buttonDelete);
-			panel1.Controls.Add(buttonUpdate);
-			panel1.Controls.Add(buttonAdd);
-			panel1.Controls.Add(dgGenres);
-			panel1.Controls.Add(textName);
-			panel1.Controls.Add(textId);
-			panel1.Controls.Add(labelName);
-			panel1.Controls.Add(labelId);
-			panel1.Location = new Point(6, 78);
-			panel1.Name = "panel1";
-			panel1.Size = new Size(730, 264);
-			panel1.TabIndex = 2;
+			panelMain.BackColor = Color.Silver;
+			panelMain.Controls.Add(label1);
+			panelMain.Controls.Add(label3);
+			panelMain.Controls.Add(buttonShowGenreBooks);
+			panelMain.Controls.Add(buttonDelete);
+			panelMain.Controls.Add(buttonUpdate);
+			panelMain.Controls.Add(buttonAdd);
+			panelMain.Controls.Add(dgGenres);
+			panelMain.Controls.Add(textName);
+			panelMain.Controls.Add(textId);
+			panelMain.Controls.Add(labelName);
+			panelMain.Controls.Add(labelId);
+			panelMain.Location = new Point(6, 78);
+			panelMain.Name = "panelMain";
+			panelMain.Size = new Size(730, 264);
+			panelMain.TabIndex = 2;
 			// 
 			// label1
 			// 
@@ -190,34 +190,34 @@
 			dgGenres.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgGenres.BackgroundColor = Color.Silver;
 			dgGenres.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-			dgGenres.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle4.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle4.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+			dgGenres.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			dgGenres.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dgGenres.Location = new Point(400, 24);
 			dgGenres.MultiSelect = false;
 			dgGenres.Name = "dgGenres";
 			dgGenres.ReadOnly = true;
 			dgGenres.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle2.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-			dgGenres.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle5.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+			dgGenres.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			dgGenres.RowHeadersVisible = false;
-			dataGridViewCellStyle3.BackColor = Color.Silver;
-			dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle3.ForeColor = Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
-			dgGenres.RowsDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle6.BackColor = Color.Silver;
+			dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle6.ForeColor = Color.Black;
+			dataGridViewCellStyle6.SelectionBackColor = Color.RoyalBlue;
+			dgGenres.RowsDefaultCellStyle = dataGridViewCellStyle6;
 			dgGenres.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			dgGenres.Size = new Size(306, 213);
 			dgGenres.TabIndex = 4;
@@ -262,17 +262,17 @@
 			labelId.TabIndex = 0;
 			labelId.Text = "ID:";
 			// 
-			// panel2
+			// panelHeader
 			// 
-			panel2.BackColor = Color.DarkBlue;
-			panel2.Controls.Add(labelStatus);
-			panel2.Controls.Add(pictureBox1);
-			panel2.Controls.Add(buttonClose);
-			panel2.Controls.Add(labelHeader);
-			panel2.Location = new Point(6, 4);
-			panel2.Name = "panel2";
-			panel2.Size = new Size(730, 70);
-			panel2.TabIndex = 3;
+			panelHeader.BackColor = Color.DarkBlue;
+			panelHeader.Controls.Add(labelStatus);
+			panelHeader.Controls.Add(picHeaderLogo);
+			panelHeader.Controls.Add(buttonClose);
+			panelHeader.Controls.Add(labelHeader);
+			panelHeader.Location = new Point(6, 4);
+			panelHeader.Name = "panelHeader";
+			panelHeader.Size = new Size(730, 70);
+			panelHeader.TabIndex = 3;
 			// 
 			// labelStatus
 			// 
@@ -285,16 +285,16 @@
 			labelStatus.TabIndex = 13;
 			labelStatus.Text = "status";
 			// 
-			// pictureBox1
+			// picHeaderLogo
 			// 
-			pictureBox1.BackColor = Color.Transparent;
-			pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-			pictureBox1.Location = new Point(7, 7);
-			pictureBox1.Name = "pictureBox1";
-			pictureBox1.Size = new Size(59, 59);
-			pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-			pictureBox1.TabIndex = 11;
-			pictureBox1.TabStop = false;
+			picHeaderLogo.BackColor = Color.Transparent;
+			picHeaderLogo.Image = (Image)resources.GetObject("picHeaderLogo.Image");
+			picHeaderLogo.Location = new Point(7, 7);
+			picHeaderLogo.Name = "picHeaderLogo";
+			picHeaderLogo.Size = new Size(59, 59);
+			picHeaderLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+			picHeaderLogo.TabIndex = 11;
+			picHeaderLogo.TabStop = false;
 			// 
 			// buttonClose
 			// 
@@ -329,27 +329,27 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(17, 24, 34);
 			ClientSize = new Size(740, 350);
-			Controls.Add(panel2);
-			Controls.Add(panel1);
+			Controls.Add(panelHeader);
+			Controls.Add(panelMain);
 			FormBorderStyle = FormBorderStyle.None;
 			Name = "ManageGenresForm";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "ManageGenresForm";
 			Load += ManageGenresForm_Load;
-			panel1.ResumeLayout(false);
-			panel1.PerformLayout();
+			panelMain.ResumeLayout(false);
+			panelMain.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)dgGenres).EndInit();
-			panel2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+			panelHeader.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)picHeaderLogo).EndInit();
 			ResumeLayout(false);
 		}
 
 		#endregion
-		private Panel panel1;
-		private Panel panel2;
+		private Panel panelMain;
+		private Panel panelHeader;
 		private Button buttonClose;
 		private Label labelHeader;
-		private PictureBox pictureBox1;
+		private PictureBox picHeaderLogo;
 		private Label labelId;
 		private Label labelName;
 		private TextBox textName;

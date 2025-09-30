@@ -30,17 +30,18 @@ namespace LibraryManagementSystem.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
-			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageAuthorsForm));
+			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
 			labelHeader = new Label();
 			panelMain = new Panel();
+			buttonShowAuthorBooks = new Button();
 			label3 = new Label();
 			label2 = new Label();
 			label1 = new Label();
 			buttonClearSearch = new Button();
-			pictureBox2 = new PictureBox();
+			picSearchIcon = new PictureBox();
 			textSearch = new TextBox();
 			rtbAbout = new RichTextBox();
 			rtbEducation = new RichTextBox();
@@ -59,21 +60,20 @@ namespace LibraryManagementSystem.Forms
 			textId = new TextBox();
 			labelFirstName = new Label();
 			labelId = new Label();
-			panel2 = new Panel();
+			panelHeader = new Panel();
 			labelStatus = new Label();
-			pictureBox1 = new PictureBox();
+			picHeaderLogo = new PictureBox();
 			buttonClose = new Button();
-			panel3 = new Panel();
+			panelSidebar = new Panel();
 			buttonDelete = new Button();
 			buttonUpdate = new Button();
 			buttonAdd = new Button();
-			buttonShowAuthorBooks = new Button();
 			panelMain.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+			((System.ComponentModel.ISupportInitialize)picSearchIcon).BeginInit();
 			((System.ComponentModel.ISupportInitialize)dgAuthors).BeginInit();
-			panel2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-			panel3.SuspendLayout();
+			panelHeader.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)picHeaderLogo).BeginInit();
+			panelSidebar.SuspendLayout();
 			SuspendLayout();
 			// 
 			// labelHeader
@@ -97,7 +97,7 @@ namespace LibraryManagementSystem.Forms
 			panelMain.Controls.Add(label2);
 			panelMain.Controls.Add(label1);
 			panelMain.Controls.Add(buttonClearSearch);
-			panelMain.Controls.Add(pictureBox2);
+			panelMain.Controls.Add(picSearchIcon);
 			panelMain.Controls.Add(textSearch);
 			panelMain.Controls.Add(rtbAbout);
 			panelMain.Controls.Add(rtbEducation);
@@ -120,6 +120,27 @@ namespace LibraryManagementSystem.Forms
 			panelMain.Name = "panelMain";
 			panelMain.Size = new Size(837, 500);
 			panelMain.TabIndex = 4;
+			// 
+			// buttonShowAuthorBooks
+			// 
+			buttonShowAuthorBooks.BackColor = Color.Silver;
+			buttonShowAuthorBooks.BackgroundImageLayout = ImageLayout.None;
+			buttonShowAuthorBooks.Cursor = Cursors.Hand;
+			buttonShowAuthorBooks.FlatAppearance.BorderSize = 0;
+			buttonShowAuthorBooks.FlatStyle = FlatStyle.Flat;
+			buttonShowAuthorBooks.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			buttonShowAuthorBooks.ForeColor = Color.DarkBlue;
+			buttonShowAuthorBooks.Image = (Image)resources.GetObject("buttonShowAuthorBooks.Image");
+			buttonShowAuthorBooks.ImageAlign = ContentAlignment.MiddleLeft;
+			buttonShowAuthorBooks.Location = new Point(655, 405);
+			buttonShowAuthorBooks.Name = "buttonShowAuthorBooks";
+			buttonShowAuthorBooks.Size = new Size(167, 53);
+			buttonShowAuthorBooks.TabIndex = 28;
+			buttonShowAuthorBooks.Text = "View Books";
+			buttonShowAuthorBooks.TextAlign = ContentAlignment.MiddleRight;
+			buttonShowAuthorBooks.TextImageRelation = TextImageRelation.ImageBeforeText;
+			buttonShowAuthorBooks.UseVisualStyleBackColor = false;
+			buttonShowAuthorBooks.Click += buttonShowAuthorBooks_Click;
 			// 
 			// label3
 			// 
@@ -167,15 +188,15 @@ namespace LibraryManagementSystem.Forms
 			buttonClearSearch.UseVisualStyleBackColor = true;
 			buttonClearSearch.Click += buttonClearSearch_Click;
 			// 
-			// pictureBox2
+			// picSearchIcon
 			// 
-			pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-			pictureBox2.Location = new Point(405, 27);
-			pictureBox2.Name = "pictureBox2";
-			pictureBox2.Size = new Size(35, 35);
-			pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-			pictureBox2.TabIndex = 23;
-			pictureBox2.TabStop = false;
+			picSearchIcon.Image = (Image)resources.GetObject("picSearchIcon.Image");
+			picSearchIcon.Location = new Point(405, 27);
+			picSearchIcon.Name = "picSearchIcon";
+			picSearchIcon.Size = new Size(35, 35);
+			picSearchIcon.SizeMode = PictureBoxSizeMode.StretchImage;
+			picSearchIcon.TabIndex = 23;
+			picSearchIcon.TabStop = false;
 			// 
 			// textSearch
 			// 
@@ -306,34 +327,34 @@ namespace LibraryManagementSystem.Forms
 			dgAuthors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgAuthors.BackgroundColor = Color.Silver;
 			dgAuthors.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-			dgAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle4.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+			dgAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			dgAuthors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dgAuthors.Location = new Point(405, 83);
 			dgAuthors.MultiSelect = false;
 			dgAuthors.Name = "dgAuthors";
 			dgAuthors.ReadOnly = true;
 			dgAuthors.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle2.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-			dgAuthors.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle5.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+			dgAuthors.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			dgAuthors.RowHeadersVisible = false;
-			dataGridViewCellStyle3.BackColor = Color.Silver;
-			dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle3.ForeColor = Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
-			dgAuthors.RowsDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle6.BackColor = Color.Silver;
+			dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle6.ForeColor = Color.Black;
+			dataGridViewCellStyle6.SelectionBackColor = Color.RoyalBlue;
+			dgAuthors.RowsDefaultCellStyle = dataGridViewCellStyle6;
 			dgAuthors.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			dgAuthors.Size = new Size(417, 316);
 			dgAuthors.TabIndex = 0;
@@ -378,17 +399,17 @@ namespace LibraryManagementSystem.Forms
 			labelId.TabIndex = 0;
 			labelId.Text = "ID:";
 			// 
-			// panel2
+			// panelHeader
 			// 
-			panel2.BackColor = Color.DarkBlue;
-			panel2.Controls.Add(labelStatus);
-			panel2.Controls.Add(pictureBox1);
-			panel2.Controls.Add(buttonClose);
-			panel2.Controls.Add(labelHeader);
-			panel2.Location = new Point(4, 3);
-			panel2.Name = "panel2";
-			panel2.Size = new Size(992, 70);
-			panel2.TabIndex = 5;
+			panelHeader.BackColor = Color.DarkBlue;
+			panelHeader.Controls.Add(labelStatus);
+			panelHeader.Controls.Add(picHeaderLogo);
+			panelHeader.Controls.Add(buttonClose);
+			panelHeader.Controls.Add(labelHeader);
+			panelHeader.Location = new Point(4, 3);
+			panelHeader.Name = "panelHeader";
+			panelHeader.Size = new Size(992, 70);
+			panelHeader.TabIndex = 5;
 			// 
 			// labelStatus
 			// 
@@ -401,17 +422,17 @@ namespace LibraryManagementSystem.Forms
 			labelStatus.TabIndex = 12;
 			labelStatus.Text = "status";
 			// 
-			// pictureBox1
+			// picHeaderLogo
 			// 
-			pictureBox1.BackColor = Color.Transparent;
-			pictureBox1.ErrorImage = null;
-			pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-			pictureBox1.Location = new Point(7, 7);
-			pictureBox1.Name = "pictureBox1";
-			pictureBox1.Size = new Size(67, 59);
-			pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-			pictureBox1.TabIndex = 11;
-			pictureBox1.TabStop = false;
+			picHeaderLogo.BackColor = Color.Transparent;
+			picHeaderLogo.ErrorImage = null;
+			picHeaderLogo.Image = (Image)resources.GetObject("picHeaderLogo.Image");
+			picHeaderLogo.Location = new Point(7, 7);
+			picHeaderLogo.Name = "picHeaderLogo";
+			picHeaderLogo.Size = new Size(67, 59);
+			picHeaderLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+			picHeaderLogo.TabIndex = 11;
+			picHeaderLogo.TabStop = false;
 			// 
 			// buttonClose
 			// 
@@ -427,15 +448,15 @@ namespace LibraryManagementSystem.Forms
 			buttonClose.UseVisualStyleBackColor = false;
 			buttonClose.Click += buttonClose_Click;
 			// 
-			// panel3
+			// panelSidebar
 			// 
-			panel3.Controls.Add(buttonDelete);
-			panel3.Controls.Add(buttonUpdate);
-			panel3.Controls.Add(buttonAdd);
-			panel3.Location = new Point(4, 75);
-			panel3.Name = "panel3";
-			panel3.Size = new Size(149, 424);
-			panel3.TabIndex = 6;
+			panelSidebar.Controls.Add(buttonDelete);
+			panelSidebar.Controls.Add(buttonUpdate);
+			panelSidebar.Controls.Add(buttonAdd);
+			panelSidebar.Location = new Point(4, 75);
+			panelSidebar.Name = "panelSidebar";
+			panelSidebar.Size = new Size(149, 424);
+			panelSidebar.TabIndex = 6;
 			// 
 			// buttonDelete
 			// 
@@ -497,35 +518,14 @@ namespace LibraryManagementSystem.Forms
 			buttonAdd.UseVisualStyleBackColor = false;
 			buttonAdd.Click += buttonAdd_Click;
 			// 
-			// buttonShowAuthorBooks
-			// 
-			buttonShowAuthorBooks.BackColor = Color.Silver;
-			buttonShowAuthorBooks.BackgroundImageLayout = ImageLayout.None;
-			buttonShowAuthorBooks.Cursor = Cursors.Hand;
-			buttonShowAuthorBooks.FlatAppearance.BorderSize = 0;
-			buttonShowAuthorBooks.FlatStyle = FlatStyle.Flat;
-			buttonShowAuthorBooks.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			buttonShowAuthorBooks.ForeColor = Color.DarkBlue;
-			buttonShowAuthorBooks.Image = (Image)resources.GetObject("buttonShowAuthorBooks.Image");
-			buttonShowAuthorBooks.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonShowAuthorBooks.Location = new Point(655, 405);
-			buttonShowAuthorBooks.Name = "buttonShowAuthorBooks";
-			buttonShowAuthorBooks.Size = new Size(167, 53);
-			buttonShowAuthorBooks.TabIndex = 28;
-			buttonShowAuthorBooks.Text = "View Books";
-			buttonShowAuthorBooks.TextAlign = ContentAlignment.MiddleRight;
-			buttonShowAuthorBooks.TextImageRelation = TextImageRelation.ImageBeforeText;
-			buttonShowAuthorBooks.UseVisualStyleBackColor = false;
-			buttonShowAuthorBooks.Click += buttonShowAuthorBooks_Click;
-			// 
 			// ManageAuthorsForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(17, 24, 34);
 			ClientSize = new Size(1004, 590);
-			Controls.Add(panel3);
-			Controls.Add(panel2);
+			Controls.Add(panelSidebar);
+			Controls.Add(panelHeader);
 			Controls.Add(panelMain);
 			FormBorderStyle = FormBorderStyle.None;
 			Name = "ManageAuthorsForm";
@@ -534,11 +534,11 @@ namespace LibraryManagementSystem.Forms
 			Load += ManageAuthorsForm_Load;
 			panelMain.ResumeLayout(false);
 			panelMain.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+			((System.ComponentModel.ISupportInitialize)picSearchIcon).EndInit();
 			((System.ComponentModel.ISupportInitialize)dgAuthors).EndInit();
-			panel2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-			panel3.ResumeLayout(false);
+			panelHeader.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)picHeaderLogo).EndInit();
+			panelSidebar.ResumeLayout(false);
 			ResumeLayout(false);
 		}
 
@@ -554,10 +554,10 @@ namespace LibraryManagementSystem.Forms
 		private TextBox textId;
 		private Label labelFirstName;
 		private Label labelId;
-		private Panel panel2;
-		private PictureBox pictureBox1;
+		private Panel panelHeader;
+		private PictureBox picHeaderLogo;
 		private Button buttonClose;
-		private Panel panel3;
+		private Panel panelSidebar;
 		private Button buttonDelete;
 		private Button buttonUpdate;
 		private Button buttonAdd;
@@ -574,7 +574,7 @@ namespace LibraryManagementSystem.Forms
 		private RichTextBox rtbAbout;
 		private RichTextBox rtbEducation;
 		private TextBox textSearch;
-		private PictureBox pictureBox2;
+		private PictureBox picSearchIcon;
 		private Button buttonClearSearch;
 		private Label labelStatus;
 		private Label label1;
