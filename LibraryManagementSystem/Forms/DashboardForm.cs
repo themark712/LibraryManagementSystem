@@ -17,6 +17,9 @@ namespace LibraryManagementSystem.Forms
 {
 	public partial class DashboardForm : Form
 	{
+		AuthorController? authorCont;
+		BookController? bookCont;
+
 		public DashboardForm()
 		{
 			InitializeComponent();
@@ -56,10 +59,12 @@ namespace LibraryManagementSystem.Forms
 
 		private void DashboardForm_Load(object sender, EventArgs e)
 		{
-			int authorCount = AuthorController.GetCount();
+			authorCont = new AuthorController();
+			bookCont = new BookController();
+			int authorCount = authorCont.GetCount();
 			labelAuthorCount.Text = authorCount.ToString();
 
-			int bookCount = BookController.GetCount();
+			int bookCount = bookCont!.GetCount();
 			labelBookCount.Text = bookCount.ToString();
 		}
 

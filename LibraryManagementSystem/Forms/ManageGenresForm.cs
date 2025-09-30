@@ -17,6 +17,7 @@ namespace LibraryManagementSystem.Forms
 	public partial class ManageGenresForm : Form
 	{
 		Genre? selectedGenre;
+		GenreController? genreCont;
 
 		public ManageGenresForm()
 		{
@@ -30,6 +31,7 @@ namespace LibraryManagementSystem.Forms
 
 		private void ManageGenresForm_Load(object sender, EventArgs e)
 		{
+			genreCont = new GenreController();
 			App.GenreId = 0;
 			labelStatus.Text = "";
 			RefreshGenreList();
@@ -56,11 +58,11 @@ namespace LibraryManagementSystem.Forms
 		{
 			if (textName.Text.Length > 0)
 			{
-				int newGenreId = GenreController.AddGenre(textName.Text);
+				int newGenreId = genreCont!.AddGenre(textName.Text);
 				if (newGenreId != 0)
 				{
 					labelStatus.Text = "Genre added";
-					selectedGenre = GenreController.GetGenre(newGenreId);
+					selectedGenre = genreCont!.GetGenre(newGenreId);
 					RefreshGenreList();
 				}
 			}
@@ -75,10 +77,10 @@ namespace LibraryManagementSystem.Forms
 
 			if (textName.Text.Length > 0)
 			{
-				if (GenreController.UpdateGenre(Convert.ToInt32(textId.Text), textName.Text))
+				if (genreCont!.UpdateGenre(Convert.ToInt32(textId.Text), textName.Text))
 				{
 					labelStatus.Text = "Genre updated";
-					selectedGenre = GenreController.GetGenre(Convert.ToInt32(textId.Text));
+					selectedGenre = genreCont.GetGenre(Convert.ToInt32(textId.Text));
 					RefreshGenreList();
 				}
 			}
@@ -96,7 +98,7 @@ namespace LibraryManagementSystem.Forms
 
 				if (id > 0)
 				{
-					if (GenreController.DeleteGenre(id))
+					if (genreCont!.DeleteGenre(id))
 					{
 						selectedGenre = null;
 						labelStatus.Text = "Genre deleted";
@@ -130,7 +132,7 @@ namespace LibraryManagementSystem.Forms
 
 		private void RefreshGenreList()
 		{
-			var genres = GenreController.GetGenres();
+			var genres = genreCont!.GetGenres();
 			dgGenres.DataSource = genres;
 
 			if (selectedGenre == null)

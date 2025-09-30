@@ -19,6 +19,10 @@ namespace LibraryManagementSystem.Forms
 	public partial class ManageBooksForm : Form
 	{
 		Book? selectedBook;
+		GenreController? genreCont;
+		AuthorController? authorCont;
+		BookController? bookCont;
+
 		string imageLocation = ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\";
 
 		public ManageBooksForm()
@@ -28,6 +32,9 @@ namespace LibraryManagementSystem.Forms
 
 		private void ManageBooksForm_Load(object sender, EventArgs e)
 		{
+			genreCont = new GenreController();
+			authorCont = new AuthorController();
+			bookCont = new BookController();
 			labelStatus.Text = "";
 			FillAuthorCombo();
 			RefreshBookList();
@@ -64,7 +71,7 @@ namespace LibraryManagementSystem.Forms
 			using (LmsContext context = new LmsContext())
 			{
 				List<Author> authors = new List<Author>();
-				authors = AuthorController.GetAuthors()!;
+				authors = authorCont!.GetAuthors()!;
 
 				comboAuthors.Items.Clear();
 				comboAuthors.DataSource = authors;
@@ -77,7 +84,7 @@ namespace LibraryManagementSystem.Forms
 				comboAuthorView.DisplayMember = "FullName";
 
 				List<Genre> genres = new List<Genre>();
-				genres = GenreController.GetGenres()!;
+				genres = genreCont!.GetGenres()!;
 
 				comboGenres.Items.Clear();
 				comboGenres.DataSource = genres;
@@ -133,7 +140,7 @@ namespace LibraryManagementSystem.Forms
 
 		private void textSearch_TextChanged(object sender, EventArgs e)
 		{
-			List<Book>? books = BookController.SearchBooks(textSearch.Text);
+			List<Book>? books = bookCont!.SearchBooks(textSearch.Text);
 			RefreshBookList(books!);
 		}
 
@@ -149,12 +156,12 @@ namespace LibraryManagementSystem.Forms
 
 			if (errorString == "")
 			{
-				int newBookId = BookController.AddBook(textTitle.Text, Convert.ToInt32(comboAuthors.SelectedValue), Convert.ToInt32(comboGenres.SelectedValue), textPublisher.Text, Convert.ToInt32(textYear.Text), textISBN.Text, Convert.ToInt32(numCopies.Value), Convert.ToDecimal(textPrice.Text), dateReceived.Text, textAbout.Text);
+				int newBookId = bookCont!.AddBook(textTitle.Text, Convert.ToInt32(comboAuthors.SelectedValue), Convert.ToInt32(comboGenres.SelectedValue), textPublisher.Text, Convert.ToInt32(textYear.Text), textISBN.Text, Convert.ToInt32(numCopies.Value), Convert.ToDecimal(textPrice.Text), dateReceived.Text, textAbout.Text);
 
 				if (newBookId != 0)
 				{
 					labelStatus.Text = "Books added";
-					selectedBook = BookController.GetBook(newBookId);
+					selectedBook = bookCont.GetBook(newBookId);
 				}
 				RefreshBookList();
 			}
@@ -170,12 +177,12 @@ namespace LibraryManagementSystem.Forms
 
 			if (errorString == "")
 			{
-				if (BookController.UpdateBook(Convert.ToInt32(textId.Text), textTitle.Text, Convert.ToInt32(comboAuthors.SelectedValue), Convert.ToInt32(comboGenres.SelectedValue), textPublisher.Text, Convert.ToInt32(textYear.Text), textISBN.Text, Convert.ToInt32(numCopies.Value), Convert.ToDecimal(textPrice.Text), dateReceived.Text, textAbout.Text, labelCoverFileName.Text))
+				if (bookCont!.UpdateBook(Convert.ToInt32(textId.Text), textTitle.Text, Convert.ToInt32(comboAuthors.SelectedValue), Convert.ToInt32(comboGenres.SelectedValue), textPublisher.Text, Convert.ToInt32(textYear.Text), textISBN.Text, Convert.ToInt32(numCopies.Value), Convert.ToDecimal(textPrice.Text), dateReceived.Text, textAbout.Text, labelCoverFileName.Text))
 				{
 					labelStatus.Text = "Books updated";
 				}
 
-				selectedBook = BookController.GetBook(Convert.ToInt32(textId.Text));
+				selectedBook = bookCont.GetBook(Convert.ToInt32(textId.Text));
 				RefreshBookList();
 			}
 			else
@@ -190,7 +197,7 @@ namespace LibraryManagementSystem.Forms
 			{
 				if (selectedBook != null)
 				{
-					BookController.DeleteBook(selectedBook.BookId);
+					bookCont!.DeleteBook(selectedBook.BookId);
 					selectedBook = null;
 				}
 				RefreshBookList();
@@ -207,7 +214,7 @@ namespace LibraryManagementSystem.Forms
 				// if App.AuthorId is not 0, user initiated form from author form
 				if (App.GenreId != 0 || App.AuthorId != 0)
 				{
-					books = BookController.GetBooks()!.ToList();
+					books = bookCont!.GetBooks()!.ToList();
 
 					if (App.AuthorId != 0)
 					{
@@ -220,7 +227,7 @@ namespace LibraryManagementSystem.Forms
 				}
 				else
 				{
-					books = BookController.GetBooks()!;
+					books = bookCont!.GetBooks()!;
 				}
 			}
 			else   // bookList parameter is not  null, getting books from search
@@ -321,7 +328,7 @@ namespace LibraryManagementSystem.Forms
 			if (!isUpdate)
 			{
 				// check existing ISBN
-				Book booksByIsbn = BookController.GetBookByIsbn(textISBN.Text)!;
+				Book booksByIsbn = bookCont!.GetBookByIsbn(textISBN.Text)!;
 
 				if (booksByIsbn != null)
 				{

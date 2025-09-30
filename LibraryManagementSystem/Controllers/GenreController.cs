@@ -13,15 +13,15 @@ using System.Xml.Linq;
 
 namespace LibraryManagementSystem.Controllers
 {
-	public static class GenreController
+	public class GenreController
 	{
-		public static List<Genre>? GetGenres()
+		public List<Genre>? GetGenres()
 		{
 			try
 			{
 				using (LmsContext context = new LmsContext())
 				{
-					var genres = context.Genres.OrderBy(n=>n.Name).ToList();
+					var genres = context.Genres.OrderBy(n => n.Name).ToList();
 					return genres.ToList();
 				}
 			}
@@ -32,13 +32,13 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public static Genre? GetGenre(int _id)
+		public Genre? GetGenre(int _id)
 		{
 			try
 			{
 				using (LmsContext context = new LmsContext())
 				{
-					var genre = context.Genres.Where(i=>i.GenreId==_id).FirstOrDefault();
+					var genre = context.Genres.Where(i => i.GenreId == _id).FirstOrDefault();
 					return genre;
 				}
 			}
@@ -49,17 +49,17 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public static int AddGenre(string _name)
+		public int AddGenre(string _name)
 		{
 			using (LmsContext context = new LmsContext())
 			{
 				var name = _name;
-				var genres = context.Genres.Where(n=>n.Name==name).ToList();
+				var genres = context.Genres.Where(n => n.Name == name).ToList();
 				int newGenreId = 0;
 
-				if(genres.Count > 0)
+				if (genres.Count > 0)
 				{
-					MessageBox.Show("This genre already exists","Genre Exists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+					MessageBox.Show("This genre already exists", "Genre Exists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 					return 0;
 				}
 
@@ -78,7 +78,7 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public static bool UpdateGenre(int _id, string _name)
+		public bool UpdateGenre(int _id, string _name)
 		{
 			int id = _id;
 			string name = _name;
@@ -91,7 +91,8 @@ namespace LibraryManagementSystem.Controllers
 				{
 					genre.Name = name;
 					context.SaveChanges();
-				} else
+				}
+				else
 				{
 					return false;
 				}
@@ -99,7 +100,7 @@ namespace LibraryManagementSystem.Controllers
 			return true;
 		}
 
-		public static bool DeleteGenre(int _id)
+		public bool DeleteGenre(int _id)
 		{
 			int id = _id;
 

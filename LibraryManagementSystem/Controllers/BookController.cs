@@ -15,9 +15,9 @@ using System.Security.Policy;
 
 namespace LibraryManagementSystem.Controllers
 {
-	public static class BookController
+	public class BookController
 	{
-		public static List<Book>? GetBooks()
+		public List<Book>? GetBooks()
 		{
 			try
 			{
@@ -34,7 +34,7 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public static Book? GetBook(int _id)
+		public Book? GetBook(int _id)
 		{
 			try
 			{
@@ -51,7 +51,7 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public static Book? GetBookByIsbn(string _isbn)
+		public Book? GetBookByIsbn(string _isbn)
 		{
 			try
 			{
@@ -69,7 +69,7 @@ namespace LibraryManagementSystem.Controllers
 		}
 
 
-		public static List<Book>? SearchBooks(string search)
+		public List<Book>? SearchBooks(string search)
 		{
 			// search by string contained in fields: title, author last name, genre, publisher, ISBN
 			try
@@ -77,11 +77,11 @@ namespace LibraryManagementSystem.Controllers
 				using (LmsContext context = new LmsContext())
 				{
 					var books = context.Books
-						.Where(b => b.Title!.ToLower().Contains(search.ToLower()) 
-							|| b.Genre.Name!.ToLower().Contains(search.ToLower()) 
+						.Where(b => b.Title!.ToLower().Contains(search.ToLower())
+							|| b.Genre.Name!.ToLower().Contains(search.ToLower())
 							|| b.Author.LastName!.ToLower().Contains(search.ToLower())
 							|| b.Publisher!.ToLower().Contains(search.ToLower())
-							|| b.ISBN!.Replace("-","").Replace(" ", "").Trim().ToLower().Contains(search.ToLower()))
+							|| b.ISBN!.Replace("-", "").Replace(" ", "").Trim().ToLower().Contains(search.ToLower()))
 						.Include(a => a.Author).Include(g => g.Genre).OrderBy(n => n.Title).ToList();
 					return books;
 				}
@@ -93,7 +93,7 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public static int GetCount()
+		public int GetCount()
 		{
 			using (LmsContext context = new LmsContext())
 			{
@@ -102,10 +102,10 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public static int AddBook(string _title, int _aid, int _gid, string _pub, int _year, string _is, int _cpy, decimal _prc, string _dte, string _abt)
+		public int AddBook(string _title, int _aid, int _gid, string _pub, int _year, string _is, int _cpy, decimal _prc, string _dte, string _abt)
 		{
 			int? existingBookId = BookExists(_title, _aid, _year, _is);
-			
+
 			if (existingBookId != 0)
 			{
 				MessageBox.Show("This book already exists (Book ID: " + existingBookId.ToString() + ")", "Book Exists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -133,7 +133,7 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public static bool UpdateBook(int _id, string _title, int _aid, int _gid, string _pub, int _year, string _is, int _cpy, decimal _prc, string _dte, string _abt, string _cvr)
+		public bool UpdateBook(int _id, string _title, int _aid, int _gid, string _pub, int _year, string _is, int _cpy, decimal _prc, string _dte, string _abt, string _cvr)
 		{
 			int? existingBookId = BookExists(_title, _aid, _year, _is);
 			if (existingBookId != 0)
@@ -170,7 +170,7 @@ namespace LibraryManagementSystem.Controllers
 			return true;
 		}
 
-		public static bool DeleteBook(int _id)
+		public bool DeleteBook(int _id)
 		{
 			int id = _id;
 
@@ -199,7 +199,7 @@ namespace LibraryManagementSystem.Controllers
 						&& b.ISBN!.Replace("-", "").Replace(" ", "").Trim().ToLower() == _isbn.Replace("-", "").Replace(" ", "").Trim().ToLower())
 					.FirstOrDefault()!;
 
-				if(existingBook==null)
+				if (existingBook == null)
 				{
 					return 0;
 				}

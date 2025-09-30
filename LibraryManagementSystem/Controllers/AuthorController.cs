@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem.Controllers
 {
-	public static class AuthorController
+	public class AuthorController
 	{
-		public static List<Author>? GetAuthors()
+		public List<Author>? GetAuthors()
 		{
 			try
 			{
 				using (LmsContext context = new LmsContext())
 				{
-					var authors = context.Authors.OrderBy(l=>l.LastName).ThenBy(f=>f.FirstName).ThenBy(d=>d.DOB).ToList();
+					var authors = context.Authors.OrderBy(l => l.LastName).ThenBy(f => f.FirstName).ThenBy(d => d.DOB).ToList();
 					return authors;
 				}
 			}
@@ -27,13 +27,13 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public static List<Author>? SearchAuthors(string search)
+		public List<Author>? SearchAuthors(string search)
 		{
 			try
 			{
 				using (LmsContext context = new LmsContext())
 				{
-					var authors = context.Authors.Where(d=>d.FirstName!.ToLower().Contains(search.ToLower()) || d.LastName!.ToLower().Contains(search.ToLower())).ToList();
+					var authors = context.Authors.Where(d => d.FirstName!.ToLower().Contains(search.ToLower()) || d.LastName!.ToLower().Contains(search.ToLower())).ToList();
 					return authors;
 				}
 			}
@@ -44,7 +44,7 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public static Author? GetAuthor(int _id)
+		public Author? GetAuthor(int _id)
 		{
 			try
 			{
@@ -61,7 +61,7 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public static int GetCount()
+		public int GetCount()
 		{
 			using (LmsContext context = new LmsContext())
 			{
@@ -70,7 +70,7 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public static int AddAuthor(string _fname, string _lname, string? _dob, string? _dod, string _hometown, string _eduction, string _about)
+		public int AddAuthor(string _fname, string _lname, string? _dob, string? _dod, string _hometown, string _eduction, string _about)
 		{
 			using (LmsContext context = new LmsContext())
 			{
@@ -99,7 +99,7 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public static bool UpdateAuthor(int _id, string _fname, string _lname, string _dob, string _dod, string _hometown, string _eduction, string _about)
+		public bool UpdateAuthor(int _id, string _fname, string _lname, string _dob, string _dod, string _hometown, string _eduction, string _about)
 		{
 			int id = _id;
 
@@ -126,7 +126,7 @@ namespace LibraryManagementSystem.Controllers
 			return true;
 		}
 
-		public static bool DeleteAuthor(int _id)
+		public bool DeleteAuthor(int _id)
 		{
 			int id = _id;
 

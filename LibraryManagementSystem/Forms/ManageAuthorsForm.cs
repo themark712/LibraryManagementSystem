@@ -16,6 +16,7 @@ namespace LibraryManagementSystem.Forms
 {
 	public partial class ManageAuthorsForm : Form
 	{
+		AuthorController? authorCont;
 		Author? selectedAuthor;
 
 		public ManageAuthorsForm()
@@ -25,6 +26,7 @@ namespace LibraryManagementSystem.Forms
 
 		private void ManageAuthorsForm_Load(object sender, EventArgs e)
 		{
+			authorCont = new AuthorController();
 			App.AuthorId = 0;
 			labelStatus.Text = "";
 			RefreshAuthorList();
@@ -59,11 +61,11 @@ namespace LibraryManagementSystem.Forms
 
 			if (errorString == "")
 			{
-				int newAuthorId = AuthorController.AddAuthor(textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, rtbEducation.Text, rtbAbout.Text);
+				int newAuthorId = authorCont!.AddAuthor(textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, rtbEducation.Text, rtbAbout.Text);
 				if (newAuthorId != 0)
 				{
 					labelStatus.Text = "Author added";
-					selectedAuthor = AuthorController.GetAuthor(newAuthorId);
+					selectedAuthor = authorCont.GetAuthor(newAuthorId);
 					RefreshAuthorList();
 				}
 			}
@@ -79,10 +81,10 @@ namespace LibraryManagementSystem.Forms
 
 			if (errorString == "")
 			{
-				if (AuthorController.UpdateAuthor(Convert.ToInt32(textId.Text), textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, rtbEducation.Text, rtbAbout.Text))
+				if (authorCont!.UpdateAuthor(Convert.ToInt32(textId.Text), textFirstName.Text, textLastName.Text, textDOB.Text, textDOD.Text, textHometown.Text, rtbEducation.Text, rtbAbout.Text))
 				{
 					labelStatus.Text = "Author updated";
-					selectedAuthor = AuthorController.GetAuthor(Convert.ToInt32(textId.Text));
+					selectedAuthor = authorCont.GetAuthor(Convert.ToInt32(textId.Text));
 					RefreshAuthorList();
 				}
 			}
@@ -99,7 +101,7 @@ namespace LibraryManagementSystem.Forms
 
 				if (id > 0)
 				{
-					if (AuthorController.DeleteAuthor(Convert.ToInt32(textId.Text)))
+					if (authorCont!.DeleteAuthor(Convert.ToInt32(textId.Text)))
 					{
 						labelStatus.Text = "Author deleted";
 						selectedAuthor = null;
@@ -115,7 +117,7 @@ namespace LibraryManagementSystem.Forms
 
 		private void RefreshAuthorList()
 		{
-			var authors = AuthorController.GetAuthors();
+			var authors = authorCont!.GetAuthors();
 			dgAuthors.DataSource = authors;
 			dgAuthors.Columns[0].Visible = false;
 			dgAuthors.Columns[4].Visible = false;
@@ -170,7 +172,7 @@ namespace LibraryManagementSystem.Forms
 
 		private void textSearch_TextChanged(object sender, EventArgs e)
 		{
-			List<Author>? authors = AuthorController.SearchAuthors(textSearch.Text);
+			List<Author>? authors = authorCont!.SearchAuthors(textSearch.Text);
 			dgAuthors.DataSource = authors;
 		}
 
