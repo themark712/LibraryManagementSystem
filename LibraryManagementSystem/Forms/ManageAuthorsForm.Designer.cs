@@ -32,11 +32,12 @@ namespace LibraryManagementSystem.Forms
 		{
 			components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageAuthorsForm));
-			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
 			labelHeader = new Label();
 			panelMain = new Panel();
+			labelBooksCount = new Label();
 			buttonShowAuthorBooks = new Button();
 			label3 = new Label();
 			label2 = new Label();
@@ -66,11 +67,11 @@ namespace LibraryManagementSystem.Forms
 			picHeaderLogo = new PictureBox();
 			buttonClose = new Button();
 			panelSidebar = new Panel();
+			labelAuthorsCount = new Label();
 			buttonDelete = new Button();
 			buttonUpdate = new Button();
 			buttonAdd = new Button();
 			toolTip1 = new ToolTip(components);
-			labelBooksCount = new Label();
 			panelMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)picSearchIcon).BeginInit();
 			((System.ComponentModel.ISupportInitialize)dgAuthors).BeginInit();
@@ -124,6 +125,17 @@ namespace LibraryManagementSystem.Forms
 			panelMain.Name = "panelMain";
 			panelMain.Size = new Size(837, 500);
 			panelMain.TabIndex = 4;
+			// 
+			// labelBooksCount
+			// 
+			labelBooksCount.BackColor = Color.Silver;
+			labelBooksCount.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			labelBooksCount.ForeColor = Color.DarkBlue;
+			labelBooksCount.Location = new Point(591, 413);
+			labelBooksCount.Name = "labelBooksCount";
+			labelBooksCount.Size = new Size(175, 21);
+			labelBooksCount.TabIndex = 27;
+			labelBooksCount.Text = "books";
 			// 
 			// buttonShowAuthorBooks
 			// 
@@ -331,34 +343,34 @@ namespace LibraryManagementSystem.Forms
 			dgAuthors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgAuthors.BackgroundColor = Color.Silver;
 			dgAuthors.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-			dgAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle4.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+			dgAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			dgAuthors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dgAuthors.Location = new Point(405, 83);
 			dgAuthors.MultiSelect = false;
 			dgAuthors.Name = "dgAuthors";
 			dgAuthors.ReadOnly = true;
 			dgAuthors.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle2.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-			dgAuthors.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle5.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+			dgAuthors.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			dgAuthors.RowHeadersVisible = false;
-			dataGridViewCellStyle3.BackColor = Color.Silver;
-			dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle3.ForeColor = Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
-			dgAuthors.RowsDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle6.BackColor = Color.Silver;
+			dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle6.ForeColor = Color.Black;
+			dataGridViewCellStyle6.SelectionBackColor = Color.RoyalBlue;
+			dgAuthors.RowsDefaultCellStyle = dataGridViewCellStyle6;
 			dgAuthors.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			dgAuthors.ShowEditingIcon = false;
 			dgAuthors.Size = new Size(417, 316);
@@ -455,6 +467,7 @@ namespace LibraryManagementSystem.Forms
 			// 
 			// panelSidebar
 			// 
+			panelSidebar.Controls.Add(labelAuthorsCount);
 			panelSidebar.Controls.Add(buttonDelete);
 			panelSidebar.Controls.Add(buttonUpdate);
 			panelSidebar.Controls.Add(buttonAdd);
@@ -462,6 +475,18 @@ namespace LibraryManagementSystem.Forms
 			panelSidebar.Name = "panelSidebar";
 			panelSidebar.Size = new Size(149, 424);
 			panelSidebar.TabIndex = 6;
+			// 
+			// labelAuthorsCount
+			// 
+			labelAuthorsCount.BackColor = Color.FromArgb(17, 24, 34);
+			labelAuthorsCount.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			labelAuthorsCount.ForeColor = Color.Gold;
+			labelAuthorsCount.Location = new Point(12, 30);
+			labelAuthorsCount.Name = "labelAuthorsCount";
+			labelAuthorsCount.Size = new Size(125, 21);
+			labelAuthorsCount.TabIndex = 25;
+			labelAuthorsCount.Text = "authors";
+			labelAuthorsCount.TextAlign = ContentAlignment.MiddleLeft;
 			// 
 			// buttonDelete
 			// 
@@ -473,7 +498,7 @@ namespace LibraryManagementSystem.Forms
 			buttonDelete.ForeColor = Color.DarkBlue;
 			buttonDelete.Image = (Image)resources.GetObject("buttonDelete.Image");
 			buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonDelete.Location = new Point(12, 178);
+			buttonDelete.Location = new Point(12, 229);
 			buttonDelete.Name = "buttonDelete";
 			buttonDelete.Size = new Size(125, 53);
 			buttonDelete.TabIndex = 23;
@@ -494,7 +519,7 @@ namespace LibraryManagementSystem.Forms
 			buttonUpdate.ForeColor = Color.DarkBlue;
 			buttonUpdate.Image = (Image)resources.GetObject("buttonUpdate.Image");
 			buttonUpdate.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonUpdate.Location = new Point(12, 104);
+			buttonUpdate.Location = new Point(12, 155);
 			buttonUpdate.Name = "buttonUpdate";
 			buttonUpdate.Size = new Size(125, 53);
 			buttonUpdate.TabIndex = 22;
@@ -515,7 +540,7 @@ namespace LibraryManagementSystem.Forms
 			buttonAdd.ForeColor = Color.DarkBlue;
 			buttonAdd.Image = (Image)resources.GetObject("buttonAdd.Image");
 			buttonAdd.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonAdd.Location = new Point(12, 30);
+			buttonAdd.Location = new Point(12, 81);
 			buttonAdd.Name = "buttonAdd";
 			buttonAdd.Size = new Size(125, 53);
 			buttonAdd.TabIndex = 21;
@@ -525,17 +550,6 @@ namespace LibraryManagementSystem.Forms
 			toolTip1.SetToolTip(buttonAdd, "Add the current form information as a new author");
 			buttonAdd.UseVisualStyleBackColor = false;
 			buttonAdd.Click += buttonAdd_Click;
-			// 
-			// labelBooksCount
-			// 
-			labelBooksCount.BackColor = Color.Silver;
-			labelBooksCount.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			labelBooksCount.ForeColor = Color.DarkBlue;
-			labelBooksCount.Location = new Point(591, 413);
-			labelBooksCount.Name = "labelBooksCount";
-			labelBooksCount.Size = new Size(175, 21);
-			labelBooksCount.TabIndex = 27;
-			labelBooksCount.Text = "books";
 			// 
 			// ManageAuthorsForm
 			// 
@@ -602,5 +616,6 @@ namespace LibraryManagementSystem.Forms
 		private Button buttonShowAuthorBooks;
 		private ToolTip toolTip1;
 		private Label labelBooksCount;
+		private Label labelAuthorsCount;
 	}
 }

@@ -30,9 +30,9 @@
 		{
 			components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageGenresForm));
-			DataGridViewCellStyle dataGridViewCellStyle34 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle35 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle36 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
 			panelMain = new Panel();
 			labelBooksCount = new Label();
 			label1 = new Label();
@@ -52,6 +52,7 @@
 			buttonClose = new Button();
 			labelHeader = new Label();
 			toolTip1 = new ToolTip(components);
+			labelGenresCount = new Label();
 			panelMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dgGenres).BeginInit();
 			panelHeader.SuspendLayout();
@@ -61,6 +62,7 @@
 			// panelMain
 			// 
 			panelMain.BackColor = Color.Silver;
+			panelMain.Controls.Add(labelGenresCount);
 			panelMain.Controls.Add(labelBooksCount);
 			panelMain.Controls.Add(label1);
 			panelMain.Controls.Add(label3);
@@ -75,7 +77,7 @@
 			panelMain.Controls.Add(labelId);
 			panelMain.Location = new Point(6, 78);
 			panelMain.Name = "panelMain";
-			panelMain.Size = new Size(730, 264);
+			panelMain.Size = new Size(730, 292);
 			panelMain.TabIndex = 2;
 			// 
 			// labelBooksCount
@@ -83,7 +85,7 @@
 			labelBooksCount.BackColor = Color.Silver;
 			labelBooksCount.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
 			labelBooksCount.ForeColor = Color.DarkBlue;
-			labelBooksCount.Location = new Point(193, 220);
+			labelBooksCount.Location = new Point(193, 241);
 			labelBooksCount.Name = "labelBooksCount";
 			labelBooksCount.Size = new Size(175, 21);
 			labelBooksCount.TabIndex = 9;
@@ -95,7 +97,7 @@
 			label1.BackColor = Color.White;
 			label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			label1.ForeColor = Color.DarkBlue;
-			label1.Location = new Point(353, 70);
+			label1.Location = new Point(353, 91);
 			label1.Name = "label1";
 			label1.Size = new Size(15, 20);
 			label1.TabIndex = 29;
@@ -107,7 +109,7 @@
 			label3.BackColor = Color.Silver;
 			label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			label3.ForeColor = Color.DarkBlue;
-			label3.Location = new Point(294, 104);
+			label3.Location = new Point(294, 125);
 			label3.Name = "label3";
 			label3.Size = new Size(79, 20);
 			label3.TabIndex = 4;
@@ -125,7 +127,7 @@
 			buttonShowGenreBooks.ForeColor = Color.DarkBlue;
 			buttonShowGenreBooks.Image = (Image)resources.GetObject("buttonShowGenreBooks.Image");
 			buttonShowGenreBooks.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonShowGenreBooks.Location = new Point(20, 203);
+			buttonShowGenreBooks.Location = new Point(20, 224);
 			buttonShowGenreBooks.Name = "buttonShowGenreBooks";
 			buttonShowGenreBooks.Size = new Size(167, 53);
 			buttonShowGenreBooks.TabIndex = 8;
@@ -146,7 +148,7 @@
 			buttonDelete.ForeColor = Color.DarkBlue;
 			buttonDelete.Image = (Image)resources.GetObject("buttonDelete.Image");
 			buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonDelete.Location = new Point(255, 132);
+			buttonDelete.Location = new Point(255, 153);
 			buttonDelete.Name = "buttonDelete";
 			buttonDelete.Size = new Size(118, 53);
 			buttonDelete.TabIndex = 7;
@@ -168,7 +170,7 @@
 			buttonUpdate.ForeColor = Color.DarkBlue;
 			buttonUpdate.Image = (Image)resources.GetObject("buttonUpdate.Image");
 			buttonUpdate.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonUpdate.Location = new Point(127, 132);
+			buttonUpdate.Location = new Point(127, 153);
 			buttonUpdate.Name = "buttonUpdate";
 			buttonUpdate.Size = new Size(129, 53);
 			buttonUpdate.TabIndex = 6;
@@ -190,7 +192,7 @@
 			buttonAdd.ForeColor = Color.DarkBlue;
 			buttonAdd.Image = (Image)resources.GetObject("buttonAdd.Image");
 			buttonAdd.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonAdd.Location = new Point(20, 132);
+			buttonAdd.Location = new Point(20, 153);
 			buttonAdd.Name = "buttonAdd";
 			buttonAdd.Size = new Size(101, 53);
 			buttonAdd.TabIndex = 5;
@@ -208,34 +210,34 @@
 			dgGenres.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgGenres.BackgroundColor = Color.Silver;
 			dgGenres.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle34.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle34.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle34.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle34.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle34.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle34.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle34.WrapMode = DataGridViewTriState.True;
-			dgGenres.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+			dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle4.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle4.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+			dgGenres.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			dgGenres.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dgGenres.Location = new Point(400, 24);
 			dgGenres.MultiSelect = false;
 			dgGenres.Name = "dgGenres";
 			dgGenres.ReadOnly = true;
 			dgGenres.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle35.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle35.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle35.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle35.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle35.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle35.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle35.WrapMode = DataGridViewTriState.True;
-			dgGenres.RowHeadersDefaultCellStyle = dataGridViewCellStyle35;
+			dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle5.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+			dgGenres.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			dgGenres.RowHeadersVisible = false;
-			dataGridViewCellStyle36.BackColor = Color.Silver;
-			dataGridViewCellStyle36.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle36.ForeColor = Color.Black;
-			dataGridViewCellStyle36.SelectionBackColor = Color.RoyalBlue;
-			dgGenres.RowsDefaultCellStyle = dataGridViewCellStyle36;
+			dataGridViewCellStyle6.BackColor = Color.Silver;
+			dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle6.ForeColor = Color.Black;
+			dataGridViewCellStyle6.SelectionBackColor = Color.RoyalBlue;
+			dgGenres.RowsDefaultCellStyle = dataGridViewCellStyle6;
 			dgGenres.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			dgGenres.ShowEditingIcon = false;
 			dgGenres.Size = new Size(306, 213);
@@ -245,7 +247,7 @@
 			// textName
 			// 
 			textName.Font = new Font("Segoe UI", 15.75F);
-			textName.Location = new Point(118, 66);
+			textName.Location = new Point(118, 87);
 			textName.Name = "textName";
 			textName.Size = new Size(255, 35);
 			textName.TabIndex = 3;
@@ -255,7 +257,7 @@
 			// 
 			textId.Enabled = false;
 			textId.Font = new Font("Segoe UI", 15.75F);
-			textId.Location = new Point(118, 24);
+			textId.Location = new Point(118, 45);
 			textId.MaxLength = 100;
 			textId.Name = "textId";
 			textId.Size = new Size(255, 35);
@@ -265,7 +267,7 @@
 			// 
 			labelName.AutoSize = true;
 			labelName.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			labelName.Location = new Point(20, 68);
+			labelName.Location = new Point(20, 89);
 			labelName.Name = "labelName";
 			labelName.Size = new Size(74, 30);
 			labelName.TabIndex = 2;
@@ -275,7 +277,7 @@
 			// 
 			labelId.AutoSize = true;
 			labelId.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			labelId.Location = new Point(55, 27);
+			labelId.Location = new Point(55, 48);
 			labelId.Name = "labelId";
 			labelId.Size = new Size(39, 30);
 			labelId.TabIndex = 0;
@@ -342,12 +344,24 @@
 			labelHeader.Text = "Genres";
 			labelHeader.TextAlign = ContentAlignment.MiddleLeft;
 			// 
+			// labelGenresCount
+			// 
+			labelGenresCount.BackColor = Color.Silver;
+			labelGenresCount.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			labelGenresCount.ForeColor = Color.DarkBlue;
+			labelGenresCount.Location = new Point(20, 9);
+			labelGenresCount.Name = "labelGenresCount";
+			labelGenresCount.Size = new Size(125, 21);
+			labelGenresCount.TabIndex = 30;
+			labelGenresCount.Text = "genres";
+			labelGenresCount.TextAlign = ContentAlignment.MiddleLeft;
+			// 
 			// ManageGenresForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(17, 24, 34);
-			ClientSize = new Size(740, 350);
+			ClientSize = new Size(740, 382);
 			Controls.Add(panelHeader);
 			Controls.Add(panelMain);
 			FormBorderStyle = FormBorderStyle.None;
@@ -383,5 +397,6 @@
 		private Label label1;
 		private Label labelBooksCount;
 		private ToolTip toolTip1;
+		private Label labelGenresCount;
 	}
 }

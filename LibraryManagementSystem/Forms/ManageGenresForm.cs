@@ -31,6 +31,7 @@ namespace LibraryManagementSystem.Forms
 			bookCont = new BookController();
 			App.GenreId = 0;
 			labelStatus.Text = "";
+			labelGenresCount.Text = genreCont.GetGenres()!.Count().ToString() + " genres";
 			RefreshGenreList();
 			buttonAdd.Enabled = false;
 			buttonUpdate.Enabled = false;

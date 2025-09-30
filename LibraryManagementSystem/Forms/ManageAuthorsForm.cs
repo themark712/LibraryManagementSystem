@@ -31,6 +31,8 @@ namespace LibraryManagementSystem.Forms
 			bookCont = new BookController();
 			App.AuthorId = 0;
 			labelStatus.Text = "";
+			labelAuthorsCount.Text = authorCont.GetAuthors()!.Count.ToString() + " authors";
+
 			RefreshAuthorList();
 			buttonAdd.Enabled = true;
 			buttonUpdate.Enabled = true;

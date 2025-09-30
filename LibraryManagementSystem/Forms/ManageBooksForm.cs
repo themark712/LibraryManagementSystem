@@ -37,6 +37,7 @@ namespace LibraryManagementSystem.Forms
 			authorCont = new AuthorController();
 			bookCont = new BookController();
 			labelStatus.Text = "";
+
 			FillAuthorCombo();
 			RefreshBookList();
 			dgBooks.ClearSelection();
