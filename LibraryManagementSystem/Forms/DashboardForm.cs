@@ -62,25 +62,6 @@ namespace LibraryManagementSystem.Forms
 		{
 			authorCont = new AuthorController();
 			bookCont = new BookController();
-			int authorCount = authorCont.GetCount();
-			labelAuthorCount.Text = authorCount.ToString();
-
-			int bookCount = bookCont!.GetCount();
-			labelBookCount.Text = bookCount.ToString();
-
-			List<Book> latestBooks = bookCont.GetLastFiveBooks();
-
-			if (!string.IsNullOrEmpty(latestBooks[0].Cover))
-			{
-				panelLatestBook1.BackgroundImageLayout = ImageLayout.Stretch;
-				panelLatestBook1.BackgroundImage = Image.FromFile(ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\" + latestBooks[0].Cover.ToString());
-			}
-
-			if (!string.IsNullOrEmpty(latestBooks[1].Cover))
-			{
-				panelLatestBook2.BackgroundImageLayout = ImageLayout.Stretch;
-				panelLatestBook2.BackgroundImage = Image.FromFile(ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\" + latestBooks[1].Cover.ToString());
-			}
 		}
 
 		private void DashboardForm_Shown(object sender, EventArgs e)
@@ -148,6 +129,29 @@ namespace LibraryManagementSystem.Forms
 			if (buttonClicked != null)
 			{
 				buttonClicked.BackColor = Color.BlueViolet;
+			}
+		}
+
+		private void DashboardForm_Activated(object sender, EventArgs e)
+		{
+			int authorCount = authorCont!.GetCount();
+			labelAuthorCount.Text = authorCount.ToString();
+
+			int bookCount = bookCont!.GetCount();
+			labelBookCount.Text = bookCount.ToString();
+
+			List<Book> latestBooks = bookCont.GetLastFiveBooks();
+
+			if (!string.IsNullOrEmpty(latestBooks[0].Cover))
+			{
+				panelLatestBook1.BackgroundImageLayout = ImageLayout.Stretch;
+				panelLatestBook1.BackgroundImage = Image.FromFile(ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\" + latestBooks[0].Cover.ToString());
+			}
+
+			if (!string.IsNullOrEmpty(latestBooks[1].Cover))
+			{
+				panelLatestBook2.BackgroundImageLayout = ImageLayout.Stretch;
+				panelLatestBook2.BackgroundImage = Image.FromFile(ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\" + latestBooks[1].Cover.ToString());
 			}
 		}
 	}

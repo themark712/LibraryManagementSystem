@@ -518,6 +518,7 @@
 			Name = "DashboardForm";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "DashboardForm";
+			Activated += DashboardForm_Activated;
 			Load += DashboardForm_Load;
 			Shown += DashboardForm_Shown;
 			Enter += DashboardForm_Enter;
