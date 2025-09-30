@@ -144,13 +144,11 @@ namespace LibraryManagementSystem.Forms
 
 			if (!string.IsNullOrEmpty(latestBooks[0].Cover))
 			{
-				panelLatestBook1.BackgroundImageLayout = ImageLayout.Stretch;
 				panelLatestBook1.BackgroundImage = Image.FromFile(ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\" + latestBooks[0].Cover.ToString());
 			}
 
 			if (!string.IsNullOrEmpty(latestBooks[1].Cover))
 			{
-				panelLatestBook2.BackgroundImageLayout = ImageLayout.Stretch;
 				panelLatestBook2.BackgroundImage = Image.FromFile(ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\" + latestBooks[1].Cover.ToString());
 			}
 		}

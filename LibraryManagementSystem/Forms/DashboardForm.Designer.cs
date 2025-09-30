@@ -44,15 +44,15 @@
 			buttonClose = new Button();
 			panelLatest = new Panel();
 			panelLatestBook5 = new Panel();
-			label13 = new Label();
+			labelLatestBook5 = new Label();
 			panelLatestBook4 = new Panel();
-			label12 = new Label();
+			labelLatestBook4 = new Label();
 			panelLatestBook3 = new Panel();
-			label11 = new Label();
+			labelLatestBook3 = new Label();
 			panelLatestBook2 = new Panel();
-			label10 = new Label();
+			labelLatestBook2 = new Label();
 			panelLatestBook1 = new Panel();
-			label9 = new Label();
+			labelLatestBook1 = new Label();
 			label8 = new Label();
 			panelMembersCount = new Panel();
 			label6 = new Label();
@@ -289,107 +289,112 @@
 			// panelLatestBook5
 			// 
 			panelLatestBook5.BackColor = Color.RoyalBlue;
-			panelLatestBook5.Controls.Add(label13);
+			panelLatestBook5.BackgroundImageLayout = ImageLayout.Stretch;
+			panelLatestBook5.Controls.Add(labelLatestBook5);
 			panelLatestBook5.Location = new Point(719, 66);
 			panelLatestBook5.Name = "panelLatestBook5";
 			panelLatestBook5.Size = new Size(162, 225);
 			panelLatestBook5.TabIndex = 4;
 			// 
-			// label13
+			// labelLatestBook5
 			// 
-			label13.AutoSize = true;
-			label13.BackColor = Color.FromArgb(255, 128, 0);
-			label13.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			label13.ForeColor = Color.White;
-			label13.Location = new Point(126, 0);
-			label13.Name = "label13";
-			label13.Size = new Size(36, 17);
-			label13.TabIndex = 1;
-			label13.Text = "$999";
+			labelLatestBook5.AutoSize = true;
+			labelLatestBook5.BackColor = Color.FromArgb(255, 128, 0);
+			labelLatestBook5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			labelLatestBook5.ForeColor = Color.White;
+			labelLatestBook5.Location = new Point(126, 0);
+			labelLatestBook5.Name = "labelLatestBook5";
+			labelLatestBook5.Size = new Size(36, 17);
+			labelLatestBook5.TabIndex = 1;
+			labelLatestBook5.Text = "$999";
 			// 
 			// panelLatestBook4
 			// 
 			panelLatestBook4.BackColor = Color.RoyalBlue;
-			panelLatestBook4.Controls.Add(label12);
+			panelLatestBook4.BackgroundImageLayout = ImageLayout.Stretch;
+			panelLatestBook4.Controls.Add(labelLatestBook4);
 			panelLatestBook4.Location = new Point(543, 66);
 			panelLatestBook4.Name = "panelLatestBook4";
 			panelLatestBook4.Size = new Size(162, 225);
 			panelLatestBook4.TabIndex = 3;
 			// 
-			// label12
+			// labelLatestBook4
 			// 
-			label12.AutoSize = true;
-			label12.BackColor = Color.FromArgb(255, 128, 0);
-			label12.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			label12.ForeColor = Color.White;
-			label12.Location = new Point(126, 0);
-			label12.Name = "label12";
-			label12.Size = new Size(36, 17);
-			label12.TabIndex = 1;
-			label12.Text = "$999";
+			labelLatestBook4.AutoSize = true;
+			labelLatestBook4.BackColor = Color.FromArgb(255, 128, 0);
+			labelLatestBook4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			labelLatestBook4.ForeColor = Color.White;
+			labelLatestBook4.Location = new Point(126, 0);
+			labelLatestBook4.Name = "labelLatestBook4";
+			labelLatestBook4.Size = new Size(36, 17);
+			labelLatestBook4.TabIndex = 1;
+			labelLatestBook4.Text = "$999";
 			// 
 			// panelLatestBook3
 			// 
 			panelLatestBook3.BackColor = Color.RoyalBlue;
-			panelLatestBook3.Controls.Add(label11);
+			panelLatestBook3.BackgroundImageLayout = ImageLayout.Stretch;
+			panelLatestBook3.Controls.Add(labelLatestBook3);
 			panelLatestBook3.Location = new Point(367, 66);
 			panelLatestBook3.Name = "panelLatestBook3";
 			panelLatestBook3.Size = new Size(162, 225);
 			panelLatestBook3.TabIndex = 3;
 			// 
-			// label11
+			// labelLatestBook3
 			// 
-			label11.AutoSize = true;
-			label11.BackColor = Color.FromArgb(255, 128, 0);
-			label11.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			label11.ForeColor = Color.White;
-			label11.Location = new Point(126, 0);
-			label11.Name = "label11";
-			label11.Size = new Size(36, 17);
-			label11.TabIndex = 1;
-			label11.Text = "$999";
+			labelLatestBook3.AutoSize = true;
+			labelLatestBook3.BackColor = Color.FromArgb(255, 128, 0);
+			labelLatestBook3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			labelLatestBook3.ForeColor = Color.White;
+			labelLatestBook3.Location = new Point(126, 0);
+			labelLatestBook3.Name = "labelLatestBook3";
+			labelLatestBook3.Size = new Size(36, 17);
+			labelLatestBook3.TabIndex = 1;
+			labelLatestBook3.Text = "$999";
 			// 
 			// panelLatestBook2
 			// 
 			panelLatestBook2.BackColor = Color.RoyalBlue;
-			panelLatestBook2.Controls.Add(label10);
+			panelLatestBook2.BackgroundImageLayout = ImageLayout.Stretch;
+			panelLatestBook2.Controls.Add(labelLatestBook2);
 			panelLatestBook2.Location = new Point(191, 66);
 			panelLatestBook2.Name = "panelLatestBook2";
 			panelLatestBook2.Size = new Size(162, 225);
 			panelLatestBook2.TabIndex = 3;
 			// 
-			// label10
+			// labelLatestBook2
 			// 
-			label10.AutoSize = true;
-			label10.BackColor = Color.FromArgb(255, 128, 0);
-			label10.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			label10.ForeColor = Color.White;
-			label10.Location = new Point(126, 0);
-			label10.Name = "label10";
-			label10.Size = new Size(36, 17);
-			label10.TabIndex = 1;
-			label10.Text = "$999";
+			labelLatestBook2.AutoSize = true;
+			labelLatestBook2.BackColor = Color.FromArgb(255, 128, 0);
+			labelLatestBook2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			labelLatestBook2.ForeColor = Color.White;
+			labelLatestBook2.Location = new Point(126, 0);
+			labelLatestBook2.Name = "labelLatestBook2";
+			labelLatestBook2.Size = new Size(36, 17);
+			labelLatestBook2.TabIndex = 1;
+			labelLatestBook2.Text = "$999";
 			// 
 			// panelLatestBook1
 			// 
 			panelLatestBook1.BackColor = Color.RoyalBlue;
-			panelLatestBook1.Controls.Add(label9);
+			panelLatestBook1.BackgroundImageLayout = ImageLayout.Stretch;
+			panelLatestBook1.Controls.Add(labelLatestBook1);
 			panelLatestBook1.Location = new Point(15, 66);
 			panelLatestBook1.Name = "panelLatestBook1";
 			panelLatestBook1.Size = new Size(162, 225);
 			panelLatestBook1.TabIndex = 2;
 			// 
-			// label9
+			// labelLatestBook1
 			// 
-			label9.AutoSize = true;
-			label9.BackColor = Color.FromArgb(255, 128, 0);
-			label9.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			label9.ForeColor = Color.White;
-			label9.Location = new Point(126, 0);
-			label9.Name = "label9";
-			label9.Size = new Size(36, 17);
-			label9.TabIndex = 0;
-			label9.Text = "$999";
+			labelLatestBook1.AutoSize = true;
+			labelLatestBook1.BackColor = Color.FromArgb(255, 128, 0);
+			labelLatestBook1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			labelLatestBook1.ForeColor = Color.White;
+			labelLatestBook1.Location = new Point(126, 0);
+			labelLatestBook1.Name = "labelLatestBook1";
+			labelLatestBook1.Size = new Size(36, 17);
+			labelLatestBook1.TabIndex = 0;
+			labelLatestBook1.Text = "$999";
 			// 
 			// label8
 			// 
@@ -566,11 +571,11 @@
 		private Panel panelLatestBook5;
 		private Panel panelLatestBook3;
 		private Panel panelLatestBook2;
-		private Label label9;
-		private Label label13;
-		private Label label12;
-		private Label label11;
-		private Label label10;
+		private Label labelLatestBook1;
+		private Label labelLatestBook5;
+		private Label labelLatestBook4;
+		private Label labelLatestBook3;
+		private Label labelLatestBook2;
 		private Label labelHeader;
 		private PictureBox picLogo;
 		private Button buttonBooks;
