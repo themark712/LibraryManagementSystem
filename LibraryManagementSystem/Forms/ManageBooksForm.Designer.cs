@@ -643,7 +643,7 @@
 			comboGenreView.Name = "comboGenreView";
 			comboGenreView.Size = new Size(130, 25);
 			comboGenreView.TabIndex = 39;
-			comboGenreView.SelectedIndexChanged += comboGenreView_SelectedIndexChanged;
+			comboGenreView.SelectionChangeCommitted += comboGenreView_SelectionChangeCommitted;
 			// 
 			// comboAuthorView
 			// 
@@ -653,7 +653,7 @@
 			comboAuthorView.Name = "comboAuthorView";
 			comboAuthorView.Size = new Size(130, 25);
 			comboAuthorView.TabIndex = 38;
-			comboAuthorView.SelectedIndexChanged += comboAuthorView_SelectedIndexChanged;
+			comboAuthorView.SelectionChangeCommitted += comboAuthorView_SelectionChangeCommitted;
 			// 
 			// label8
 			// 

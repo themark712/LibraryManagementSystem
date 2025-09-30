@@ -32,7 +32,7 @@ namespace LibraryManagementSystem.Forms
 			FillAuthorCombo();
 			RefreshBookList();
 			dgBooks.ClearSelection();
-			
+
 			if (App.AuthorId == 0)
 			{
 				comboAuthorView.SelectedIndex = -1;
@@ -86,7 +86,6 @@ namespace LibraryManagementSystem.Forms
 				comboGenreView.DataSource = genres;
 				comboGenreView.ValueMember = "GenreId";
 				comboGenreView.DisplayMember = "Name";
-
 			}
 		}
 
@@ -339,18 +338,18 @@ namespace LibraryManagementSystem.Forms
 			return dataError;
 		}
 
-		private void comboGenreView_SelectedIndexChanged(object sender, EventArgs e)
+		private void comboGenreView_SelectionChangeCommitted(object sender, EventArgs e)
 		{
-			if (comboGenreView.SelectedIndex >= 0 && comboGenreView.SelectedValue.GetType() == typeof(Int32))
+			if (comboGenreView.SelectedIndex >= 0) // && comboGenreView.SelectedValue!.GetType() == typeof(Int32))
 			{
 				App.GenreId = Convert.ToInt32(comboGenreView.SelectedValue!.ToString());
 				RefreshBookList();
 			}
 		}
 
-		private void comboAuthorView_SelectedIndexChanged(object sender, EventArgs e)
+		private void comboAuthorView_SelectionChangeCommitted(object sender, EventArgs e)
 		{
-			if (comboAuthorView.SelectedIndex >= 0 && comboAuthorView.SelectedValue.GetType() == typeof(Int32))
+			if (comboAuthorView.SelectedIndex >= 0) // && comboAuthorView.SelectedValue!.GetType() == typeof(Int32))
 			{
 				App.AuthorId = Convert.ToInt32(comboAuthorView.SelectedValue!.ToString());
 				RefreshBookList();

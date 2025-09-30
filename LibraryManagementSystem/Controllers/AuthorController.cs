@@ -74,8 +74,6 @@ namespace LibraryManagementSystem.Controllers
 		{
 			using (LmsContext context = new LmsContext())
 			{
-				var newAuthorId = 0;
-
 				// find existing authors with same first name, last name, and date of birth
 				var authors = context.Authors.Where(n => n.FirstName == _fname && n.LastName == _lname && n.DOB == _dob).ToList();
 
