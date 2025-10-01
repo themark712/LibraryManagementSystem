@@ -2,9 +2,11 @@
 using LibraryManagementSystem.Controllers;
 using LibraryManagementSystem.Database;
 using LibraryManagementSystem.Models;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -96,7 +98,7 @@ namespace LibraryManagementSystem.Forms
 			}
 			else
 			{
-				MessageBox.Show("User's first and last name are required", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(errorString, "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 		}
 
@@ -191,49 +193,82 @@ namespace LibraryManagementSystem.Forms
 		{
 			string errorString = "";
 
-			if (textFirstName.Text.Length == 0)
-			{
-				errorString += "User first name is required" + Environment.NewLine;
-			}
+			var user = new AppUser { UserNumber=textUserNumber.Text, FirstName=textFirstName.Text, LastName=textLastName.Text, Email = textEmail.Text, Phone=textPhone.Text };
+			var context = new ValidationContext(user);
+			var results = new List<ValidationResult>();
 
-			if (textLastName.Text.Length == 0)
-			{
-				errorString += "User last name is required" + Environment.NewLine;
-			}
+			bool isValid = Validator.TryValidateObject(user, context, results, true);
 
-			string inputPhone = textPhone.Text;
-			if (inputPhone.Length == 0)
+			if (!isValid)
 			{
-				errorString += "Phone number is required";
-			}
-			else
-			{
-				int areaCode;
-				bool isAreaCodeNumber = int.TryParse(inputPhone.Substring(0, 4), out areaCode);
-				int prefix;
-				bool isPrefixNumber = int.TryParse(inputPhone.Substring(0, 4), out prefix);
-				int lastFour;
-				bool isLastFourNumber = int.TryParse(inputPhone.Substring(0, 4), out lastFour);
-
-				bool firstDash = inputPhone.Substring(3, 1) == "-" ? true : false;
-				bool secondDash = inputPhone.Substring(7, 1) == "-" ? true : false;
-
-				if (!isAreaCodeNumber || !isPrefixNumber || !isLastFourNumber || !firstDash || !secondDash)
+				foreach (var error in results)
 				{
-					errorString += "Phone number must be in valid format (xxx-xxx-xxxx)";
+					errorString += error.ErrorMessage + Environment.NewLine;
 				}
 			}
 
-			if (comboRole.SelectedText == "")
-			{
-				errorString += "User's role is required";
-			}
+			//if (textFirstName.Text.Length == 0)
+			//{
+			//	errorString += "User first name is required" + Environment.NewLine;
+			//}
 
-			if (textUserNumber.Text.Length == 0)
-			{
-				errorString += "User card number is required";
-			}
+			//if (textLastName.Text.Length == 0)
+			//{
+			//	errorString += "User last name is required" + Environment.NewLine;
+			//}
 
+			//if (textEmail.Text.Length == 0)
+			//{
+			//	errorString += "Email address is required" + Environment.NewLine;
+			//} else
+			//{
+			//	var user = new AppUser { Email = textEmail.Text};
+			//	var context = new ValidationContext(user);
+			//	var results = new List<ValidationResult>();
+
+			//	bool isValid = Validator.TryValidateObject(user, context, results, true);
+
+			//	if (!isValid)
+			//	{
+			//		foreach (var error in results)
+			//		{
+			//			errorString += error.ErrorMessage + Environment.NewLine;
+			//		}
+			//	}
+			//}
+
+			//string inputPhone = textPhone.Text;
+			//if (inputPhone.Length == 0)
+			//{
+			//	errorString += "Phone number is required";
+			//}
+			//else
+			//{
+			//	int areaCode;
+			//	bool isAreaCodeNumber = int.TryParse(inputPhone.Substring(0, 4), out areaCode);
+			//	int prefix;
+			//	bool isPrefixNumber = int.TryParse(inputPhone.Substring(0, 4), out prefix);
+			//	int lastFour;
+			//	bool isLastFourNumber = int.TryParse(inputPhone.Substring(0, 4), out lastFour);
+
+			//	bool firstDash = inputPhone.Substring(3, 1) == "-" ? true : false;
+			//	bool secondDash = inputPhone.Substring(7, 1) == "-" ? true : false;
+
+			//	if (!isAreaCodeNumber || !isPrefixNumber || !isLastFourNumber || !firstDash || !secondDash)
+			//	{
+			//		errorString += "Phone number must be in valid format (xxx-xxx-xxxx)";
+			//	}
+			//}
+
+			//if (comboRole.SelectedText == "")
+			//{
+			//	errorString += "User's role is required";
+			//}
+
+			//if (textUserNumber.Text.Length == 0)
+			//{
+			//	errorString += "User card number is required";
+			//}
 
 			return errorString;
 		}

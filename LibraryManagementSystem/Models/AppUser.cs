@@ -12,14 +12,14 @@ namespace LibraryManagementSystem.Models
 		[Key]
 		public int AppUserId { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "User card number is required")]
 		public string? UserNumber { get; set; } = string.Empty;
 
-		[Required]
+		[Required(ErrorMessage = "User first name is required")]
 		[MaxLength(100)]
 		public string? FirstName { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "User last name is required")]
 		[MaxLength(100)]
 		public string? LastName { get; set; }
 
@@ -45,13 +45,14 @@ namespace LibraryManagementSystem.Models
 
 		public string? Zip { get; set; } = string.Empty;
 
+		[Phone(ErrorMessage = "Invalid phone number")]
 		public string? Phone { get; set; } = string.Empty;
 
 		[Required]
 		public string? DOB { get; set; } = string.Empty;
 
 		[Required]
-		[MaxLength(150)]
+		[EmailAddress(ErrorMessage = "Invalid email address.")]
 		public string? Email { get; set; }	
 	}
 }
