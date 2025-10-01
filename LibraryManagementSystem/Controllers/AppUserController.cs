@@ -15,7 +15,6 @@ namespace LibraryManagementSystem.Controllers
 {
 	public class AppUserController
 	{
-
 		public List<AppUser>? GetUsers()
 		{
 			try
@@ -89,7 +88,7 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public int AddUser(string _fn, string _ln, string _unum, string _a1, string _a2, string _cty, string _st, string _zip, string _ph, string _role)
+		public int AddUser(string _fn, string _ln, string _unum, string _em, string _a1, string _a2, string _cty, string _st, string _zip, string _ph, string _role)
 		{
 
 			using (LmsContext context = new LmsContext())
@@ -122,7 +121,7 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
-		public bool UpdateUser(int _id, string _fn, string _ln, string _unum, string _a1, string _a2, string _cty, string _st, string _zip, string _ph, string _role)
+		public bool UpdateUser(int _id, string _fn, string _ln, string _unum, string _em, string _a1, string _a2, string _cty, string _st, string _zip, string _ph, string _role)
 		{
 			int id = _id;
 

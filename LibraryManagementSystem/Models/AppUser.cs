@@ -43,11 +43,15 @@ namespace LibraryManagementSystem.Models
 
 		public string? State { get; set; } = string.Empty;
 
-		public string? Zip {  get; set; } = string.Empty;
+		public string? Zip { get; set; } = string.Empty;
 
-		public string? Phone {  get; set; } = string.Empty;
+		public string? Phone { get; set; } = string.Empty;
 
 		[Required]
-		public string? DOB { get; set; }= string.Empty;
+		public string? DOB { get; set; } = string.Empty;
+
+		[Required]
+		[MaxLength(150)]
+		public string? Email { get; set; }	
 	}
 }

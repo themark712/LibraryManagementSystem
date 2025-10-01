@@ -38,8 +38,8 @@ namespace LibraryManagementSystem.Database
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<AppUser>().HasData(
-				new AppUser { AppUserId = 1, FirstName = "Admin", LastName = "User", Username = "admin", Password = "admin123", Role = "admin" }
-				, new AppUser { AppUserId = 2, FirstName = "Library", LastName = "Patron", Username = "patron", Password = "patron123", Role = "user" }
+				new AppUser { AppUserId = 1, FirstName = "Admin", LastName = "User", Username = "admin", Password = "admin123", Role = "admin", Email="adminUser@gmail.com" , DOB="1973-11-03"}
+				, new AppUser { AppUserId = 2, FirstName = "Library", LastName = "Patron", Username = "patron", Password = "patron123", Role = "user", Email="library-patron-212@gmail.com" , DOB="1979-09-21"}
 			);
 
 			modelBuilder.Entity<Genre>().HasData(

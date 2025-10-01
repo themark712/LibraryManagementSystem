@@ -502,6 +502,7 @@ namespace LibraryManagementSystem.Forms
 			buttonDelete.Name = "buttonDelete";
 			buttonDelete.Size = new Size(125, 53);
 			buttonDelete.TabIndex = 23;
+			buttonDelete.TabStop = false;
 			buttonDelete.Text = "Delete";
 			buttonDelete.TextAlign = ContentAlignment.MiddleRight;
 			buttonDelete.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -523,6 +524,7 @@ namespace LibraryManagementSystem.Forms
 			buttonUpdate.Name = "buttonUpdate";
 			buttonUpdate.Size = new Size(125, 53);
 			buttonUpdate.TabIndex = 22;
+			buttonUpdate.TabStop = false;
 			buttonUpdate.Text = "Update";
 			buttonUpdate.TextAlign = ContentAlignment.MiddleRight;
 			buttonUpdate.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -544,6 +546,7 @@ namespace LibraryManagementSystem.Forms
 			buttonAdd.Name = "buttonAdd";
 			buttonAdd.Size = new Size(125, 53);
 			buttonAdd.TabIndex = 21;
+			buttonAdd.TabStop = false;
 			buttonAdd.Text = "Add";
 			buttonAdd.TextAlign = ContentAlignment.MiddleRight;
 			buttonAdd.TextImageRelation = TextImageRelation.ImageBeforeText;

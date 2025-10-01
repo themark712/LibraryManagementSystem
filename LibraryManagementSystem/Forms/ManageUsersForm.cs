@@ -55,13 +55,18 @@ namespace LibraryManagementSystem.Forms
 			}
 
 			textId.Text = selectedUser!.AppUserId.ToString();
+			textUserNumber.Text = selectedUser.UserNumber;
 			textFirstName.Text = selectedUser.FirstName;
 			textLastName.Text = selectedUser.LastName;
+			textEmail.Text = selectedUser.Email;
+			textDOB.Text = selectedUser.DOB;
 			textAddress1.Text = selectedUser.Address1;
 			textAddress2.Text = selectedUser.Address2;
 			textCity.Text = selectedUser.City;
-			textZip.Text = selectedUser.Zip;
 			comboState.SelectedValue = selectedUser.State;
+			textZip.Text = selectedUser.Zip;
+			textPhone.Text = selectedUser.Phone;
+			comboRole.SelectedValue = selectedUser.Role;
 
 			int booksCount = 0;
 			//booksCount = bookCont!.GetBooksByUser(Convert.ToInt32(textId.Text))!.Count();
@@ -74,7 +79,7 @@ namespace LibraryManagementSystem.Forms
 
 			if (errorString == "")
 			{
-				int newAppUserId = userCont!.AddUser(textFirstName.Text, textLastName.Text, textUserNumber.Text, textAddress1.Text, textAddress2.Text, textCity.Text, textAddress1.Text, textAddress2.Text, textPhone.Text, comboRole.SelectedValue!.ToString()!);
+				int newAppUserId = userCont!.AddUser(textFirstName.Text, textLastName.Text, textUserNumber.Text, textEmail.Text, textAddress1.Text, textAddress2.Text, textCity.Text, textAddress1.Text, textAddress2.Text, textPhone.Text, comboRole.SelectedValue!.ToString()!);
 				if (newAppUserId != 0)
 				{
 					labelStatus.Text = "User added";
@@ -94,7 +99,7 @@ namespace LibraryManagementSystem.Forms
 
 			if (errorString == "")
 			{
-				if (userCont!.UpdateUser(Convert.ToInt32(textId.Text), textFirstName.Text, textLastName.Text, textUserNumber.Text, textAddress1.Text, textAddress2.Text, textCity.Text, textAddress1.Text, textAddress2.Text, textPhone.Text, comboRole.SelectedValue!.ToString()!))
+				if (userCont!.UpdateUser(Convert.ToInt32(textId.Text), textFirstName.Text, textLastName.Text, textUserNumber.Text, textEmail.Text, textAddress1.Text, textAddress2.Text, textCity.Text, textAddress1.Text, textAddress2.Text, textPhone.Text, comboRole.SelectedValue!.ToString()!))
 				{
 					labelStatus.Text = "User updated";
 					selectedUser = userCont.GetUser(Convert.ToInt32(textId.Text));
@@ -150,13 +155,18 @@ namespace LibraryManagementSystem.Forms
 			if (selectedUser == null)
 			{
 				textId.Text = "";
+				textUserNumber.Text = "";
 				textLastName.Text = "";
 				textFirstName.Text = "";
-				textUserNumber.Text = "";
+				textEmail.Text = "";
+				textDOB.Text = "yyyy-mm-dd";
 				textAddress1.Text = "";
 				textAddress2.Text = "";
 				textCity.Text = "";
+				comboState.SelectedIndex = 0;
 				comboRole.SelectedIndex = 0;
+				textZip.Text = "";
+				textPhone.Text = "xxx-xxx-xxxx";
 			}
 			else
 			{
