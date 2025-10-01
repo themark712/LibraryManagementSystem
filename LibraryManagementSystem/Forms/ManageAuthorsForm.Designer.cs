@@ -148,9 +148,9 @@ namespace LibraryManagementSystem.Forms
 			buttonShowAuthorBooks.ForeColor = Color.DarkBlue;
 			buttonShowAuthorBooks.Image = (Image)resources.GetObject("buttonShowAuthorBooks.Image");
 			buttonShowAuthorBooks.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonShowAuthorBooks.Location = new Point(405, 396);
+			buttonShowAuthorBooks.Location = new Point(405, 398);
 			buttonShowAuthorBooks.Name = "buttonShowAuthorBooks";
-			buttonShowAuthorBooks.Size = new Size(167, 53);
+			buttonShowAuthorBooks.Size = new Size(167, 51);
 			buttonShowAuthorBooks.TabIndex = 20;
 			buttonShowAuthorBooks.Text = "View Books";
 			buttonShowAuthorBooks.TextAlign = ContentAlignment.MiddleRight;
@@ -373,7 +373,7 @@ namespace LibraryManagementSystem.Forms
 			dgAuthors.RowsDefaultCellStyle = dataGridViewCellStyle3;
 			dgAuthors.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			dgAuthors.ShowEditingIcon = false;
-			dgAuthors.Size = new Size(417, 316);
+			dgAuthors.Size = new Size(417, 309);
 			dgAuthors.TabIndex = 19;
 			dgAuthors.CellClick += dgAuthors_CellClick;
 			// 
