@@ -2,7 +2,7 @@
 
 namespace LibraryManagementSystem.Forms
 {
-	partial class ManageAuthorsForm
+	partial class ManageUsersForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -31,12 +31,28 @@ namespace LibraryManagementSystem.Forms
 		private void InitializeComponent()
 		{
 			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageAuthorsForm));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageUsersForm));
 			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
 			labelHeader = new Label();
 			panelMain = new Panel();
+			label7 = new Label();
+			textDOB = new TextBox();
+			labelDOB = new Label();
+			label6 = new Label();
+			label5 = new Label();
+			textPhone = new TextBox();
+			labelPhone = new Label();
+			label4 = new Label();
+			textUserNumber = new TextBox();
+			labelUserNumber = new Label();
+			labelRole = new Label();
+			comboRole = new ComboBox();
+			labelState = new Label();
+			comboState = new ComboBox();
+			textZip = new TextBox();
+			labelZip = new Label();
 			labelBooksCount = new Label();
 			buttonShowAuthorBooks = new Button();
 			label3 = new Label();
@@ -45,19 +61,15 @@ namespace LibraryManagementSystem.Forms
 			buttonClearSearch = new Button();
 			picSearchIcon = new PictureBox();
 			textSearch = new TextBox();
-			rtbAbout = new RichTextBox();
-			rtbEducation = new RichTextBox();
-			labelAbout = new Label();
-			labelEducation = new Label();
-			textHometown = new TextBox();
-			labelHometown = new Label();
-			textDOD = new TextBox();
-			labelDOD = new Label();
-			textDOB = new TextBox();
-			labelDOB = new Label();
+			textCity = new TextBox();
+			labelCity = new Label();
+			textAddress2 = new TextBox();
+			labelAddress2 = new Label();
+			textAddress1 = new TextBox();
+			labelAddress1 = new Label();
 			textLastName = new TextBox();
 			labelLastName = new Label();
-			dgAuthors = new DataGridView();
+			dgUsers = new DataGridView();
 			textFirstName = new TextBox();
 			textId = new TextBox();
 			labelFirstName = new Label();
@@ -67,14 +79,14 @@ namespace LibraryManagementSystem.Forms
 			picHeaderLogo = new PictureBox();
 			buttonClose = new Button();
 			panelSidebar = new Panel();
-			labelAuthorsCount = new Label();
+			labelUsersCount = new Label();
 			buttonDelete = new Button();
 			buttonUpdate = new Button();
 			buttonAdd = new Button();
 			toolTip1 = new ToolTip(components);
 			panelMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)picSearchIcon).BeginInit();
-			((System.ComponentModel.ISupportInitialize)dgAuthors).BeginInit();
+			((System.ComponentModel.ISupportInitialize)dgUsers).BeginInit();
 			panelHeader.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)picHeaderLogo).BeginInit();
 			panelSidebar.SuspendLayout();
@@ -90,12 +102,28 @@ namespace LibraryManagementSystem.Forms
 			labelHeader.Name = "labelHeader";
 			labelHeader.Size = new Size(233, 60);
 			labelHeader.TabIndex = 9;
-			labelHeader.Text = "Authors";
+			labelHeader.Text = "Users";
 			labelHeader.TextAlign = ContentAlignment.MiddleLeft;
 			// 
 			// panelMain
 			// 
 			panelMain.BackColor = Color.Silver;
+			panelMain.Controls.Add(label7);
+			panelMain.Controls.Add(textDOB);
+			panelMain.Controls.Add(labelDOB);
+			panelMain.Controls.Add(label6);
+			panelMain.Controls.Add(label5);
+			panelMain.Controls.Add(textPhone);
+			panelMain.Controls.Add(labelPhone);
+			panelMain.Controls.Add(label4);
+			panelMain.Controls.Add(textUserNumber);
+			panelMain.Controls.Add(labelUserNumber);
+			panelMain.Controls.Add(labelRole);
+			panelMain.Controls.Add(comboRole);
+			panelMain.Controls.Add(labelState);
+			panelMain.Controls.Add(comboState);
+			panelMain.Controls.Add(textZip);
+			panelMain.Controls.Add(labelZip);
 			panelMain.Controls.Add(labelBooksCount);
 			panelMain.Controls.Add(buttonShowAuthorBooks);
 			panelMain.Controls.Add(label3);
@@ -104,34 +132,194 @@ namespace LibraryManagementSystem.Forms
 			panelMain.Controls.Add(buttonClearSearch);
 			panelMain.Controls.Add(picSearchIcon);
 			panelMain.Controls.Add(textSearch);
-			panelMain.Controls.Add(rtbAbout);
-			panelMain.Controls.Add(rtbEducation);
-			panelMain.Controls.Add(labelAbout);
-			panelMain.Controls.Add(labelEducation);
-			panelMain.Controls.Add(textHometown);
-			panelMain.Controls.Add(labelHometown);
-			panelMain.Controls.Add(textDOD);
-			panelMain.Controls.Add(labelDOD);
-			panelMain.Controls.Add(textDOB);
-			panelMain.Controls.Add(labelDOB);
+			panelMain.Controls.Add(textCity);
+			panelMain.Controls.Add(labelCity);
+			panelMain.Controls.Add(textAddress2);
+			panelMain.Controls.Add(labelAddress2);
+			panelMain.Controls.Add(textAddress1);
+			panelMain.Controls.Add(labelAddress1);
 			panelMain.Controls.Add(textLastName);
 			panelMain.Controls.Add(labelLastName);
-			panelMain.Controls.Add(dgAuthors);
+			panelMain.Controls.Add(dgUsers);
 			panelMain.Controls.Add(textFirstName);
 			panelMain.Controls.Add(textId);
 			panelMain.Controls.Add(labelFirstName);
 			panelMain.Controls.Add(labelId);
 			panelMain.Location = new Point(159, 78);
 			panelMain.Name = "panelMain";
-			panelMain.Size = new Size(837, 500);
+			panelMain.Size = new Size(837, 542);
 			panelMain.TabIndex = 4;
+			// 
+			// label7
+			// 
+			label7.AutoSize = true;
+			label7.BackColor = Color.White;
+			label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label7.ForeColor = Color.DarkBlue;
+			label7.Location = new Point(367, 177);
+			label7.Name = "label7";
+			label7.Size = new Size(15, 20);
+			label7.TabIndex = 43;
+			label7.Text = "*";
+			// 
+			// textDOB
+			// 
+			textDOB.Font = new Font("Segoe UI", 14.25F);
+			textDOB.Location = new Point(142, 175);
+			textDOB.Name = "textDOB";
+			textDOB.Size = new Size(243, 33);
+			textDOB.TabIndex = 42;
+			textDOB.Text = "yyyy-mm-dd";
+			// 
+			// labelDOB
+			// 
+			labelDOB.AutoSize = true;
+			labelDOB.Font = new Font("Segoe UI", 14.25F);
+			labelDOB.Location = new Point(84, 178);
+			labelDOB.Name = "labelDOB";
+			labelDOB.Size = new Size(54, 25);
+			labelDOB.TabIndex = 41;
+			labelDOB.Text = "DOB:";
+			// 
+			// label6
+			// 
+			label6.AutoSize = true;
+			label6.BackColor = Color.Silver;
+			label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label6.ForeColor = Color.DarkBlue;
+			label6.Location = new Point(387, 448);
+			label6.Margin = new Padding(0, 0, 3, 0);
+			label6.Name = "label6";
+			label6.Size = new Size(15, 20);
+			label6.TabIndex = 40;
+			label6.Text = "*";
+			// 
+			// label5
+			// 
+			label5.AutoSize = true;
+			label5.BackColor = Color.White;
+			label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label5.ForeColor = Color.DarkBlue;
+			label5.Location = new Point(367, 410);
+			label5.Name = "label5";
+			label5.Size = new Size(15, 20);
+			label5.TabIndex = 39;
+			label5.Text = "*";
+			// 
+			// textPhone
+			// 
+			textPhone.Font = new Font("Segoe UI", 14.25F);
+			textPhone.Location = new Point(143, 409);
+			textPhone.MaxLength = 100;
+			textPhone.Name = "textPhone";
+			textPhone.Size = new Size(243, 33);
+			textPhone.TabIndex = 38;
+			textPhone.Text = "xxx-xxx-xxxx";
+			// 
+			// labelPhone
+			// 
+			labelPhone.AutoSize = true;
+			labelPhone.Font = new Font("Segoe UI", 14.25F);
+			labelPhone.Location = new Point(52, 412);
+			labelPhone.Name = "labelPhone";
+			labelPhone.Size = new Size(86, 25);
+			labelPhone.TabIndex = 37;
+			labelPhone.Text = "Phone #:";
+			// 
+			// label4
+			// 
+			label4.AutoSize = true;
+			label4.BackColor = Color.White;
+			label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label4.ForeColor = Color.DarkBlue;
+			label4.Location = new Point(367, 59);
+			label4.Name = "label4";
+			label4.Size = new Size(15, 20);
+			label4.TabIndex = 36;
+			label4.Text = "*";
+			// 
+			// textUserNumber
+			// 
+			textUserNumber.Font = new Font("Segoe UI", 14.25F);
+			textUserNumber.Location = new Point(143, 57);
+			textUserNumber.MaxLength = 100;
+			textUserNumber.Name = "textUserNumber";
+			textUserNumber.Size = new Size(243, 33);
+			textUserNumber.TabIndex = 35;
+			// 
+			// labelUserNumber
+			// 
+			labelUserNumber.AutoSize = true;
+			labelUserNumber.Font = new Font("Segoe UI", 14.25F);
+			labelUserNumber.Location = new Point(8, 60);
+			labelUserNumber.Name = "labelUserNumber";
+			labelUserNumber.Size = new Size(130, 25);
+			labelUserNumber.TabIndex = 34;
+			labelUserNumber.Text = "Card Number:";
+			// 
+			// labelRole
+			// 
+			labelRole.AutoSize = true;
+			labelRole.Font = new Font("Segoe UI", 14.25F);
+			labelRole.Location = new Point(86, 451);
+			labelRole.Name = "labelRole";
+			labelRole.Size = new Size(52, 25);
+			labelRole.TabIndex = 33;
+			labelRole.Text = "Role:";
+			// 
+			// comboRole
+			// 
+			comboRole.Font = new Font("Segoe UI", 14.25F);
+			comboRole.FormattingEnabled = true;
+			comboRole.Location = new Point(143, 448);
+			comboRole.Name = "comboRole";
+			comboRole.Size = new Size(242, 33);
+			comboRole.TabIndex = 32;
+			// 
+			// labelState
+			// 
+			labelState.AutoSize = true;
+			labelState.Font = new Font("Segoe UI", 14.25F);
+			labelState.Location = new Point(81, 334);
+			labelState.Name = "labelState";
+			labelState.Size = new Size(57, 25);
+			labelState.TabIndex = 31;
+			labelState.Text = "State:";
+			// 
+			// comboState
+			// 
+			comboState.Font = new Font("Segoe UI", 14.25F);
+			comboState.FormattingEnabled = true;
+			comboState.Location = new Point(143, 331);
+			comboState.Name = "comboState";
+			comboState.Size = new Size(242, 33);
+			comboState.TabIndex = 30;
+			// 
+			// textZip
+			// 
+			textZip.Font = new Font("Segoe UI", 14.25F);
+			textZip.Location = new Point(143, 370);
+			textZip.MaxLength = 100;
+			textZip.Name = "textZip";
+			textZip.Size = new Size(243, 33);
+			textZip.TabIndex = 29;
+			// 
+			// labelZip
+			// 
+			labelZip.AutoSize = true;
+			labelZip.Font = new Font("Segoe UI", 14.25F);
+			labelZip.Location = new Point(46, 373);
+			labelZip.Name = "labelZip";
+			labelZip.Size = new Size(92, 25);
+			labelZip.TabIndex = 28;
+			labelZip.Text = "Zip Code:";
 			// 
 			// labelBooksCount
 			// 
 			labelBooksCount.BackColor = Color.Silver;
 			labelBooksCount.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
 			labelBooksCount.ForeColor = Color.DarkBlue;
-			labelBooksCount.Location = new Point(591, 413);
+			labelBooksCount.Location = new Point(595, 447);
 			labelBooksCount.Name = "labelBooksCount";
 			labelBooksCount.Size = new Size(175, 21);
 			labelBooksCount.TabIndex = 27;
@@ -148,7 +336,7 @@ namespace LibraryManagementSystem.Forms
 			buttonShowAuthorBooks.ForeColor = Color.DarkBlue;
 			buttonShowAuthorBooks.Image = (Image)resources.GetObject("buttonShowAuthorBooks.Image");
 			buttonShowAuthorBooks.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonShowAuthorBooks.Location = new Point(405, 396);
+			buttonShowAuthorBooks.Location = new Point(409, 430);
 			buttonShowAuthorBooks.Name = "buttonShowAuthorBooks";
 			buttonShowAuthorBooks.Size = new Size(167, 53);
 			buttonShowAuthorBooks.TabIndex = 20;
@@ -156,7 +344,6 @@ namespace LibraryManagementSystem.Forms
 			buttonShowAuthorBooks.TextAlign = ContentAlignment.MiddleRight;
 			buttonShowAuthorBooks.TextImageRelation = TextImageRelation.ImageBeforeText;
 			buttonShowAuthorBooks.UseVisualStyleBackColor = false;
-			buttonShowAuthorBooks.Click += buttonShowAuthorBooks_Click;
 			// 
 			// label3
 			// 
@@ -164,7 +351,7 @@ namespace LibraryManagementSystem.Forms
 			label3.BackColor = Color.Silver;
 			label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			label3.ForeColor = Color.DarkBlue;
-			label3.Location = new Point(143, 462);
+			label3.Location = new Point(143, 493);
 			label3.Name = "label3";
 			label3.Size = new Size(79, 20);
 			label3.TabIndex = 16;
@@ -176,7 +363,7 @@ namespace LibraryManagementSystem.Forms
 			label2.BackColor = Color.White;
 			label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			label2.ForeColor = Color.DarkBlue;
-			label2.Location = new Point(364, 115);
+			label2.Location = new Point(367, 137);
 			label2.Name = "label2";
 			label2.Size = new Size(15, 20);
 			label2.TabIndex = 26;
@@ -188,7 +375,7 @@ namespace LibraryManagementSystem.Forms
 			label1.BackColor = Color.White;
 			label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			label1.ForeColor = Color.DarkBlue;
-			label1.Location = new Point(364, 74);
+			label1.Location = new Point(367, 98);
 			label1.Name = "label1";
 			label1.Size = new Size(15, 20);
 			label1.TabIndex = 25;
@@ -197,7 +384,7 @@ namespace LibraryManagementSystem.Forms
 			// buttonClearSearch
 			// 
 			buttonClearSearch.BackgroundImageLayout = ImageLayout.Stretch;
-			buttonClearSearch.Location = new Point(787, 27);
+			buttonClearSearch.Location = new Point(787, 18);
 			buttonClearSearch.Name = "buttonClearSearch";
 			buttonClearSearch.Size = new Size(35, 35);
 			buttonClearSearch.TabIndex = 18;
@@ -207,7 +394,7 @@ namespace LibraryManagementSystem.Forms
 			// picSearchIcon
 			// 
 			picSearchIcon.Image = (Image)resources.GetObject("picSearchIcon.Image");
-			picSearchIcon.Location = new Point(405, 27);
+			picSearchIcon.Location = new Point(405, 18);
 			picSearchIcon.Name = "picSearchIcon";
 			picSearchIcon.Size = new Size(35, 35);
 			picSearchIcon.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -216,147 +403,109 @@ namespace LibraryManagementSystem.Forms
 			// 
 			// textSearch
 			// 
-			textSearch.Font = new Font("Segoe UI", 15.75F);
-			textSearch.Location = new Point(446, 27);
+			textSearch.Font = new Font("Segoe UI", 14.25F);
+			textSearch.Location = new Point(446, 18);
 			textSearch.MaxLength = 100;
 			textSearch.Name = "textSearch";
-			textSearch.Size = new Size(335, 35);
+			textSearch.Size = new Size(335, 33);
 			textSearch.TabIndex = 17;
 			textSearch.TextChanged += textSearch_TextChanged;
 			// 
-			// rtbAbout
+			// textCity
 			// 
-			rtbAbout.Location = new Point(143, 343);
-			rtbAbout.MaxLength = 200;
-			rtbAbout.Name = "rtbAbout";
-			rtbAbout.Size = new Size(243, 106);
-			rtbAbout.TabIndex = 15;
-			rtbAbout.Text = "";
+			textCity.Font = new Font("Segoe UI", 14.25F);
+			textCity.Location = new Point(143, 292);
+			textCity.MaxLength = 100;
+			textCity.Name = "textCity";
+			textCity.Size = new Size(243, 33);
+			textCity.TabIndex = 11;
 			// 
-			// rtbEducation
+			// labelCity
 			// 
-			rtbEducation.Location = new Point(143, 273);
-			rtbEducation.MaxLength = 200;
-			rtbEducation.Name = "rtbEducation";
-			rtbEducation.Size = new Size(242, 61);
-			rtbEducation.TabIndex = 13;
-			rtbEducation.Text = "";
+			labelCity.AutoSize = true;
+			labelCity.Font = new Font("Segoe UI", 14.25F);
+			labelCity.Location = new Point(90, 295);
+			labelCity.Name = "labelCity";
+			labelCity.Size = new Size(48, 25);
+			labelCity.TabIndex = 10;
+			labelCity.Text = "City:";
 			// 
-			// labelAbout
+			// textAddress2
 			// 
-			labelAbout.AutoSize = true;
-			labelAbout.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			labelAbout.Location = new Point(57, 347);
-			labelAbout.Name = "labelAbout";
-			labelAbout.Size = new Size(75, 30);
-			labelAbout.TabIndex = 14;
-			labelAbout.Text = "About:";
+			textAddress2.Font = new Font("Segoe UI", 14.25F);
+			textAddress2.Location = new Point(143, 253);
+			textAddress2.Name = "textAddress2";
+			textAddress2.Size = new Size(243, 33);
+			textAddress2.TabIndex = 9;
 			// 
-			// labelEducation
+			// labelAddress2
 			// 
-			labelEducation.AutoSize = true;
-			labelEducation.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			labelEducation.Location = new Point(22, 273);
-			labelEducation.Name = "labelEducation";
-			labelEducation.Size = new Size(110, 30);
-			labelEducation.TabIndex = 12;
-			labelEducation.Text = "Education:";
+			labelAddress2.AutoSize = true;
+			labelAddress2.Font = new Font("Segoe UI", 14.25F);
+			labelAddress2.Location = new Point(45, 256);
+			labelAddress2.Name = "labelAddress2";
+			labelAddress2.Size = new Size(93, 25);
+			labelAddress2.TabIndex = 8;
+			labelAddress2.Text = "Address2:";
 			// 
-			// textHometown
+			// textAddress1
 			// 
-			textHometown.Font = new Font("Segoe UI", 15.75F);
-			textHometown.Location = new Point(143, 232);
-			textHometown.MaxLength = 100;
-			textHometown.Name = "textHometown";
-			textHometown.Size = new Size(243, 35);
-			textHometown.TabIndex = 11;
+			textAddress1.Font = new Font("Segoe UI", 14.25F);
+			textAddress1.Location = new Point(143, 214);
+			textAddress1.Name = "textAddress1";
+			textAddress1.Size = new Size(243, 33);
+			textAddress1.TabIndex = 7;
 			// 
-			// labelHometown
+			// labelAddress1
 			// 
-			labelHometown.AutoSize = true;
-			labelHometown.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			labelHometown.Location = new Point(12, 233);
-			labelHometown.Name = "labelHometown";
-			labelHometown.Size = new Size(120, 30);
-			labelHometown.TabIndex = 10;
-			labelHometown.Text = "Hometown:";
-			// 
-			// textDOD
-			// 
-			textDOD.Font = new Font("Segoe UI", 15.75F);
-			textDOD.Location = new Point(143, 191);
-			textDOD.Name = "textDOD";
-			textDOD.Size = new Size(243, 35);
-			textDOD.TabIndex = 9;
-			// 
-			// labelDOD
-			// 
-			labelDOD.AutoSize = true;
-			labelDOD.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			labelDOD.Location = new Point(68, 192);
-			labelDOD.Name = "labelDOD";
-			labelDOD.Size = new Size(64, 30);
-			labelDOD.TabIndex = 8;
-			labelDOD.Text = "DOD:";
-			// 
-			// textDOB
-			// 
-			textDOB.Font = new Font("Segoe UI", 15.75F);
-			textDOB.Location = new Point(143, 150);
-			textDOB.Name = "textDOB";
-			textDOB.Size = new Size(243, 35);
-			textDOB.TabIndex = 7;
-			// 
-			// labelDOB
-			// 
-			labelDOB.AutoSize = true;
-			labelDOB.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			labelDOB.Location = new Point(71, 151);
-			labelDOB.Name = "labelDOB";
-			labelDOB.Size = new Size(61, 30);
-			labelDOB.TabIndex = 6;
-			labelDOB.Text = "DOB:";
+			labelAddress1.AutoSize = true;
+			labelAddress1.Font = new Font("Segoe UI", 14.25F);
+			labelAddress1.Location = new Point(45, 217);
+			labelAddress1.Name = "labelAddress1";
+			labelAddress1.Size = new Size(93, 25);
+			labelAddress1.TabIndex = 6;
+			labelAddress1.Text = "Address1:";
 			// 
 			// textLastName
 			// 
-			textLastName.Font = new Font("Segoe UI", 15.75F);
-			textLastName.Location = new Point(143, 109);
+			textLastName.Font = new Font("Segoe UI", 14.25F);
+			textLastName.Location = new Point(143, 135);
 			textLastName.MaxLength = 100;
 			textLastName.Name = "textLastName";
-			textLastName.Size = new Size(243, 35);
+			textLastName.Size = new Size(243, 33);
 			textLastName.TabIndex = 5;
 			// 
 			// labelLastName
 			// 
 			labelLastName.AutoSize = true;
-			labelLastName.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			labelLastName.Location = new Point(15, 110);
+			labelLastName.Font = new Font("Segoe UI", 14.25F);
+			labelLastName.Location = new Point(34, 138);
 			labelLastName.Name = "labelLastName";
-			labelLastName.Size = new Size(117, 30);
+			labelLastName.Size = new Size(104, 25);
 			labelLastName.TabIndex = 4;
 			labelLastName.Text = "Last Name:";
 			// 
-			// dgAuthors
+			// dgUsers
 			// 
-			dgAuthors.AllowUserToAddRows = false;
-			dgAuthors.AllowUserToDeleteRows = false;
-			dgAuthors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-			dgAuthors.BackgroundColor = Color.Silver;
-			dgAuthors.BorderStyle = BorderStyle.None;
+			dgUsers.AllowUserToAddRows = false;
+			dgUsers.AllowUserToDeleteRows = false;
+			dgUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+			dgUsers.BackgroundColor = Color.Silver;
+			dgUsers.BorderStyle = BorderStyle.None;
 			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle1.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
 			dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
 			dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
 			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-			dgAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			dgAuthors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dgAuthors.Location = new Point(405, 83);
-			dgAuthors.MultiSelect = false;
-			dgAuthors.Name = "dgAuthors";
-			dgAuthors.ReadOnly = true;
-			dgAuthors.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+			dgUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dgUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dgUsers.Location = new Point(405, 74);
+			dgUsers.MultiSelect = false;
+			dgUsers.Name = "dgUsers";
+			dgUsers.ReadOnly = true;
+			dgUsers.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
 			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle2.BackColor = Color.DarkBlue;
 			dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -364,55 +513,55 @@ namespace LibraryManagementSystem.Forms
 			dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
 			dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
 			dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-			dgAuthors.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-			dgAuthors.RowHeadersVisible = false;
+			dgUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dgUsers.RowHeadersVisible = false;
 			dataGridViewCellStyle3.BackColor = Color.Silver;
-			dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			dataGridViewCellStyle3.ForeColor = Color.Black;
 			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
-			dgAuthors.RowsDefaultCellStyle = dataGridViewCellStyle3;
-			dgAuthors.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			dgAuthors.ShowEditingIcon = false;
-			dgAuthors.Size = new Size(417, 316);
-			dgAuthors.TabIndex = 19;
-			dgAuthors.CellClick += dgAuthors_CellClick;
+			dgUsers.RowsDefaultCellStyle = dataGridViewCellStyle3;
+			dgUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+			dgUsers.ShowEditingIcon = false;
+			dgUsers.Size = new Size(417, 347);
+			dgUsers.TabIndex = 19;
+			dgUsers.CellClick += dgUsers_CellClick;
 			// 
 			// textFirstName
 			// 
-			textFirstName.Font = new Font("Segoe UI", 15.75F);
-			textFirstName.Location = new Point(143, 68);
+			textFirstName.Font = new Font("Segoe UI", 14.25F);
+			textFirstName.Location = new Point(143, 96);
 			textFirstName.MaxLength = 100;
 			textFirstName.Name = "textFirstName";
-			textFirstName.Size = new Size(243, 35);
+			textFirstName.Size = new Size(243, 33);
 			textFirstName.TabIndex = 3;
 			// 
 			// textId
 			// 
 			textId.Enabled = false;
-			textId.Font = new Font("Segoe UI", 15.75F);
-			textId.Location = new Point(143, 27);
+			textId.Font = new Font("Segoe UI", 14.25F);
+			textId.Location = new Point(143, 18);
 			textId.MaxLength = 100;
 			textId.Name = "textId";
-			textId.Size = new Size(242, 35);
+			textId.Size = new Size(242, 33);
 			textId.TabIndex = 1;
 			// 
 			// labelFirstName
 			// 
 			labelFirstName.AutoSize = true;
-			labelFirstName.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			labelFirstName.Location = new Point(14, 69);
+			labelFirstName.Font = new Font("Segoe UI", 14.25F);
+			labelFirstName.Location = new Point(32, 99);
 			labelFirstName.Name = "labelFirstName";
-			labelFirstName.Size = new Size(118, 30);
+			labelFirstName.Size = new Size(106, 25);
 			labelFirstName.TabIndex = 2;
 			labelFirstName.Text = "First Name:";
 			// 
 			// labelId
 			// 
 			labelId.AutoSize = true;
-			labelId.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			labelId.Location = new Point(93, 29);
+			labelId.Font = new Font("Segoe UI", 14.25F);
+			labelId.Location = new Point(104, 20);
 			labelId.Name = "labelId";
-			labelId.Size = new Size(39, 30);
+			labelId.Size = new Size(34, 25);
 			labelId.TabIndex = 0;
 			labelId.Text = "ID:";
 			// 
@@ -467,7 +616,7 @@ namespace LibraryManagementSystem.Forms
 			// 
 			// panelSidebar
 			// 
-			panelSidebar.Controls.Add(labelAuthorsCount);
+			panelSidebar.Controls.Add(labelUsersCount);
 			panelSidebar.Controls.Add(buttonDelete);
 			panelSidebar.Controls.Add(buttonUpdate);
 			panelSidebar.Controls.Add(buttonAdd);
@@ -476,17 +625,17 @@ namespace LibraryManagementSystem.Forms
 			panelSidebar.Size = new Size(149, 424);
 			panelSidebar.TabIndex = 6;
 			// 
-			// labelAuthorsCount
+			// labelUsersCount
 			// 
-			labelAuthorsCount.BackColor = Color.FromArgb(17, 24, 34);
-			labelAuthorsCount.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			labelAuthorsCount.ForeColor = Color.Gold;
-			labelAuthorsCount.Location = new Point(12, 30);
-			labelAuthorsCount.Name = "labelAuthorsCount";
-			labelAuthorsCount.Size = new Size(125, 21);
-			labelAuthorsCount.TabIndex = 25;
-			labelAuthorsCount.Text = "authors";
-			labelAuthorsCount.TextAlign = ContentAlignment.MiddleLeft;
+			labelUsersCount.BackColor = Color.FromArgb(17, 24, 34);
+			labelUsersCount.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			labelUsersCount.ForeColor = Color.Gold;
+			labelUsersCount.Location = new Point(12, 30);
+			labelUsersCount.Name = "labelUsersCount";
+			labelUsersCount.Size = new Size(125, 21);
+			labelUsersCount.TabIndex = 25;
+			labelUsersCount.Text = "users";
+			labelUsersCount.TextAlign = ContentAlignment.MiddleLeft;
 			// 
 			// buttonDelete
 			// 
@@ -505,7 +654,7 @@ namespace LibraryManagementSystem.Forms
 			buttonDelete.Text = "Delete";
 			buttonDelete.TextAlign = ContentAlignment.MiddleRight;
 			buttonDelete.TextImageRelation = TextImageRelation.ImageBeforeText;
-			toolTip1.SetToolTip(buttonDelete, "Delete the currently selected author");
+			toolTip1.SetToolTip(buttonDelete, "Delete the currently selected user");
 			buttonDelete.UseVisualStyleBackColor = false;
 			buttonDelete.Click += buttonDelete_Click;
 			// 
@@ -526,7 +675,7 @@ namespace LibraryManagementSystem.Forms
 			buttonUpdate.Text = "Update";
 			buttonUpdate.TextAlign = ContentAlignment.MiddleRight;
 			buttonUpdate.TextImageRelation = TextImageRelation.ImageBeforeText;
-			toolTip1.SetToolTip(buttonUpdate, "Update the currently selected author's information");
+			toolTip1.SetToolTip(buttonUpdate, "Update the currently selected user's information");
 			buttonUpdate.UseVisualStyleBackColor = false;
 			buttonUpdate.Click += buttonUpdate_Click;
 			// 
@@ -547,28 +696,28 @@ namespace LibraryManagementSystem.Forms
 			buttonAdd.Text = "Add";
 			buttonAdd.TextAlign = ContentAlignment.MiddleRight;
 			buttonAdd.TextImageRelation = TextImageRelation.ImageBeforeText;
-			toolTip1.SetToolTip(buttonAdd, "Add the current form information as a new author");
+			toolTip1.SetToolTip(buttonAdd, "Add the current form information as a new user");
 			buttonAdd.UseVisualStyleBackColor = false;
 			buttonAdd.Click += buttonAdd_Click;
 			// 
-			// ManageAuthorsForm
+			// ManageUsersForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(17, 24, 34);
-			ClientSize = new Size(1004, 590);
+			ClientSize = new Size(1004, 632);
 			Controls.Add(panelSidebar);
 			Controls.Add(panelHeader);
 			Controls.Add(panelMain);
 			FormBorderStyle = FormBorderStyle.None;
-			Name = "ManageAuthorsForm";
+			Name = "ManageUsersForm";
 			StartPosition = FormStartPosition.CenterScreen;
-			Text = "ManageAuthorsForm";
-			Load += ManageAuthorsForm_Load;
+			Text = "ManageUsersForm";
+			Load += ManageUsersForm_Load;
 			panelMain.ResumeLayout(false);
 			panelMain.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)picSearchIcon).EndInit();
-			((System.ComponentModel.ISupportInitialize)dgAuthors).EndInit();
+			((System.ComponentModel.ISupportInitialize)dgUsers).EndInit();
 			panelHeader.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)picHeaderLogo).EndInit();
 			panelSidebar.ResumeLayout(false);
@@ -582,7 +731,7 @@ namespace LibraryManagementSystem.Forms
 
 		private Label labelHeader;
 		private Panel panelMain;
-		private DataGridView dgAuthors;
+		private DataGridView dgUsers;
 		private TextBox textFirstName;
 		private TextBox textId;
 		private Label labelFirstName;
@@ -596,16 +745,12 @@ namespace LibraryManagementSystem.Forms
 		private Button buttonAdd;
 		private TextBox textLastName;
 		private Label labelLastName;
-		private Label labelAbout;
-		private Label labelEducation;
-		private TextBox textHometown;
-		private Label labelHometown;
-		private TextBox textDOD;
-		private Label labelDOD;
-		private TextBox textDOB;
-		private Label labelDOB;
-		private RichTextBox rtbAbout;
-		private RichTextBox rtbEducation;
+		private TextBox textCity;
+		private Label labelCity;
+		private TextBox textAddress2;
+		private Label labelAddress2;
+		private TextBox textAddress1;
+		private Label labelAddress1;
 		private TextBox textSearch;
 		private PictureBox picSearchIcon;
 		private Button buttonClearSearch;
@@ -616,6 +761,22 @@ namespace LibraryManagementSystem.Forms
 		private Button buttonShowAuthorBooks;
 		private ToolTip toolTip1;
 		private Label labelBooksCount;
-		private Label labelAuthorsCount;
+		private Label labelUsersCount;
+		private TextBox textZip;
+		private Label labelZip;
+		private ComboBox comboState;
+		private Label labelState;
+		private Label labelRole;
+		private ComboBox comboRole;
+		private Label label4;
+		private TextBox textUserNumber;
+		private Label labelUserNumber;
+		private TextBox textPhone;
+		private Label labelPhone;
+		private Label label5;
+		private Label label6;
+		private Label labelDOB;
+		private TextBox textDOB;
+		private Label label7;
 	}
 }

@@ -18,6 +18,8 @@ namespace LibraryManagementSystem.Forms
 {
 	public partial class LoginForm : Form
 	{
+		AppUserController? userCont;
+
 		public LoginForm()
 		{
 			InitializeComponent();
@@ -29,6 +31,8 @@ namespace LibraryManagementSystem.Forms
 			facade.EnsureCreated();
 
 			this.AcceptButton = buttonLogin;
+
+			userCont = new AppUserController();
 		}
 
 		private void buttonClose_Click(object sender, EventArgs e)
@@ -51,7 +55,7 @@ namespace LibraryManagementSystem.Forms
 			string username = textUsername.Text;
 			string password = textPassword.Text;
 
-			AppUser? user = AppUserController.GetUser(username, password);
+			AppUser? user = userCont!.LoginUser(username, password);
 
 			try
 			{

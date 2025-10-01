@@ -102,6 +102,23 @@ namespace LibraryManagementSystem.Controllers
 			}
 		}
 
+		public List<Circulation>? GetBooksByUser(int _uid)
+		{
+			try
+			{
+				using (LmsContext context = new LmsContext())
+				{
+					var books = context.Circulation.Where(u=>u.AppUserId == _uid && u.Status.ToLower()=="out").ToList();
+					return books;
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				return null;
+			}
+		}
+
 		public List<Book>? SearchBooks(string search)
 		{
 			// search by string contained in fields: title, author last name, genre, publisher, ISBN

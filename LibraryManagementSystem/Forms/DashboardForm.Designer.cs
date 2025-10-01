@@ -55,13 +55,13 @@
 			labelLatestBook0 = new Label();
 			label8 = new Label();
 			panelMembersCount = new Panel();
-			label6 = new Label();
+			labelUsersCount = new Label();
 			label7 = new Label();
 			panelAuthorsCount = new Panel();
-			labelAuthorCount = new Label();
+			labelAuthorsCount = new Label();
 			label5 = new Label();
 			panelBooksCount = new Panel();
-			labelBookCount = new Label();
+			labelBooksCount = new Label();
 			label2 = new Label();
 			panelSidebar.SuspendLayout();
 			panelLogoHeader.SuspendLayout();
@@ -422,23 +422,23 @@
 			// panelMembersCount
 			// 
 			panelMembersCount.BackColor = Color.DodgerBlue;
-			panelMembersCount.Controls.Add(label6);
+			panelMembersCount.Controls.Add(labelUsersCount);
 			panelMembersCount.Controls.Add(label7);
 			panelMembersCount.Location = new Point(648, 59);
 			panelMembersCount.Name = "panelMembersCount";
 			panelMembersCount.Size = new Size(270, 152);
 			panelMembersCount.TabIndex = 2;
 			// 
-			// label6
+			// labelUsersCount
 			// 
-			label6.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			label6.ForeColor = Color.White;
-			label6.Location = new Point(-3, 60);
-			label6.Name = "label6";
-			label6.Size = new Size(270, 49);
-			label6.TabIndex = 3;
-			label6.Text = "999";
-			label6.TextAlign = ContentAlignment.MiddleCenter;
+			labelUsersCount.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			labelUsersCount.ForeColor = Color.White;
+			labelUsersCount.Location = new Point(-3, 60);
+			labelUsersCount.Name = "labelUsersCount";
+			labelUsersCount.Size = new Size(270, 49);
+			labelUsersCount.TabIndex = 3;
+			labelUsersCount.Text = "999";
+			labelUsersCount.TextAlign = ContentAlignment.MiddleCenter;
 			// 
 			// label7
 			// 
@@ -450,29 +450,29 @@
 			label7.Name = "label7";
 			label7.Size = new Size(270, 49);
 			label7.TabIndex = 2;
-			label7.Text = "Members";
+			label7.Text = "Users";
 			label7.TextAlign = ContentAlignment.MiddleLeft;
 			// 
 			// panelAuthorsCount
 			// 
 			panelAuthorsCount.BackColor = Color.RoyalBlue;
-			panelAuthorsCount.Controls.Add(labelAuthorCount);
+			panelAuthorsCount.Controls.Add(labelAuthorsCount);
 			panelAuthorsCount.Controls.Add(label5);
 			panelAuthorsCount.Location = new Point(334, 59);
 			panelAuthorsCount.Name = "panelAuthorsCount";
 			panelAuthorsCount.Size = new Size(270, 152);
 			panelAuthorsCount.TabIndex = 2;
 			// 
-			// labelAuthorCount
+			// labelAuthorsCount
 			// 
-			labelAuthorCount.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			labelAuthorCount.ForeColor = Color.White;
-			labelAuthorCount.Location = new Point(0, 60);
-			labelAuthorCount.Name = "labelAuthorCount";
-			labelAuthorCount.Size = new Size(270, 49);
-			labelAuthorCount.TabIndex = 3;
-			labelAuthorCount.Text = "999";
-			labelAuthorCount.TextAlign = ContentAlignment.MiddleCenter;
+			labelAuthorsCount.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			labelAuthorsCount.ForeColor = Color.White;
+			labelAuthorsCount.Location = new Point(0, 60);
+			labelAuthorsCount.Name = "labelAuthorsCount";
+			labelAuthorsCount.Size = new Size(270, 49);
+			labelAuthorsCount.TabIndex = 3;
+			labelAuthorsCount.Text = "999";
+			labelAuthorsCount.TextAlign = ContentAlignment.MiddleCenter;
 			// 
 			// label5
 			// 
@@ -490,23 +490,23 @@
 			// panelBooksCount
 			// 
 			panelBooksCount.BackColor = Color.MediumBlue;
-			panelBooksCount.Controls.Add(labelBookCount);
+			panelBooksCount.Controls.Add(labelBooksCount);
 			panelBooksCount.Controls.Add(label2);
 			panelBooksCount.Location = new Point(20, 59);
 			panelBooksCount.Name = "panelBooksCount";
 			panelBooksCount.Size = new Size(270, 152);
 			panelBooksCount.TabIndex = 1;
 			// 
-			// labelBookCount
+			// labelBooksCount
 			// 
-			labelBookCount.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			labelBookCount.ForeColor = Color.White;
-			labelBookCount.Location = new Point(0, 60);
-			labelBookCount.Name = "labelBookCount";
-			labelBookCount.Size = new Size(270, 49);
-			labelBookCount.TabIndex = 1;
-			labelBookCount.Text = "999";
-			labelBookCount.TextAlign = ContentAlignment.MiddleCenter;
+			labelBooksCount.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			labelBooksCount.ForeColor = Color.White;
+			labelBooksCount.Location = new Point(0, 60);
+			labelBooksCount.Name = "labelBooksCount";
+			labelBooksCount.Size = new Size(270, 49);
+			labelBooksCount.TabIndex = 1;
+			labelBooksCount.Text = "999";
+			labelBooksCount.TextAlign = ContentAlignment.MiddleCenter;
 			// 
 			// label2
 			// 
@@ -530,6 +530,7 @@
 			Controls.Add(panelMain);
 			Controls.Add(panelSidebar);
 			FormBorderStyle = FormBorderStyle.None;
+			Icon = (Icon)resources.GetObject("$this.Icon");
 			Name = "DashboardForm";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "DashboardForm";
@@ -570,10 +571,10 @@
 		private Panel panelAuthorsCount;
 		private Panel panelLatest;
 		private Label label2;
-		private Label labelBookCount;
-		private Label label6;
+		private Label labelBooksCount;
+		private Label labelUsersCount;
 		private Label label7;
-		private Label labelAuthorCount;
+		private Label labelAuthorsCount;
 		private Label label5;
 		private Label label8;
 		private Panel panelLatestBook0;

@@ -20,6 +20,7 @@ namespace LibraryManagementSystem.Forms
 	{
 		AuthorController? authorCont;
 		BookController? bookCont;
+		AppUserController? userCont;
 
 		public DashboardForm()
 		{
@@ -62,6 +63,7 @@ namespace LibraryManagementSystem.Forms
 		{
 			authorCont = new AuthorController();
 			bookCont = new BookController();
+			userCont = new AppUserController();
 		}
 
 		private void DashboardForm_Shown(object sender, EventArgs e)
@@ -110,6 +112,9 @@ namespace LibraryManagementSystem.Forms
 		private void buttonUsers_Click(object sender, EventArgs e)
 		{
 			ToggleButtonBackgrounds((Button)sender);
+			ManageUsersForm mngUsers= new ManageUsersForm();
+			mngUsers.ShowDialog();
+			ToggleButtonBackgrounds(null);
 		}
 
 		private void DashboardForm_Enter(object sender, EventArgs e)
@@ -135,10 +140,13 @@ namespace LibraryManagementSystem.Forms
 		private void DashboardForm_Activated(object sender, EventArgs e)
 		{
 			int authorCount = authorCont!.GetCount();
-			labelAuthorCount.Text = authorCount.ToString();
+			labelAuthorsCount.Text = authorCount.ToString();
 
 			int bookCount = bookCont!.GetCount();
-			labelBookCount.Text = bookCount.ToString();
+			labelBooksCount.Text = bookCount.ToString();
+
+			int userCount = userCont!.GetUsers()!.Count;
+			labelUsersCount.Text = userCount.ToString();
 
 			List<Book> latestBooks = bookCont.GetLastFiveBooks();
 
