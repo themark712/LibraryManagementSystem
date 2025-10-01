@@ -7,6 +7,8 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.AxHost;
+using State = LibraryManagementSystem.Models.State;
 
 namespace LibraryManagementSystem.Database
 {
@@ -17,6 +19,7 @@ namespace LibraryManagementSystem.Database
 		public DbSet<Author> Authors { get; set; }
 		public DbSet<Book> Books { get; set; }
 		public DbSet<Circulation> Circulation { get; set; }
+		public DbSet<State> States { get; set; }
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
@@ -37,6 +40,61 @@ namespace LibraryManagementSystem.Database
 		// seed data
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
+			modelBuilder.Entity<State>().HasData(
+				new { StateId = 1, StateName = "", Abbreviation = "" },
+				new { StateId = 2, StateName = "Alabama", Abbreviation = "AL" },
+				new { StateId = 3, StateName = "Alaska", Abbreviation = "AK" },
+				new { StateId = 4, StateName = "Arizona", Abbreviation = "AZ" },
+				new { StateId = 5, StateName = "Arkansas", Abbreviation = "AR" },
+				new { StateId = 6, StateName = "California", Abbreviation = "CA" },
+				new { StateId = 7, StateName = "Colorado", Abbreviation = "CO" },
+				new { StateId = 8, StateName = "Connecticut", Abbreviation = "CT" },
+				new { StateId = 9, StateName = "Delaware", Abbreviation = "DE" },
+				new { StateId = 10, StateName = "District of Columbia", Abbreviation = "DC" },
+				new { StateId = 11, StateName = "Florida", Abbreviation = "FL" },
+				new { StateId = 12, StateName = "Georgia", Abbreviation = "GA" },
+				new { StateId = 13, StateName = "Hawaii", Abbreviation = "HI" },
+				new { StateId = 14, StateName = "Idaho", Abbreviation = "ID" },
+				new { StateId = 15, StateName = "Illinois", Abbreviation = "IL" },
+				new { StateId = 16, StateName = "Indiana", Abbreviation = "IN" },
+				new { StateId = 17, StateName = "Iowa", Abbreviation = "IA" },
+				new { StateId = 18, StateName = "Kansas", Abbreviation = "KS" },
+				new { StateId = 19, StateName = "Kentucky", Abbreviation = "KY" },
+				new { StateId = 20, StateName = "Louisiana", Abbreviation = "LA" },
+				new { StateId = 21, StateName = "Maine", Abbreviation = "ME" },
+				new { StateId = 22, StateName = "Maryland", Abbreviation = "MD" },
+				new { StateId = 23, StateName = "Massachusetts", Abbreviation = "MA" },
+				new { StateId = 24, StateName = "Michigan", Abbreviation = "MI" },
+				new { StateId = 25, StateName = "Minnesota", Abbreviation = "MN" },
+				new { StateId = 26, StateName = "Mississippi", Abbreviation = "MS" },
+				new { StateId = 27, StateName = "Missouri", Abbreviation = "MO" },
+				new { StateId = 28, StateName = "Montana", Abbreviation = "MT" },
+				new { StateId = 29, StateName = "Nebraska", Abbreviation = "NE" },
+				new { StateId = 30, StateName = "Nevada", Abbreviation = "NV" },
+				new { StateId = 31, StateName = "New Hampshire", Abbreviation = "NH" },
+				new { StateId = 32, StateName = "New Jersey", Abbreviation = "NJ" },
+				new { StateId = 33, StateName = "New Mexico", Abbreviation = "NM" },
+				new { StateId = 34, StateName = "New York", Abbreviation = "NY" },
+				new { StateId = 35, StateName = "North Carolina", Abbreviation = "NC" },
+				new { StateId = 36, StateName = "North Dakota", Abbreviation = "ND" },
+				new { StateId = 37, StateName = "Ohio", Abbreviation = "OH" },
+				new { StateId = 38, StateName = "Oklahoma", Abbreviation = "OK" },
+				new { StateId = 39, StateName = "Oregon", Abbreviation = "OR" },
+				new { StateId = 40, StateName = "Pennsylvania", Abbreviation = "PA" },
+				new { StateId = 41, StateName = "Rhode Island", Abbreviation = "RI" },
+				new { StateId = 42, StateName = "South Carolina", Abbreviation = "SC" },
+				new { StateId = 43, StateName = "South Dakota", Abbreviation = "SD" },
+				new { StateId = 44, StateName = "Tennessee", Abbreviation = "TN" },
+				new { StateId = 45, StateName = "Texas", Abbreviation = "TX" },
+				new { StateId = 46, StateName = "Utah", Abbreviation = "UT" },
+				new { StateId = 47, StateName = "Vermont", Abbreviation = "VT" },
+				new { StateId = 48, StateName = "Virginia", Abbreviation = "VA" },
+				new { StateId = 49, StateName = "Washington", Abbreviation = "WA" },
+				new { StateId = 50, StateName = "West Virginia", Abbreviation = "WV" },
+				new { StateId = 51, StateName = "Wisconsin", Abbreviation = "WI" },
+				new { StateId = 52, StateName = "Wyoming", Abbreviation = "WY" }   
+			);
+
 			modelBuilder.Entity<AppUser>().HasData(
 				new AppUser { AppUserId = 1, FirstName = "Admin", LastName = "User", Username = "admin", Password = "admin123", Role = "admin", Email="adminUser@gmail.com" , DOB="1973-11-03"}
 				, new AppUser { AppUserId = 2, FirstName = "Library", LastName = "Patron", Username = "patron", Password = "patron123", Role = "user", Email="library-patron-212@gmail.com" , DOB="1979-09-21"}

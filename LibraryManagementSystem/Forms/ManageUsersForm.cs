@@ -19,6 +19,7 @@ namespace LibraryManagementSystem.Forms
 		AppUserController? userCont;
 		BookController? bookCont;
 		AppUser? selectedUser;
+		StateController? stateCont;
 
 		public ManageUsersForm()
 		{
@@ -29,6 +30,7 @@ namespace LibraryManagementSystem.Forms
 		{
 			userCont = new AppUserController();
 			bookCont = new BookController();
+			stateCont = new StateController();
 
 			labelStatus.Text = "";
 			labelUsersCount.Text = userCont.GetUsers()!.Count.ToString() + " users";
@@ -37,6 +39,11 @@ namespace LibraryManagementSystem.Forms
 			comboRole.Items.Add("");
 			comboRole.Items.Add("admin");
 			comboRole.Items.Add("user");
+
+			var states = stateCont.GetStates();
+			comboState.DataSource = states;
+			comboState.ValueMember = "Abbreviation";
+			comboState.DisplayMember = "StateName";
 
 			RefreshUserList();
 			buttonAdd.Enabled = true;
@@ -63,7 +70,7 @@ namespace LibraryManagementSystem.Forms
 			textAddress1.Text = selectedUser.Address1;
 			textAddress2.Text = selectedUser.Address2;
 			textCity.Text = selectedUser.City;
-			comboState.SelectedValue = selectedUser.State;
+			comboState.SelectedValue = selectedUser.State == null ? "" : selectedUser.State;
 			textZip.Text = selectedUser.Zip;
 			textPhone.Text = selectedUser.Phone;
 			comboRole.SelectedValue = selectedUser.Role;
