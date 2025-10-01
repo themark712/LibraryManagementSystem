@@ -193,7 +193,7 @@ namespace LibraryManagementSystem.Forms
 		{
 			string errorString = "";
 
-			var user = new AppUser { UserNumber=textUserNumber.Text, FirstName=textFirstName.Text, LastName=textLastName.Text, Email = textEmail.Text, Phone=textPhone.Text };
+			var user = new AppUser { UserNumber = textUserNumber.Text, FirstName = textFirstName.Text, LastName = textLastName.Text, Email = textEmail.Text, Phone = textPhone.Text };
 			var context = new ValidationContext(user);
 			var results = new List<ValidationResult>();
 
@@ -298,6 +298,11 @@ namespace LibraryManagementSystem.Forms
 				ManageBooksForm booksForm = new ManageBooksForm();
 				booksForm.ShowDialog();
 			}
+		}
+
+		private void buttonShowAuthorBooks_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
