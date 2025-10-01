@@ -142,14 +142,34 @@ namespace LibraryManagementSystem.Forms
 
 			List<Book> latestBooks = bookCont.GetLastFiveBooks();
 
+			labelLatestBook0.Text = latestBooks[0].Title;
 			if (!string.IsNullOrEmpty(latestBooks[0].Cover))
 			{
-				panelLatestBook1.BackgroundImage = Image.FromFile(ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\" + latestBooks[0].Cover.ToString());
+				panelLatestBook0.BackgroundImage = Image.FromFile(ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\" + latestBooks[0].Cover!.ToString());
 			}
 
+			labelLatestBook1.Text = latestBooks[1].Title;
 			if (!string.IsNullOrEmpty(latestBooks[1].Cover))
 			{
-				panelLatestBook2.BackgroundImage = Image.FromFile(ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\" + latestBooks[1].Cover.ToString());
+				panelLatestBook1.BackgroundImage = Image.FromFile(ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\" + latestBooks[1].Cover!.ToString());
+			}
+
+			labelLatestBook2.Text = latestBooks[2].Title;
+			if (!string.IsNullOrEmpty(latestBooks[2].Cover))
+			{
+				panelLatestBook2.BackgroundImage = Image.FromFile(ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\" + latestBooks[2].Cover!.ToString());
+			}
+
+			labelLatestBook3.Text = latestBooks[3].Title;
+			if (!string.IsNullOrEmpty(latestBooks[3].Cover))
+			{
+				panelLatestBook3.BackgroundImage = Image.FromFile(ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\" + latestBooks[3].Cover!.ToString());
+			}
+
+			labelLatestBook4.Text = latestBooks[4].Title;
+			if (!string.IsNullOrEmpty(latestBooks[4].Cover))
+			{
+				panelLatestBook4.BackgroundImage = Image.FromFile(ConfigurationManager.AppSettings["DatabaseLocation"]! + "\\covers\\" + latestBooks[4].Cover!.ToString());
 			}
 		}
 	}

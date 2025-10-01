@@ -130,7 +130,7 @@ namespace LibraryManagementSystem.Controllers
 		{
 			using (LmsContext context = new LmsContext())
 			{
-				var books = context.Books.Take(5).OrderByDescending(d=>d.DateReceived).ToList();
+				var books = context.Books.Take(5).OrderByDescending(d=>d.DateReceived).Include(a=>a.Author).ToList();
 				return books;
 			}
 		}
