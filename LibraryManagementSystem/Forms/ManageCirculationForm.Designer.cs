@@ -31,31 +31,32 @@ namespace LibraryManagementSystem.Forms
 		private void InitializeComponent()
 		{
 			components = new System.ComponentModel.Container();
-			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageCirculationForm));
-			DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
 			labelHeader = new Label();
 			panelMain = new Panel();
-			dgCirculation = new DataGridView();
+			groupBooks = new GroupBox();
+			buttonClearBookSearch = new Button();
 			dgBooks = new DataGridView();
-			buttonShowAuthorBooks = new Button();
-			label3 = new Label();
-			label2 = new Label();
-			label1 = new Label();
-			buttonClearSearch = new Button();
+			pictureBox1 = new PictureBox();
+			buttonAdd = new Button();
+			textBookSearch = new TextBox();
+			groupUserBooks = new GroupBox();
+			buttonUpdate = new Button();
+			dgCirculation = new DataGridView();
+			buttonDelete = new Button();
+			buttonClearUserSearch = new Button();
 			picSearchIcon = new PictureBox();
-			textSearch = new TextBox();
+			textUserSearch = new TextBox();
 			labelRenewals = new Label();
-			textHometown = new TextBox();
-			textDOD = new TextBox();
-			textCardNumber = new TextBox();
 			textRenewals = new TextBox();
 			labelCheckoutDate = new Label();
 			dgUsers = new DataGridView();
@@ -67,19 +68,19 @@ namespace LibraryManagementSystem.Forms
 			picHeaderLogo = new PictureBox();
 			buttonClose = new Button();
 			panelSidebar = new Panel();
-			labelBooksCount = new Label();
+			labelUserCheckOutCount = new Label();
 			labelPhone = new Label();
 			labelEmail = new Label();
 			labelCardNumber = new Label();
 			labelName = new Label();
 			labelCheckOutCount = new Label();
-			buttonDelete = new Button();
-			buttonUpdate = new Button();
-			buttonAdd = new Button();
 			toolTip1 = new ToolTip(components);
 			panelMain.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)dgCirculation).BeginInit();
+			groupBooks.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dgBooks).BeginInit();
+			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+			groupUserBooks.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)dgCirculation).BeginInit();
 			((System.ComponentModel.ISupportInitialize)picSearchIcon).BeginInit();
 			((System.ComponentModel.ISupportInitialize)dgUsers).BeginInit();
 			panelHeader.SuspendLayout();
@@ -103,71 +104,37 @@ namespace LibraryManagementSystem.Forms
 			// panelMain
 			// 
 			panelMain.BackColor = Color.Silver;
-			panelMain.Controls.Add(dgCirculation);
-			panelMain.Controls.Add(dgBooks);
-			panelMain.Controls.Add(buttonShowAuthorBooks);
-			panelMain.Controls.Add(label3);
-			panelMain.Controls.Add(label2);
-			panelMain.Controls.Add(label1);
-			panelMain.Controls.Add(buttonClearSearch);
-			panelMain.Controls.Add(picSearchIcon);
-			panelMain.Controls.Add(textSearch);
-			panelMain.Controls.Add(labelRenewals);
-			panelMain.Controls.Add(textHometown);
-			panelMain.Controls.Add(textDOD);
-			panelMain.Controls.Add(textCardNumber);
-			panelMain.Controls.Add(textRenewals);
-			panelMain.Controls.Add(labelCheckoutDate);
-			panelMain.Controls.Add(dgUsers);
-			panelMain.Controls.Add(textDueDate);
-			panelMain.Controls.Add(textCheckOutDate);
-			panelMain.Controls.Add(labelDueDate);
+			panelMain.Controls.Add(groupBooks);
+			panelMain.Controls.Add(groupUserBooks);
 			panelMain.Location = new Point(159, 78);
 			panelMain.Name = "panelMain";
-			panelMain.Size = new Size(813, 530);
+			panelMain.Size = new Size(847, 530);
 			panelMain.TabIndex = 4;
 			// 
-			// dgCirculation
+			// groupBooks
 			// 
-			dgCirculation.AllowUserToAddRows = false;
-			dgCirculation.AllowUserToDeleteRows = false;
-			dgCirculation.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-			dgCirculation.BackgroundColor = Color.Silver;
-			dgCirculation.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-			dgCirculation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			dgCirculation.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dgCirculation.Location = new Point(20, 285);
-			dgCirculation.MultiSelect = false;
-			dgCirculation.Name = "dgCirculation";
-			dgCirculation.ReadOnly = true;
-			dgCirculation.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle2.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle2.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-			dgCirculation.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-			dgCirculation.RowHeadersVisible = false;
-			dataGridViewCellStyle3.BackColor = Color.Silver;
-			dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle3.ForeColor = Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
-			dgCirculation.RowsDefaultCellStyle = dataGridViewCellStyle3;
-			dgCirculation.RowTemplate.Height = 20;
-			dgCirculation.RowTemplate.ReadOnly = true;
-			dgCirculation.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			dgCirculation.ShowEditingIcon = false;
-			dgCirculation.Size = new Size(311, 205);
-			dgCirculation.TabIndex = 33;
+			groupBooks.Controls.Add(buttonClearBookSearch);
+			groupBooks.Controls.Add(dgBooks);
+			groupBooks.Controls.Add(pictureBox1);
+			groupBooks.Controls.Add(buttonAdd);
+			groupBooks.Controls.Add(textBookSearch);
+			groupBooks.Location = new Point(436, 13);
+			groupBooks.Name = "groupBooks";
+			groupBooks.Size = new Size(393, 508);
+			groupBooks.TabIndex = 41;
+			groupBooks.TabStop = false;
+			groupBooks.Text = "Available Books";
+			// 
+			// buttonClearBookSearch
+			// 
+			buttonClearBookSearch.BackgroundImageLayout = ImageLayout.Stretch;
+			buttonClearBookSearch.Image = (Image)resources.GetObject("buttonClearBookSearch.Image");
+			buttonClearBookSearch.Location = new Point(350, 25);
+			buttonClearBookSearch.Name = "buttonClearBookSearch";
+			buttonClearBookSearch.Size = new Size(35, 35);
+			buttonClearBookSearch.TabIndex = 38;
+			buttonClearBookSearch.UseVisualStyleBackColor = true;
+			buttonClearBookSearch.Click += buttonClearBookSearch_Click;
 			// 
 			// dgBooks
 			// 
@@ -176,179 +143,246 @@ namespace LibraryManagementSystem.Forms
 			dgBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgBooks.BackgroundColor = Color.Silver;
 			dgBooks.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle4.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-			dgBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle16.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle16.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle16.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle16.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle16.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle16.WrapMode = DataGridViewTriState.True;
+			dgBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
 			dgBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dgBooks.Location = new Point(439, 70);
+			dgBooks.Location = new Point(11, 79);
 			dgBooks.MultiSelect = false;
 			dgBooks.Name = "dgBooks";
 			dgBooks.ReadOnly = true;
 			dgBooks.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle5.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle5.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle5.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-			dgBooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle17.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle17.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle17.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle17.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
+			dgBooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
 			dgBooks.RowHeadersVisible = false;
-			dataGridViewCellStyle6.BackColor = Color.Silver;
-			dataGridViewCellStyle6.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle6.ForeColor = Color.Black;
-			dataGridViewCellStyle6.SelectionBackColor = Color.RoyalBlue;
-			dgBooks.RowsDefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle18.BackColor = Color.Silver;
+			dataGridViewCellStyle18.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle18.ForeColor = Color.Black;
+			dataGridViewCellStyle18.SelectionBackColor = Color.RoyalBlue;
+			dgBooks.RowsDefaultCellStyle = dataGridViewCellStyle18;
 			dgBooks.RowTemplate.Height = 20;
 			dgBooks.RowTemplate.ReadOnly = true;
 			dgBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			dgBooks.ShowEditingIcon = false;
-			dgBooks.Size = new Size(342, 205);
+			dgBooks.Size = new Size(371, 340);
 			dgBooks.TabIndex = 31;
 			// 
-			// buttonShowAuthorBooks
+			// pictureBox1
 			// 
-			buttonShowAuthorBooks.BackColor = Color.Silver;
-			buttonShowAuthorBooks.BackgroundImageLayout = ImageLayout.None;
-			buttonShowAuthorBooks.Cursor = Cursors.Hand;
-			buttonShowAuthorBooks.FlatAppearance.BorderSize = 0;
-			buttonShowAuthorBooks.FlatStyle = FlatStyle.Flat;
-			buttonShowAuthorBooks.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			buttonShowAuthorBooks.ForeColor = Color.DarkBlue;
-			buttonShowAuthorBooks.Image = (Image)resources.GetObject("buttonShowAuthorBooks.Image");
-			buttonShowAuthorBooks.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonShowAuthorBooks.Location = new Point(407, 455);
-			buttonShowAuthorBooks.Name = "buttonShowAuthorBooks";
-			buttonShowAuthorBooks.Size = new Size(125, 51);
-			buttonShowAuthorBooks.TabIndex = 30;
-			buttonShowAuthorBooks.Text = "View Books";
-			buttonShowAuthorBooks.TextAlign = ContentAlignment.MiddleRight;
-			buttonShowAuthorBooks.TextImageRelation = TextImageRelation.ImageBeforeText;
-			buttonShowAuthorBooks.UseVisualStyleBackColor = false;
+			pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+			pictureBox1.Location = new Point(11, 25);
+			pictureBox1.Name = "pictureBox1";
+			pictureBox1.Size = new Size(35, 35);
+			pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+			pictureBox1.TabIndex = 39;
+			pictureBox1.TabStop = false;
 			// 
-			// label3
+			// buttonAdd
 			// 
-			label3.AutoSize = true;
-			label3.BackColor = Color.Silver;
-			label3.Font = new Font("Segoe UI", 9.75F);
-			label3.ForeColor = Color.DarkBlue;
-			label3.Location = new Point(711, 509);
-			label3.Name = "label3";
-			label3.Size = new Size(70, 17);
-			label3.TabIndex = 16;
-			label3.Text = "* Required";
+			buttonAdd.BackColor = Color.SteelBlue;
+			buttonAdd.BackgroundImageLayout = ImageLayout.None;
+			buttonAdd.Cursor = Cursors.Hand;
+			buttonAdd.FlatStyle = FlatStyle.Popup;
+			buttonAdd.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			buttonAdd.ForeColor = Color.DarkBlue;
+			buttonAdd.Image = (Image)resources.GetObject("buttonAdd.Image");
+			buttonAdd.ImageAlign = ContentAlignment.MiddleLeft;
+			buttonAdd.Location = new Point(257, 446);
+			buttonAdd.Name = "buttonAdd";
+			buttonAdd.Size = new Size(125, 45);
+			buttonAdd.TabIndex = 34;
+			buttonAdd.TabStop = false;
+			buttonAdd.Text = "Loan";
+			buttonAdd.TextAlign = ContentAlignment.MiddleRight;
+			buttonAdd.TextImageRelation = TextImageRelation.ImageBeforeText;
+			toolTip1.SetToolTip(buttonAdd, "Add the current form information as a new author");
+			buttonAdd.UseVisualStyleBackColor = false;
 			// 
-			// label2
+			// textBookSearch
 			// 
-			label2.AutoSize = true;
-			label2.BackColor = Color.White;
-			label2.Font = new Font("Segoe UI", 9.75F);
-			label2.ForeColor = Color.DarkBlue;
-			label2.Location = new Point(673, 512);
-			label2.Name = "label2";
-			label2.Size = new Size(13, 17);
-			label2.TabIndex = 26;
-			label2.Text = "*";
+			textBookSearch.Font = new Font("Segoe UI", 15.75F);
+			textBookSearch.Location = new Point(52, 25);
+			textBookSearch.MaxLength = 100;
+			textBookSearch.Name = "textBookSearch";
+			textBookSearch.Size = new Size(294, 35);
+			textBookSearch.TabIndex = 37;
+			textBookSearch.TextChanged += textBookSearch_TextChanged;
 			// 
-			// label1
+			// groupUserBooks
 			// 
-			label1.AutoSize = true;
-			label1.BackColor = Color.White;
-			label1.Font = new Font("Segoe UI", 9.75F);
-			label1.ForeColor = Color.DarkBlue;
-			label1.Location = new Point(692, 509);
-			label1.Name = "label1";
-			label1.Size = new Size(13, 17);
-			label1.TabIndex = 25;
-			label1.Text = "*";
+			groupUserBooks.Controls.Add(buttonUpdate);
+			groupUserBooks.Controls.Add(dgCirculation);
+			groupUserBooks.Controls.Add(buttonDelete);
+			groupUserBooks.Controls.Add(buttonClearUserSearch);
+			groupUserBooks.Controls.Add(picSearchIcon);
+			groupUserBooks.Controls.Add(textUserSearch);
+			groupUserBooks.Controls.Add(labelRenewals);
+			groupUserBooks.Controls.Add(textRenewals);
+			groupUserBooks.Controls.Add(labelCheckoutDate);
+			groupUserBooks.Controls.Add(dgUsers);
+			groupUserBooks.Controls.Add(textDueDate);
+			groupUserBooks.Controls.Add(textCheckOutDate);
+			groupUserBooks.Controls.Add(labelDueDate);
+			groupUserBooks.Location = new Point(13, 13);
+			groupUserBooks.Name = "groupUserBooks";
+			groupUserBooks.Size = new Size(405, 508);
+			groupUserBooks.TabIndex = 40;
+			groupUserBooks.TabStop = false;
+			groupUserBooks.Text = "User Circulation";
 			// 
-			// buttonClearSearch
+			// buttonUpdate
 			// 
-			buttonClearSearch.BackgroundImageLayout = ImageLayout.Stretch;
-			buttonClearSearch.Location = new Point(504, 13);
-			buttonClearSearch.Name = "buttonClearSearch";
-			buttonClearSearch.Size = new Size(35, 35);
-			buttonClearSearch.TabIndex = 18;
-			buttonClearSearch.UseVisualStyleBackColor = true;
-			buttonClearSearch.Click += buttonClearSearch_Click;
+			buttonUpdate.BackColor = Color.SteelBlue;
+			buttonUpdate.BackgroundImageLayout = ImageLayout.None;
+			buttonUpdate.Cursor = Cursors.Hand;
+			buttonUpdate.FlatStyle = FlatStyle.Popup;
+			buttonUpdate.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			buttonUpdate.ForeColor = Color.DarkBlue;
+			buttonUpdate.Image = (Image)resources.GetObject("buttonUpdate.Image");
+			buttonUpdate.ImageAlign = ContentAlignment.MiddleLeft;
+			buttonUpdate.Location = new Point(230, 415);
+			buttonUpdate.Name = "buttonUpdate";
+			buttonUpdate.Size = new Size(137, 34);
+			buttonUpdate.TabIndex = 35;
+			buttonUpdate.TabStop = false;
+			buttonUpdate.Text = "Return";
+			buttonUpdate.TextAlign = ContentAlignment.MiddleRight;
+			buttonUpdate.TextImageRelation = TextImageRelation.ImageBeforeText;
+			toolTip1.SetToolTip(buttonUpdate, "Update the currently selected author's information");
+			buttonUpdate.UseVisualStyleBackColor = false;
+			// 
+			// dgCirculation
+			// 
+			dgCirculation.AllowUserToAddRows = false;
+			dgCirculation.AllowUserToDeleteRows = false;
+			dgCirculation.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+			dgCirculation.BackgroundColor = Color.Silver;
+			dgCirculation.BorderStyle = BorderStyle.None;
+			dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle10.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle10.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle10.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+			dgCirculation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+			dgCirculation.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dgCirculation.Location = new Point(18, 275);
+			dgCirculation.MultiSelect = false;
+			dgCirculation.Name = "dgCirculation";
+			dgCirculation.ReadOnly = true;
+			dgCirculation.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+			dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle11.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle11.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle11.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
+			dgCirculation.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+			dgCirculation.RowHeadersVisible = false;
+			dataGridViewCellStyle12.BackColor = Color.Silver;
+			dataGridViewCellStyle12.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle12.ForeColor = Color.Black;
+			dataGridViewCellStyle12.SelectionBackColor = Color.RoyalBlue;
+			dgCirculation.RowsDefaultCellStyle = dataGridViewCellStyle12;
+			dgCirculation.RowTemplate.Height = 20;
+			dgCirculation.RowTemplate.ReadOnly = true;
+			dgCirculation.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+			dgCirculation.ShowEditingIcon = false;
+			dgCirculation.Size = new Size(206, 216);
+			dgCirculation.TabIndex = 49;
+			dgCirculation.CellClick += dgCirculation_CellClick;
+			// 
+			// buttonDelete
+			// 
+			buttonDelete.BackColor = Color.SteelBlue;
+			buttonDelete.BackgroundImageLayout = ImageLayout.None;
+			buttonDelete.Cursor = Cursors.Hand;
+			buttonDelete.FlatStyle = FlatStyle.Popup;
+			buttonDelete.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			buttonDelete.ForeColor = Color.DarkBlue;
+			buttonDelete.Image = (Image)resources.GetObject("buttonDelete.Image");
+			buttonDelete.ImageAlign = ContentAlignment.TopLeft;
+			buttonDelete.Location = new Point(230, 458);
+			buttonDelete.Name = "buttonDelete";
+			buttonDelete.Size = new Size(137, 35);
+			buttonDelete.TabIndex = 48;
+			buttonDelete.TabStop = false;
+			buttonDelete.Text = "Renew";
+			buttonDelete.TextAlign = ContentAlignment.MiddleRight;
+			buttonDelete.TextImageRelation = TextImageRelation.ImageBeforeText;
+			toolTip1.SetToolTip(buttonDelete, "Delete the currently selected author");
+			buttonDelete.UseVisualStyleBackColor = false;
+			// 
+			// buttonClearUserSearch
+			// 
+			buttonClearUserSearch.BackgroundImageLayout = ImageLayout.Stretch;
+			buttonClearUserSearch.Image = (Image)resources.GetObject("buttonClearUserSearch.Image");
+			buttonClearUserSearch.Location = new Point(361, 25);
+			buttonClearUserSearch.Name = "buttonClearUserSearch";
+			buttonClearUserSearch.Size = new Size(35, 35);
+			buttonClearUserSearch.TabIndex = 44;
+			buttonClearUserSearch.UseVisualStyleBackColor = true;
 			// 
 			// picSearchIcon
 			// 
 			picSearchIcon.Image = (Image)resources.GetObject("picSearchIcon.Image");
-			picSearchIcon.Location = new Point(20, 13);
+			picSearchIcon.Location = new Point(12, 25);
 			picSearchIcon.Name = "picSearchIcon";
 			picSearchIcon.Size = new Size(35, 35);
 			picSearchIcon.SizeMode = PictureBoxSizeMode.StretchImage;
-			picSearchIcon.TabIndex = 23;
+			picSearchIcon.TabIndex = 46;
 			picSearchIcon.TabStop = false;
 			// 
-			// textSearch
+			// textUserSearch
 			// 
-			textSearch.Font = new Font("Segoe UI", 15.75F);
-			textSearch.Location = new Point(61, 13);
-			textSearch.MaxLength = 100;
-			textSearch.Name = "textSearch";
-			textSearch.Size = new Size(437, 35);
-			textSearch.TabIndex = 17;
-			textSearch.TextChanged += textSearch_TextChanged;
+			textUserSearch.Font = new Font("Segoe UI", 15.75F);
+			textUserSearch.Location = new Point(53, 25);
+			textUserSearch.MaxLength = 100;
+			textUserSearch.Name = "textUserSearch";
+			textUserSearch.Size = new Size(302, 35);
+			textUserSearch.TabIndex = 43;
+			textUserSearch.TextChanged += textUserSearch_TextChanged;
 			// 
 			// labelRenewals
 			// 
 			labelRenewals.AutoSize = true;
 			labelRenewals.Font = new Font("Segoe UI", 9.75F);
-			labelRenewals.Location = new Point(252, 373);
+			labelRenewals.Location = new Point(230, 366);
 			labelRenewals.Name = "labelRenewals";
 			labelRenewals.Size = new Size(65, 17);
-			labelRenewals.TabIndex = 12;
+			labelRenewals.TabIndex = 42;
 			labelRenewals.Text = "Renewals:";
-			// 
-			// textHometown
-			// 
-			textHometown.Font = new Font("Segoe UI", 9.75F);
-			textHometown.Location = new Point(540, 481);
-			textHometown.MaxLength = 100;
-			textHometown.Name = "textHometown";
-			textHometown.Size = new Size(243, 25);
-			textHometown.TabIndex = 11;
-			// 
-			// textDOD
-			// 
-			textDOD.Font = new Font("Segoe UI", 9.75F);
-			textDOD.Location = new Point(538, 450);
-			textDOD.Name = "textDOD";
-			textDOD.Size = new Size(243, 25);
-			textDOD.TabIndex = 9;
-			// 
-			// textCardNumber
-			// 
-			textCardNumber.Font = new Font("Segoe UI", 9.75F);
-			textCardNumber.Location = new Point(538, 419);
-			textCardNumber.Name = "textCardNumber";
-			textCardNumber.Size = new Size(243, 25);
-			textCardNumber.TabIndex = 7;
 			// 
 			// textRenewals
 			// 
 			textRenewals.Font = new Font("Segoe UI", 9.75F);
-			textRenewals.Location = new Point(361, 373);
+			textRenewals.Location = new Point(230, 384);
 			textRenewals.MaxLength = 100;
 			textRenewals.Name = "textRenewals";
 			textRenewals.Size = new Size(137, 25);
-			textRenewals.TabIndex = 5;
+			textRenewals.TabIndex = 41;
 			// 
 			// labelCheckoutDate
 			// 
 			labelCheckoutDate.AutoSize = true;
 			labelCheckoutDate.Font = new Font("Segoe UI", 9.75F);
-			labelCheckoutDate.Location = new Point(252, 319);
+			labelCheckoutDate.Location = new Point(230, 275);
 			labelCheckoutDate.Name = "labelCheckoutDate";
 			labelCheckoutDate.Size = new Size(101, 17);
-			labelCheckoutDate.TabIndex = 4;
+			labelCheckoutDate.TabIndex = 40;
 			labelCheckoutDate.Text = "Check Out Date:";
 			// 
 			// dgUsers
@@ -358,69 +392,69 @@ namespace LibraryManagementSystem.Forms
 			dgUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgUsers.BackgroundColor = Color.Silver;
 			dgUsers.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle7.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle7.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle7.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-			dgUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle13.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle13.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle13.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle13.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle13.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
+			dgUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
 			dgUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dgUsers.Location = new Point(20, 74);
+			dgUsers.Location = new Point(18, 79);
 			dgUsers.MultiSelect = false;
 			dgUsers.Name = "dgUsers";
 			dgUsers.ReadOnly = true;
 			dgUsers.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle8.BackColor = Color.DarkBlue;
-			dataGridViewCellStyle8.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle8.ForeColor = Color.WhiteSmoke;
-			dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
-			dgUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle14.BackColor = Color.DarkBlue;
+			dataGridViewCellStyle14.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle14.ForeColor = Color.WhiteSmoke;
+			dataGridViewCellStyle14.SelectionBackColor = SystemColors.Highlight;
+			dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
+			dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
+			dgUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
 			dgUsers.RowHeadersVisible = false;
-			dataGridViewCellStyle9.BackColor = Color.Silver;
-			dataGridViewCellStyle9.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle9.ForeColor = Color.Black;
-			dataGridViewCellStyle9.SelectionBackColor = Color.RoyalBlue;
-			dgUsers.RowsDefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle15.BackColor = Color.Silver;
+			dataGridViewCellStyle15.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			dataGridViewCellStyle15.ForeColor = Color.Black;
+			dataGridViewCellStyle15.SelectionBackColor = Color.RoyalBlue;
+			dgUsers.RowsDefaultCellStyle = dataGridViewCellStyle15;
 			dgUsers.RowTemplate.Height = 20;
 			dgUsers.RowTemplate.ReadOnly = true;
 			dgUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			dgUsers.ShowEditingIcon = false;
-			dgUsers.Size = new Size(342, 205);
-			dgUsers.TabIndex = 19;
+			dgUsers.Size = new Size(369, 190);
+			dgUsers.TabIndex = 45;
 			dgUsers.CellClick += dgUsers_CellClick;
 			// 
 			// textDueDate
 			// 
 			textDueDate.Font = new Font("Segoe UI", 9.75F);
-			textDueDate.Location = new Point(361, 342);
+			textDueDate.Location = new Point(230, 338);
 			textDueDate.MaxLength = 100;
 			textDueDate.Name = "textDueDate";
 			textDueDate.Size = new Size(137, 25);
-			textDueDate.TabIndex = 3;
+			textDueDate.TabIndex = 39;
 			// 
 			// textCheckOutDate
 			// 
 			textCheckOutDate.Enabled = false;
 			textCheckOutDate.Font = new Font("Segoe UI", 9.75F);
-			textCheckOutDate.Location = new Point(361, 311);
+			textCheckOutDate.Location = new Point(230, 292);
 			textCheckOutDate.MaxLength = 100;
 			textCheckOutDate.Name = "textCheckOutDate";
 			textCheckOutDate.Size = new Size(137, 25);
-			textCheckOutDate.TabIndex = 1;
+			textCheckOutDate.TabIndex = 38;
 			// 
 			// labelDueDate
 			// 
 			labelDueDate.AutoSize = true;
 			labelDueDate.Font = new Font("Segoe UI", 9.75F);
-			labelDueDate.Location = new Point(252, 346);
+			labelDueDate.Location = new Point(230, 320);
 			labelDueDate.Name = "labelDueDate";
 			labelDueDate.Size = new Size(65, 17);
-			labelDueDate.TabIndex = 0;
+			labelDueDate.TabIndex = 37;
 			labelDueDate.Text = "Due Date:";
 			// 
 			// panelHeader
@@ -432,7 +466,7 @@ namespace LibraryManagementSystem.Forms
 			panelHeader.Controls.Add(labelHeader);
 			panelHeader.Location = new Point(4, 3);
 			panelHeader.Name = "panelHeader";
-			panelHeader.Size = new Size(968, 70);
+			panelHeader.Size = new Size(1002, 70);
 			panelHeader.TabIndex = 5;
 			// 
 			// labelStatus
@@ -465,7 +499,7 @@ namespace LibraryManagementSystem.Forms
 			buttonClose.FlatAppearance.BorderSize = 0;
 			buttonClose.FlatStyle = FlatStyle.Flat;
 			buttonClose.Image = (Image)resources.GetObject("buttonClose.Image");
-			buttonClose.Location = new Point(934, 2);
+			buttonClose.Location = new Point(961, 2);
 			buttonClose.Name = "buttonClose";
 			buttonClose.Size = new Size(34, 32);
 			buttonClose.TabIndex = 10;
@@ -474,30 +508,27 @@ namespace LibraryManagementSystem.Forms
 			// 
 			// panelSidebar
 			// 
-			panelSidebar.Controls.Add(labelBooksCount);
+			panelSidebar.Controls.Add(labelUserCheckOutCount);
 			panelSidebar.Controls.Add(labelPhone);
 			panelSidebar.Controls.Add(labelEmail);
 			panelSidebar.Controls.Add(labelCardNumber);
 			panelSidebar.Controls.Add(labelName);
 			panelSidebar.Controls.Add(labelCheckOutCount);
-			panelSidebar.Controls.Add(buttonDelete);
-			panelSidebar.Controls.Add(buttonUpdate);
-			panelSidebar.Controls.Add(buttonAdd);
 			panelSidebar.Location = new Point(4, 75);
 			panelSidebar.Name = "panelSidebar";
 			panelSidebar.Size = new Size(149, 524);
 			panelSidebar.TabIndex = 6;
 			// 
-			// labelBooksCount
+			// labelUserCheckOutCount
 			// 
-			labelBooksCount.BackColor = Color.DarkBlue;
-			labelBooksCount.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			labelBooksCount.ForeColor = Color.Gold;
-			labelBooksCount.Location = new Point(12, 196);
-			labelBooksCount.Name = "labelBooksCount";
-			labelBooksCount.Size = new Size(125, 21);
-			labelBooksCount.TabIndex = 34;
-			labelBooksCount.Text = "books";
+			labelUserCheckOutCount.BackColor = Color.DarkBlue;
+			labelUserCheckOutCount.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			labelUserCheckOutCount.ForeColor = Color.Gold;
+			labelUserCheckOutCount.Location = new Point(12, 196);
+			labelUserCheckOutCount.Name = "labelUserCheckOutCount";
+			labelUserCheckOutCount.Size = new Size(125, 21);
+			labelUserCheckOutCount.TabIndex = 34;
+			labelUserCheckOutCount.Text = "books";
 			// 
 			// labelPhone
 			// 
@@ -555,78 +586,12 @@ namespace LibraryManagementSystem.Forms
 			labelCheckOutCount.Text = "checked out";
 			labelCheckOutCount.TextAlign = ContentAlignment.MiddleLeft;
 			// 
-			// buttonDelete
-			// 
-			buttonDelete.BackColor = Color.LightCoral;
-			buttonDelete.BackgroundImageLayout = ImageLayout.None;
-			buttonDelete.Cursor = Cursors.Hand;
-			buttonDelete.FlatStyle = FlatStyle.Popup;
-			buttonDelete.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			buttonDelete.ForeColor = Color.DarkBlue;
-			buttonDelete.Image = (Image)resources.GetObject("buttonDelete.Image");
-			buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonDelete.Location = new Point(12, 450);
-			buttonDelete.Name = "buttonDelete";
-			buttonDelete.Size = new Size(125, 53);
-			buttonDelete.TabIndex = 23;
-			buttonDelete.TabStop = false;
-			buttonDelete.Text = "Delete";
-			buttonDelete.TextAlign = ContentAlignment.MiddleRight;
-			buttonDelete.TextImageRelation = TextImageRelation.ImageBeforeText;
-			toolTip1.SetToolTip(buttonDelete, "Delete the currently selected author");
-			buttonDelete.UseVisualStyleBackColor = false;
-			buttonDelete.Click += buttonDelete_Click;
-			// 
-			// buttonUpdate
-			// 
-			buttonUpdate.BackColor = Color.SteelBlue;
-			buttonUpdate.BackgroundImageLayout = ImageLayout.None;
-			buttonUpdate.Cursor = Cursors.Hand;
-			buttonUpdate.FlatStyle = FlatStyle.Popup;
-			buttonUpdate.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			buttonUpdate.ForeColor = Color.DarkBlue;
-			buttonUpdate.Image = (Image)resources.GetObject("buttonUpdate.Image");
-			buttonUpdate.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonUpdate.Location = new Point(12, 376);
-			buttonUpdate.Name = "buttonUpdate";
-			buttonUpdate.Size = new Size(125, 53);
-			buttonUpdate.TabIndex = 22;
-			buttonUpdate.TabStop = false;
-			buttonUpdate.Text = "Update";
-			buttonUpdate.TextAlign = ContentAlignment.MiddleRight;
-			buttonUpdate.TextImageRelation = TextImageRelation.ImageBeforeText;
-			toolTip1.SetToolTip(buttonUpdate, "Update the currently selected author's information");
-			buttonUpdate.UseVisualStyleBackColor = false;
-			buttonUpdate.Click += buttonUpdate_Click;
-			// 
-			// buttonAdd
-			// 
-			buttonAdd.BackColor = Color.SteelBlue;
-			buttonAdd.BackgroundImageLayout = ImageLayout.None;
-			buttonAdd.Cursor = Cursors.Hand;
-			buttonAdd.FlatStyle = FlatStyle.Popup;
-			buttonAdd.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			buttonAdd.ForeColor = Color.DarkBlue;
-			buttonAdd.Image = (Image)resources.GetObject("buttonAdd.Image");
-			buttonAdd.ImageAlign = ContentAlignment.MiddleLeft;
-			buttonAdd.Location = new Point(12, 302);
-			buttonAdd.Name = "buttonAdd";
-			buttonAdd.Size = new Size(125, 53);
-			buttonAdd.TabIndex = 21;
-			buttonAdd.TabStop = false;
-			buttonAdd.Text = "Add";
-			buttonAdd.TextAlign = ContentAlignment.MiddleRight;
-			buttonAdd.TextImageRelation = TextImageRelation.ImageBeforeText;
-			toolTip1.SetToolTip(buttonAdd, "Add the current form information as a new author");
-			buttonAdd.UseVisualStyleBackColor = false;
-			buttonAdd.Click += buttonAdd_Click;
-			// 
 			// ManageCirculationForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(17, 24, 34);
-			ClientSize = new Size(980, 620);
+			ClientSize = new Size(1018, 620);
 			Controls.Add(panelSidebar);
 			Controls.Add(panelHeader);
 			Controls.Add(panelMain);
@@ -636,9 +601,13 @@ namespace LibraryManagementSystem.Forms
 			Text = "ManageCirculationForm";
 			Load += ManageCirculationForm_Load;
 			panelMain.ResumeLayout(false);
-			panelMain.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)dgCirculation).EndInit();
+			groupBooks.ResumeLayout(false);
+			groupBooks.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)dgBooks).EndInit();
+			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+			groupUserBooks.ResumeLayout(false);
+			groupUserBooks.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)dgCirculation).EndInit();
 			((System.ComponentModel.ISupportInitialize)picSearchIcon).EndInit();
 			((System.ComponentModel.ISupportInitialize)dgUsers).EndInit();
 			panelHeader.ResumeLayout(false);
@@ -655,39 +624,37 @@ namespace LibraryManagementSystem.Forms
 
 		private Label labelHeader;
 		private Panel panelMain;
-		private DataGridView dgUsers;
-		private TextBox textDueDate;
-		private TextBox textCheckOutDate;
-		private Label labelDueDate;
 		private Panel panelHeader;
 		private PictureBox picHeaderLogo;
 		private Button buttonClose;
 		private Panel panelSidebar;
-		private Button buttonDelete;
-		private Button buttonUpdate;
-		private Button buttonAdd;
-		private TextBox textRenewals;
-		private Label labelCheckoutDate;
-		private Label labelRenewals;
-		private TextBox textHometown;
-		private TextBox textDOD;
-		private TextBox textCardNumber;
-		private TextBox textSearch;
-		private PictureBox picSearchIcon;
-		private Button buttonClearSearch;
 		private Label labelStatus;
-		private Label label1;
-		private Label label2;
-		private Label label3;
 		private ToolTip toolTip1;
 		private Label labelCheckOutCount;
-		private Button buttonShowAuthorBooks;
 		private Label labelPhone;
 		private Label labelEmail;
 		private Label labelCardNumber;
 		private Label labelName;
-		private Label labelBooksCount;
+		private Label labelUserCheckOutCount;
 		private DataGridView dgBooks;
+		private Button buttonUpdate;
+		private Button buttonAdd;
+		private Button buttonClearBookSearch;
+		private PictureBox pictureBox1;
+		private TextBox textBookSearch;
+		private GroupBox groupUserBooks;
+		private Button buttonDelete;
 		private DataGridView dgCirculation;
+		private Button buttonClearUserSearch;
+		private PictureBox picSearchIcon;
+		private TextBox textUserSearch;
+		private Label labelRenewals;
+		private TextBox textRenewals;
+		private Label labelCheckoutDate;
+		private DataGridView dgUsers;
+		private TextBox textDueDate;
+		private TextBox textCheckOutDate;
+		private Label labelDueDate;
+		private GroupBox groupBooks;
 	}
 }

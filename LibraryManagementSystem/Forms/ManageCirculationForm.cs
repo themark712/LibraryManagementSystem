@@ -72,7 +72,7 @@ namespace LibraryManagementSystem.Forms
 			}
 
 			booksCount = userBooks != null ? userBooks.Count() : 0;
-			labelBooksCount.Text = booksCount.ToString() + " books";
+			labelUserCheckOutCount.Text = booksCount.ToString() + " books";
 
 			var books = bookCont!.GetBooks();
 
@@ -179,9 +179,6 @@ namespace LibraryManagementSystem.Forms
 				textCheckOutDate.Text = "";
 				textRenewals.Text = "";
 				textDueDate.Text = "";
-				textCardNumber.Text = "";
-				textDOD.Text = "";
-				textHometown.Text = "";
 			}
 			else
 			{
@@ -195,9 +192,20 @@ namespace LibraryManagementSystem.Forms
 			}
 		}
 
-		private void RefreshBookList()
+		private void RefreshBookList(List<Book>? bookList = null)
 		{
-			var books = bookCont!.GetBooks();
+			List<Book> books;
+
+			if (bookList == null)
+			{
+				books = bookCont!.GetBooks()!;
+			}
+			else   // bookList parameter is not  null, getting books from search
+			{
+				books = bookList;
+			}
+
+			dgBooks.DataSource = null;
 
 			DataTable dt = new DataTable();
 
@@ -239,15 +247,15 @@ namespace LibraryManagementSystem.Forms
 			this.Close();
 		}
 
-		private void textSearch_TextChanged(object sender, EventArgs e)
+		private void textUserSearch_TextChanged(object sender, EventArgs e)
 		{
-			List<AppUser>? users = userCont!.SearchUsers(textSearch.Text);
+			List<AppUser>? users = userCont!.SearchUsers(textUserSearch.Text);
 			dgUsers.DataSource = users;
 		}
 
 		private void buttonClearSearch_Click(object sender, EventArgs e)
 		{
-			textSearch.Text = "";
+			textUserSearch.Text = "";
 			RefreshUserList();
 		}
 
@@ -259,6 +267,28 @@ namespace LibraryManagementSystem.Forms
 				ManageBooksForm booksForm = new ManageBooksForm();
 				booksForm.ShowDialog();
 			}
+		}
+
+		private void dgCirculation_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			int circulationId = Convert.ToInt32(dgCirculation.SelectedRows[0].Cells[0].Value);
+
+			Circulation circulationInfo = circCont!.GetCirculationInfo(circulationId);
+			textCheckOutDate.Text = circulationInfo.CheckOutDate;
+			textDueDate.Text = circulationInfo.DueDate;
+			textRenewals.Text = circulationInfo.NumberRenewals.ToString();
+		}
+
+		private void textBookSearch_TextChanged(object sender, EventArgs e)
+		{
+			List<Book>? books = bookCont!.SearchBooks(textBookSearch.Text);
+			RefreshBookList(books!);
+		}
+
+		private void buttonClearBookSearch_Click(object sender, EventArgs e)
+		{
+			textBookSearch.Text = "";
+			RefreshBookList();
 		}
 	}
 }
