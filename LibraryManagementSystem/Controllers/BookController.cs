@@ -23,8 +23,10 @@ namespace LibraryManagementSystem.Controllers
 			{
 				using (LmsContext context = new LmsContext())
 				{
-					var books = context.Books.Include(a => a.Author).Include(g => g.Genre).OrderBy(n => n.Title).ToList();
-					return books.ToList();
+					List<Book> books = context.Books.Include(a => a.Author).Include(g => g.Genre).OrderBy(n => n.Title).ToList();
+
+				
+						return books;
 				}
 			}
 			catch (Exception ex)
@@ -108,7 +110,7 @@ namespace LibraryManagementSystem.Controllers
 			{
 				using (LmsContext context = new LmsContext())
 				{
-					var books = context.Circulation.Where(u=>u.AppUserId == _uid && u.Status.ToLower()=="out").ToList();
+					var books = context.Circulation.Where(u => u.AppUserId == _uid && u.Status.ToLower() == "out").ToList();
 					return books;
 				}
 			}
@@ -133,7 +135,9 @@ namespace LibraryManagementSystem.Controllers
 							|| b.Publisher!.ToLower().Contains(search.ToLower())
 							|| b.ISBN!.Replace("-", "").Replace(" ", "").Trim().ToLower().Contains(search.ToLower()))
 						.Include(a => a.Author).Include(g => g.Genre).OrderBy(n => n.Title).ToList();
-					return books;
+
+
+						return books;
 				}
 			}
 			catch (Exception ex)
@@ -147,9 +151,24 @@ namespace LibraryManagementSystem.Controllers
 		{
 			using (LmsContext context = new LmsContext())
 			{
-				var books = context.Books.Take(5).OrderByDescending(d=>d.DateReceived).Include(a=>a.Author).ToList();
+				var books = context.Books.Take(5).OrderByDescending(d => d.DateReceived).Include(a => a.Author).ToList();
 				return books;
 			}
+		}
+
+		public int? GetAvailableCopies(int _bid)
+		{
+			int? copies = 0;
+			int? totalCopies = 0;
+			int? checkedOut = 0;
+
+			using (LmsContext context = new LmsContext())
+			{
+				totalCopies = context.Books.Where(i => i.BookId == _bid).FirstOrDefault()!.Copies;
+				checkedOut = context.Circulation.Where(b => b.BookId == _bid && b.Status == "out").ToList().Count();
+			}
+			copies = totalCopies - checkedOut;
+			return copies;
 		}
 
 		public int GetCount()

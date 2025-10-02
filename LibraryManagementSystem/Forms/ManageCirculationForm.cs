@@ -212,6 +212,7 @@ namespace LibraryManagementSystem.Forms
 			dt.Columns.Add("Title");
 			dt.Columns.Add("Author");
 			dt.Columns.Add("Year");
+			dt.Columns.Add("Copies");
 
 			foreach (Book book in books!)
 			{
@@ -219,10 +220,20 @@ namespace LibraryManagementSystem.Forms
 				row[0] = book.Title;
 				row[1] = book.Author.FullName;
 				row[2] = book.Year;
+				int? availableCopies = bookCont!.GetAvailableCopies(book.BookId);
+				row[3] = availableCopies.ToString();
 				dt.Rows.Add(row);
 			}
 
 			dgBooks.DataSource = dt;
+
+			foreach (DataGridViewRow row in dgBooks.Rows) {
+			 if (Convert.ToInt32(row.Cells[3].Value) == 0)
+				{
+					row.DefaultCellStyle.BackColor = Color.Red;
+					row.DefaultCellStyle.ForeColor = Color.White;
+				}
+			}
 		}
 
 		private string ValidateData()
