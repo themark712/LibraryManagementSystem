@@ -107,6 +107,9 @@ namespace LibraryManagementSystem.Forms
 		private void buttonCirculation_Click(object sender, EventArgs e)
 		{
 			ToggleButtonBackgrounds((Button)sender);
+			ManageCirculationForm mngCirculation = new ManageCirculationForm();
+			mngCirculation.ShowDialog();
+			ToggleButtonBackgrounds(null);
 		}
 
 		private void buttonUsers_Click(object sender, EventArgs e)

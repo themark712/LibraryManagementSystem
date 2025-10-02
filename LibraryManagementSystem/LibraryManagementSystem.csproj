@@ -17,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Forms\ManageCirculationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\ManageUsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
